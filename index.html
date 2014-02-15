@@ -45,9 +45,6 @@ font-family:BWHaasRegular
 
   <div class="clearfix"></div>
 
-  <h3 class="hed">Graphic title</h3>
-  <p class="dek">This is dek, different from the dek you are at now. I am typing the sound of my dek and I repeating and repeating the dek dek dek TK sound of my speaking voice.</p>
-
   <svg id="svg-canvas">
     <defs>
       <!-- arrowhead for arrows -->
@@ -62,12 +59,6 @@ font-family:BWHaasRegular
   <style>
 
   body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    position: relative;
-    width: 960px;
-  }
-
-  .axis text {
     font: 10px sans-serif;
   }
 
@@ -78,23 +69,12 @@ font-family:BWHaasRegular
     shape-rendering: crispEdges;
   }
 
-  .bar {
-    fill: steelblue;
-    fill-opacity: .9;
-  }
-
-  .x.axis path {
-    display: none;
-  }
-
-  label {
-    position: absolute;
-    top: 10px;
-    right: 10px;
+  .dot {
+    stroke: #000;
   }
 
   </style>
-  <label><input type="checkbox"> Sort values</label>
+  <body>
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script>
 
@@ -102,13 +82,13 @@ font-family:BWHaasRegular
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 
-  var formatPercent = d3.format(".0%");
-
-  var x = d3.scale.ordinal()
-      .rangeRoundBands([0, width], .1, 1);
+  var x = d3.scale.linear()
+      .range([0, width]);
 
   var y = d3.scale.linear()
       .range([height, 0]);
+
+  var color = d3.scale.category10();
 
   var xAxis = d3.svg.axis()
       .scale(x)
@@ -116,8 +96,7 @@ font-family:BWHaasRegular
 
   var yAxis = d3.svg.axis()
       .scale(y)
-      .orient("left")
-      .tickFormat(formatPercent);
+      .orient("left");
 
   var svg = d3.select("#svg-canvas")
       .attr("width", width + margin.left + margin.right)
@@ -126,69 +105,67 @@ font-family:BWHaasRegular
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
   d3.tsv("data/data.tsv", function(error, data) {
-
     data.forEach(function(d) {
-      d.frequency = +d.frequency;
+      d.sepalLength = +d.sepalLength;
+      d.sepalWidth = +d.sepalWidth;
     });
 
-    x.domain(data.map(function(d) { return d.letter; }));
-    y.domain([0, d3.max(data, function(d) { return d.frequency; })]);
+    x.domain(d3.extent(data, function(d) { return d.sepalWidth; })).nice();
+    y.domain(d3.extent(data, function(d) { return d.sepalLength; })).nice();
 
     svg.append("g")
         .attr("class", "x axis")
         .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
+        .call(xAxis)
+      .append("text")
+        .attr("class", "label")
+        .attr("x", width)
+        .attr("y", -6)
+        .style("text-anchor", "end")
+        .text("Sepal Width (cm)");
 
     svg.append("g")
         .attr("class", "y axis")
         .call(yAxis)
       .append("text")
+        .attr("class", "label")
         .attr("transform", "rotate(-90)")
         .attr("y", 6)
         .attr("dy", ".71em")
         .style("text-anchor", "end")
-        .text("Frequency");
+        .text("Sepal Length (cm)")
 
-    svg.selectAll(".bar")
+    svg.selectAll(".dot")
         .data(data)
-      .enter().append("rect")
-        .attr("class", "bar")
-        .attr("x", function(d) { return x(d.letter); })
-        .attr("width", x.rangeBand())
-        .attr("y", function(d) { return y(d.frequency); })
-        .attr("height", function(d) { return height - y(d.frequency); });
+      .enter().append("circle")
+        .attr("class", "dot")
+        .attr("r", 3.5)
+        .attr("cx", function(d) { return x(d.sepalWidth); })
+        .attr("cy", function(d) { return y(d.sepalLength); })
+        .style("fill", function(d) { return color(d.species); });
 
-    d3.select("input").on("change", change);
+    var legend = svg.selectAll(".legend")
+        .data(color.domain())
+      .enter().append("g")
+        .attr("class", "legend")
+        .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
-    var sortTimeout = setTimeout(function() {
-      d3.select("input").property("checked", true).each(change);
-    }, 2000);
+    legend.append("rect")
+        .attr("x", width - 18)
+        .attr("width", 18)
+        .attr("height", 18)
+        .style("fill", color);
 
-    function change() {
-      clearTimeout(sortTimeout);
+    legend.append("text")
+        .attr("x", width - 24)
+        .attr("y", 9)
+        .attr("dy", ".35em")
+        .style("text-anchor", "end")
+        .text(function(d) { return d; });
 
-      // Copy-on-write since tweens are evaluated after a delay.
-      var x0 = x.domain(data.sort(this.checked
-          ? function(a, b) { return b.frequency - a.frequency; }
-          : function(a, b) { return d3.ascending(a.letter, b.letter); })
-          .map(function(d) { return d.letter; }))
-          .copy();
-
-      var transition = svg.transition().duration(750),
-          delay = function(d, i) { return i * 50; };
-
-      transition.selectAll(".bar")
-          .delay(delay)
-          .attr("x", function(d) { return x0(d.letter); });
-
-      transition.select(".x.axis")
-          .call(xAxis)
-        .selectAll("g")
-          .delay(delay);
-    }
   });
 
-  </script>
+</script>
 
 
   <script src="js/vendor/d3.min.js"></script>
