@@ -1,4 +1,44 @@
+var margin = {top: 40, right: 40, bottom: 40, left: 40},
+    width = 630 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
 
+var x = d3.scale.linear()
+    .domain([0,100])
+    .range([0,width]);
+
+var y = d3.scale.linear()
+    .domain([0,100])
+    .range([height,0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("top");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("right");
+
+var svg = d3.select("#svg-canvas")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
+var gx = svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0,0)")
+    .call(xAxis);
+
+var gy = svg.append("g")
+    .attr("class", "y axis")
+    .attr("transform", "translate(" + width + ",0)")
+    .call(yAxis);
+
+d3.select("body").on("mousemove", function(d,i) {
+  console.log(d3.mouse(svg.node()));
+  x.domain([d3.mouse(svg.node())[0],100]);
+  gx.call(xAxis);
+});
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // TEMPLATE FUNCTIONS ////////////////////////////////////////////////////////////////////
