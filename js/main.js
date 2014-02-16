@@ -12,7 +12,7 @@ var y = d3.scale.linear()
 
 var xAxis = d3.svg.axis()
     .scale(x)
-    .orient("top");
+    .orient("bottom");
 
 var yAxis = d3.svg.axis()
     .scale(y)
@@ -26,7 +26,7 @@ var svg = d3.select("#svg-canvas")
     
 var gx = svg.append("g")
     .attr("class", "x axis")
-    .attr("transform", "translate(0,0)")
+    .attr("transform", "translate(0,"+ height +")")
     .call(xAxis);
 
 var gy = svg.append("g")
@@ -34,9 +34,34 @@ var gy = svg.append("g")
     .attr("transform", "translate(" + width + ",0)")
     .call(yAxis);
 
+var line = d3.svg.line()
+    .x(function(d) { return x(d.year); })
+    .y(function(d) { return y(d.population); });
+
+d3.tsv("data/data.tsv", function(error, data) {
+  
+  // coerce to numbers
+  data.forEach(function(d) {
+    d.year = +d.year;
+    d.population = +d.population;
+  });
+
+  x.domain(d3.extent(data, function(d) { return d.year; }));
+  y.domain(d3.extent(data, function(d) { return d.population; }));
+
+  gx.call(xAxis);
+  gy.call(yAxis);
+  
+  svg.append("path")
+      .datum(data)
+      .attr("class", "line")
+      .attr("d", line);
+  
+});
+
 d3.select("body").on("mousemove", function(d,i) {
-  console.log(d3.mouse(svg.node()));
-  x.domain([d3.mouse(svg.node())[0],100]);
+  //console.log(d3.mouse(svg.node()));
+  //x.domain([d3.mouse(svg.node())[0],100]);
   gx.call(xAxis);
 });
 
