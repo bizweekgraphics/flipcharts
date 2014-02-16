@@ -158,6 +158,12 @@ h2 a {
   text-align: center;
 }
 
+.fullscreen .data-credit {
+  position: absolute;
+  bottom: 6px;
+  right: 2px;
+}
+
 /* HELPER STUFF */
 
 .ir {
@@ -170,7 +176,7 @@ h2 a {
 
 /* SVG */
 
-#svg-canvas.fullscreen {
+.fullscreen #svg-canvas {
   position: absolute;
   top: 0;
   left: 0;

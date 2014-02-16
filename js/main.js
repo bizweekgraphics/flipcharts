@@ -1,6 +1,10 @@
-var margin = {top: 40, right: 40, bottom: 40, left: 40},
-    width = 630 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+var linePath;
+
+var defaultMargin = $(document).width()*0.05;
+
+var margin = {top: defaultMargin, right: defaultMargin, bottom: defaultMargin, left: defaultMargin},
+    width = $(document).width() - margin.left - margin.right,
+    height = $(document).height() - margin.top - margin.bottom;
 
 var x = d3.scale.linear()
     .domain([0,100])
@@ -9,6 +13,16 @@ var x = d3.scale.linear()
 var y = d3.scale.linear()
     .domain([0,100])
     .range([height,0]);
+    
+var xZoom = d3.scale.linear()
+    .domain([0,height])
+    .range([1,10]);
+
+var xPan = d3.scale.linear()
+    .domain([0,width])
+    .range([0, 2000]);
+
+console.log("Width: "+width);
 
 var xAxis = d3.svg.axis()
     .scale(x)
@@ -45,14 +59,18 @@ d3.tsv("data/data.tsv", function(error, data) {
     d.year = +d.year;
     d.population = +d.population;
   });
-
+  
+  xPan.range(d3.extent(data, function(d) { return d.year; }));
+  
+  console.log(d3.extent(data, function(d) { return d.year; }));
+  
   x.domain(d3.extent(data, function(d) { return d.year; }));
   y.domain(d3.extent(data, function(d) { return d.population; }));
 
   gx.call(xAxis);
   gy.call(yAxis);
   
-  svg.append("path")
+  linePath = svg.append("path")
       .datum(data)
       .attr("class", "line")
       .attr("d", line);
@@ -60,9 +78,11 @@ d3.tsv("data/data.tsv", function(error, data) {
 });
 
 d3.select("body").on("mousemove", function(d,i) {
-  //console.log(d3.mouse(svg.node()));
+  console.log(d3.mouse(svg.node())[0]);
   //x.domain([d3.mouse(svg.node())[0],100]);
+  x.domain([xPan(d3.mouse(svg.node())[0])-500,xPan(d3.mouse(svg.node())[0])+500]);
   gx.call(xAxis);
+  linePath.attr("d", line);
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////
