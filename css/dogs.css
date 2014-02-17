@@ -3,11 +3,16 @@
   width: 100%;
   text-align: center;
   margin: 150px 0;
-  font-size: 72pt;
+  font-size: 100pt;
+  opacity: 0.5;
 }
 
 #data div {
   position: absolute;
   width: 100%;
   text-align: center;
+}
+
+body {
+  font-size: 24pt;
 }

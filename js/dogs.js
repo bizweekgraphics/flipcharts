@@ -6,8 +6,9 @@ var mouseScrub = d3.scale.linear()
     .range([0, 1]);
 
 var tiltScrub = d3.scale.linear()
-    .domain([-10,10])
-    .range([0, 1]);
+    .domain([-4,4])
+    .range([0, 1])
+    .clamp(true);
 
 var rank = d3.scale.linear()
     .domain([0,24])
@@ -60,9 +61,7 @@ d3.tsv("data/dogs.tsv", function(error, data) {
       gamma 	= eventData.gamma;	// - left-to-right + (degrees)
       beta 	  = eventData.beta;	  // - back-to-front + (degrees)
       alpha 	= eventData.alpha	  // compass direction (degrees)
-      
-      var gammaClamped = Math.min(Math.max(gamma,-10),10);
-      
+            
       if(gamma == null || beta == null || alpha == null) {
         // desktopMode();
       } else {
@@ -70,10 +69,10 @@ d3.tsv("data/dogs.tsv", function(error, data) {
         $.each(data[0], function(i, value) {
       
           if(i=="Year") {
-            d3.select("#year").text(Math.round(scales[i](tiltScrub(gammaClamped))));
+            d3.select("#year").text(Math.round(scales[i](tiltScrub(gamma))));
           } else {      
             d3.select("."+i)
-              .style("top", rank(scales[i](tiltScrub(gammaClamped))) + "px" );
+              .style("top", rank(scales[i](tiltScrub(gamma))) + "px" );
           }
         });
         
