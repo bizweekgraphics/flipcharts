@@ -1,3 +1,10 @@
+var scrubProgress;
+
+var scrub = d3.scale.linear()
+    .domain([0,$(document).width()])
+    .range([0, 1]);
+
+
 d3.tsv("data/dogs.tsv", function(error, data) {
   
   //coercing from strings to numbers
@@ -9,10 +16,24 @@ d3.tsv("data/dogs.tsv", function(error, data) {
   
   var scales = new Object();
   
-  data[0].each(d, function(i, value) {
+  $.each(data[0], function(i, value) {
     scales[i] = d3.scale.linear()
       .domain([0,1])
       .range([data[0][i],data[1][i]]);
+    
+    d3.select("#data").append("li").text(i+":" ).append("span").classed(i, true);
+  });
+  
+  d3.select("body").on("mousemove", function(d,i) {
+  
+    scrubProgress = d3.mouse(d3.select("body").node())[0];
+  
+    console.log(scrub(scrubProgress));
+  
+    $.each(data[0], function(i, value) {
+      d3.select("."+i).text(Math.round(scales[i](scrub(scrubProgress))));
+    });
+  
   });
   
 });
