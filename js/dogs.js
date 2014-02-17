@@ -21,7 +21,7 @@ d3.tsv("data/dogs.tsv", function(error, data) {
       .domain([0,1])
       .range([data[0][i],data[1][i]]);
     
-    d3.select("#data").append("li").text(i+":" ).append("span").classed(i, true);
+    d3.select("#data").append("li").text(i+": " ).append("span").classed(i, true);
   });
   
   d3.select("body").on("mousemove", function(d,i) {
