@@ -1,7 +1,12 @@
 var scrubProgress;
+var gamma, beta, alpha;
 
-var scrub = d3.scale.linear()
+var mouseScrub = d3.scale.linear()
     .domain([0,$(document).width()])
+    .range([0, 1]);
+
+var tiltScrub = d3.scale.linear()
+    .domain([-10,10])
     .range([0, 1]);
 
 var rank = d3.scale.linear()
@@ -25,7 +30,7 @@ d3.tsv("data/dogs.tsv", function(error, data) {
       .range([data[0][i],data[1][i]]);
     
     if(i=="Year") {
-      d3.select("#year").text(Math.round(scales[i](scrub(scrubProgress))));
+      //
     } else {
       d3.select("#data").append("div").text(i).classed(i, true);
     }
@@ -35,18 +40,51 @@ d3.tsv("data/dogs.tsv", function(error, data) {
   
     scrubProgress = d3.mouse(d3.select("body").node())[0];
   
-    console.log(scrub(scrubProgress));
-  
     $.each(data[0], function(i, value) {
       
       if(i=="Year") {
-        d3.select("#year").text(Math.round(scales[i](scrub(scrubProgress))));
+        d3.select("#year").text(Math.round(scales[i](mouseScrub(scrubProgress))));
       } else {      
         d3.select("."+i)
-          .style("top", rank(scales[i](scrub(scrubProgress))) + "px" );
+          .style("top", rank(scales[i](mouseScrub(scrubProgress))) + "px" );
       }
     });
   
   });
   
+  
+  if (window.DeviceOrientationEvent) {
+
+    // Listen for the deviceorientation event and handle the raw data
+    window.addEventListener('deviceorientation', function(eventData) {
+      gamma 	= eventData.gamma;	// - left-to-right + (degrees)
+      beta 	  = eventData.beta;	  // - back-to-front + (degrees)
+      alpha 	= eventData.alpha	  // compass direction (degrees)
+      
+      var gammaClamped = Math.min(Math.max(gamma,-10),10);
+      
+      if(gamma == null || beta == null || alpha == null) {
+        // desktopMode();
+      } else {
+        
+        $.each(data[0], function(i, value) {
+      
+          if(i=="Year") {
+            d3.select("#year").text(Math.round(scales[i](tiltScrub(gammaClamped))));
+          } else {      
+            d3.select("."+i)
+              .style("top", rank(scales[i](tiltScrub(gammaClamped))) + "px" );
+          }
+        });
+        
+      }
+    }, false);
+  
+  } 
+  else {
+    desktopMode();
+  }
+  
 });
+
+
