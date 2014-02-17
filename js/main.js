@@ -79,10 +79,14 @@ d3.tsv("data/data.tsv", function(error, data) {
 });
 
 d3.select("body").on("mousemove", function(d,i) {
+  
+  // NOTE: The outer wrapper of min/max below keeps the lower bound of the domain from crossing over past the upper, and vice versa. 
+  // That's a problem when the chart margins are bigger than the +/- range below, and the whole scale flips backwards. Funky.
+  // But you also get a nice springy thing as long as you stay on the near side of that asymptote. So they may be some use for it.
   x.domain(
     [
-      Math.max( xPan(d3.mouse(svg.node())[0]) - 50, xExtent[0] ),
-      Math.min( xPan(d3.mouse(svg.node())[0]) + 50, xExtent[1] )
+      Math.min(Math.max( xPan(d3.mouse(svg.node())[0]) - 5, xExtent[0] ), xExtent[1] - 5),
+      Math.max(Math.min( xPan(d3.mouse(svg.node())[0]) + 5, xExtent[1] ), xExtent[0] + 5)
     ]
   );
   
