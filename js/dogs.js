@@ -4,6 +4,9 @@ var scrub = d3.scale.linear()
     .domain([0,$(document).width()])
     .range([0, 1]);
 
+var rank = d3.scale.linear()
+    .domain([0,24])
+    .range([$(document).height()-20, 20]);
 
 d3.tsv("data/dogs.tsv", function(error, data) {
   
@@ -21,7 +24,11 @@ d3.tsv("data/dogs.tsv", function(error, data) {
       .domain([0,1])
       .range([data[0][i],data[1][i]]);
     
-    d3.select("#data").append("li").text(i+": " ).append("span").classed(i, true);
+    if(i=="Year") {
+      d3.select("#year").text(Math.round(scales[i](scrub(scrubProgress))));
+    } else {
+      d3.select("#data").append("div").text(i).classed(i, true);
+    }
   });
   
   d3.select("body").on("mousemove", function(d,i) {
@@ -31,7 +38,13 @@ d3.tsv("data/dogs.tsv", function(error, data) {
     console.log(scrub(scrubProgress));
   
     $.each(data[0], function(i, value) {
-      d3.select("."+i).text(Math.round(scales[i](scrub(scrubProgress))));
+      
+      if(i=="Year") {
+        d3.select("#year").text(Math.round(scales[i](scrub(scrubProgress))));
+      } else {      
+        d3.select("."+i)
+          .style("top", rank(scales[i](scrub(scrubProgress))) + "px" );
+      }
     });
   
   });
