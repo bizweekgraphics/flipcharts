@@ -46,8 +46,11 @@ d3.tsv("data/dogs.tsv", function(error, data) {
       if(i=="Year") {
         d3.select("#year").text(Math.round(scales[i](mouseScrub(scrubProgress))));
       } else {      
-        d3.select("."+i)
+        
+        d3.select("#data ."+i)
           .style("top", rank(scales[i](mouseScrub(scrubProgress))) + "px" );
+        setStickers(i, Math.round(scales[i](mouseScrub(scrubProgress))));
+        
       }
     });
   
@@ -71,7 +74,7 @@ d3.tsv("data/dogs.tsv", function(error, data) {
           if(i=="Year") {
             d3.select("#year").text(Math.round(scales[i](tiltScrub(gamma))));
           } else {      
-            d3.select("."+i)
+            d3.select("#data ."+i)
               .style("top", rank(scales[i](tiltScrub(gamma))) + "px" );
           }
         });
@@ -86,4 +89,21 @@ d3.tsv("data/dogs.tsv", function(error, data) {
   
 });
 
-
+function setStickers(i, n) {
+  while($('.sticker.'+i).length != n) {
+    if($('.sticker.'+i).length < n) {
+      var src = "img/dogs/"+i;
+      var top = Math.random()*$("#sticker-wrapper").height();
+      var left = Math.random()*$("#sticker-wrapper").width();
+      var transform = 'rotate('+Math.floor(Math.random()*90-45)+'deg) translate(-50%,-50%);'
+      $("#sticker-wrapper").append('<img class="sticker '+i+'" style="'+
+        'top:'+top+'px; left:'+left+'px;'+
+        'transform:'+transform+
+        '-ms-transform:'+transform+
+        '-webkit-transform:'+transform+'"'+
+        'src="'+src+'.jpg">');
+    } else if($('.sticker.'+i).length > n && $('.sticker.'+i).length > 0) {
+      $('.sticker.'+i)[0].remove();
+    }
+  }
+}
