@@ -95,7 +95,7 @@ function setStickers(i, n) {
       var src = "img/dogs/"+i;
       var top = Math.random()*$("#sticker-wrapper").height();
       var left = Math.random()*$("#sticker-wrapper").width();
-      var transform = 'rotate('+Math.floor(Math.random()*90-45)+'deg) translate(-50%,-50%);'
+      var transform = 'rotate('+Math.floor(Math.random()*90-45)+'deg) translate(-50%,-50%);';
       $("#sticker-wrapper").append('<img class="sticker '+i+'" style="'+
         'top:'+top+'px; left:'+left+'px;'+
         'transform:'+transform+
