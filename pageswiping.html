@@ -89,6 +89,8 @@ var mouseDowned = false;
 var page = d3.selectAll(".page");
 //    .text(function(d, i) { return i; });
 
+var slide = d3.selectAll(".slide");
+
 d3.select(window)
     .on("resize", resized)
     .on("touchstart", touchstarted)
@@ -107,6 +109,7 @@ function resized() {
   var height0 = height;
   height = innerHeight;
   page.style("height", height + "px");
+  slide.style("height", height + "px");
 //  body.style("font", (height * .4) + "px/" + (height * .9) + "px sans-serif");
   pageYMax = (page.size() - 1) * height;
   window.scrollTo(0, Math.max(0, Math.min(page.size() - 1, Math.round(pageYOffset / height0))) * height);
