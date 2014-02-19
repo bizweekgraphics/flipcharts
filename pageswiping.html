@@ -14,9 +14,10 @@
 <style>
 
 body {
-  background: #ccc;
+  background: #000;
   margin: 0;
   color: white;
+  font-size: 14pt;
 }
 
 .page {
@@ -48,7 +49,14 @@ body {
   height: 100%;
 }
 
+#preview {
+  font-family: BWHaasRegular;
+  padding: 50px;
+  text-align: center;
+}
+
 h2 {
+  font-family: BWHaasHead;
   font-size: 24pt;
   margin: 0;
 }
@@ -60,13 +68,54 @@ h3 {
   margin: 0;
 }
 
+/* from pure css http://purecss.io/buttons/ */
+button {
+  font-family: BWHaasHead;
+  font-size: 100%;
+  padding: .5em 1.5em;
+  color: #444;
+  color: rgba(0,0,0,.8);
+  border: 1px solid #999;
+  border: 0 rgba(0,0,0,0);
+  background-color: #E6E6E6;
+  text-decoration: none;
+  border-radius: 2px;
+  -webkit-transition: .1s linear -webkit-box-shadow;
+  -moz-transition: .1s linear -moz-box-shadow;
+  -ms-transition: .1s linear box-shadow;
+  -o-transition: .1s linear box-shadow;
+  transition: .1s linear box-shadow;
+  display: inline-block;
+  zoom: 1;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: baseline;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: button;
+  cursor: pointer;
+  margin: 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+button:hover {
+  background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+}
+
 </style>
 <div class="pages">
   <div id="container" class="page"></div>
-  <div class="page">
+  <div id="preview" class="page">
+    <img src="apple-touch-icon-precomposed.png">
     <h2>Unmasking Bias Against Dachshunds</h2>
-    <p>The time has come to expose the Westminster Dog Show for what it is. Inadvertent self-satire? Director Christopher Guest made the point with the priceless Best in Show (2000). No, I’m here today to talk about bigotry. Anti-dachshund bigotry.</p>
     <p>The 138th Annual Westminster Dog Show will unfold Feb. 10-11 at Madison Square Garden. It will be very cute. Unless, of course, you think about what you’re watching. Discrimination is never cute. And once again this year, the dachshunds—longhaired, smooth, and wire-haired—will get screwed. They never win. Never.</p>
+    <button>Read article</button>
   </div>
 </div>
 
@@ -259,12 +308,13 @@ d3.tsv("data/cindy.tsv", function(error, data) {
     // desktop
   }
   
-});
+  function changeSlide(scrubX) {
+    // dude this seriously needs to be generalized...
+    d3.select("#Terriers").style("-webkit-transform", "translate("+(width*scrubX)+"px,0)");
+    d3.select("#Dachshunds").style("-webkit-transform", "translate("+(-width+width*scrubX)+"px,0)");  
+  }
 
-function changeSlide(scrubX) {
-  // dude this seriously needs to be generalized...
-  d3.select("#Terriers").style("-webkit-transform", "translate("+(width*scrubX)+"px,0)");
-  d3.select("#Dachshunds").style("-webkit-transform", "translate("+(-width+width*scrubX)+"px,0)");  
-}
+  
+});
 
 }()</script>
