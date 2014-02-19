@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
 
   <link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
   <link href="apple-touch-icon-precomposed.png" rel="apple-touch-icon" type="image/png" />
@@ -14,7 +15,7 @@
 <style>
 
 body {
-  background: #000;
+  background: #333;
   margin: 0;
   color: white;
   font-size: 14pt;
@@ -51,8 +52,12 @@ body {
 
 #preview {
   font-family: BWHaasRegular;
-  padding: 50px;
+  padding: 20px;
   text-align: center;
+}
+
+#preview h2 {
+  font-size: 20pt;
 }
 
 h2 {
@@ -112,10 +117,10 @@ button:hover {
 <div class="pages">
   <div id="container" class="page"></div>
   <div id="preview" class="page">
-    <img src="apple-touch-icon-precomposed.png">
+    <img src="apple-touch-icon-precomposed.png" width="50">
     <h2>Unmasking Bias Against Dachshunds</h2>
-    <p>The 138th Annual Westminster Dog Show will unfold Feb. 10-11 at Madison Square Garden. It will be very cute. Unless, of course, you think about what you’re watching. Discrimination is never cute. And once again this year, the dachshunds—longhaired, smooth, and wire-haired—will get screwed. They never win. Never.</p>
-    <button>Read article</button>
+    <p>The 138th Annual Westminster Dog Show will unfold Feb. 10-11 at Madison Square Garden. And once again this year, the dachshunds—longhaired, smooth, and wire-haired—will get screwed. They never win. Never.</p>
+    <a href="http://www.businessweek.com/articles/2014-02-10/westminster-dog-show-history-suggests-bias-against-dachshunds"><button>Read article</button></a>
   </div>
 </div>
 
@@ -148,14 +153,18 @@ d3.select(window)
     .on("touchend", touchended)
     .each(resized);
 
+/* useful for testing, but janky. swap in mouse events below.
 d3.select(window)
     .on("mousedown", touchstarted)
     .on("mousemove", touchmoved)
     .on("mouseup", touchended);
+*/
 
+d3.select("button").on("touchend", function() { 
+  window.location = "http://www.businessweek.com/articles/2014-02-10/westminster-dog-show-history-suggests-bias-against-dachshunds"; 
+});
 
 function resized() {
-  console.log("resized");
   var height0 = height;
   height = innerHeight;
   page.style("height", height + "px");
@@ -166,11 +175,10 @@ function resized() {
 }
 
 function touchstarted() {
-  console.log("touchstarted");
   mouseDowned = true;
   dragSamples = [];
-  //clientY0 = d3.event.changedTouches[0].clientY;
-  clientY0 = d3.mouse(d3.select("body").node())[1];
+  clientY0 = d3.event.changedTouches[0].clientY;
+  //clientY0 = d3.mouse(d3.select("body").node())[1];
   pageY0 = pageYOffset;
   d3.event.preventDefault();
   body.interrupt();
@@ -178,9 +186,8 @@ function touchstarted() {
 
 function touchmoved() {
   if(mouseDowned) {
-    console.log("touchmoved");
-    //var clientY1 = d3.event.changedTouches[0].clientY,
-    var clientY1 = d3.mouse(d3.select("body").node())[1],
+    var clientY1 = d3.event.changedTouches[0].clientY,
+    //var clientY1 = d3.mouse(d3.select("body").node())[1],
         pageY1 = pageY0 + clientY0 - clientY1;
     if (pageY1 < pageYMin) {
       if (pageYOffset > pageYMin) {
@@ -249,7 +256,7 @@ var mouseScrub = d3.scale.linear()
     .clamp(true);
 
 var tiltScrub = d3.scale.linear()
-    .domain([-4,4])
+    .domain([0,4])
     .range([0, 1])
     .clamp(true);
 
