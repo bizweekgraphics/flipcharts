@@ -76,6 +76,7 @@ d3.tsv("data/dogs.tsv", function(error, data) {
           } else {      
             d3.select("#data ."+i)
               .style("top", rank(scales[i](tiltScrub(gamma))) + "px" );
+            setStickers(i, Math.round(scales[i](mouseScrub(scrubProgress))));
           }
         });
         
@@ -84,7 +85,7 @@ d3.tsv("data/dogs.tsv", function(error, data) {
   
   } 
   else {
-    desktopMode();
+    //desktopMode();
   }
   
 });
