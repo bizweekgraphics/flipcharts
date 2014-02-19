@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+
+  <link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+  <link href="apple-touch-icon-precomposed.png" rel="apple-touch-icon" type="image/png" />
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/h5bp.css">
+  <link rel="stylesheet" href="css/bbw.css">
+  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+
 <style>
 
 body {
@@ -52,7 +62,7 @@ h3 {
 
 </style>
 <div class="pages">
-  <div class="page">
+  <div id="container" class="page">
     <div class="slide" id="Terriers" style="background-image: url(img/dogs/Terriers.jpg); -webkit-transform: translate(0, 0);">
       <div class="slide-text">
         <h2>Terriers</h2>
@@ -92,7 +102,12 @@ h3 {
 -->
 
 
-<script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="js/vendor/d3.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
 <script>!function() {
 
 console.log(innerHeight);
