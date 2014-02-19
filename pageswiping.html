@@ -175,7 +175,7 @@ function resized() {
 }
 
 function touchstarted() {
-  mouseDowned = true;
+  //mouseDowned = true;
   dragSamples = [];
   clientY0 = d3.event.changedTouches[0].clientY;
   //clientY0 = d3.mouse(d3.select("body").node())[1];
@@ -185,7 +185,7 @@ function touchstarted() {
 }
 
 function touchmoved() {
-  if(mouseDowned) {
+  //if(mouseDowned) {
     var clientY1 = d3.event.changedTouches[0].clientY,
     //var clientY1 = d3.mouse(d3.select("body").node())[1],
         pageY1 = pageY0 + clientY0 - clientY1;
@@ -205,11 +205,11 @@ function touchmoved() {
     if (dragSamples.push({y: pageY1, t: Date.now()}) > 8) {
       dragSamples.shift();
     }
-  }
+  //}
 }
 
 function touchended() {
-  mouseDowned = false;
+  //mouseDowned = false;
   var s0 = dragSamples.shift(),
       s1 = dragSamples.pop(),
       t1 = Date.now(),
