@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+<style>
+
+body {
+  background: #ccc;
+  margin: 0;
+}
+
+.page {
+  top: 0;
+  width: 100%;
+}
+
+* {
+-webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+     -o-box-sizing: border-box;
+        box-sizing: border-box;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  padding: 30px;
+}
+
+</style>
+<div class="pages">
+  <div class="page">
+    <div class="slide" id="Terriers" style="background-image: url(img/dogs/Terriers.jpg); -webkit-transform: translate(0, 0);">
+      <div class="slide-text">
+        <h2>Terriers</h2>
+        <h3>47</h3>
+      </div>
+    </div>
+    <div class="slide" id="Dachshunds" style="background-image: url(img/dogs/Dachshunds.jpg); -webkit-transform: translate(-1562px, 0);">
+      <div class="slide-text">
+        <h2>Dachshunds</h2>
+        <h3>0</h3>
+      </div>
+    </div>  
+  </div>
+  <div class="page">
+    <h2>Unmasking Bias Against Dachshunds</h2>
+    <p>The time has come to expose the Westminster Dog Show for what it is. Inadvertent self-satire? Director Christopher Guest made the point with the priceless Best in Show (2000). No, I’m here today to talk about bigotry. Anti-dachshund bigotry.</p>
+    <p>The 138th Annual Westminster Dog Show will unfold Feb. 10-11 at Madison Square Garden. It will be very cute. Unless, of course, you think about what you’re watching. Discrimination is never cute. And once again this year, the dachshunds—longhaired, smooth, and wire-haired—will get screwed. They never win. Never.</p>
+  </div>
+</div>
+
+
+<!--
+<div id="container" class="page">
+  <div class="slide" id="Terriers" style="background-image: url(http://localhost/~tophtucker/bbg/flipcharts/img/dogs/Terriers.jpg); -webkit-transform: translate(78px, 0);">
+    <div class="slide-text">
+      <h2>Terriers</h2>
+      <h3>47</h3>
+    </div>
+  </div>
+  <div class="slide" id="Dachshunds" style="background-image: url(http://localhost/~tophtucker/bbg/flipcharts/img/dogs/Dachshunds.jpg); -webkit-transform: translate(-1362px, 0);">
+    <div class="slide-text">
+      <h2>Dachshunds</h2>
+      <h3>0</h3>
+    </div>
+  </div>
+</div>
+-->
+
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>!function() {
+
+console.log(innerHeight);
+
+var body = d3.select("body"),
+    height = innerHeight,
+    clientY0,
+    pageY0,
+    pageYMin = 0,
+    pageYMax,
+    dragSamples;
+
+var mouseDowned = false;
+
+var page = d3.selectAll(".page");
+//    .text(function(d, i) { return i; });
+
+d3.select(window)
+    .on("resize", resized)
+    .on("touchstart", touchstarted)
+    .on("touchmove", touchmoved)
+    .on("touchend", touchended)
+    .each(resized);
+
+d3.select(window)
+    .on("mousedown", touchstarted)
+    .on("mousemove", touchmoved)
+    .on("mouseup", touchended);
+
+
+function resized() {
+  console.log("resized");
+  var height0 = height;
+  height = innerHeight;
+  page.style("height", height + "px");
+//  body.style("font", (height * .4) + "px/" + (height * .9) + "px sans-serif");
+  pageYMax = (page.size() - 1) * height;
+  window.scrollTo(0, Math.max(0, Math.min(page.size() - 1, Math.round(pageYOffset / height0))) * height);
+}
+
+function touchstarted() {
+  console.log("touchstarted");
+  mouseDowned = true;
+  dragSamples = [];
+  //clientY0 = d3.event.changedTouches[0].clientY;
+  clientY0 = d3.mouse(d3.select("body").node())[1];
+  pageY0 = pageYOffset;
+  d3.event.preventDefault();
+  body.interrupt();
+}
+
+function touchmoved() {
+  if(mouseDowned) {
+    console.log("touchmoved");
+    //var clientY1 = d3.event.changedTouches[0].clientY,
+    var clientY1 = d3.mouse(d3.select("body").node())[1],
+        pageY1 = pageY0 + clientY0 - clientY1;
+    if (pageY1 < pageYMin) {
+      console.log("pageY1 < pageYMin");
+      if (pageYOffset > pageYMin) {
+        console.log("pageYOffset > pageYMin");
+        window.scrollTo(0, pageYMin);
+      }
+      body.style("-webkit-transform", "translate3d(0," + -(pageY1 - pageYMin) / 3 + "px,0)");
+    } else if (pageY1 > pageYMax) {
+      console.log("pageY1 > pageYMax");
+      if (pageYOffset < pageYMax) {
+        console.log("pageYOffset < pageYMax");
+        window.scrollTo(0, pageYMax);
+      }
+      body.style("-webkit-transform", "translate3d(0," + -(pageY1 - pageYMax) / 3 + "px,0)");
+    } else {
+      console.log("else");
+      window.scrollTo(0, pageY1);
+    }
+    if (dragSamples.push({y: pageY1, t: Date.now()}) > 8) {
+      console.log("dragSamples.push({y: pageY1, t: Date.now()}) > 8");
+      dragSamples.shift();
+    }
+  }
+}
+
+function touchended() {
+  mouseDowned = false;
+  var s0 = dragSamples.shift(),
+      s1 = dragSamples.pop(),
+      t1 = Date.now(),
+      y = pageYOffset;
+
+  while (s0 && (t1 - s0.t > 350)) s0 = dragSamples.shift();
+
+  if (s0 && s1) {
+    var vy = (s1.y - s0.y) / (s1.t - s0.t);
+    if (vy > .5) y = Math.ceil(y / height) * height;
+    else if (vy < -.5) y = Math.floor(y / height) * height;
+  }
+
+  y = Math.max(0, Math.min(page.size() - 1, Math.round(y / height))) * height;
+
+  body.transition()
+      .duration(500)
+      .ease("cubic-out")
+      .styleTween("-webkit-transform", function() {
+        if (s1) {
+          var i;
+          if (s1.y < pageYMin) i = d3.interpolateNumber(-(s1.y - pageYMin) / 3, 0);
+          if (s1.y > pageYMax) i = d3.interpolateNumber(-(s1.y - pageYMax) / 3, 0);
+          return i && function(t) { return "translate3d(0," + i(t) + "px,0)"; };
+        }
+      })
+      .tween("scroll", function() {
+        var i = d3.interpolateNumber(pageYOffset, y);
+        return function(t) { window.scrollTo(0, i(t)); };
+      });
+}
+
+}()</script>

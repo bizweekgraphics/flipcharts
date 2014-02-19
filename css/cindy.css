@@ -11,12 +11,14 @@ body {
 }
 
 #container {
+  pointer-events: none;
   position: absolute;
   height: 100%;
   width: 100%;
 }
 
 .slide {
+  pointer-events: none;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -26,6 +28,7 @@ body {
 }
 
 .slide-text {
+  pointer-events: none;
   position:relative;
   padding: 10px;
   border: 5px solid white;

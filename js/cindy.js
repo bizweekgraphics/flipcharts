@@ -86,3 +86,8 @@ function changeSlide(scrubX) {
   d3.select("#Dachshunds").style("-webkit-transform", "translate("+(-width+width*scrubX)+"px,0)");
   
 }
+
+
+
+
+/// THX BOSTOCK!!! http://bl.ocks.org/mbostock/8411383
