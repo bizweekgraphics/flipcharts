@@ -62,45 +62,13 @@ h3 {
 
 </style>
 <div class="pages">
-  <div id="container" class="page">
-    <!--<div class="slide" id="Terriers" style="background-image: url(img/dogs/Terriers.jpg); -webkit-transform: translate(0, 0);">
-      <div class="slide-text">
-        <h2>Terriers</h2>
-        <h3>47</h3>
-      </div>
-    </div>
-    <div class="slide" id="Dachshunds" style="background-image: url(img/dogs/Dachshunds.jpg); -webkit-transform: translate(-1562px, 0);">
-      <div class="slide-text">
-        <h2>Dachshunds</h2>
-        <h3>0</h3>
-      </div>
-    </div>  -->
-  </div>
+  <div id="container" class="page"></div>
   <div class="page">
     <h2>Unmasking Bias Against Dachshunds</h2>
     <p>The time has come to expose the Westminster Dog Show for what it is. Inadvertent self-satire? Director Christopher Guest made the point with the priceless Best in Show (2000). No, I’m here today to talk about bigotry. Anti-dachshund bigotry.</p>
     <p>The 138th Annual Westminster Dog Show will unfold Feb. 10-11 at Madison Square Garden. It will be very cute. Unless, of course, you think about what you’re watching. Discrimination is never cute. And once again this year, the dachshunds—longhaired, smooth, and wire-haired—will get screwed. They never win. Never.</p>
   </div>
 </div>
-
-
-<!--
-<div id="container" class="page">
-  <div class="slide" id="Terriers" style="background-image: url(http://localhost/~tophtucker/bbg/flipcharts/img/dogs/Terriers.jpg); -webkit-transform: translate(78px, 0);">
-    <div class="slide-text">
-      <h2>Terriers</h2>
-      <h3>47</h3>
-    </div>
-  </div>
-  <div class="slide" id="Dachshunds" style="background-image: url(http://localhost/~tophtucker/bbg/flipcharts/img/dogs/Dachshunds.jpg); -webkit-transform: translate(-1362px, 0);">
-    <div class="slide-text">
-      <h2>Dachshunds</h2>
-      <h3>0</h3>
-    </div>
-  </div>
-</div>
--->
-
 
   <script src="js/vendor/d3.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -109,8 +77,6 @@ h3 {
   <script src="js/main.js"></script>
 
 <script>!function() {
-
-console.log(innerHeight);
 
 var body = d3.select("body"),
     height = innerHeight,
@@ -123,7 +89,6 @@ var body = d3.select("body"),
 var mouseDowned = false;
 
 var page = d3.selectAll(".page");
-//    .text(function(d, i) { return i; });
 
 var slide = d3.selectAll(".slide");
 
@@ -169,25 +134,19 @@ function touchmoved() {
     var clientY1 = d3.mouse(d3.select("body").node())[1],
         pageY1 = pageY0 + clientY0 - clientY1;
     if (pageY1 < pageYMin) {
-      console.log("pageY1 < pageYMin");
       if (pageYOffset > pageYMin) {
-        console.log("pageYOffset > pageYMin");
         window.scrollTo(0, pageYMin);
       }
       body.style("-webkit-transform", "translate3d(0," + -(pageY1 - pageYMin) / 3 + "px,0)");
     } else if (pageY1 > pageYMax) {
-      console.log("pageY1 > pageYMax");
       if (pageYOffset < pageYMax) {
-        console.log("pageYOffset < pageYMax");
         window.scrollTo(0, pageYMax);
       }
       body.style("-webkit-transform", "translate3d(0," + -(pageY1 - pageYMax) / 3 + "px,0)");
     } else {
-      console.log("else");
       window.scrollTo(0, pageY1);
     }
     if (dragSamples.push({y: pageY1, t: Date.now()}) > 8) {
-      console.log("dragSamples.push({y: pageY1, t: Date.now()}) > 8");
       dragSamples.shift();
     }
   }
@@ -227,9 +186,6 @@ function touchended() {
       });
 }
 
-
-
-
 // TOPH //
 
 var mouseX, scrubX;
@@ -257,8 +213,6 @@ d3.tsv("data/cindy.tsv", function(error, data) {
     })
   });
   
-  console.log(data);
-  
   $.each(data[0], function(i, d) {
     var slide = d3.select("#container").append("div")
         .classed("slide", true)
@@ -274,15 +228,13 @@ d3.tsv("data/cindy.tsv", function(error, data) {
   slide = d3.selectAll(".slide");
   resized();
   
-d3.select("body").on("mousemove", function() {
+  d3.select("body").on("mousemove", function() {
   
     mouseX = d3.mouse(d3.select("body").node())[0];
     scrubX = mouseScrub(mouseX);
     changeSlide(scrubX);
   
   });
-  
-
  
   if (window.DeviceOrientationEvent) {
 
@@ -293,7 +245,7 @@ d3.select("body").on("mousemove", function() {
       alpha 	= eventData.alpha	  // compass direction (degrees)
             
       if(gamma == null || beta == null || alpha == null) {
-        // desktopMode();
+        // desktop
       } else {
         
         scrubX = tiltScrub(gamma);
@@ -304,27 +256,15 @@ d3.select("body").on("mousemove", function() {
   
   } 
   else {
-    // desktopMode();
+    // desktop
   }
   
 });
 
-
 function changeSlide(scrubX) {
-  //console.log($(document).width()*scrubX);
-  console.log("translate("+(width*scrubX)+",0)");
-  //console.log($(document).width()*scrubX);
-  /*
-  d3.select("#Terriers").style("opacity", scrubX);
-  d3.select("#Dachshunds").style("opacity", 1-scrubX);
-  */
-  
+  // dude this seriously needs to be generalized...
   d3.select("#Terriers").style("-webkit-transform", "translate("+(width*scrubX)+"px,0)");
-  d3.select("#Dachshunds").style("-webkit-transform", "translate("+(-width+width*scrubX)+"px,0)");
-  
+  d3.select("#Dachshunds").style("-webkit-transform", "translate("+(-width+width*scrubX)+"px,0)");  
 }
-
-
-
 
 }()</script>
