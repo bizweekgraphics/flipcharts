@@ -274,10 +274,55 @@ d3.tsv("data/cindy.tsv", function(error, data) {
   slide = d3.selectAll(".slide");
   resized();
   
+d3.select("body").on("mousemove", function() {
+  
+    mouseX = d3.mouse(d3.select("body").node())[0];
+    scrubX = mouseScrub(mouseX);
+    changeSlide(scrubX);
+  
+  });
+  
+
+ 
+  if (window.DeviceOrientationEvent) {
+
+    // Listen for the deviceorientation event and handle the raw data
+    window.addEventListener('deviceorientation', function(eventData) {
+      gamma 	= eventData.gamma;	// - left-to-right + (degrees)
+      beta 	  = eventData.beta;	  // - back-to-front + (degrees)
+      alpha 	= eventData.alpha	  // compass direction (degrees)
+            
+      if(gamma == null || beta == null || alpha == null) {
+        // desktopMode();
+      } else {
+        
+        scrubX = tiltScrub(gamma);
+        changeSlide(scrubX);
+        
+      }
+    }, false);
+  
+  } 
+  else {
+    // desktopMode();
+  }
+  
 });
 
 
-
+function changeSlide(scrubX) {
+  //console.log($(document).width()*scrubX);
+  console.log("translate("+(width*scrubX)+",0)");
+  //console.log($(document).width()*scrubX);
+  /*
+  d3.select("#Terriers").style("opacity", scrubX);
+  d3.select("#Dachshunds").style("opacity", 1-scrubX);
+  */
+  
+  d3.select("#Terriers").style("-webkit-transform", "translate("+(width*scrubX)+"px,0)");
+  d3.select("#Dachshunds").style("-webkit-transform", "translate("+(-width+width*scrubX)+"px,0)");
+  
+}
 
 
 
