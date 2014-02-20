@@ -17,11 +17,13 @@ var y = d3.scale.linear()
     
 var xZoomMouse = d3.scale.linear()
     .domain([0,height])
-    .range([1,10]);
+    .range([1,3])
+    .clamp(true);
 
 var xZoomTilt = d3.scale.linear()
-    .domain([-10,10]) //degrees of tilt
-    .range([1,10]);
+    .domain([45,25]) //degrees of tilt
+    .range([1,3])
+    .clamp(true);
 
 var xPanMouse = d3.scale.linear()
     .domain([0,width])
@@ -98,8 +100,8 @@ d3.select("body").on("mousemove", function(d,i) {
   // But you also get a nice springy thing as long as you stay on the near side of that asymptote. So they may be some use for it.
   
   scrubX = xPanMouse(d3.mouse(svg.node())[0]);
-  scrubY = xZoomMouse(d3.mouse(svg.node())[0]);
-  scrub(scrubX);
+  scrubY = xZoomMouse(d3.mouse(svg.node())[1]);
+  scrub(scrubX, scrubY);
   
 });
 
@@ -117,7 +119,8 @@ if (window.DeviceOrientationEvent) {
     } else {
       
       scrubX = xPanTilt(gamma);
-      scrub(scrubX);
+      scrubY = xZoomTilt(beta);
+      scrub(scrubX, scrubY);
       
     }
   }, false);
@@ -126,16 +129,18 @@ else {
   // desktopMode();
 }
 
-function scrub(scrubX) {
+function scrub(scrubX, scrubY) {
   
+  var subdomain = (xExtent[1] - xExtent[0]) / scrubY;
+  $(".data-credit").text("Zoom factor: "+scrubY+", Subdomain: "+subdomain);
   
   // NOTE: The outer wrapper of min/max below keeps the lower bound of the domain from crossing over past the upper, and vice versa. 
   // That's a problem when the chart margins are bigger than the +/- range below, and the whole scale flips backwards. Funky.
   // But you also get a nice springy thing as long as you stay on the near side of that asymptote. So they may be some use for it.
   x.domain(
     [
-      Math.min(Math.max(scrubX - 500, xExtent[0] ), xExtent[1] - 500),
-      Math.max(Math.min(scrubX + 500, xExtent[1] ), xExtent[0] + 500)
+      Math.min(Math.max(scrubX - subdomain/2, xExtent[0] ), xExtent[1] - subdomain/2),
+      Math.max(Math.min(scrubX + subdomain/2, xExtent[1] ), xExtent[0] + subdomain/2)
     ]
   );
     
