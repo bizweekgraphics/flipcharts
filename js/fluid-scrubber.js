@@ -60,19 +60,19 @@ var gy = svg.append("g")
     .call(yAxis);
 
 var line = d3.svg.line()
-    .x(function(d) { return x(d.year); })
-    .y(function(d) { return y(d.population); });
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y(d.spx); });
 
-d3.tsv("data/population.tsv", function(error, data) {
+d3.tsv("data/spx.tsv", function(error, data) {
   
   // coerce to numbers
   data.forEach(function(d) {
-    d.year = +d.year;
-    d.population = +d.population;
+    d.date = +d.date;
+    d.spx = +d.spx;
   });
   
-  xExtent = d3.extent(data, function(d) { return d.year; });
-  yExtent = d3.extent(data, function(d) { return d.population; });
+  xExtent = d3.extent(data, function(d) { return d.date; });
+  yExtent = d3.extent(data, function(d) { return d.spx; });
   
   x.domain(xExtent);
   y.domain(yExtent);
@@ -83,8 +83,8 @@ d3.tsv("data/population.tsv", function(error, data) {
   gx.call(xAxis);
   gy.call(yAxis);
   
-  xPanMouse.range(d3.extent(data, function(d) { return d.year; }));
-  xPanTilt.range(d3.extent(data, function(d) { return d.year; }));
+  xPanMouse.range(d3.extent(data, function(d) { return d.date; }));
+  xPanTilt.range(d3.extent(data, function(d) { return d.date; }));
   
   linePath = svg.append("path")
       .datum(data)
