@@ -26,10 +26,12 @@ console.log("Width: "+width);
 
 var xAxis = d3.svg.axis()
     .scale(x)
+    .tickValues(x.domain())
     .orient("bottom");
 
 var yAxis = d3.svg.axis()
     .scale(y)
+    .tickValues(y.domain())
     .orient("right");
 
 var svg = d3.select("#svg-canvas")
@@ -66,6 +68,9 @@ d3.tsv("data/population.tsv", function(error, data) {
   x.domain(xExtent);
   y.domain(yExtent);
   
+  xAxis.tickValues(x.domain());
+  yAxis.tickValues(y.domain());
+  
   gx.call(xAxis);
   gy.call(yAxis);
   
@@ -91,6 +96,8 @@ d3.select("body").on("mousemove", function(d,i) {
   );
   
   console.log(Math.max( xPan(d3.mouse(svg.node())[0]) - 5, xExtent[0] ));
+  
+  xAxis.tickValues(x.domain());
   
   gx.call(xAxis);
   linePath.attr("d", line);
