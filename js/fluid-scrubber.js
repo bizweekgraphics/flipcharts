@@ -13,7 +13,8 @@ var x = d3.scale.linear()
 
 var y = d3.scale.linear()
     .domain([0,100])
-    .range([height,0]);
+    .range([height,0])
+    .nice();
     
 var xZoomMouse = d3.scale.linear()
     .domain([0,height])
@@ -35,12 +36,12 @@ var xPanTilt = d3.scale.linear()
 
 var xAxis = d3.svg.axis()
     .scale(x)
-    .tickValues(x.domain())
+    .ticks(2)
     .orient("bottom");
 
 var yAxis = d3.svg.axis()
     .scale(y)
-    .tickValues(y.domain())
+    .ticks(2)
     .orient("right");
 
 var svg = d3.select("#svg-canvas")
@@ -75,10 +76,10 @@ d3.tsv("data/spx.tsv", function(error, data) {
   yExtent = d3.extent(data, function(d) { return d.spx; });
   
   x.domain(xExtent);
-  y.domain(yExtent);
+  y.domain(yExtent).nice();
   
-  xAxis.tickValues(x.domain());
-  yAxis.tickValues(y.domain());
+  //xAxis.tickValues(x.domain());
+  //yAxis.tickValues(y.domain());
   
   gx.call(xAxis);
   gy.call(yAxis);
@@ -92,6 +93,10 @@ d3.tsv("data/spx.tsv", function(error, data) {
       .attr("d", line);
   
 });
+
+function resize() {
+
+}
 
 d3.select("body").on("mousemove", function(d,i) {
   
@@ -144,7 +149,7 @@ function scrub(scrubX, scrubY) {
     ]
   );
     
-  xAxis.tickValues(x.domain());
+  //xAxis.tickValues(x.domain());
   
   gx.call(xAxis);
   linePath.attr("d", line);
