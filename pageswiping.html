@@ -331,7 +331,7 @@ function render() {
   
     mouseX = d3.mouse(d3.select("body").node())[0];
     scrubX = mouseScrub(mouseX);
-    changeSlide(scrubX, "slide");
+    changeSlide(scrubX, "zoom");
   
   });
  
@@ -362,16 +362,24 @@ function render() {
     
     if(type == "slide") {
       //slide across
-      d3.select("#Terriers").style("-webkit-transform", "translate("+(width*scrubX)+"px,0)");
-      d3.select("#Dachshunds").style("-webkit-transform", "translate("+(-width+width*scrubX)+"px,0)");  
+      var dx, first = true;
+      $.each(data[0][0], function(i, value) {
+        dx = first ? width*scrubX : -width+width*scrubX;
+        d3.select("#"+i).style("-webkit-transform", "translate("+dx+"px,0)");
+        first = false;
+      });      
     }
+    
     if(type == "zoom") {
-      //zoom out/in
-      d3.select("#slide1").style("-webkit-transform", "scale("+(scrubX)+")");
-      d3.select("#slide2").style("-webkit-transform", "scale("+(1-scrubX)+")");  
-      //fade out/in
-      d3.select("#slide1").style("opacity", scrubX);
-      d3.select("#slide2").style("opacity", 1-scrubX);
+      var scaleScale = d3.scale.linear().domain([0,1]).range([0.7,1]);
+      var dx, first = true;
+      $.each(data[0][0], function(i, value) {
+        scale = first ? scaleScale(scrubX) : scaleScale(1-scrubX);
+        opacity = first ? scrubX : 1-scrubX;
+        d3.select("#"+i).style("-webkit-transform", "scale("+scale+")");
+        d3.select("#"+i).style("opacity", opacity);
+        first = false;
+      });      
     }
     
   }
