@@ -359,44 +359,44 @@ function render() {
     // desktop
   }
   
-  function changeSlide(scrubX, type) {
-    
-    if(type == "slide") {
-      //slide across
-      var dx, first = true;
-      slides.each(function(d,i) {
-        dx = first ? width*scrubX : -width+width*scrubX;
-        d3.select(this).style("-webkit-transform", "translate("+dx+"px,0)");
-        first = false;
-      });      
-    }
-    
-    if(type == "zoom") {
-      var scaleScale = d3.scale.linear().domain([0,1]).range([0.7,1]);
-      var scale, opacity, first = true;
-      slides.each(function(d,i) {
-        scale = first ? scaleScale(scrubX) : scaleScale(1-scrubX);
-        opacity = first ? scrubX : 1-scrubX;
-        d3.select(this).style("-webkit-transform", "scale("+scale+")");
-        d3.select(this).style("opacity", opacity);
-        first = false;
-      });      
-    }
-    
-    if(type == "flip") {
-      var flipScale = d3.scale.linear().domain([0,1]).range([0,180]);
-      d3.select("#container").style("-webkit-perspective", "800px");
-      slides
-        .style("-webkit-transform-style", "preserve-3d")
-        .style("-webkit-backface-visibility", "hidden");
-      var rotation, first = true;
-      slides.each(function(d,i) {
-        rotation = first ? flipScale(scrubX) : 180+flipScale(scrubX);
-        d3.select(this).style("-webkit-transform", "rotateY("+rotation+"deg)");
-        first = false;
-      });  
-    }
-    
+}
+
+function changeSlide(scrubX, type) {
+  
+  if(type == "slide") {
+    //slide across
+    var dx, first = true;
+    slides.each(function(d,i) {
+      dx = first ? width*scrubX : -width+width*scrubX;
+      d3.select(this).style("-webkit-transform", "translate("+dx+"px,0)");
+      first = false;
+    });      
+  }
+  
+  if(type == "zoom") {
+    var scaleScale = d3.scale.linear().domain([0,1]).range([0.7,1]);
+    var scale, opacity, first = true;
+    slides.each(function(d,i) {
+      scale = first ? scaleScale(scrubX) : scaleScale(1-scrubX);
+      opacity = first ? scrubX : 1-scrubX;
+      d3.select(this).style("-webkit-transform", "scale("+scale+")");
+      d3.select(this).style("opacity", opacity);
+      first = false;
+    });      
+  }
+  
+  if(type == "flip") {
+    var flipScale = d3.scale.linear().domain([0,1]).range([0,180]);
+    d3.select("#container").style("-webkit-perspective", "800px");
+    slides
+      .style("-webkit-transform-style", "preserve-3d")
+      .style("-webkit-backface-visibility", "hidden");
+    var rotation, first = true;
+    slides.each(function(d,i) {
+      rotation = first ? flipScale(scrubX) : 180+flipScale(scrubX);
+      d3.select(this).style("-webkit-transform", "rotateY("+rotation+"deg)");
+      first = false;
+    });  
   }
   
 }
