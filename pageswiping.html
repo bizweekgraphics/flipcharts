@@ -151,10 +151,30 @@ button:hover {
 
 // CONFIG
 
-var title = 'Unmasking Bias Against Dachshunds',
-    description = "The 138th Annual Westminster Dog Show will unfold Feb. 10-11 at Madison Square Garden. And once again this year, the dachshunds—longhaired, smooth, and wire-haired—will get screwed. They never win. Never.",
-    storyLink = 'http://www.businessweek.com/articles/2014-02-10/westminster-dog-show-history-suggests-bias-against-dachshunds',
-    dataSources = ["dogs-binary.tsv"];
+var config = {
+  title: 'Unmasking Bias Against Dachshunds',
+  description: "The 138th Annual Westminster Dog Show will unfold Feb. 10-11 at Madison Square Garden. And once again this year, the dachshunds—longhaired, smooth, and wire-haired—will get screwed. They never win. Never.",
+  storyLink: 'http://www.businessweek.com/articles/2014-02-10/westminster-dog-show-history-suggests-bias-against-dachshunds',
+  dataSources: ["dogs-binary.tsv"]
+};
+
+// Fill in teaser text and title (on lower page)
+d3.select("#title").text(config.title);
+d3.select("#description").text(config.description);
+d3.select("#story-link").attr("href", config.storyLink);
+d3.select("button").on("touchend", function() { 
+  window.location = config.storyLink; 
+});
+
+// Load data
+var activeAJAX = config.dataSources.length;
+var data = [];
+config.dataSources.forEach(function(src, i) {
+  d3.tsv("data/"+src, function(error, dataLoaded) {
+    data.push(dataLoaded);
+    if (--activeAJAX == 0) { render(); }
+  });
+});
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // PAGES (vertical) //////////////////////////////////////////////////////////////////////
@@ -172,16 +192,6 @@ var mouseDowned = false;
 
 var page = d3.selectAll(".page"),
     slide = d3.selectAll(".slide");
-
-// Fill in teaser text and title (on lower page)
-d3.select("#title").text(title);
-d3.select("#description").text(description);
-d3.select("#story-link").attr("href", storyLink);
-d3.select("button").on("touchend", function() { 
-  window.location = storyLink; 
-});
-
-
 
 d3.select(window)
     .on("resize", resized)
@@ -295,16 +305,16 @@ var tiltScrub = d3.scale.linear()
     .range([0, 1])
     .clamp(true);
 
-d3.tsv("data/cindy.tsv", function(error, data) {
+function render() {
   
   //coercing from strings to numbers
-  data.forEach(function(d, i) {
+  data[0].forEach(function(d, i) {
     $.each(d, function(j, value) {
-      data[i][j] = +value;
+      data[0][i][j] = +value;
     })
   });
   
-  $.each(data[0], function(i, d) {
+  $.each(data[0][0], function(i, d) {
     var slide = d3.select("#container").append("div")
         .classed("slide", true)
         .attr("id", i)
@@ -365,8 +375,7 @@ d3.tsv("data/cindy.tsv", function(error, data) {
     }
     
   }
-
   
-});
+}
 
 }()</script>
