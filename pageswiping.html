@@ -331,7 +331,7 @@ function render() {
   
     mouseX = d3.mouse(d3.select("body").node())[0];
     scrubX = mouseScrub(mouseX);
-    changeSlide(scrubX, "zoom");
+    changeSlide(scrubX, "flip");
   
   });
  
@@ -372,7 +372,7 @@ function render() {
     
     if(type == "zoom") {
       var scaleScale = d3.scale.linear().domain([0,1]).range([0.7,1]);
-      var dx, first = true;
+      var scale, opacity, first = true;
       $.each(data[0][0], function(i, value) {
         scale = first ? scaleScale(scrubX) : scaleScale(1-scrubX);
         opacity = first ? scrubX : 1-scrubX;
@@ -380,6 +380,22 @@ function render() {
         d3.select("#"+i).style("opacity", opacity);
         first = false;
       });      
+    }
+    
+    if(type == "flip") {
+      var flipScale = d3.scale.linear().domain([0,1]).range([0,180]);
+      d3.select("#container").style("-webkit-perspective", "800px");
+      d3.selectAll(".slide")
+        .style("-webkit-transform-style", "preserve-3d")
+        .style("-webkit-backface-visibility", "hidden");
+      var rotation, first = true;
+      $.each(data[0][0], function(i, value) {
+        console.log(i);
+        console.log(value);
+        rotation = first ? flipScale(scrubX) : 180+flipScale(scrubX);
+        d3.select("#"+i).style("-webkit-transform", "rotateY("+rotation+"deg)");
+        first = false;
+      });  
     }
     
   }
