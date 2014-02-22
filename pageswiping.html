@@ -156,10 +156,13 @@ var config = {
   title: 'Unmasking Bias Against Dachshunds',
   description: "The 138th Annual Westminster Dog Show will unfold Feb. 10-11 at Madison Square Garden. And once again this year, the dachshunds—longhaired, smooth, and wire-haired—will get screwed. They never win. Never.",
   storyLink: 'http://www.businessweek.com/articles/2014-02-10/westminster-dog-show-history-suggests-bias-against-dachshunds',
-  dataSources: ["dogs-binary.tsv"]
+  dataSources: ["dogs-binary.tsv"],
+  layout: "binary",
+  transition: "flip"
 };
 
-// Fill in teaser text and title (on lower page)
+// FILL TEASER CONTENT (on lower page)
+
 d3.select("#title").text(config.title);
 d3.select("#description").text(config.description);
 d3.select("#story-link").attr("href", config.storyLink);
@@ -167,13 +170,28 @@ d3.select("button").on("touchend", function() {
   window.location = config.storyLink; 
 });
 
-// Load data
+// LOAD DATA FROM ALL SOURCES
+
+// files remaining
 var activeAJAX = config.dataSources.length;
+
 var data = [];
+
 config.dataSources.forEach(function(src, i) {
   d3.tsv("data/"+src, function(error, dataLoaded) {
+    //coercing from strings to numbers
+    dataLoaded.forEach(function(d, i) {
+      $.each(d, function(j, value) {
+        dataLoaded[i][j] = +value;
+      })
+    });
     data.push(dataLoaded);
-    if (--activeAJAX == 0) { render(); }
+    // if all files have been loaded...
+    if (--activeAJAX == 0) { 
+      render(); 
+      slides = d3.selectAll(".slide");
+      resized();
+    }
   });
 });
 
@@ -306,64 +324,59 @@ var tiltScrub = d3.scale.linear()
     .range([0, 1])
     .clamp(true);
 
+// RENDER SLIDES
+
 function render() {
   
-  //coercing from strings to numbers
-  data[0].forEach(function(d, i) {
-    $.each(d, function(j, value) {
-      data[0][i][j] = +value;
-    })
-  });
-  
-  $.each(data[0][0], function(i, d) {
-    var slide = d3.select("#container").append("div")
-        .classed("slide", true)
-        .attr("id", i)
-        .style("background-image", "url(img/dogs/"+i+".jpg)");
+  if(config.layout == "binary") {
+    $.each(data[0][0], function(i, d) {
+      var slide = d3.select("#container").append("div")
+          .classed("slide", true)
+          .attr("id", i)
+          .style("background-image", "url(img/dogs/"+i+".jpg)");
     
-    slide.append("h2").text(i);
-    slide.append("h3").text(d);
-  });
-  
-  slides = d3.selectAll(".slide");
-  resized();
-  
-  d3.select("body").on("mousemove", function() {
-  
-    mouseX = d3.mouse(d3.select("body").node())[0];
-    scrubX = mouseScrub(mouseX);
-    changeSlide(scrubX, "slide");
-  
-  });
- 
-  if (window.DeviceOrientationEvent) {
-
-    // Listen for the deviceorientation event and handle the raw data
-    window.addEventListener('deviceorientation', function(eventData) {
-      gamma 	= eventData.gamma;	// - left-to-right + (degrees)
-      beta 	  = eventData.beta;	  // - back-to-front + (degrees)
-      alpha 	= eventData.alpha	  // compass direction (degrees)
-            
-      if(gamma == null || beta == null || alpha == null) {
-        // desktop
-      } else {
-        
-        scrubX = tiltScrub(gamma);
-        changeSlide(scrubX, "flip");
-        
-      }
-    }, false);
-  
-  } 
-  else {
-    // desktop
+      slide.append("h2").text(i);
+      slide.append("h3").text(d);
+    });
   }
   
+  else if(config.layout == "dualbars") {
+    
+  }
+    
 }
 
-function changeSlide(scrubX, type) {
+// CAPTURING EVENTS TO CHANGE SLIDES
+
+d3.select("body").on("mousemove", function() {
+  mouseX = d3.mouse(d3.select("body").node())[0];
+  scrubX = mouseScrub(mouseX);
+  changeSlide(scrubX);
+});
+
+if (window.DeviceOrientationEvent) {
+  // Listen for the deviceorientation event and handle the raw data
+  window.addEventListener('deviceorientation', function(eventData) {
+    gamma 	= eventData.gamma;	// - left-to-right + (degrees)
+    beta 	  = eventData.beta;	  // - back-to-front + (degrees)
+    alpha 	= eventData.alpha	  // compass direction (degrees)
+    if(gamma == null || beta == null || alpha == null) {
+      // desktop
+    } else {
+      scrubX = tiltScrub(gamma);
+      changeSlide(scrubX);
+    }
+  }, false);
+} 
+else {
+  // desktop
+}
+
+// CHANGING SLIDES
+
+function changeSlide(scrubX) {
   
-  if(type == "slide") {
+  if(config.transition == "slide") {
     //slide across
     var dx, first = true;
     slides.each(function(d,i) {
@@ -373,7 +386,7 @@ function changeSlide(scrubX, type) {
     });      
   }
   
-  if(type == "zoom") {
+  else if(config.transition == "zoom") {
     var scaleScale = d3.scale.linear().domain([0,1]).range([0.7,1]);
     var scale, opacity, first = true;
     slides.each(function(d,i) {
@@ -385,7 +398,7 @@ function changeSlide(scrubX, type) {
     });      
   }
   
-  if(type == "flip") {
+  else if(config.transition == "flip") {
     var flipScale = d3.scale.linear().domain([0,1]).range([0,180]);
     d3.select("#container").style("-webkit-perspective", "800px");
     slides
