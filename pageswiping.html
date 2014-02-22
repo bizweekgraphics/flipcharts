@@ -60,6 +60,7 @@ body {
   width: 100%;
   height: 100%;
   background-size: cover;
+  background-position: 50% 50%;
   padding: 45px;
 }
 
@@ -191,7 +192,7 @@ var body = d3.select("body"),
 var mouseDowned = false;
 
 var page = d3.selectAll(".page"),
-    slide = d3.selectAll(".slide");
+    slides = d3.selectAll(".slide");
 
 d3.select(window)
     .on("resize", resized)
@@ -211,7 +212,7 @@ function resized() {
   var height0 = height;
   height = innerHeight;
   page.style("height", height + "px");
-  slide.style("height", height + "px");
+  slides.style("height", height + "px");
 //  body.style("font", (height * .4) + "px/" + (height * .9) + "px sans-serif");
   pageYMax = (page.size() - 1) * height;
   window.scrollTo(0, Math.max(0, Math.min(page.size() - 1, Math.round(pageYOffset / height0))) * height);
@@ -324,14 +325,14 @@ function render() {
     slide.append("h3").text(d);
   });
   
-  slide = d3.selectAll(".slide");
+  slides = d3.selectAll(".slide");
   resized();
   
   d3.select("body").on("mousemove", function() {
   
     mouseX = d3.mouse(d3.select("body").node())[0];
     scrubX = mouseScrub(mouseX);
-    changeSlide(scrubX, "flip");
+    changeSlide(scrubX, "slide");
   
   });
  
@@ -363,9 +364,9 @@ function render() {
     if(type == "slide") {
       //slide across
       var dx, first = true;
-      $.each(data[0][0], function(i, value) {
+      slides.each(function(d,i) {
         dx = first ? width*scrubX : -width+width*scrubX;
-        d3.select("#"+i).style("-webkit-transform", "translate("+dx+"px,0)");
+        d3.select(this).style("-webkit-transform", "translate("+dx+"px,0)");
         first = false;
       });      
     }
@@ -373,11 +374,11 @@ function render() {
     if(type == "zoom") {
       var scaleScale = d3.scale.linear().domain([0,1]).range([0.7,1]);
       var scale, opacity, first = true;
-      $.each(data[0][0], function(i, value) {
+      slides.each(function(d,i) {
         scale = first ? scaleScale(scrubX) : scaleScale(1-scrubX);
         opacity = first ? scrubX : 1-scrubX;
-        d3.select("#"+i).style("-webkit-transform", "scale("+scale+")");
-        d3.select("#"+i).style("opacity", opacity);
+        d3.select(this).style("-webkit-transform", "scale("+scale+")");
+        d3.select(this).style("opacity", opacity);
         first = false;
       });      
     }
@@ -385,15 +386,13 @@ function render() {
     if(type == "flip") {
       var flipScale = d3.scale.linear().domain([0,1]).range([0,180]);
       d3.select("#container").style("-webkit-perspective", "800px");
-      d3.selectAll(".slide")
+      slides
         .style("-webkit-transform-style", "preserve-3d")
         .style("-webkit-backface-visibility", "hidden");
       var rotation, first = true;
-      $.each(data[0][0], function(i, value) {
-        console.log(i);
-        console.log(value);
+      slides.each(function(d,i) {
         rotation = first ? flipScale(scrubX) : 180+flipScale(scrubX);
-        d3.select("#"+i).style("-webkit-transform", "rotateY("+rotation+"deg)");
+        d3.select(this).style("-webkit-transform", "rotateY("+rotation+"deg)");
         first = false;
       });  
     }
