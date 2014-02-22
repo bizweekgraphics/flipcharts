@@ -156,7 +156,11 @@ var config = {
   title: 'Unmasking Bias Against Dachshunds',
   description: "The 138th Annual Westminster Dog Show will unfold Feb. 10-11 at Madison Square Garden. And once again this year, the dachshunds—longhaired, smooth, and wire-haired—will get screwed. They never win. Never.",
   storyLink: 'http://www.businessweek.com/articles/2014-02-10/westminster-dog-show-history-suggests-bias-against-dachshunds',
-  dataSources: ["dogs-binary.tsv"],
+  dataSources: [
+    { name: "Westminster Dog Show winners",
+      src: "dogs-binary.tsv",
+      img: "" }
+    ],
   layout: "binary",
   transition: "flip"
 };
@@ -165,7 +169,14 @@ var config = {
   title: 'A Wireless Traffic Jam',
   description: "The congestion issue is expected to get worse and worse. Steve Perlman’s pCell uses math and computing muscle to create high-capacity signals for mobile devices.",
   storyLink: 'http://www.businessweek.com/articles/2014-02-18/steve-perlmans-amazing-wireless-machine-is-finally-here',
-  dataSources: ["trafficjam-use.tsv", "trafficjam-surplus.tsv"],
+  dataSources: [
+    { name: "Growth of wireless use per cell tower",
+      src: "trafficjam-use.tsv",
+      img: "" },
+    { name: "Cellular spectrum surplus and deficit", 
+      src: "trafficjam-surplus.tsv",
+      img: "" }
+    ],
   layout: "dualbars",
   transition: "zoom"
 };
@@ -186,8 +197,8 @@ var activeAJAX = config.dataSources.length;
 
 var data = [];
 
-config.dataSources.forEach(function(src, i) {
-  d3.tsv("data/"+src, function(error, dataLoaded) {
+config.dataSources.forEach(function(dataSource, i) {
+  d3.tsv("data/"+dataSource.src, function(error, dataLoaded) {
     //coercing from strings to numbers
     dataLoaded.forEach(function(d, i) {
       $.each(d, function(j, value) {
@@ -355,6 +366,7 @@ function render() {
       var slide = d3.select("#container").append("div")
         .classed("slide", true)
         .attr("id", "slide"+i);
+      slide.append("h2").text(config.dataSources[i].name);
       barChart(slide, dataSheet);
     });
   }
@@ -435,7 +447,7 @@ function changeSlide(scrubX) {
 
 function barChart(parent, data) {
     
-  var margin = {top: 0, right: 0, bottom: 0, left: 0},
+  var margin = {top: 40, right: 40, bottom: 40, left: 40},
       width = $(parent.node()).width() - margin.left - margin.right,
       height = $(parent.node()).height() - margin.top - margin.bottom;
 
@@ -461,7 +473,7 @@ function barChart(parent, data) {
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   
   x.domain(data.map(function(d) { return d.year; }));
-  y.domain([0, d3.max(data, function(d) { return d.value; })]);
+  y.domain(d3.extent(data, function(d) { return d.value; }));
 
   svg.append("g")
       .attr("class", "x axis")
@@ -478,8 +490,8 @@ function barChart(parent, data) {
       .attr("class", "bar")
       .attr("x", function(d) { return x(d.year); })
       .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(d.value); })
-      .attr("height", function(d) { return height - y(d.value); });
+      .attr("y", function(d) { return y(Math.max(0, d.value)); })
+      .attr("height", function(d) { return Math.abs(y(d.value) - y(0)); });
 
 }
 
