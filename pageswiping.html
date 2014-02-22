@@ -161,6 +161,15 @@ var config = {
   transition: "flip"
 };
 
+var config = {
+  title: 'A Wireless Traffic Jam',
+  description: "The congestion issue is expected to get worse and worse. Steve Perlman’s pCell uses math and computing muscle to create high-capacity signals for mobile devices.",
+  storyLink: 'http://www.businessweek.com/articles/2014-02-18/steve-perlmans-amazing-wireless-machine-is-finally-here',
+  dataSources: ["trafficjam-use.tsv", "trafficjam-surplus.tsv"],
+  layout: "dualbars",
+  transition: "zoom"
+};
+
 // FILL TEASER CONTENT (on lower page)
 
 d3.select("#title").text(config.title);
@@ -341,7 +350,13 @@ function render() {
   }
   
   else if(config.layout == "dualbars") {
-    
+    console.log(data);
+    data.forEach(function(dataSheet, i) {      
+      var slide = d3.select("#container").append("div")
+        .classed("slide", true)
+        .attr("id", "slide"+i);
+      barChart(slide, dataSheet);
+    });
   }
     
 }
@@ -412,6 +427,60 @@ function changeSlide(scrubX) {
     });  
   }
   
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// CHARTER ///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+function barChart(parent, data) {
+    
+  var margin = {top: 0, right: 0, bottom: 0, left: 0},
+      width = $(parent.node()).width() - margin.left - margin.right,
+      height = $(parent.node()).height() - margin.top - margin.bottom;
+
+  var x = d3.scale.ordinal()
+      .rangeRoundBands([0, width], .1);
+
+  var y = d3.scale.linear()
+      .range([height, 0]);
+
+  var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient("bottom");
+
+  var yAxis = d3.svg.axis()
+      .scale(y)
+      .orient("left")
+      .ticks(10, "%");
+
+  var svg = parent.append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  
+  x.domain(data.map(function(d) { return d.year; }));
+  y.domain([0, d3.max(data, function(d) { return d.value; })]);
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);
+
+  svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.year); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(d.value); })
+      .attr("height", function(d) { return height - y(d.value); });
+
 }
 
 }()</script>
