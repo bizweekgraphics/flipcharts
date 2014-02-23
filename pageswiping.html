@@ -87,6 +87,22 @@ h3 {
   margin: 0;
 }
 
+.dualbars h2 {
+  position: absolute;
+}
+
+.dualbars rect {
+  fill: white;
+}
+
+.dualbars line, .dualbars path {
+  stroke: none;
+}
+
+.dualbars text {
+  fill: #fff;
+}
+
 /* from pure css http://purecss.io/buttons/ */
 button {
   font-family: BWHaasHead;
@@ -181,8 +197,9 @@ var config = {
   transition: "zoom"
 };
 
-// FILL TEASER CONTENT (on lower page)
+// SET UP TEMPLATE
 
+d3.select("body").classed(config.layout, true);
 d3.select("#title").text(config.title);
 d3.select("#description").text(config.description);
 d3.select("#story-link").attr("href", config.storyLink);
@@ -447,7 +464,7 @@ function changeSlide(scrubX) {
 
 function barChart(parent, data) {
     
-  var margin = {top: 40, right: 40, bottom: 40, left: 40},
+  var margin = {top: 40, right: 0, bottom: 40, left: 0},
       width = $(parent.node()).width() - margin.left - margin.right,
       height = $(parent.node()).height() - margin.top - margin.bottom;
 
@@ -464,7 +481,7 @@ function barChart(parent, data) {
   var yAxis = d3.svg.axis()
       .scale(y)
       .orient("left")
-      .ticks(10, "%");
+      .ticks(10, ""); //"%"
 
   var svg = parent.append("svg")
       .attr("width", width + margin.left + margin.right)
@@ -472,17 +489,22 @@ function barChart(parent, data) {
     .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
   
+  // this shouldn't really be a category axis...
   x.domain(data.map(function(d) { return d.year; }));
-  y.domain(d3.extent(data, function(d) { return d.value; }));
+  
+  // somewhat tortured way to force y scale to include 0, be it above max or below min
+  var yExtent = d3.extent(data, function(d) { return d.value; });
+  yExtent.push(0);
+  y.domain(d3.extent(yExtent));
 
   svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis);
 
-  svg.append("g")
+  /*svg.append("g")
       .attr("class", "y axis")
-      .call(yAxis);
+      .call(yAxis);*/
 
   svg.selectAll(".bar")
       .data(data)
