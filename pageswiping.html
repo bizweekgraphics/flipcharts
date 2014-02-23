@@ -231,7 +231,7 @@ var config = {
       img: "" }
     ],
   layout: "binary",
-  transition: "flip"
+  transition: "slide"
 };
 
 var config2 = {
@@ -405,13 +405,15 @@ var width = $(document).width(),
     height = $(document).height();
 
 var mouseScrub = d3.scale.linear()
-    .domain([0,$(document).width()])
-    .range([0, 1])
+    .domain([0, $(document).width()*.33, $(document).width()*.66, $(document).width()])
+    .range([0, 0, 1, 1])
     .clamp(true);
 
+var tiltCalib = -9;
+var tiltExtent = 18;
 var tiltScrub = d3.scale.linear()
-    .domain([0,4])
-    .range([0, 1])
+    .domain([tiltCalib,tiltCalib+(tiltExtent/3),tiltCalib+(2*tiltExtent/3),tiltCalib+tiltExtent])
+    .range([0, 0, 1, 1])
     .clamp(true);
 
 // RENDER SLIDES
@@ -462,6 +464,16 @@ if (window.DeviceOrientationEvent) {
     if(gamma == null || beta == null || alpha == null) {
       // desktop
     } else {
+      
+      // adaptive scale
+      if(gamma < tiltCalib) {
+        tiltCalib = gamma;
+        tiltScrub.domain([tiltCalib,tiltCalib+(tiltExtent/3),tiltCalib+(2*tiltExtent/3),tiltCalib+tiltExtent]);
+      } else if (gamma > tiltCalib + tiltExtent) {
+        tiltCalib = gamma-tiltExtent;
+        tiltScrub.domain([tiltCalib,tiltCalib+(tiltExtent/3),tiltCalib+(2*tiltExtent/3),tiltCalib+tiltExtent]);
+      }
+      
       scrubX = tiltScrub(gamma);
       changeSlide(scrubX);
     }
