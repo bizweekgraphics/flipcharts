@@ -88,14 +88,13 @@ h3 {
 }
 
 .dualbars h2 {
+  position: absolute;
   color: #f0f;
   font-size: 18pt;
   width:100%;
 }
 
 .dualbars svg {
-  position: absolute;
-  top: 45px;
 }
 
 .dualbars rect {
@@ -385,12 +384,14 @@ function render() {
   }
   
   else if(config.layout == "dualbars") {
-    console.log(data);
     data.forEach(function(dataSheet, i) {      
       var slide = d3.select("#container").append("div")
         .classed("slide", true)
         .attr("id", "slide"+i);
-      slide.append("h2").text(config.dataSources[i].name);
+      console.log($(slide.node()).width());
+      slide.append("h2")
+        .style("width", $(slide.node()).width()+"px")
+        .text(config.dataSources[i].name);
       barChart(slide, dataSheet);
     });
   }
@@ -470,7 +471,7 @@ function changeSlide(scrubX) {
 //////////////////////////////////////////////////////////////////////////////////////////
 
 function barChart(parent, data) {
-    
+  
   var margin = {top: 40, right: 0, bottom: 40, left: 0},
       width = $(parent.node()).width() - margin.left - margin.right,
       height = $(parent.node()).height() - margin.top - margin.bottom;
