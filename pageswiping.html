@@ -54,9 +54,28 @@ body {
 
 #container-frame-inner {
   pointer-events: none;
+  position: relative;
   border: 5px solid white;  
   width: 100%;
   height: 100%;
+  padding: 0px;
+}
+
+#progressbar-outer {
+  position: absolute;
+  bottom: -10px;
+  border-bottom: 1px solid #333;
+  width: 100%;
+  height: 1px;
+}
+
+#progressbar-inner {
+  position: absolute;
+  bottom: -10px;
+  border-bottom: 1px solid #fff;
+  width: 50%;
+  margin-left: 0%;
+  height: 1px;
 }
 
 .slide {
@@ -95,7 +114,7 @@ h3 {
   background: white;
 }
 .dualbars .slide {
-  background: white;
+  background: none;
 }
 .dualbars #container-frame-inner {
   border: 5px solid black;
@@ -122,6 +141,15 @@ h3 {
 .dualbars text {
   fill: black;
 }
+
+.dualbars #progressbar-outer {
+  border-bottom: 1px solid #ccc;
+}
+
+.dualbars #progressbar-inner {
+  border-bottom: 1px solid #000;
+}
+
 
 /* from pure css http://purecss.io/buttons/ */
 button {
@@ -167,7 +195,12 @@ button:hover {
 <div class="pages">
   <div id="container" class="page">
     <!-- decorative frame, absolutely positioned, persists across slides -->
-    <div id="container-frame"><div id="container-frame-inner"></div></div>
+    <div id="container-frame">
+      <div id="container-frame-inner">
+        <div id="progressbar-outer"></div>
+        <div id="progressbar-inner"></div>
+      </div>
+    </div>
     <!-- slides get appended here -->
   </div>
   <div id="preview" class="page">
@@ -201,7 +234,7 @@ var config = {
   transition: "flip"
 };
 
-var config = {
+var config2 = {
   title: 'A Wireless Traffic Jam',
   description: "The congestion issue is expected to get worse and worse. Steve Perlman’s pCell uses math and computing muscle to create high-capacity signals for mobile devices.",
   storyLink: 'http://www.businessweek.com/articles/2014-02-18/steve-perlmans-amazing-wireless-machine-is-finally-here',
@@ -441,6 +474,8 @@ else {
 // CHANGING SLIDES
 
 function changeSlide(scrubX) {
+  
+  d3.select("#progressbar-inner").style("margin-left", (scrubX*50)+"%");
   
   if(config.transition == "slide") {
     //slide across
