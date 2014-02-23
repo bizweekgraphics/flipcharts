@@ -21,6 +21,10 @@ body {
   font-size: 14pt;
 }
 
+#preview {
+  background: #333;
+}
+
 .page {
   top: 0;
   width: 100%;
@@ -87,7 +91,17 @@ h3 {
   margin: 0;
 }
 
-.dualbars h2 {
+.dualbars {
+  background: white;
+}
+.dualbars .slide {
+  background: white;
+}
+.dualbars #container-frame-inner {
+  border: 5px solid black;
+}
+
+.dualbars .slide h2 {
   position: absolute;
   color: #f0f;
   font-size: 18pt;
@@ -98,7 +112,7 @@ h3 {
 }
 
 .dualbars rect {
-  fill: white;
+  fill: black;
 }
 
 .dualbars line, .dualbars path {
@@ -106,7 +120,7 @@ h3 {
 }
 
 .dualbars text {
-  fill: #fff;
+  fill: black;
 }
 
 /* from pure css http://purecss.io/buttons/ */
@@ -481,9 +495,10 @@ function barChart(parent, data) {
 
   var y = d3.scale.linear()
       .range([height, 0]);
-
+    
   var xAxis = d3.svg.axis()
       .scale(x)
+      .tickValues([2009,2014])
       .orient("bottom");
 
   var yAxis = d3.svg.axis()
