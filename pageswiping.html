@@ -221,34 +221,58 @@ button:hover {
 
 // CONFIG
 
-var config = {
-  title: 'Unmasking Bias Against Dachshunds',
-  description: "The 138th Annual Westminster Dog Show will unfold Feb. 10-11 at Madison Square Garden. And once again this year, the dachshunds—longhaired, smooth, and wire-haired—will get screwed. They never win. Never.",
-  storyLink: 'http://www.businessweek.com/articles/2014-02-10/westminster-dog-show-history-suggests-bias-against-dachshunds',
-  dataSources: [
-    { name: "Westminster Dog Show winners",
-      src: "dogs-binary.tsv",
-      img: "" }
-    ],
-  layout: "binary",
-  transition: "slide"
-};
+var configs = [
+  {
+    title: 'Unmasking Bias Against Dachshunds',
+    description: "The 138th Annual Westminster Dog Show will unfold Feb. 10-11 at Madison Square Garden. And once again this year, the dachshunds—longhaired, smooth, and wire-haired—will get screwed. They never win. Never.",
+    storyLink: 'http://www.businessweek.com/articles/2014-02-10/westminster-dog-show-history-suggests-bias-against-dachshunds',
+    dataSources: [
+      { name: "Westminster Dog Show winners",
+        src: "dogs-binary.tsv",
+        img: "" }
+      ],
+    layout: "binary",
+    transition: "slide"
+  },
 
-var config2 = {
-  title: 'A Wireless Traffic Jam',
-  description: "The congestion issue is expected to get worse and worse. Steve Perlman’s pCell uses math and computing muscle to create high-capacity signals for mobile devices.",
-  storyLink: 'http://www.businessweek.com/articles/2014-02-18/steve-perlmans-amazing-wireless-machine-is-finally-here',
-  dataSources: [
-    { name: "Growth of wireless use per cell tower",
-      src: "trafficjam-use.tsv",
-      img: "" },
-    { name: "Cellular spectrum surplus and deficit", 
-      src: "trafficjam-surplus.tsv",
-      img: "" }
-    ],
-  layout: "dualbars",
-  transition: "zoom"
-};
+  {
+    title: 'Unmasking Bias Against Dachshunds',
+    description: "The 138th Annual Westminster Dog Show will unfold Feb. 10-11 at Madison Square Garden. And once again this year, the dachshunds—longhaired, smooth, and wire-haired—will get screwed. They never win. Never.",
+    storyLink: 'http://www.businessweek.com/articles/2014-02-10/westminster-dog-show-history-suggests-bias-against-dachshunds',
+    dataSources: [
+      { name: "Westminster Dog Show winners",
+        src: "dogs-binary.tsv",
+        img: "" }
+      ],
+    layout: "binary",
+    transition: "flip"
+  },
+
+  {
+    title: 'A Wireless Traffic Jam',
+    description: "The congestion issue is expected to get worse and worse. Steve Perlman’s pCell uses math and computing muscle to create high-capacity signals for mobile devices.",
+    storyLink: 'http://www.businessweek.com/articles/2014-02-18/steve-perlmans-amazing-wireless-machine-is-finally-here',
+    dataSources: [
+      { name: "Growth of wireless use per cell tower",
+        src: "trafficjam-use.tsv",
+        img: "" },
+      { name: "Cellular spectrum surplus and deficit", 
+        src: "trafficjam-surplus.tsv",
+        img: "" }
+      ],
+    layout: "dualbars",
+    transition: "zoom"
+  } 
+];
+
+var config = configs[0];
+console.log(urlParams.config);
+if(typeof urlParams.config != 'undefined') {
+  console.log("hei");
+  if(urlParams.config in configs) {
+    config = configs[urlParams.config];
+  }
+}
 
 // SET UP TEMPLATE
 
