@@ -41,6 +41,7 @@ body {
 #container {
   position: relative;
   overflow: hidden;
+  background: white;
 }
 
 #container-frame {
@@ -112,9 +113,10 @@ h3 {
   margin: 0;
 }
 
-.dualbars {
-  background: white;
+.binary #container {
+  background: #333;
 }
+
 .dualbars .slide {
   background: none;
 }
@@ -215,6 +217,44 @@ button:hover {
   fill: black;
 }
 
+@media (min-width: 640px) {
+    /* desktop view */
+    
+    body {
+      background: url(img/scribble_light.png);
+    }
+    
+    #container {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+    
+    #preview {
+      border-bottom-right-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    
+    #iphone-icon, #down-arrow {
+      display: none !important;
+      fill: blue !important;
+      margin: 50px;
+    }
+    
+    .pages {
+      width: 640px;
+      height: 568px;
+      margin: 100px auto;
+      box-shadow: 0 0 1em #333;
+      border-radius: 5px;
+    }
+    .page {
+      width: 320px;
+      float: left;
+      height: 568px !important;
+    }
+}
+
+
 </style>
 <div class="pages">
   <div id="container" class="page">
@@ -241,7 +281,7 @@ button:hover {
     <!-- slides get appended here -->
   </div>
   <div id="preview" class="page">
-    <img src="apple-touch-icon-precomposed.png" width="50">
+    <a href="http://businessweek.com/" title="Bloomberg Businessweek"><img src="apple-touch-icon-precomposed.png" width="50"></a>
     <h2 id="title"></h2>
     <p id="description"></p>
     <a id="story-link" href="#"><button>Read article</button></a>
@@ -322,6 +362,7 @@ d3.select("button").on("touchend", function() {
 $("#down-arrow").on("touchend click", function() { 
   window.scrollTo(0, $(".page").height());
 });
+
 d3.select("#iphone-icon").style("-webkit-transform", "rotateY(0deg)");
 d3.select("#iphone-icon")
   .transition()
@@ -388,6 +429,7 @@ d3.select(window)
 */
 
 function resized() {
+  if($(document).width() > 640) { return true; } 
   var height0 = height;
   height = innerHeight;
   page.style("height", height + "px");
@@ -472,11 +514,11 @@ function touchended() {
 var mouseX, scrubX;
 var gamma, beta, alpha;
 
-var width = $(document).width(),
+var width = $("#container").width(),
     height = $(document).height();
 
 var mouseScrub = d3.scale.linear()
-    .domain([0, $(document).width()*.33, $(document).width()*.66, $(document).width()])
+    .domain([0, $("#container").width()*.33, $("#container").width()*.66, $("#container").width()])
     .range([0, 0, 1, 1])
     .clamp(true);
 
@@ -520,8 +562,11 @@ function render() {
 
 // CAPTURING EVENTS TO CHANGE SLIDES
 
-d3.select("body").on("mousemove", function() {
-  mouseX = d3.mouse(d3.select("body").node())[0];
+d3.select("#container").on("mousemove", function() {
+  clearInterval(autoScrubber);
+  mouseX = d3.mouse(d3.select("#container").node())[0];
+  console.log(mouseX);
+  console.log(width);
   scrubX = mouseScrub(mouseX);
   changeSlide(scrubX);
 });
@@ -534,6 +579,7 @@ if (window.DeviceOrientationEvent) {
     alpha 	= eventData.alpha	  // compass direction (degrees)
     if(gamma == null || beta == null || alpha == null) {
       // desktop
+      startAutoScrubber();
     } else {
       
       // adaptive scale
@@ -552,6 +598,16 @@ if (window.DeviceOrientationEvent) {
 } 
 else {
   // desktop
+  startAutoScrubber();
+}
+
+var autoScrubber, t=0;
+function autoScrub() {
+  changeSlide(0.5*Math.cos(t/50)+0.5);
+  t++;
+}
+function startAutoScrubber() {
+  autoScrubber = setInterval(autoScrub,10);
 }
 
 // CHANGING SLIDES
