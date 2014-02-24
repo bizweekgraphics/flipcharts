@@ -60,7 +60,7 @@ body {
   height: 100%;
   padding: 0px;
   -webkit-perspective: 800px;
-
+  -webkit-perspective-origin: 95% 5%;
 }
 
 #progressbar-outer {
@@ -203,11 +203,11 @@ button:hover {
 }
 
 #iphone-icon {
+  opacity:.8;
   fill: white;
   position: absolute;
   right: 10px;
   top: 10px;
-  opacity: 0;
   -webkit-transform-style: preserve-3d;
 }
 
@@ -322,23 +322,14 @@ d3.select("button").on("touchend", function() {
 $("#down-arrow").on("touchend click", function() { 
   window.scrollTo(0, $(".page").height());
 });
+d3.select("#iphone-icon").style("-webkit-transform", "rotateY(0deg)");
 d3.select("#iphone-icon")
-  .style("-webkit-transform", "rotateY(0deg)")
   .transition()
     .duration(1000)
-    .style("opacity", 1)
+    .style("-webkit-transform", "rotateY(45deg)")
   .transition()
-    .ease("linear")
     .duration(1000)
-    .style("-webkit-transform", "rotateY(20deg)")
-  .transition()
-    .ease("linear")
-    .duration(1000)
-    .style("-webkit-transform", "rotateY(1deg)")
-  .transition()
-    .ease("linear")
-    .duration(1000)
-    .style("-webkit-transform", "rotateY(-20deg)");
+    .style("opacity",0);
 
 // LOAD DATA FROM ALL SOURCES
 
