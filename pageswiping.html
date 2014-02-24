@@ -218,42 +218,59 @@ button:hover {
 }
 
 @media (min-width: 640px) {
-    /* desktop view */
-    
-    body {
-      background: url(img/scribble_light.png);
-    }
-    
-    #container {
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px;
-    }
-    
-    #preview {
-      border-bottom-right-radius: 5px;
-      border-top-right-radius: 5px;
-    }
-    
-    #iphone-icon, #down-arrow {
-      display: none !important;
-      fill: blue !important;
-      margin: 50px;
-    }
-    
-    .pages {
-      width: 640px;
-      height: 568px;
-      margin: 100px auto;
-      box-shadow: 0 0 1em #333;
-      border-radius: 5px;
-    }
-    .page {
-      width: 320px;
-      float: left;
-      height: 568px !important;
-    }
+  /* desktop view */
+  
+  body {
+    background: url(img/scribble_light.png);
+  }
+  
+  #container {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+  
+  #preview {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  
+  #iphone-icon, #down-arrow {
+    display: none !important;
+    fill: blue !important;
+    margin: 50px;
+  }
+  
+  .pages {
+    width: 640px;
+    height: 568px;
+    margin: 100px auto;
+    box-shadow: 0 0 1em #333;
+    border-radius: 5px;
+  }
+  .page {
+    width: 320px;
+    float: left;
+    height: 568px !important;
+  }
 }
 
+@media (min-width: 960px) {
+  .pages {
+    width: 960px;
+  }
+  #container {
+    width: 640px;
+  }
+  .slide {
+    position: relative;
+    width: 320px;
+    float: left;
+    -webkit-transform: none !important;
+  }
+  #progressbar-outer, #progressbar-inner {
+    display: none;
+  }
+}
 
 </style>
 <div class="pages">
@@ -343,7 +360,6 @@ var configs = [
 ];
 
 var config = configs[0];
-console.log(urlParams.config);
 if(typeof urlParams.config != 'undefined') {
   if(urlParams.config in configs) {
     config = configs[urlParams.config];
@@ -429,7 +445,19 @@ d3.select(window)
 */
 
 function resized() {
-  if($(document).width() > 640) { return true; } 
+  //for horizontal responsiveness (by toph)
+  width = $("#container").width();
+  
+  if(typeof mouseScrub !== "undefined") {
+    mouseScrub.domain([0, $("#container").width()*.33, $("#container").width()*.66, $("#container").width()]);
+  }
+  
+  // for vertical responsiveness (from bostock block); irrelevant if pages are beside each other
+  if($(document).width() >= 640) { 
+    page.style("height", "inherit");
+    slides.style("height", "inherit");
+    return true; 
+  } 
   var height0 = height;
   height = innerHeight;
   page.style("height", height + "px");
@@ -550,7 +578,6 @@ function render() {
       var slide = d3.select("#container").append("div")
         .classed("slide", true)
         .attr("id", "slide"+i);
-      console.log($(slide.node()).width());
       slide.append("h2")
         .style("width", $(slide.node()).width()+"px")
         .text(config.dataSources[i].name);
@@ -565,12 +592,11 @@ function render() {
 d3.select("#container").on("mousemove", function() {
   clearInterval(autoScrubber);
   mouseX = d3.mouse(d3.select("#container").node())[0];
-  console.log(mouseX);
-  console.log(width);
   scrubX = mouseScrub(mouseX);
   changeSlide(scrubX);
 });
 
+startAutoScrubber();
 if (window.DeviceOrientationEvent) {
   // Listen for the deviceorientation event and handle the raw data
   window.addEventListener('deviceorientation', function(eventData) {
@@ -578,9 +604,11 @@ if (window.DeviceOrientationEvent) {
     beta 	  = eventData.beta;	  // - back-to-front + (degrees)
     alpha 	= eventData.alpha	  // compass direction (degrees)
     if(gamma == null || beta == null || alpha == null) {
-      // desktop
-      startAutoScrubber();
+      // deviceOrientation misfire, which would be odd...
     } else {
+    
+      // stop the auto-cycling, which is only intended as a desktop fallback
+      clearInterval(autoScrubber);
       
       // adaptive scale
       if(gamma < tiltCalib) {
@@ -591,14 +619,15 @@ if (window.DeviceOrientationEvent) {
         tiltScrub.domain([tiltCalib,tiltCalib+(tiltExtent/3),tiltCalib+(2*tiltExtent/3),tiltCalib+tiltExtent]);
       }
       
+      // change the slide 
+      // (note that it's not a binary transition; rather, the orientation scrubs through the transition)
       scrubX = tiltScrub(gamma);
       changeSlide(scrubX);
     }
   }, false);
 } 
 else {
-  // desktop
-  startAutoScrubber();
+  // no deviceOrientationEvent; probably a desktop?
 }
 
 var autoScrubber, t=0;
@@ -613,6 +642,10 @@ function startAutoScrubber() {
 // CHANGING SLIDES
 
 function changeSlide(scrubX) {
+  
+  if($(document).width() >= 960) {
+    return true;
+  }
   
   d3.select("#progressbar-inner").style("margin-left", (scrubX*50)+"%");
   
