@@ -41,7 +41,7 @@ body {
 #container {
   position: relative;
   overflow: hidden;
-  background: white;
+  background: #333;
 }
 
 #container-frame {
@@ -113,48 +113,6 @@ h3 {
   margin: 0;
 }
 
-.binary #container {
-  background: #333;
-}
-
-.dualbars .slide {
-  background: none;
-}
-.dualbars #container-frame-inner {
-  border: 5px solid black;
-}
-
-.dualbars .slide h2 {
-  position: absolute;
-  color: #f0f;
-  font-size: 18pt;
-  width:100%;
-}
-
-.dualbars svg {
-}
-
-.dualbars rect {
-  fill: black;
-}
-
-.dualbars line, .dualbars path {
-  stroke: none;
-}
-
-.dualbars text {
-  fill: black;
-}
-
-.dualbars #progressbar-outer {
-  border-bottom: 1px solid #ccc;
-}
-
-.dualbars #progressbar-inner {
-  border-bottom: 1px solid #000;
-}
-
-
 /* from pure css http://purecss.io/buttons/ */
 button {
   font-family: BWHaasHead;
@@ -213,8 +171,54 @@ button:hover {
   -webkit-transform-style: preserve-3d;
 }
 
+.binary #container {
+  background: #333;
+}
+
+.dualbars .slide {
+  background: none;
+}
+.dualbars #container-frame-inner {
+  border: 5px solid black;
+}
+
+.dualbars .slide h2 {
+  position: absolute;
+  color: #f0f;
+  font-size: 18pt;
+  width:100%;
+}
+
+.dualbars #container {
+  background: white;
+}
+
+.dualbars rect {
+  fill: black;
+}
+
+.dualbars line, .dualbars path {
+  stroke: none;
+}
+
+.dualbars text {
+  fill: black;
+}
+
+.dualbars #progressbar-outer {
+  border-bottom: 1px solid #ccc;
+}
+
+.dualbars #progressbar-inner {
+  border-bottom: 1px solid #000;
+}
+
 .dualbars #down-arrow, .dualbars #iphone-icon {
   fill: black;
+}
+
+.slopegraph #y div {
+  position: absolute;
 }
 
 @media (min-width: 640px) {
@@ -311,7 +315,8 @@ button:hover {
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
-<script>!function() {
+<script>
+//!function() {
 
 // CONFIG
 
@@ -330,19 +335,6 @@ var configs = [
   },
 
   {
-    title: 'Unmasking Bias Against Dachshunds',
-    description: "The 138th Annual Westminster Dog Show will unfold Feb. 10-11 at Madison Square Garden. And once again this year, the dachshunds—longhaired, smooth, and wire-haired—will get screwed. They never win. Never.",
-    storyLink: 'http://www.businessweek.com/articles/2014-02-10/westminster-dog-show-history-suggests-bias-against-dachshunds',
-    dataSources: [
-      { name: "Westminster Dog Show winners",
-        src: "dogs-binary.tsv",
-        img: "" }
-      ],
-    layout: "binary",
-    transition: "flip"
-  },
-
-  {
     title: 'A Wireless Traffic Jam',
     description: "The congestion issue is expected to get worse and worse. Steve Perlman’s pCell uses math and computing muscle to create high-capacity signals for mobile devices.",
     storyLink: 'http://www.businessweek.com/articles/2014-02-18/steve-perlmans-amazing-wireless-machine-is-finally-here',
@@ -356,7 +348,20 @@ var configs = [
       ],
     layout: "dualbars",
     transition: "zoom"
-  } 
+  },
+
+  {
+    title: 'Big Cities',
+    description: "Only half of the 10 most populous cities in the world as of 2000 are still in the top 10. Blah blah blah there's no story demo demo tk whatever.",
+    storyLink: 'http://www.businessweek.com/',
+    dataSources: [
+      { name: "Largest cities in the world",
+        src: "cities.tsv",
+        img: "" }
+      ],
+    layout: "slopegraph",
+    transition: "slopegraph"
+  }
 ];
 
 var config = configs[0];
@@ -557,6 +562,9 @@ var tiltScrub = d3.scale.linear()
     .range([0, 0, 1, 1])
     .clamp(true);
 
+// for layout-specific scales
+var scales;
+
 // RENDER SLIDES
 
 function render() {
@@ -566,7 +574,7 @@ function render() {
       var slide = d3.select("#container").append("div")
           .classed("slide", true)
           .attr("id", i)
-          .style("background-image", "url(img/dogs/"+i+".jpg)");
+          .style("background-image", "url(img/binary/"+i+".jpg)");
     
       slide.append("h2").text(i);
       slide.append("h3").text(d);
@@ -583,6 +591,32 @@ function render() {
         .text(config.dataSources[i].name);
       barChart(slide, dataSheet);
     });
+  }
+  
+  else if(config.layout == "slopegraph") {
+    var slide = d3.select("#container").append("div")
+      .classed("slide", true)
+    slide.append("h2")
+      .text(config.dataSources[0].name)
+      .attr("class", "label");
+    slide.append("h3")
+      .attr("id", "x");
+    slide.append("div")
+      .attr("id", "y");
+    
+    scales = new Object();  
+    $.each(data[0][0], function(i, value) {
+      scales[i] = d3.scale.linear()
+        .domain([0,1])
+        .range([data[0][0][i],data[0][1][i]]);
+    
+      if(i=="Year") {
+        //
+      } else {
+        d3.select("#y").append("div").text(i).classed(i, true);
+      }
+    });
+    
   }
     
 }
@@ -685,6 +719,24 @@ function changeSlide(scrubX) {
     });  
   }
   
+  else if(config.transition == "slopegraph") {
+    var rank = d3.scale.linear()
+      .domain([1,10])
+      .range([20, $("#container").height()-20]);
+
+    $.each(data[0][0], function(i, value) {
+      
+      if(i=="Year") {
+        d3.select("#x").text(Math.round(scales[i](scrubX)));
+      } else {      
+        
+        d3.select("#y ."+i)
+          .style("top", rank(scales[i](scrubX)) + "px" );
+        
+      }
+    });
+  }
+  
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -747,4 +799,5 @@ function barChart(parent, data) {
 
 }
 
-}()</script>
+//}()
+</script>
