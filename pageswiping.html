@@ -219,6 +219,12 @@ button:hover {
 
 .slopegraph #y div {
   position: absolute;
+  font-size: 24pt;
+}
+
+.slopegraph h3 {
+  opacity: 0.5;
+  -webkit-transform: rotate(90deg) translate(-150px, 0);
 }
 
 @media (min-width: 640px) {
@@ -355,7 +361,7 @@ var configs = [
     description: "Only half of the 10 most populous cities in the world as of 2000 are still in the top 10. Blah blah blah there's no story demo demo tk whatever.",
     storyLink: 'http://www.businessweek.com/',
     dataSources: [
-      { name: "Largest cities in the world",
+      { name: "Largest cities",
         src: "cities.tsv",
         img: "" }
       ],
@@ -613,7 +619,7 @@ function render() {
       if(i=="Year") {
         //
       } else {
-        d3.select("#y").append("div").text(i).classed(i, true);
+        d3.select("#y").append("div").text(i).classed(i.replace(/ /,"-").replace("&","-").replace(".","-").replace(/ /,"-"), true);
       }
     });
     
@@ -722,7 +728,7 @@ function changeSlide(scrubX) {
   else if(config.transition == "slopegraph") {
     var rank = d3.scale.linear()
       .domain([1,10])
-      .range([20, $("#container").height()-20]);
+      .range([90, $("#container").height()-150]);
 
     $.each(data[0][0], function(i, value) {
       
@@ -730,7 +736,7 @@ function changeSlide(scrubX) {
         d3.select("#x").text(Math.round(scales[i](scrubX)));
       } else {      
         
-        d3.select("#y ."+i)
+        d3.select("#y ."+i.replace(/ /,"-").replace("&","-").replace(".","-").replace(/ /,"-"))
           .style("top", rank(scales[i](scrubX)) + "px" );
         
       }
