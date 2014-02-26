@@ -227,6 +227,13 @@ button:hover {
   -webkit-transform: rotate(90deg) translate(-150px, 0);
 }
 
+.gif #gif { 
+  background-color: transparent;
+  background-image: url(img/gif/sprite-snapchat.png);
+  background-repeat: no-repeat;
+  background-size: 700%;
+}
+
 @media (min-width: 640px) {
   /* desktop view */
   
@@ -367,7 +374,21 @@ var configs = [
       ],
     layout: "slopegraph",
     transition: "slopegraph"
+  },
+  
+  {
+    title: 'Snapchat and the Erasable Future of Social Media',
+    description: "In the U.S., Snapchat was the second-most popular free photo and video app for the iPhone in early February, just behind YouTube and ahead of Instagram.",
+    storyLink: 'http://www.businessweek.com/articles/2013-02-07/snapchat-and-the-erasable-future-of-social-media',
+    dataSources: [
+      { name: "",
+        src: "",
+        img: "sprite-snapchat.png" }
+      ],
+    layout: "gif",
+    transition: "gif"
   }
+
 ];
 
 var config = configs[0];
@@ -407,21 +428,23 @@ var activeAJAX = config.dataSources.length;
 var data = [];
 
 config.dataSources.forEach(function(dataSource, i) {
-  d3.tsv("data/"+dataSource.src, function(error, dataLoaded) {
-    //coercing from strings to numbers
-    dataLoaded.forEach(function(d, i) {
-      $.each(d, function(j, value) {
-        dataLoaded[i][j] = +value;
-      })
+  if(dataSource.src) {
+    d3.tsv("data/"+dataSource.src, function(error, dataLoaded) {
+      //coercing from strings to numbers
+      dataLoaded.forEach(function(d, i) {
+        $.each(d, function(j, value) {
+          dataLoaded[i][j] = +value;
+        })
+      });
+      data.push(dataLoaded);
+      // if all files have been loaded...
+      if (--activeAJAX == 0) { 
+        render(); 
+        slides = d3.selectAll(".slide");
+        resized();
+      }
     });
-    data.push(dataLoaded);
-    // if all files have been loaded...
-    if (--activeAJAX == 0) { 
-      render(); 
-      slides = d3.selectAll(".slide");
-      resized();
-    }
-  });
+  } else { render(); }
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -601,7 +624,7 @@ function render() {
   
   else if(config.layout == "slopegraph") {
     var slide = d3.select("#container").append("div")
-      .classed("slide", true)
+      .classed("slide", true);
     slide.append("h2")
       .text(config.dataSources[0].name)
       .attr("class", "label");
@@ -623,6 +646,46 @@ function render() {
       }
     });
     
+  }
+  
+  else if(config.layout == "gif") {
+    var slide = d3.select("#container").append("div")
+      .classed("slide", true)
+      .attr("id", "gif");
+    
+    var imgWidth = 304;
+    var imgHeight = 405;
+    var width = $("#container").width();
+    var height = width * (imgHeight / imgWidth);
+    var offsetX = 0;
+    var offsetY = 0;
+    var spriteSheetFrames = 24; //40 for both posers;
+    var spriteSheetFramesModulo = 7;
+    var frame = 0;
+    var gifScrubber = setInterval(function() {
+      if(frame < spriteSheetFrames) {
+    
+        //height = $("#container").height();
+        //width = $("#container").width();
+        
+        offsetX = -1 * width * ( frame % spriteSheetFramesModulo );
+        offsetY = -1 * height * Math.floor( frame / spriteSheetFramesModulo );
+        $("#gif").css("background-position", offsetX+"px "+offsetY+"px");
+        //console.log("-1 * " + height + " * Math.floor( " + frame + " / " + spriteSheetFramesModulo + ") = " + offsetY);
+        console.log(height);
+        
+        /*
+        offsetX = -1 * ( frame % spriteSheetFramesModulo );
+        offsetY = -1 * Math.floor( frame / spriteSheetFramesModulo );
+        $("#gif").css("background-position", offsetX+"% "+offsetY+"%");
+        */
+        
+        frame++;
+      } else {
+        clearInterval(gifScrubber);
+      }
+    }, 50);
+
   }
     
 }
