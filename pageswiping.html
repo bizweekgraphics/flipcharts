@@ -234,6 +234,10 @@ button:hover {
   background-size: 700%;
 }
 
+.gif #container-frame-inner {
+  border: none;
+}
+
 @media (min-width: 640px) {
   /* desktop view */
   
@@ -652,40 +656,6 @@ function render() {
     var slide = d3.select("#container").append("div")
       .classed("slide", true)
       .attr("id", "gif");
-    
-    var imgWidth = 304;
-    var imgHeight = 405;
-    var width = $("#container").width();
-    var height = width * (imgHeight / imgWidth);
-    var offsetX = 0;
-    var offsetY = 0;
-    var spriteSheetFrames = 24; //40 for both posers;
-    var spriteSheetFramesModulo = 7;
-    var frame = 0;
-    var gifScrubber = setInterval(function() {
-      if(frame < spriteSheetFrames) {
-    
-        //height = $("#container").height();
-        //width = $("#container").width();
-        
-        offsetX = -1 * width * ( frame % spriteSheetFramesModulo );
-        offsetY = -1 * height * Math.floor( frame / spriteSheetFramesModulo );
-        $("#gif").css("background-position", offsetX+"px "+offsetY+"px");
-        //console.log("-1 * " + height + " * Math.floor( " + frame + " / " + spriteSheetFramesModulo + ") = " + offsetY);
-        console.log(height);
-        
-        /*
-        offsetX = -1 * ( frame % spriteSheetFramesModulo );
-        offsetY = -1 * Math.floor( frame / spriteSheetFramesModulo );
-        $("#gif").css("background-position", offsetX+"% "+offsetY+"%");
-        */
-        
-        frame++;
-      } else {
-        clearInterval(gifScrubber);
-      }
-    }, 50);
-
   }
     
 }
@@ -804,6 +774,26 @@ function changeSlide(scrubX) {
         
       }
     });
+  }
+  
+  else if(config.transition == "gif") {
+    var gifScrub = d3.scale.linear()
+      .domain([0,1])
+      .range([0,23]);
+    
+    var imgWidth = 304;
+    var imgHeight = 405;
+    var width = $("#container").width();
+    var height = width * (imgHeight / imgWidth);
+    var offsetX = 0;
+    var offsetY = 0;
+    var spriteSheetFrames = 24; //40 for both posers;
+    var spriteSheetFramesModulo = 7;
+    
+    offsetX = -1 * width * ( Math.floor(gifScrub(scrubX)) % spriteSheetFramesModulo );
+    offsetY = -1 * height * Math.floor( Math.floor(gifScrub(scrubX)) / spriteSheetFramesModulo );
+    $("#gif").css("background-position", offsetX+"px "+offsetY+"px");
+        
   }
   
 }
