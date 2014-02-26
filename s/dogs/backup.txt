@@ -1,0 +1,48 @@
+#sticker-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 99999;
+  pointer-events: none;
+  user-select: none;
+}
+
+.sticker {
+	position: absolute;
+	max-width: 200px;
+}
+
+
+
+  <div id="sticker-wrapper"></div>
+
+
+
+
+setStickers(i, Math.round(scales[i](mouseScrub(scrubProgress))));
+
+
+
+
+
+function setStickers(i, n) {
+	while($('.sticker .'+i).length != n) {
+    if($('.sticker .'+i).length < n) {
+      var src = "img/dogs/"+i;
+      var top = Math.random()*$("#sticker-wrapper").height();
+      var left = Math.random()*$("#sticker-wrapper").width();
+      var transform = 'rotate('+Math.floor(Math.random()*90-45)+'deg) translate(-50%,-50%);'
+      $("#sticker-wrapper").append('<img class="sticker" style="'+
+        'top:'+top+'px; left:'+left+'px;'+
+        'transform:'+transform+
+        '-ms-transform:'+transform+
+        '-webkit-transform:'+transform+'"'+
+        'src="sticker'+src+'.png">');
+    } else {
+      $('.sticker .'+i)[0].remove();
+    }
+	}
+}
