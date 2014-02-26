@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Untitled</title>
+  <link rel="stylesheet" href="img/sprite-snapchat.css">
+  
+<style>
+#gif { 
+  background-color: transparent;
+  background-image: url(img/gif/sprite-snapchat.png);
+  background-repeat: no-repeat;
+  width: 304px;
+  height: 405px;
+}
+.frame-0 { background-position: 0 0; }
+.frame-1 { background-position: -608px 0; } 
+</style>
+
+</head>
+<body>
+<div id="gif" class="">
+</div>
+
+<script src="js/vendor/jquery-1.10.2.min.js"></script>
+<script>
+var height = 405;
+var width = 304;
+var offsetX = 0;
+var offsetY = 0;
+var spriteSheetFrames = 24; //40 for both posers;
+var spriteSheetFramesModulo = 7;
+var frame = 0;
+var gifScrubber = setInterval(function() {
+  if(frame < spriteSheetFrames) {
+    offsetX = -1 * width * ( frame % spriteSheetFramesModulo );
+    offsetY = -1 * height * Math.floor( frame / spriteSheetFramesModulo );
+    $("#gif").css("background-position", offsetX+"px "+offsetY+"px");
+    frame++;
+  } else {
+    clearInterval(gifScrubber);
+  }
+}, 50);
+
+</script>
+</body>
+</html>
