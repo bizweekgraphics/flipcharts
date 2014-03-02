@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+  <link href="apple-touch-icon-precomposed.png" rel="apple-touch-icon" type="image/png" />
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/h5bp.css">
+  <link rel="stylesheet" href="css/bbw.css">
+  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+
+<style>
+
+body {
+  background: #333;
+  margin: 0;
+  color: white;
+  font-size: 14pt;
+}
+
+#preview {
+  background: #333;
+}
+
+.page {
+  top: 0;
+  width: 100%;
+}
+
+* {
+-webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+     -o-box-sizing: border-box;
+        box-sizing: border-box;
+}
+
+#container {
+  position: relative;
+  overflow: hidden;
+  background: #333;
+}
+
+#container-frame {
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  z-index: 99;
+}
+
+#container-frame-inner {
+  pointer-events: none;
+  position: relative;
+  border: 5px solid white;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  -webkit-perspective: 800px;
+  -webkit-perspective-origin: 95% 5%;
+}
+
+#progressbar-outer {
+  position: absolute;
+  bottom: -10px;
+  border-bottom: 1px solid #333;
+  width: 100%;
+  height: 1px;
+}
+
+#progressbar-inner {
+  position: absolute;
+  bottom: -10px;
+  border-bottom: 1px solid #fff;
+  width: 50%;
+  margin-left: 0%;
+  height: 1px;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: 50% 50%;
+  padding: 45px;
+}
+
+#preview {
+  font-family: BWHaasRegular;
+  padding: 20px;
+  text-align: center;
+}
+
+#preview h2 {
+  font-size: 20pt;
+}
+
+h2 {
+  font-family: BWHaasHead;
+  font-size: 24pt;
+  margin: 0;
+}
+
+h3 {
+  position: absolute;
+  bottom: 0;
+  font-size: 150pt;
+  margin: 0;
+}
+
+/* from pure css http://purecss.io/buttons/ */
+button {
+  font-family: BWHaasHead;
+  font-size: 100%;
+  padding: .5em 1.5em;
+  color: #444;
+  color: rgba(0,0,0,.8);
+  border: 1px solid #999;
+  border: 0 rgba(0,0,0,0);
+  background-color: #E6E6E6;
+  text-decoration: none;
+  border-radius: 2px;
+  -webkit-transition: .1s linear -webkit-box-shadow;
+  -moz-transition: .1s linear -moz-box-shadow;
+  -ms-transition: .1s linear box-shadow;
+  -o-transition: .1s linear box-shadow;
+  transition: .1s linear box-shadow;
+  display: inline-block;
+  zoom: 1;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: baseline;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: button;
+  cursor: pointer;
+  margin: 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+button:hover {
+  background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+}
+
+#down-arrow {
+  pointer-events: all;
+  fill: white;
+  position: absolute;
+  bottom: 0;
+  margin-left: 50%;
+  -webkit-transform: translate(-50%, 75%) scale(.5);
+}
+
+#iphone-icon {
+  opacity:.8;
+  fill: white;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  -webkit-transform-style: preserve-3d;
+}
+
+.binary #container {
+  background: #333;
+}
+
+.dualbars .slide {
+  background: none;
+}
+.dualbars #container-frame-inner {
+  border: 5px solid black;
+}
+
+.dualbars .slide h2 {
+  position: absolute;
+  color: #f0f;
+  font-size: 18pt;
+  width:100%;
+}
+
+.dualbars #container {
+  background: white;
+}
+
+.dualbars rect {
+  fill: black;
+}
+
+.dualbars line, .dualbars path {
+  stroke: none;
+}
+
+.dualbars text {
+  fill: black;
+}
+
+.dualbars #progressbar-outer {
+  border-bottom: 1px solid #ccc;
+}
+
+.dualbars #progressbar-inner {
+  border-bottom: 1px solid #000;
+}
+
+.dualbars #down-arrow, .dualbars #iphone-icon {
+  fill: black;
+}
+
+.slopegraph #y div {
+  position: absolute;
+  font-size: 24pt;
+}
+
+.slopegraph h3 {
+  opacity: 0.5;
+  -webkit-transform: rotate(90deg) translate(-150px, 0);
+}
+
+.gif #gif {
+  background-color: transparent;
+  background-image: url(img/gif/sprite-snapchat.png);
+  background-repeat: no-repeat;
+  background-size: 700%;
+}
+
+.gif #container-frame-inner {
+  border: none;
+}
+
+@media (min-width: 640px) {
+  /* desktop view */
+
+  body {
+    background: url(img/scribble_light.png);
+  }
+
+  #container {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  #preview {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  #iphone-icon, #down-arrow {
+    display: none !important;
+    fill: blue !important;
+    margin: 50px;
+  }
+
+  .pages {
+    width: 640px;
+    height: 568px;
+    margin: 100px auto;
+    box-shadow: 0 0 1em #333;
+    border-radius: 5px;
+  }
+  .page {
+    width: 320px;
+    float: left;
+    height: 568px !important;
+  }
+}
+
+@media (min-width: 960px) {
+  .pages {
+    width: 960px;
+  }
+  #container {
+    width: 640px;
+  }
+  .slide {
+    position: relative;
+    width: 320px;
+    float: left;
+    -webkit-transform: none !important;
+  }
+  #progressbar-outer, #progressbar-inner {
+    display: none;
+  }
+}
+
+</style>
+<div class="pages">
+  <div id="container" class="page">
+    <!-- decorative frame, absolutely positioned, persists across slides -->
+    <div id="container-frame">
+      <div id="container-frame-inner">
+        <svg id="iphone-icon" version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+           width="50.938px" height="100px" viewBox="0 0 50.938 100" enable-background="new 0 0 50.938 100" xml:space="preserve">
+          <path d="M43.101,0H7.837C3.509,0,0,3.508,0,7.836v84.327C0,96.491,3.509,100,7.837,100h35.264c4.328,0,7.837-3.509,7.837-7.837
+            V7.836C50.938,3.508,47.429,0,43.101,0z M21.615,8.315h7.708c0.576,0,1.043,0.467,1.043,1.044c0,0.576-0.467,1.043-1.043,1.043
+            h-7.708c-0.577,0-1.044-0.467-1.044-1.043C20.571,8.782,21.038,8.315,21.615,8.315z M17.123,7.915c0.687,0,1.244,0.557,1.244,1.244
+            c0,0.687-0.557,1.244-1.244,1.244c-0.687,0-1.244-0.557-1.244-1.244C15.879,8.472,16.437,7.915,17.123,7.915z M25.469,95.772
+            c-2.705,0-4.898-2.192-4.898-4.897c0-2.706,2.193-4.898,4.898-4.898s4.897,2.192,4.897,4.898
+            C30.366,93.58,28.174,95.772,25.469,95.772z M47.019,82.489h-43.1V17.511h43.1V82.489z"/>
+        </svg>
+
+        <svg id="down-arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Your_Icon" x="0px" y="0px" width="100px" height="99.999px" viewBox="0 0 100 99.999" enable-background="new 0 0 100 99.999" xml:space="preserve">
+          <polygon points="75,40.034 70.758,35.794 49.958,56.558 29.158,35.794 24.916,40.034 49.926,64.999 49.958,64.968 49.99,64.999 "/>
+        </svg>
+        <div id="progressbar-outer"></div>
+        <div id="progressbar-inner"></div>
+      </div>
+    </div>
+    <!-- slides get appended here -->
+  </div>
+  <div id="preview" class="page">
+    <a href="http://businessweek.com/" title="Bloomberg Businessweek"><img src="apple-touch-icon-precomposed.png" width="50"></a>
+    <h2 id="title"></h2>
+    <p id="description"></p>
+    <a id="story-link" href="#"><button>Read article</button></a>
+  </div>
+</div>
+
+  <script src="js/vendor/d3.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+<script>
+//!function() {
+
+// CONFIG
+
+var configs = [
+  {
+    title: 'Unmasking Bias Against Dachshunds',
+    description: "The 138th Annual Westminster Dog Show will unfold Feb. 10-11 at Madison Square Garden. And once again this year, the dachshunds—longhaired, smooth, and wire-haired—will get screwed. They never win. Never.",
+    storyLink: 'http://www.businessweek.com/articles/2014-02-10/westminster-dog-show-history-suggests-bias-against-dachshunds',
+    dataSources: [
+      { name: "Westminster Dog Show winners",
+        src: "dogs-binary.tsv",
+        img: "" }
+      ],
+    layout: "binary",
+    transition: "slide"
+  }
+
+];
+var config = configs[0];
+
+// SET UP TEMPLATE
+
+d3.select("body").classed(config.layout, true);
+d3.select("#title").text(config.title);
+d3.select("#description").text(config.description);
+d3.select("#story-link").attr("href", config.storyLink);
+d3.select("button").on("touchend", function() {
+  window.location = config.storyLink;
+});
+$("#down-arrow").on("touchend click", function() {
+  window.scrollTo(0, $(".page").height());
+});
+
+d3.select("#iphone-icon").style("-webkit-transform", "rotateY(0deg)");
+d3.select("#iphone-icon")
+  .transition()
+    .duration(1000)
+    .style("-webkit-transform", "rotateY(45deg)")
+  .transition()
+    .duration(1000)
+    .style("opacity",0);
+
+// LOAD DATA FROM ALL SOURCES
+
+// files remaining
+var activeAJAX = config.dataSources.length;
+
+var data = [];
+
+config.dataSources.forEach(function(dataSource, i) {
+  if(dataSource.src) {
+    d3.tsv("data/"+dataSource.src, function(error, dataLoaded) {
+      //coercing from strings to numbers
+      dataLoaded.forEach(function(d, i) {
+        $.each(d, function(j, value) {
+          dataLoaded[i][j] = +value;
+        })
+      });
+      data.push(dataLoaded);
+      // if all files have been loaded...
+      if (--activeAJAX == 0) {
+        render();
+        slides = d3.selectAll(".slide");
+        resized();
+      }
+    });
+  } else { render(); }
+});
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// PAGES (vertical) //////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+var body = d3.select("body"),
+    height = innerHeight,
+    clientY0,
+    pageY0,
+    pageYMin = 0,
+    pageYMax,
+    dragSamples;
+
+var mouseDowned = false;
+
+var page = d3.selectAll(".page"),
+    slides = d3.selectAll(".slide");
+
+d3.select(window)
+    .on("resize", resized)
+    .on("touchstart", touchstarted)
+    .on("touchmove", touchmoved)
+    .on("touchend", touchended)
+    .each(resized);
+
+/* useful for testing, but janky. swap in mouse events below.
+d3.select(window)
+    .on("mousedown", touchstarted)
+    .on("mousemove", touchmoved)
+    .on("mouseup", touchended);
+*/
+
+function resized() {
+  //for horizontal responsiveness (by toph)
+  width = $("#container").width();
+
+  if(typeof mouseScrub !== "undefined") {
+    mouseScrub.domain([0, $("#container").width()*.33, $("#container").width()*.66, $("#container").width()]);
+  }
+
+  // for vertical responsiveness (from bostock block); irrelevant if pages are beside each other
+  if($(document).width() >= 640) {
+    page.style("height", "inherit");
+    slides.style("height", "inherit");
+    return true;
+  }
+  var height0 = height;
+  height = innerHeight;
+  page.style("height", height + "px");
+  slides.style("height", height + "px");
+//  body.style("font", (height * .4) + "px/" + (height * .9) + "px sans-serif");
+  pageYMax = (page.size() - 1) * height;
+  window.scrollTo(0, Math.max(0, Math.min(page.size() - 1, Math.round(pageYOffset / height0))) * height);
+}
+
+function touchstarted() {
+  //mouseDowned = true;
+  dragSamples = [];
+  clientY0 = d3.event.changedTouches[0].clientY;
+  //clientY0 = d3.mouse(d3.select("body").node())[1];
+  pageY0 = pageYOffset;
+  d3.event.preventDefault();
+  body.interrupt();
+}
+
+function touchmoved() {
+  //if(mouseDowned) {
+    var clientY1 = d3.event.changedTouches[0].clientY,
+    //var clientY1 = d3.mouse(d3.select("body").node())[1],
+        pageY1 = pageY0 + clientY0 - clientY1;
+    if (pageY1 < pageYMin) {
+      if (pageYOffset > pageYMin) {
+        window.scrollTo(0, pageYMin);
+      }
+      body.style("-webkit-transform", "translate3d(0," + -(pageY1 - pageYMin) / 3 + "px,0)");
+    } else if (pageY1 > pageYMax) {
+      if (pageYOffset < pageYMax) {
+        window.scrollTo(0, pageYMax);
+      }
+      body.style("-webkit-transform", "translate3d(0," + -(pageY1 - pageYMax) / 3 + "px,0)");
+    } else {
+      window.scrollTo(0, pageY1);
+    }
+    if (dragSamples.push({y: pageY1, t: Date.now()}) > 8) {
+      dragSamples.shift();
+    }
+  //}
+}
+
+function touchended() {
+  //mouseDowned = false;
+  var s0 = dragSamples.shift(),
+      s1 = dragSamples.pop(),
+      t1 = Date.now(),
+      y = pageYOffset;
+
+  while (s0 && (t1 - s0.t > 350)) s0 = dragSamples.shift();
+
+  if (s0 && s1) {
+    var vy = (s1.y - s0.y) / (s1.t - s0.t);
+    if (vy > .5) y = Math.ceil(y / height) * height;
+    else if (vy < -.5) y = Math.floor(y / height) * height;
+  }
+
+  y = Math.max(0, Math.min(page.size() - 1, Math.round(y / height))) * height;
+
+  body.transition()
+      .duration(500)
+      .ease("cubic-out")
+      .styleTween("-webkit-transform", function() {
+        if (s1) {
+          var i;
+          if (s1.y < pageYMin) i = d3.interpolateNumber(-(s1.y - pageYMin) / 3, 0);
+          if (s1.y > pageYMax) i = d3.interpolateNumber(-(s1.y - pageYMax) / 3, 0);
+          return i && function(t) { return "translate3d(0," + i(t) + "px,0)"; };
+        }
+      })
+      .tween("scroll", function() {
+        var i = d3.interpolateNumber(pageYOffset, y);
+        return function(t) { window.scrollTo(0, i(t)); };
+      });
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// SLIDES (horizontal) ///////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+var mouseX, scrubX;
+var gamma, beta, alpha;
+
+var width = $("#container").width(),
+    height = $(document).height();
+
+var mouseScrub = d3.scale.linear()
+    .domain([0, $("#container").width()*.33, $("#container").width()*.66, $("#container").width()])
+    .range([0, 0, 1, 1])
+    .clamp(true);
+
+var tiltCalib = -9;
+var tiltExtent = 18;
+var tiltScrub = d3.scale.linear()
+    .domain([tiltCalib,tiltCalib+(tiltExtent/3),tiltCalib+(2*tiltExtent/3),tiltCalib+tiltExtent])
+    .range([0, 0, 1, 1])
+    .clamp(true);
+
+// for layout-specific scales
+var scales;
+
+// RENDER SLIDES
+
+function render() {
+
+  if(config.layout == "binary") {
+    $.each(data[0][0], function(i, d) {
+      var slide = d3.select("#container").append("div")
+          .classed("slide", true)
+          .attr("id", i)
+          .style("background-image", "url(img/binary/"+i+".jpg)");
+
+      slide.append("h2").text(i);
+      slide.append("h3").text(d);
+    });
+  }
+
+}
+
+// CAPTURING EVENTS TO CHANGE SLIDES
+
+d3.select("#container").on("mousemove", function() {
+  clearInterval(autoScrubber);
+  mouseX = d3.mouse(d3.select("#container").node())[0];
+  scrubX = mouseScrub(mouseX);
+  changeSlide(scrubX);
+});
+
+startAutoScrubber();
+if (window.DeviceOrientationEvent) {
+  // Listen for the deviceorientation event and handle the raw data
+  window.addEventListener('deviceorientation', function(eventData) {
+    gamma 	= eventData.gamma;	// - left-to-right + (degrees)
+    beta 	  = eventData.beta;	  // - back-to-front + (degrees)
+    alpha 	= eventData.alpha	  // compass direction (degrees)
+    if(gamma == null || beta == null || alpha == null) {
+      // deviceOrientation misfire, which would be odd...
+    } else {
+
+      // stop the auto-cycling, which is only intended as a desktop fallback
+      clearInterval(autoScrubber);
+
+      // adaptive scale
+      if(gamma < tiltCalib) {
+        tiltCalib = gamma;
+        tiltScrub.domain([tiltCalib,tiltCalib+(tiltExtent/3),tiltCalib+(2*tiltExtent/3),tiltCalib+tiltExtent]);
+      } else if (gamma > tiltCalib + tiltExtent) {
+        tiltCalib = gamma-tiltExtent;
+        tiltScrub.domain([tiltCalib,tiltCalib+(tiltExtent/3),tiltCalib+(2*tiltExtent/3),tiltCalib+tiltExtent]);
+      }
+
+      // change the slide
+      // (note that it's not a binary transition; rather, the orientation scrubs through the transition)
+      scrubX = tiltScrub(gamma);
+      changeSlide(scrubX);
+    }
+  }, false);
+}
+else {
+  // no deviceOrientationEvent; probably a desktop?
+}
+
+var autoScrubber, t=0;
+function autoScrub() {
+  changeSlide(0.5*Math.cos(t/50)+0.5);
+  t++;
+}
+function startAutoScrubber() {
+  autoScrubber = setInterval(autoScrub,10);
+}
+
+// CHANGING SLIDES
+
+function changeSlide(scrubX) {
+
+  if($(document).width() >= 960) {
+    return true;
+  }
+
+  d3.select("#progressbar-inner").style("margin-left", (scrubX*50)+"%");
+
+  if(config.transition == "slide") {
+    //slide across
+    var dx, first = true;
+    slides.each(function(d,i) {
+      dx = first ? width*scrubX : -width+width*scrubX;
+      d3.select(this).style("-webkit-transform", "translate("+dx+"px,0)");
+      first = false;
+    });
+  }
+
+  else if(config.transition == "zoom") {
+    var scaleScale = d3.scale.linear().domain([0,1]).range([0.7,1]);
+    var scale, opacity, first = true;
+    slides.each(function(d,i) {
+      scale = first ? scaleScale(scrubX) : scaleScale(1-scrubX);
+      opacity = first ? scrubX : 1-scrubX;
+      d3.select(this).style("-webkit-transform", "scale("+scale+")");
+      d3.select(this).style("opacity", opacity);
+      first = false;
+    });
+  }
+
+  else if(config.transition == "flip") {
+    var flipScale = d3.scale.linear().domain([0,1]).range([0,180]);
+    d3.select("#container").style("-webkit-perspective", "800px");
+    slides
+      .style("-webkit-transform-style", "preserve-3d")
+      .style("-webkit-backface-visibility", "hidden");
+    var rotation, first = true;
+    slides.each(function(d,i) {
+      rotation = first ? flipScale(scrubX) : 180+flipScale(scrubX);
+      d3.select(this).style("-webkit-transform", "rotateY("+rotation+"deg)");
+      first = false;
+    });
+  }
+
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// CHARTER ///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+function barChart(parent, data) {
+
+  var margin = {top: 40, right: 0, bottom: 40, left: 0},
+      width = $(parent.node()).width() - margin.left - margin.right,
+      height = $(parent.node()).height() - margin.top - margin.bottom;
+
+  var x = d3.scale.ordinal()
+      .rangeRoundBands([0, width], .1);
+
+  var y = d3.scale.linear()
+      .range([height, 0]);
+
+  var xAxis = d3.svg.axis()
+      .scale(x)
+      .tickValues([2009,2014])
+      .orient("bottom");
+
+  var yAxis = d3.svg.axis()
+      .scale(y)
+      .orient("left")
+      .ticks(10, ""); //"%"
+
+  var svg = parent.append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  // this shouldn't really be a category axis...
+  x.domain(data.map(function(d) { return d.year; }));
+
+  // somewhat tortured way to force y scale to include 0, be it above max or below min
+  var yExtent = d3.extent(data, function(d) { return d.value; });
+  yExtent.push(0);
+  y.domain(d3.extent(yExtent));
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  /*svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);*/
+
+  svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.year); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(Math.max(0, d.value)); })
+      .attr("height", function(d) { return Math.abs(y(d.value) - y(0)); });
+
+}
+
+//}()
+</script>
