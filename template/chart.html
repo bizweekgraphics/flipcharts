@@ -575,6 +575,7 @@ function resized() {
   height = innerHeight;
   page.style("height", height + "px");
   slides.style("height", height + "px");
+  //d3.select("#svg-canvas").attr("height", height);
 //  body.style("font", (height * .4) + "px/" + (height * .9) + "px sans-serif");
   pageYMax = (page.size() - 1) * height;
   window.scrollTo(0, Math.max(0, Math.min(page.size() - 1, Math.round(pageYOffset / height0))) * height);
