@@ -56,7 +56,7 @@ body {
 #container-frame-inner {
   pointer-events: none;
   position: relative;
-  border: 5px solid white;  
+  border: 5px solid white;
   width: 100%;
   height: 100%;
   padding: 0px;
@@ -227,40 +227,48 @@ button:hover {
   -webkit-transform: rotate(90deg) translate(-150px, 0);
 }
 
-.gif #gif { 
+.gif #gif {
   background-color: transparent;
   background-image: url(img/gif/sprite-snapchat.png);
   background-repeat: no-repeat;
   background-size: 700%;
 }
 
-.gif #container-frame-inner {
+.gif #container-frame-inner, .vectors #container-frame-inner {
   border: none;
+}
+
+.vectors .slide {
+  padding: 0;
+}
+
+#svg-canvas {
+  position: absolute;
 }
 
 @media (min-width: 640px) {
   /* desktop view */
-  
+
   body {
     background: url(img/scribble_light.png);
   }
-  
+
   #container {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
   }
-  
+
   #preview {
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
   }
-  
+
   #iphone-icon, #down-arrow {
     display: none !important;
     fill: blue !important;
     margin: 50px;
   }
-  
+
   .pages {
     width: 640px;
     height: 568px;
@@ -297,6 +305,16 @@ button:hover {
 <div class="pages">
   <div id="container" class="page">
     <!-- decorative frame, absolutely positioned, persists across slides -->
+
+    <svg id="svg-canvas">
+      <defs>
+        <!-- arrowhead for arrows -->
+        <marker id = "arrowhead" viewBox = "-10 -10 20 20" refX = "0" refY = "0" markerWidth = "20" markerHeight = "20" stroke-width = "1" orient = "auto">
+          <polyline class="arrow" stroke-linejoin="bevel" points="-6.72,-6.749 0.54,0 -6.72,6.749 "/>
+        </marker>
+      </defs>
+    </svg>
+
     <div id="container-frame">
       <div id="container-frame-inner">
         <svg id="iphone-icon" version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -308,7 +326,7 @@ button:hover {
             c-2.705,0-4.898-2.192-4.898-4.897c0-2.706,2.193-4.898,4.898-4.898s4.897,2.192,4.897,4.898
             C30.366,93.58,28.174,95.772,25.469,95.772z M47.019,82.489h-43.1V17.511h43.1V82.489z"/>
         </svg>
-        
+
         <svg id="down-arrow" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Your_Icon" x="0px" y="0px" width="100px" height="99.999px" viewBox="0 0 100 99.999" enable-background="new 0 0 100 99.999" xml:space="preserve">
           <polygon points="75,40.034 70.758,35.794 49.958,56.558 29.158,35.794 24.916,40.034 49.926,64.999 49.958,64.968 49.99,64.999 "/>
         </svg>
@@ -327,8 +345,7 @@ button:hover {
 </div>
 
   <script src="js/vendor/d3.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+  <script src="js/vendor/jquery-1.10.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
@@ -359,7 +376,7 @@ var configs = [
       { name: "Growth of wireless use per cell tower",
         src: "trafficjam-use.tsv",
         img: "" },
-      { name: "Cellular spectrum surplus and deficit", 
+      { name: "Cellular spectrum surplus and deficit",
         src: "trafficjam-surplus.tsv",
         img: "" }
       ],
@@ -379,7 +396,7 @@ var configs = [
     layout: "slopegraph",
     transition: "slopegraph"
   },
-  
+
   {
     title: 'Snapchat and the Erasable Future of Social Media',
     description: "In the U.S., Snapchat was the second-most popular free photo and video app for the iPhone in early February, just behind YouTube and ahead of Instagram.",
@@ -391,6 +408,29 @@ var configs = [
       ],
     layout: "gif",
     transition: "gif"
+  },
+
+  {
+    title: 'Oscars and box office',
+    description: "TK TK TK",
+    storyLink: 'http://www.businessweek.com/',
+    dataSources: [
+      { name: "",
+        src: "",
+        img: "sprite-snapchat.png" }
+      ],
+    json: [
+      {
+        "x": 1,
+        "y": 10
+      },
+      {
+        "x": 11,
+        "y": 2
+      }
+    ],
+    layout: "vectors",
+    transition: "vectors"
   }
 
 ];
@@ -408,10 +448,10 @@ d3.select("body").classed(config.layout, true);
 d3.select("#title").text(config.title);
 d3.select("#description").text(config.description);
 d3.select("#story-link").attr("href", config.storyLink);
-d3.select("button").on("touchend", function() { 
-  window.location = config.storyLink; 
+d3.select("button").on("touchend", function() {
+  window.location = config.storyLink;
 });
-$("#down-arrow").on("touchend click", function() { 
+$("#down-arrow").on("touchend click", function() {
   window.scrollTo(0, $(".page").height());
 });
 
@@ -423,6 +463,11 @@ d3.select("#iphone-icon")
   .transition()
     .duration(1000)
     .style("opacity",0);
+
+// for globally storing layout-specific items
+var svg,
+    scales = new Object(),
+    drawings = new Object();
 
 // LOAD DATA FROM ALL SOURCES
 
@@ -442,8 +487,8 @@ config.dataSources.forEach(function(dataSource, i) {
       });
       data.push(dataLoaded);
       // if all files have been loaded...
-      if (--activeAJAX == 0) { 
-        render(); 
+      if (--activeAJAX == 0) {
+        render();
         slides = d3.selectAll(".slide");
         resized();
       }
@@ -485,17 +530,17 @@ d3.select(window)
 function resized() {
   //for horizontal responsiveness (by toph)
   width = $("#container").width();
-  
+
   if(typeof mouseScrub !== "undefined") {
     mouseScrub.domain([0, $("#container").width()*.33, $("#container").width()*.66, $("#container").width()]);
   }
-  
+
   // for vertical responsiveness (from bostock block); irrelevant if pages are beside each other
-  if($(document).width() >= 640) { 
+  if($(document).width() >= 640) {
     page.style("height", "inherit");
     slides.style("height", "inherit");
-    return true; 
-  } 
+    return true;
+  }
   var height0 = height;
   height = innerHeight;
   page.style("height", height + "px");
@@ -595,27 +640,24 @@ var tiltScrub = d3.scale.linear()
     .range([0, 0, 1, 1])
     .clamp(true);
 
-// for layout-specific scales
-var scales;
-
 // RENDER SLIDES
 
 function render() {
-  
+
   if(config.layout == "binary") {
     $.each(data[0][0], function(i, d) {
       var slide = d3.select("#container").append("div")
           .classed("slide", true)
           .attr("id", i)
           .style("background-image", "url(img/binary/"+i+".jpg)");
-    
+
       slide.append("h2").text(i);
       slide.append("h3").text(d);
     });
   }
-  
+
   else if(config.layout == "dualbars") {
-    data.forEach(function(dataSheet, i) {      
+    data.forEach(function(dataSheet, i) {
       var slide = d3.select("#container").append("div")
         .classed("slide", true)
         .attr("id", "slide"+i);
@@ -625,7 +667,7 @@ function render() {
       barChart(slide, dataSheet);
     });
   }
-  
+
   else if(config.layout == "slopegraph") {
     var slide = d3.select("#container").append("div")
       .classed("slide", true);
@@ -636,28 +678,61 @@ function render() {
       .attr("id", "x");
     slide.append("div")
       .attr("id", "y");
-    
-    scales = new Object();  
+
     $.each(data[0][0], function(i, value) {
       scales[i] = d3.scale.linear()
         .domain([0,1])
         .range([data[0][0][i],data[0][1][i]]);
-    
+
       if(i=="Year") {
         //
       } else {
         d3.select("#y").append("div").text(i).classed(i.replace(/ /,"-").replace("&","-").replace(".","-").replace(/ /,"-"), true);
       }
     });
-    
+
   }
-  
+
   else if(config.layout == "gif") {
     var slide = d3.select("#container").append("div")
       .classed("slide", true)
       .attr("id", "gif");
   }
-    
+
+  else if(config.layout == "vectors") {
+    var slide = d3.select("#container").append("div")
+      .classed("slide", true);
+
+    var margin = {top: 45, right: 45, bottom: 45, left: 45},
+        width = $("#container").width() - margin.left - margin.right,
+        height = $("#container").height() - margin.top - margin.bottom;
+
+    svg = d3.select("#svg-canvas")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var xExt = d3.extent(config.json, function(d) { return d.x; });
+    var yExt = d3.extent(config.json, function(d) { return d.y; });
+
+    scales.x = d3.scale.linear()
+      .domain([0,xExt[1]])
+      .range([0,width]);
+
+    scales.y = d3.scale.linear()
+      .domain([0,yExt[1]])
+      .range([0,height]);
+
+    scales.xInterpolate = d3.scale.linear()
+      .domain([0,1])
+      .range([config.json[0].x, config.json[1].x]);
+
+    scales.yInterpolate = d3.scale.linear()
+      .domain([0,1])
+      .range([config.json[0].y, config.json[1].y]);
+  }
+
 }
 
 // CAPTURING EVENTS TO CHANGE SLIDES
@@ -679,10 +754,10 @@ if (window.DeviceOrientationEvent) {
     if(gamma == null || beta == null || alpha == null) {
       // deviceOrientation misfire, which would be odd...
     } else {
-    
+
       // stop the auto-cycling, which is only intended as a desktop fallback
       clearInterval(autoScrubber);
-      
+
       // adaptive scale
       if(gamma < tiltCalib) {
         tiltCalib = gamma;
@@ -691,14 +766,14 @@ if (window.DeviceOrientationEvent) {
         tiltCalib = gamma-tiltExtent;
         tiltScrub.domain([tiltCalib,tiltCalib+(tiltExtent/3),tiltCalib+(2*tiltExtent/3),tiltCalib+tiltExtent]);
       }
-      
-      // change the slide 
+
+      // change the slide
       // (note that it's not a binary transition; rather, the orientation scrubs through the transition)
       scrubX = tiltScrub(gamma);
       changeSlide(scrubX);
     }
   }, false);
-} 
+}
 else {
   // no deviceOrientationEvent; probably a desktop?
 }
@@ -715,13 +790,13 @@ function startAutoScrubber() {
 // CHANGING SLIDES
 
 function changeSlide(scrubX) {
-  
+
   if($(document).width() >= 960) {
     return true;
   }
-  
+
   d3.select("#progressbar-inner").style("margin-left", (scrubX*50)+"%");
-  
+
   if(config.transition == "slide") {
     //slide across
     var dx, first = true;
@@ -729,9 +804,9 @@ function changeSlide(scrubX) {
       dx = first ? width*scrubX : -width+width*scrubX;
       d3.select(this).style("-webkit-transform", "translate("+dx+"px,0)");
       first = false;
-    });      
+    });
   }
-  
+
   else if(config.transition == "zoom") {
     var scaleScale = d3.scale.linear().domain([0,1]).range([0.7,1]);
     var scale, opacity, first = true;
@@ -741,9 +816,9 @@ function changeSlide(scrubX) {
       d3.select(this).style("-webkit-transform", "scale("+scale+")");
       d3.select(this).style("opacity", opacity);
       first = false;
-    });      
+    });
   }
-  
+
   else if(config.transition == "flip") {
     var flipScale = d3.scale.linear().domain([0,1]).range([0,180]);
     d3.select("#container").style("-webkit-perspective", "800px");
@@ -755,32 +830,32 @@ function changeSlide(scrubX) {
       rotation = first ? flipScale(scrubX) : 180+flipScale(scrubX);
       d3.select(this).style("-webkit-transform", "rotateY("+rotation+"deg)");
       first = false;
-    });  
+    });
   }
-  
+
   else if(config.transition == "slopegraph") {
     var rank = d3.scale.linear()
       .domain([1,10])
       .range([90, $("#container").height()-150]);
 
     $.each(data[0][0], function(i, value) {
-      
+
       if(i=="Year") {
         d3.select("#x").text(Math.round(scales[i](scrubX)));
-      } else {      
-        
+      } else {
+
         d3.select("#y ."+i.replace(/ /,"-").replace("&","-").replace(".","-").replace(/ /,"-"))
           .style("top", rank(scales[i](scrubX)) + "px" );
-        
+
       }
     });
   }
-  
+
   else if(config.transition == "gif") {
     var gifScrub = d3.scale.linear()
       .domain([0,1])
       .range([0,23]);
-    
+
     var imgWidth = 304;
     var imgHeight = 405;
     var frameWidth = $("#container").width();
@@ -789,13 +864,28 @@ function changeSlide(scrubX) {
     var offsetY = 0;
     var spriteSheetFrames = 24; //40 for both posers;
     var spriteSheetFramesModulo = 7;
-    
+
     offsetX = -1 * frameWidth * ( Math.floor(gifScrub(scrubX)) % spriteSheetFramesModulo );
     offsetY = -1 * frameHeight * Math.floor( Math.floor(gifScrub(scrubX)) / spriteSheetFramesModulo );
     $("#gif").css("background-position", offsetX+"px "+offsetY+"px");
-        
+
   }
-  
+
+  else if(config.transition == "vectors") {
+    if(typeof drawings.xVector != "undefined") {
+      drawings.xVector.remove();
+      drawings.yVector.remove();
+    }
+
+    drawings.xVector = drawArrow(svg,[0,0],[scales.x(scales.xInterpolate(scrubX)),0],0,false);
+    drawings.yVector = drawArrow(svg,[0,0],[0,scales.y(scales.yInterpolate(scrubX))],0,false);
+
+    //console.log(scales.x.range());
+
+    //var xVector = drawArrow(svg,[0,0],[20,0],0,false);
+    //var yVector = drawArrow(svg,[0,0],[0,20],0,false);
+  }
+
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
@@ -803,7 +893,7 @@ function changeSlide(scrubX) {
 //////////////////////////////////////////////////////////////////////////////////////////
 
 function barChart(parent, data) {
-  
+
   var margin = {top: 40, right: 0, bottom: 40, left: 0},
       width = $(parent.node()).width() - margin.left - margin.right,
       height = $(parent.node()).height() - margin.top - margin.bottom;
@@ -813,7 +903,7 @@ function barChart(parent, data) {
 
   var y = d3.scale.linear()
       .range([height, 0]);
-    
+
   var xAxis = d3.svg.axis()
       .scale(x)
       .tickValues([2009,2014])
@@ -829,10 +919,10 @@ function barChart(parent, data) {
       .attr("height", height + margin.top + margin.bottom)
     .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-  
+
   // this shouldn't really be a category axis...
   x.domain(data.map(function(d) { return d.year; }));
-  
+
   // somewhat tortured way to force y scale to include 0, be it above max or below min
   var yExtent = d3.extent(data, function(d) { return d.value; });
   yExtent.push(0);
