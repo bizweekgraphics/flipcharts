@@ -239,16 +239,35 @@ button:hover {
 }
 
 .vectors svg path {
-  stroke-width: 3;
+  stroke-width: 4;
   stroke: white;
 }
 
 .vectors svg polyline {
   stroke: white;
+stroke-width: 2;
+}
+
+.vectors .top {
+  position: absolute;
+  top: 45px;
+}
+.vectors .bottom {
+  position: absolute;
+  bottom: 45px;
+}
+
+.vectors #text-label {
+  font-family: BWHaasHead;
+  font-size: 24pt;
+}
+
+.vectors .big {
+  font-size: 60pt;
+  margin-top: 20px;
 }
 
 .vectors .slide {
-
 }
 
 #svg-canvas {
@@ -318,7 +337,7 @@ button:hover {
     <svg id="svg-canvas">
       <defs>
         <!-- arrowhead for arrows -->
-        <marker id = "arrowhead" viewBox = "-10 -10 20 20" refX = "0" refY = "0" markerWidth = "20" markerHeight = "20" stroke-width = "1" orient = "auto">
+        <marker id = "arrowhead" viewBox = "-10 -10 20 20" refX = "0" refY = "0" markerWidth = "10" markerHeight = "10" stroke-width = "1" orient = "auto">
           <polyline class="arrow" stroke-linejoin="bevel" points="-6.72,-6.749 0.54,0 -6.72,6.749 "/>
         </marker>
       </defs>
@@ -430,13 +449,13 @@ var configs = [
       ],
     json: [
       {
-        "label": "movies in which the title is spoken by a character",
-        "x": 62.5,
+        "label": "Movie title spoken by character",
+        "x": 62500000,
         "y": 0.12
       },
       {
-        "label": "movies that were sequels",
-        "x": 130,
+        "label": "Sequel",
+        "x": 130000000,
         "y": 0.0001
       }
     ],
@@ -714,12 +733,24 @@ function render() {
     var slide = d3.select("#container").append("div")
       .classed("slide", true);
 
-    slide.append("div").text("Among");
-    slide.append("div").text("").attr("id","text-label");
-    slide.append("div").text("").attr("id","text-y");
-    slide.append("div").text("earned a Best Picture nomination");
-    slide.append("div").text("and the average domestic gross was");
-    slide.append("div").text("").attr("id","text-x");
+    var topText = slide.append("div").classed("top", true);
+    topText.append("div")
+      .text("")
+      .attr("id","text-label");
+
+    var bottomText = slide.append("div").classed("bottom", true);
+    bottomText.append("div")
+      .attr("id","text-y")
+      .classed("big", true)
+      .text("");
+    bottomText.append("div")
+      .text("earned Best Picture nomination");
+    bottomText.append("div")
+      .attr("id","text-x")
+      .classed("big", true)
+      .text("");
+    bottomText.append("div")
+      .text("average domestic gross");
 
     var margin = {top: 30, right: 30, bottom: 30, left: 30},
         width = $("#container").width() - margin.left - margin.right,
@@ -898,9 +929,11 @@ function changeSlide(scrubX) {
     drawings.xVector = drawArrow(svg,[0,0],[scales.x(scales.xInterpolate(scrubX)),0],0,false);
     drawings.yVector = drawArrow(svg,[0,0],[0,scales.y(scales.yInterpolate(scrubX))],0,false);
 
+    var pc = d3.format("%");
+
     d3.select("#text-label").text(config.json[Math.round(scrubX)].label);
-    d3.select("#text-x").text(bbwNumberFormat(scales.xInterpolate(scrubX)));
-    d3.select("#text-y").text(scales.yInterpolate(scrubX));
+    d3.select("#text-x").text("$"+bbwNumberFormat(scales.xInterpolate(scrubX)));
+    d3.select("#text-y").text(pc(scales.yInterpolate(scrubX)));
 
   }
 
