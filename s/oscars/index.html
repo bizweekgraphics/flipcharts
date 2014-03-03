@@ -367,6 +367,9 @@ button:hover {
 
 // CONFIG
 
+//versioning to force cache re-load
+var v=1;
+
 var configs = [
   {
     title: 'Keywords to fame and fortune',
@@ -605,7 +608,7 @@ function render() {
       var slide = d3.select("#container").append("div")
           .classed("slide", true)
           .attr("id", d.slug)
-          .style("background-image", "url(img/binary/"+d.slug+".jpg)");
+          .style("background-image", "url(img/binary/"+d.slug+".jpg?v="+v+")");
 
       //slide.append("h2").text(i);
       //slide.append("h3").text(d);
