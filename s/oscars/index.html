@@ -238,6 +238,25 @@ button:hover {
   border: none;
 }
 
+.binary .top {
+  position: absolute;
+  top: 45px;
+}
+.binary .bottom {
+  position: absolute;
+  bottom: 45px;
+}
+
+.binary #text-label {
+  font-family: BWHaasHead;
+  font-size: 24pt;
+}
+
+.binary .big {
+  font-size: 50pt;
+  margin-top: 20px;
+}
+
 @media (min-width: 640px) {
   /* desktop view */
 
@@ -381,8 +400,29 @@ d3.select("#iphone-icon")
 // files remaining
 var activeAJAX = config.dataSources.length;
 
-var data = [];
+// for layout-specific scales
+var scales = new Object();
 
+var data = [
+  {
+    "label": "Movie title spoken by character",
+    "slug": "title",
+    "x": 62500000,
+    "y": 0.12
+  },
+  {
+    "label": "Sequel",
+    "slug": "sequel",
+    "x": 130000000,
+    "y": 0.0001
+  }
+];
+render();
+var page = d3.selectAll(".page"),
+    slides = d3.selectAll(".slide");
+resized();
+
+/*
 config.dataSources.forEach(function(dataSource, i) {
   if(dataSource.src) {
     d3.tsv("data/"+dataSource.src, function(error, dataLoaded) {
@@ -402,6 +442,7 @@ config.dataSources.forEach(function(dataSource, i) {
     });
   } else { render(); }
 });
+*/
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // PAGES (vertical) //////////////////////////////////////////////////////////////////////
@@ -547,22 +588,60 @@ var tiltScrub = d3.scale.linear()
     .range([0, 0, 1, 1])
     .clamp(true);
 
-// for layout-specific scales
-var scales;
-
 // RENDER SLIDES
 
 function render() {
 
   if(config.layout == "binary") {
-    $.each(data[0][0], function(i, d) {
+    data.forEach(function(d, i) {
+      console.log("heeh");
       var slide = d3.select("#container").append("div")
           .classed("slide", true)
-          .attr("id", i)
-          .style("background-image", "url(img/binary/"+i+".jpg)");
+          .attr("id", d.slug)
+          .style("background-image", "url(img/binary/"+d.slug+".jpg)");
 
-      slide.append("h2").text(i);
-      slide.append("h3").text(d);
+      //slide.append("h2").text(i);
+      //slide.append("h3").text(d);
+
+      var xExt = d3.extent(data, function(d) { return d.x; });
+      var yExt = d3.extent(data, function(d) { return d.y; });
+
+      scales.x = d3.scale.linear()
+        .domain([0,xExt[1]])
+        .range([0,width]);
+
+      scales.y = d3.scale.linear()
+        .domain([0,yExt[1]])
+        .range([0,height]);
+
+      scales.xInterpolate = d3.scale.linear()
+        .domain([0,1])
+        .range([data[0].x, data[1].x]);
+
+      scales.yInterpolate = d3.scale.linear()
+        .domain([0,1])
+        .range([data[0].y, data[1].y]);
+
+      var pc = d3.format("%");
+
+      var topText = slide.append("div").classed("top", true);
+      topText.append("div")
+        .text(d.label)
+        .attr("id","text-label");
+
+      var bottomText = slide.append("div").classed("bottom", true);
+      bottomText.append("div")
+        .attr("id","text-y")
+        .classed("big", true)
+        .text(pc(d.y));
+      bottomText.append("div")
+        .text("earned Best Picture nom");
+      bottomText.append("div")
+        .attr("id","text-x")
+        .classed("big", true)
+        .text("$"+bbwNumberFormat(d.x));
+      bottomText.append("div")
+        .text("average domestic gross");
     });
   }
 
