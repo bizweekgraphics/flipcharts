@@ -122,7 +122,7 @@ input:focus {
 
 #logo{
 	padding-top:5%;
-	padding-left:2%;
+	padding-left:5%;
 	background-color: none;
 }
 
@@ -130,7 +130,7 @@ input:focus {
 	color:#000;
 	text-decoration:none;
 	border-bottom: none;
-	font-size: 9.0em;
+	font-size: 8.5em;
 	font-weight: bold;
 	font-family: 'BWHaasHead', Helvetica;
 	text-align: center;
@@ -160,8 +160,8 @@ input:focus {
 
 .isotope-item {
   z-index: 2;
-  width:375px;
-  height:375px;
+  width:350px;
+  height:350px;
  
 }
 
@@ -293,21 +293,24 @@ input:focus {
 
 /* content */
 #content {
-	/* max-width:1280px; */
-	width:100%;
+	max-width:1130px;
 	margin: auto;
 	padding: 120px 30px 50px 40px;
 	position:relative;
 	overflow: auto;
+	padding-bottom: 25px;
+	height:1400px;
 }
 
 #container {
 	padding-top: 15px;
+	padding-bottom: 25px;
+	height:1400px;
 }
 /* header */
 
 .header {
-	width: 100%;
+	max-width:1130px;
 	z-index: -1000;
 	padding:15px 0px 15px 0px;
 	background-color: #fff;
@@ -356,6 +359,7 @@ input:focus {
 .project-filters {
 	display: block;
 	height: 36px;
+	font-size: 18px;
 }	
 /* PROJECT FILTERS */	
 .project-filters li {
@@ -456,18 +460,24 @@ ul  {
 	opacity: 0;
 	width: 100%;
 	height: 50px;
+	font-size: 18px;
 }
 
 .thumb-title a {
 	color:#fff;
 	background-color:#000;
-	padding:13px 13px 13px 0px;
+	padding:14px 13px 13px 0px;
 	width: 100%;
+	font-size: 22px;
 }
 
 		
 .mobile-meta {
 	opacity: 1; !important
+}
+
+.images {
+	border:6px solid #000;
 }
 
 
