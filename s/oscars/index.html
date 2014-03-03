@@ -356,14 +356,10 @@ button:hover {
 
 var configs = [
   {
-    title: 'Unmasking Bias Against Dachshunds',
-    description: "The 138th Annual Westminster Dog Show will unfold Feb. 10-11 at Madison Square Garden. And once again this year, the dachshunds—longhaired, smooth, and wire-haired—will get screwed. They never win. Never.",
-    storyLink: 'http://www.businessweek.com/articles/2014-02-10/westminster-dog-show-history-suggests-bias-against-dachshunds',
-    dataSources: [
-      { name: "Westminster Dog Show winners",
-        src: "dogs-binary.tsv",
-        img: "" }
-      ],
+    title: '2014 Best Picture Oscar Nominations By IMDB Keyword',
+    description: "IMDB identifies 33 movies released in 2013 in which a character speaks the title, of which four were nominated for Best Picture. No sequels were nominated, but they outgrossed the former category by $67 million.",
+    storyLink: 'http://www.businessweek.com/articles/2014-02-26/chart-2014-best-picture-oscar-nominations-by-imdb-keyword',
+    dataSources: [],
     layout: "binary",
     transition: "slide"
   }
@@ -403,16 +399,16 @@ var scales = new Object();
 
 var data = [
   {
-    "label": "Movie title spoken by character",
-    "slug": "title",
-    "x": 62500000,
-    "y": 0.12
-  },
-  {
     "label": "Sequel",
     "slug": "sequel",
-    "x": 130000000,
+    "x": 129000000,
     "y": 0.0001
+  },
+  {
+    "label": "Movie title spoken by character",
+    "slug": "title",
+    "x": 62400000,
+    "y": 0.12
   }
 ];
 render();
