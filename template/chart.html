@@ -374,6 +374,7 @@ stroke-width: 2;
 
   <script src="js/vendor/d3.min.js"></script>
   <script src="js/vendor/jquery-1.10.2.min.js"></script>
+  <script src="js/vendor/shake.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
@@ -998,6 +999,20 @@ function barChart(parent, data) {
       .attr("y", function(d) { return y(Math.max(0, d.value)); })
       .attr("height", function(d) { return Math.abs(y(d.value) - y(0)); });
 
+}
+
+var flipDirectory = [
+"http://flip.bizweekgraphics.com/template/chart.html?config=0",
+"http://flip.bizweekgraphics.com/template/chart.html?config=1",
+"http://flip.bizweekgraphics.com/template/chart.html?config=2",
+"http://flip.bizweekgraphics.com/template/chart.html?config=3",
+"http://flip.bizweekgraphics.com/s/oscars/"
+];
+var directoryIndex = urlParams.config*1;
+window.addEventListener('shake', nextFlip, false);
+function nextFlip() {
+  var nextIndex = (directoryIndex + 1) % flipDirectory.length;
+  window.location = flipDirectory[nextIndex];
 }
 
 //}()
