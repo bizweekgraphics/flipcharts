@@ -73,7 +73,9 @@ a {
   font-size: 100%;
   vertical-align: baseline;
   display: block;
-  position: relative;
+  position: absolute;
+  top: 20px;
+  left: 20px;
   float: left;
   width: 477px;
   height: 60px;
