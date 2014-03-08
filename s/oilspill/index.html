@@ -79,8 +79,8 @@ body {
 }
 
 #wrapper {
-  width: 200px;
-  height: 240px;
+  width: 100%;
+  height: 100%;
   margin: 0 auto;
 }
 
@@ -88,8 +88,8 @@ body {
   position: absolute;
   z-index: 1;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-  width: 800px;
-  height: 240px;
+  width: 400%;
+  height: 100%;
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
   -ms-transform: translateZ(0);
@@ -109,16 +109,15 @@ body {
 }
 
 .slide {
-  width: 200px;
-  height: 240px;
+  width: 25%;
+  height: 100%;
   float: left;
 }
 
 .painting {
-  width: 140px;
-  height: 200px;
-  margin: 20px auto;
-  border: 1px solid #000;
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
 
 .giotto {
@@ -138,10 +137,13 @@ body {
 }
 
 #indicator {
-  position: relative;
+  position: absolute;
+  z-index: 1;
+  bottom: 50px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
   width: 110px;
   height: 20px;
-  margin: 10px auto;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUBAMAAABohZD3AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QUGCDYztyDUJgAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAGFBMVEUAAADNzc3Nzc3Nzc3Nzc3Nzc3Nzc3///8aWwwLAAAABnRSTlMAX5Ks3/nRD0HIAAAAAWJLR0QHFmGI6wAAAFtJREFUGFdjYGBgEHYNMWRAAJE0IHCEc5nSwEABxleD8JOgXMY0KBCA8FlgfAcIXwzGT4TwzWD8ZAjfDcZPgfDDYPxU7Hx09ejmoduH7h5096L7B8O/6OGBGl4APYg8TQ0XAScAAAAASUVORK5CYII=);
 }
 
@@ -177,7 +179,7 @@ font-family:BWHaasRegular
       <div id="scroller">
         <div class="slide">
           <div class="painting giotto">
-            <h3 class="hed">Graphic title</h3>
+            <h3 class="hed" style="margin:0;">Graphic title</h3>
             <p class="dek">This is dek, different from the dek you are at now. I am typing the sound of my dek and I repeating and repeating the dek dek dek TK sound of my speaking voice.</p>
           </div>
         </div>
