@@ -423,7 +423,10 @@ function barChart(parent, data, name) {
 
 }
 
-d3.select("#slide3").on("click", function() {
+d3.select("#slide3").on("click", deepwater);
+d3.select("#slide3").on("touchstart", deepwater);
+
+function deepwater() {
   charts["Total spills"].y.domain([0,2.15e8]);
   charts["Total spills"].yAxis.scale(charts["Total spills"].y);
   charts["Total spills"].yAxisGroup
@@ -435,7 +438,7 @@ d3.select("#slide3").on("click", function() {
     .attr("y", function(d) { return charts["Total spills"].y(Math.max(0, d.value)); })
     .attr("height", function(d) { return Math.abs(charts["Total spills"].y(d.value) - charts["Total spills"].y(0)); })
   d3.select(".up-for-more").remove();
-})
+}
   </script>
 
 </body>
