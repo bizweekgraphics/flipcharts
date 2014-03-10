@@ -122,6 +122,12 @@ body {
   padding: 20px;
 }
 
+.slide svg {
+  position: absolute;
+  top:0;
+  left:0;
+}
+
 h2 {
   font-family: BWHaasHead;
   font-size: 20pt;
@@ -227,13 +233,13 @@ font-family:BWHaasRegular
   <div id="viewport">
     <div id="wrapper">
       <div id="scroller">
-        <div class="slide">
+        <div class="slide" id="slide1">
           <div class="slide-inner">
             <h2>①<br/>Oils spills from tankers are down</h3>
             <p class="dek"></p>
           </div>
         </div>
-        <div class="slide">
+        <div class="slide" id="slide2">
           <div class="slide-inner">
             <h2>②<br/>for three reasons</h3>
             <p>1. Better regulation</p>
@@ -241,12 +247,12 @@ font-family:BWHaasRegular
             <p>3. Better maps</p>
           </div>
         </div>
-        <div class="slide">
+        <div class="slide" id="slide3">
           <div class="slide-inner">
             <h2>③<br/>but other sources have picked up the slack</h3>
           </div>
         </div>
-        <div class="slide">
+        <div class="slide" id="slide4">
           <div class="slide-inner">
             <a href="http://businessweek.com/" title="Bloomberg Businessweek"><img src="apple-touch-icon-precomposed.png" width="50"></a>
             <h2 id="title">Oil spill title</h2>
@@ -278,6 +284,110 @@ font-family:BWHaasRegular
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
+
+  <script>
+
+// LOAD DATA FROM ALL SOURCES
+var dataSources = [
+  { name: "Total spills", src: "totalspills.tsv" },
+  { name: "Tanker spills", src: "totalspills.tsv" }
+  ]
+
+// files remaining
+var activeAJAX = dataSources.length;
+
+var data = [];
+
+dataSources.forEach(function(dataSource, i) {
+  if(dataSource.src) {
+    d3.tsv("data/"+dataSource.src, function(error, dataLoaded) {
+      //coercing from strings to numbers
+      dataLoaded.forEach(function(d, i) {
+        $.each(d, function(j, value) {
+          dataLoaded[i][j] = +value;
+        })
+      });
+      data.push(dataLoaded);
+      // if all files have been loaded...
+      if (--activeAJAX == 0) {
+        render();
+        slides = d3.selectAll(".slide");
+      }
+    });
+  } else { render(); }
+});
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// RENDER ////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+function render() {
+  barChart(d3.select("#slide1"),data[0]);
+  barChart(d3.select("#slide3"),data[1]);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////
+// CHARTER ///////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////
+
+function barChart(parent, data) {
+  console.log(parent);
+  console.log(data);
+
+  var margin = {top: 40, right: 0, bottom: 40, left: 0},
+      width = $(parent.node()).width() - margin.left - margin.right,
+      height = $(parent.node()).height() - margin.top - margin.bottom;
+
+  var x = d3.scale.ordinal()
+      .rangeRoundBands([0, width], .1);
+
+  var y = d3.scale.linear()
+      .range([height, 0]);
+
+  var xAxis = d3.svg.axis()
+      .scale(x)
+      .tickValues([2009,2014])
+      .orient("bottom");
+
+  var yAxis = d3.svg.axis()
+      .scale(y)
+      .orient("left")
+      .ticks(10, ""); //"%"
+
+  var svg = parent.append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+  // this shouldn't really be a category axis...
+  x.domain(data.map(function(d) { return d.year; }));
+
+  // somewhat tortured way to force y scale to include 0, be it above max or below min
+  var yExtent = d3.extent(data, function(d) { return d.value; });
+  yExtent.push(0);
+  y.domain(d3.extent(yExtent));
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis);
+
+  /*svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis);*/
+
+  svg.selectAll(".bar")
+      .data(data)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return x(d.year); })
+      .attr("width", x.rangeBand())
+      .attr("y", function(d) { return y(Math.max(0, d.value)); })
+      .attr("height", function(d) { return Math.abs(y(d.value) - y(0)); });
+
+}
+  </script>
 
 </body>
 </html>
