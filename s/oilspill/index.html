@@ -302,7 +302,7 @@ var dataSources = [
 // files remaining
 var activeAJAX = dataSources.length;
 
-var data = [];
+var data = new Object();
 
 dataSources.forEach(function(dataSource, i) {
   if(dataSource.src) {
@@ -313,7 +313,7 @@ dataSources.forEach(function(dataSource, i) {
           dataLoaded[i][j] = +value;
         })
       });
-      data.push(dataLoaded);
+      data[dataSource.name] = dataLoaded;
       // if all files have been loaded...
       if (--activeAJAX == 0) {
         render();
@@ -328,8 +328,8 @@ dataSources.forEach(function(dataSource, i) {
 //////////////////////////////////////////////////////////////////////////////////////////
 
 function render() {
-  barChart(d3.select("#slide1"),data[1]);
-  barChart(d3.select("#slide3"),data[0]);
+  barChart(d3.select("#slide1"),data["Tanker spills"]);
+  barChart(d3.select("#slide3"),data["Total spills"]);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
