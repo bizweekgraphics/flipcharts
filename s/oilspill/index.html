@@ -114,6 +114,7 @@ body {
   font-family: BWHaasRegular;
   text-align: center;
   font-size: 13pt;
+  position: relative;
 }
 
 .slide-inner {
@@ -290,7 +291,7 @@ font-family:BWHaasRegular
 // LOAD DATA FROM ALL SOURCES
 var dataSources = [
   { name: "Total spills", src: "totalspills.tsv" },
-  { name: "Tanker spills", src: "totalspills.tsv" }
+  { name: "Tanker spills", src: "tankerspills.tsv" }
   ]
 
 // files remaining
@@ -322,8 +323,8 @@ dataSources.forEach(function(dataSource, i) {
 //////////////////////////////////////////////////////////////////////////////////////////
 
 function render() {
-  barChart(d3.select("#slide1"),data[0]);
-  barChart(d3.select("#slide3"),data[1]);
+  barChart(d3.select("#slide1"),data[1]);
+  barChart(d3.select("#slide3"),data[0]);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
