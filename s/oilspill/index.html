@@ -134,6 +134,10 @@ body {
   stroke: none;
 }
 
+.y.axis {
+  font-size: 10pt;
+}
+
 h2 {
   font-family: BWHaasHead;
   font-size: 20pt;
@@ -340,7 +344,7 @@ function barChart(parent, data) {
   console.log(parent);
   console.log(data);
 
-  var margin = {top: 40, right: 10, bottom: 40, left: 10},
+  var margin = {top: 40, right: 20, bottom: 40, left: 10},
       width = $(parent.node()).width() - margin.left - margin.right,
       height = $(parent.node()).height() - margin.top - margin.bottom;
 
@@ -357,7 +361,8 @@ function barChart(parent, data) {
 
   var yAxis = d3.svg.axis()
       .scale(y)
-      .orient("left")
+      .orient("right")
+      .tickFormat(bbwNumberFormat)
       .ticks(10, ""); //"%"
 
   var svg = parent.append("svg")
@@ -379,9 +384,10 @@ function barChart(parent, data) {
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis);
 
-  /*svg.append("g")
+  svg.append("g")
       .attr("class", "y axis")
-      .call(yAxis);*/
+      .attr("transform", "translate("+(width-20)+",0)")
+      .call(yAxis);
 
   svg.selectAll(".bar")
       .data(data)
