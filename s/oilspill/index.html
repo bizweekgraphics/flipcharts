@@ -198,6 +198,13 @@ button:hover {
   background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
 }
 
+.up-for-more {
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transform: rotate(180deg);
+}
+
 @media (min-width: 640px) {
   /* desktop view */
 
@@ -260,6 +267,7 @@ font-family:BWHaasRegular
         <div class="slide" id="slide3">
           <div class="slide-inner">
             <h2>③<br/>but other sources have picked up the slack</h3>
+              <img src="img/down.png" width="40" class="up-for-more">
           </div>
         </div>
         <div class="slide" id="slide4">
@@ -332,17 +340,16 @@ dataSources.forEach(function(dataSource, i) {
 //////////////////////////////////////////////////////////////////////////////////////////
 
 function render() {
-  barChart(d3.select("#slide1"),data["Tanker spills"]);
-  barChart(d3.select("#slide3"),data["Total spills"]);
+  barChart(d3.select("#slide1"),data["Tanker spills"],"Tanker spills");
+  barChart(d3.select("#slide3"),data["Total spills"],"Total spills");
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // CHARTER ///////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
 
-function barChart(parent, data) {
-  console.log(parent);
-  console.log(data);
+var charts = new Object();
+function barChart(parent, data, name) {
 
   var margin = {top: 40, right: 20, bottom: 40, left: 10},
       width = $(parent.node()).width() - margin.left - margin.right,
@@ -379,17 +386,21 @@ function barChart(parent, data) {
   yExtent.push(0);
   y.domain(d3.extent(yExtent));
 
-  svg.append("g")
+  if(name=="Total spills") {
+    y.domain([0,25e6]);
+  }
+
+  var xAxisGroup = svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis);
 
-  svg.append("g")
+  var yAxisGroup = svg.append("g")
       .attr("class", "y axis")
       .attr("transform", "translate("+(width-20)+",0)")
       .call(yAxis);
 
-  svg.selectAll(".bar")
+  var bars = svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
       .attr("class", "bar")
@@ -398,7 +409,33 @@ function barChart(parent, data) {
       .attr("y", function(d) { return y(Math.max(0, d.value)); })
       .attr("height", function(d) { return Math.abs(y(d.value) - y(0)); });
 
+  charts[name] = {
+    "svg": svg,
+    "bars": bars,
+    "data": data,
+    "x": x,
+    "y": y,
+    "xAxis": xAxis,
+    "yAxis": yAxis,
+    "xAxisGroup": xAxisGroup,
+    "yAxisGroup": yAxisGroup
+  };
+
 }
+
+d3.select("#slide3").on("click", function() {
+  charts["Total spills"].y.domain([0,2.15e8]);
+  charts["Total spills"].yAxis.scale(charts["Total spills"].y);
+  charts["Total spills"].yAxisGroup
+    .transition().duration(1000)
+    .call(charts["Total spills"].yAxis);
+  charts["Total spills"].bars
+    .data(charts["Total spills"].data)
+    .transition().duration(1000)
+    .attr("y", function(d) { return charts["Total spills"].y(Math.max(0, d.value)); })
+    .attr("height", function(d) { return Math.abs(charts["Total spills"].y(d.value) - charts["Total spills"].y(0)); })
+  d3.select(".up-for-more").remove();
+})
   </script>
 
 </body>
