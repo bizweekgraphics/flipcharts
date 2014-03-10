@@ -105,13 +105,15 @@ body {
   -ms-text-size-adjust: none;
   -o-text-size-adjust: none;
   text-size-adjust: none;
-  background-color: #444;
 }
 
 .slide {
   width: 25%;
   height: 100%;
   float: left;
+  font-family: BWHaasRegular;
+  text-align: center;
+  font-size: 13pt;
 }
 
 .painting {
@@ -120,20 +122,9 @@ body {
   margin: 0;
 }
 
-.giotto {
-  background: #f00;
-}
-
-.leonardo {
-  background: #0f0;
-}
-
-.gaugin {
-  background: #00f;
-}
-
-.warhol {
-  background: magenta;
+h2 {
+  font-family: BWHaasHead;
+  font-size: 20pt;
 }
 
 #indicator {
@@ -153,6 +144,73 @@ body {
   height: 20px;
   border-radius: 10px;
   background: #777;
+}
+
+/* from pure css http://purecss.io/buttons/ */
+button {
+  font-family: BWHaasHead;
+  font-size: 100%;
+  padding: .5em 1.5em;
+  color: #444;
+  color: rgba(0,0,0,.8);
+  border: 1px solid #999;
+  border: 0 rgba(0,0,0,0);
+  background-color: #E6E6E6;
+  text-decoration: none;
+  border-radius: 2px;
+  -webkit-transition: .1s linear -webkit-box-shadow;
+  -moz-transition: .1s linear -moz-box-shadow;
+  -ms-transition: .1s linear box-shadow;
+  -o-transition: .1s linear box-shadow;
+  transition: .1s linear box-shadow;
+  display: inline-block;
+  zoom: 1;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: baseline;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: button;
+  cursor: pointer;
+  margin: 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+button:hover {
+  background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+}
+
+@media (min-width: 640px) {
+  /* desktop view */
+
+  body {
+    background: url(img/scribble_light.png);
+  }
+
+  #viewport {
+    width: 100%;
+    height: 480px;
+    background: none;
+    top: 20%;
+  }
+
+  #wrapper {
+    width: 320px;
+    height: 100%;
+    background: none;
+  }
+
+  #scroller {
+    width: 1280px;
+    height: 100%;
+  }
+
 }
 
 </style>
@@ -178,19 +236,32 @@ font-family:BWHaasRegular
     <div id="wrapper">
       <div id="scroller">
         <div class="slide">
-          <div class="painting giotto">
-            <h3 class="hed" style="margin:0;">Graphic title</h3>
-            <p class="dek">This is dek, different from the dek you are at now. I am typing the sound of my dek and I repeating and repeating the dek dek dek TK sound of my speaking voice.</p>
+          <div class="painting">
+            <h2>①<br/>Oils spills from tankers are down</h3>
+            <p class="dek"></p>
           </div>
         </div>
         <div class="slide">
-          <div class="painting leonardo"></div>
+          <div class="painting">
+            <h2>②<br/>for three reasons</h3>
+            <p>1. Better regulation</p>
+            <p>2. Better engineering</p>
+            <p>3. Better maps</p>
+          </div>
         </div>
         <div class="slide">
-          <div class="painting gaugin"></div>
+          <div class="painting">
+            <h2>③<br/>but other sources have picked up the slack</h3>
+          </div>
         </div>
         <div class="slide">
-          <div class="painting warhol"></div>
+          <div class="painting">
+            <a href="http://businessweek.com/" title="Bloomberg Businessweek"><img src="apple-touch-icon-precomposed.png" width="50"></a>
+            <h2 id="title">Oil spill title</h2>
+            <p id="description">This is dek, different from the dek you are at now. I am typing the sound of my dek and I repeating and repeating the dek dek dek TK sound of my speaking voice.</p>
+            <a id="story-link" href="#"><button>Read article</button></a>
+            <div class="data-credit">Data: compiled by Bloomberg</div>
+          </div>
         </div>
       </div>
     </div>

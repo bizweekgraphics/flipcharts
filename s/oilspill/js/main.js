@@ -3,11 +3,11 @@
 //////////////////////////////////////////////////////////////////////////////////////////
 
 // draw sample arrow from page element to cursor
-var mouseArrow = drawArrow(d3.select("#svg-canvas"), d3.select("rect"), [300,300], 120, true);
+/*var mouseArrow = drawArrow(d3.select("#svg-canvas"), d3.select("rect"), [300,300], 120, true);
 $(document).on("mousemove", function(e) {
   mouseArrow.remove();
   mouseArrow = drawArrow(d3.select("#svg-canvas"), d3.select("rect"), [e.pageX,e.pageY], 20, true);
-});
+});*/
 
 //////////////////////////////////////////////////////////////////////////////////////////
 // TEMPLATE FUNCTIONS ////////////////////////////////////////////////////////////////////
