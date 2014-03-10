@@ -116,10 +116,10 @@ body {
   font-size: 13pt;
 }
 
-.painting {
+.slide-inner {
   width: 100%;
   height: 100%;
-  margin: 0;
+  padding: 20px;
 }
 
 h2 {
@@ -130,20 +130,16 @@ h2 {
 #indicator {
   position: absolute;
   z-index: 1;
-  bottom: 50px;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
-  width: 110px;
-  height: 20px;
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUBAMAAABohZD3AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QUGCDYztyDUJgAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAGFBMVEUAAADNzc3Nzc3Nzc3Nzc3Nzc3Nzc3///8aWwwLAAAABnRSTlMAX5Ks3/nRD0HIAAAAAWJLR0QHFmGI6wAAAFtJREFUGFdjYGBgEHYNMWRAAJE0IHCEc5nSwEABxleD8JOgXMY0KBCA8FlgfAcIXwzGT4TwzWD8ZAjfDcZPgfDDYPxU7Hx09ejmoduH7h5096L7B8O/6OGBGl4APYg8TQ0XAScAAAAASUVORK5CYII=);
+  bottom: 0px;
+  width: 100%;
+  height: 5px;
 }
 
 #dotty {
   position: absolute;
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
-  background: #777;
+  width: 25%;
+  height: 5px;
+  background: #666;
 }
 
 /* from pure css http://purecss.io/buttons/ */
@@ -232,13 +228,13 @@ font-family:BWHaasRegular
     <div id="wrapper">
       <div id="scroller">
         <div class="slide">
-          <div class="painting">
+          <div class="slide-inner">
             <h2>①<br/>Oils spills from tankers are down</h3>
             <p class="dek"></p>
           </div>
         </div>
         <div class="slide">
-          <div class="painting">
+          <div class="slide-inner">
             <h2>②<br/>for three reasons</h3>
             <p>1. Better regulation</p>
             <p>2. Better engineering</p>
@@ -246,12 +242,12 @@ font-family:BWHaasRegular
           </div>
         </div>
         <div class="slide">
-          <div class="painting">
+          <div class="slide-inner">
             <h2>③<br/>but other sources have picked up the slack</h3>
           </div>
         </div>
         <div class="slide">
-          <div class="painting">
+          <div class="slide-inner">
             <a href="http://businessweek.com/" title="Bloomberg Businessweek"><img src="apple-touch-icon-precomposed.png" width="50"></a>
             <h2 id="title">Oil spill title</h2>
             <p id="description">This is dek, different from the dek you are at now. I am typing the sound of my dek and I repeating and repeating the dek dek dek TK sound of my speaking voice.</p>
@@ -261,13 +257,10 @@ font-family:BWHaasRegular
         </div>
       </div>
     </div>
+  </div>
 
-    <div id="indicator">
-      <div id="dotty"></div>
-    </div>
-
-    <div class="data-credit">Graphic by Bloomberg Businessweek. Data: compiled by Bloomberg</div>
-
+  <div id="indicator">
+    <div id="dotty"></div>
   </div>
 
   <!--
