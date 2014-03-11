@@ -206,8 +206,9 @@ button:hover {
 .up-for-more {
   position: absolute;
   top: 0;
-  right: 0;
+  right: 2px;
   -webkit-transform: rotate(180deg);
+  cursor: pointer;
 }
 
 @media (min-width: 640px) {
@@ -231,6 +232,23 @@ button:hover {
     height: 100%;
   }
 
+}
+
+/* thx http://jsfiddle.net/mandynicole/7xrKP/ */
+.pulser {
+    border: 3px solid #999;
+    -webkit-border-radius: 30px;
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    opacity: 0.0
+}
+@-webkit-keyframes pulsate {
+    0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
+    50% {opacity: 1.0;}
+    100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
 }
 
 </style>
@@ -272,6 +290,7 @@ font-family:BWHaasRegular
         <div class="slide" id="slide3">
           <div class="slide-inner">
             <h2>③<br/>but other sources have picked up the slack</h3>
+              <div class="pulser" style="right:4px;top:4px;"></div>
               <img src="img/down.png" width="40" class="up-for-more">
           </div>
         </div>
@@ -429,8 +448,8 @@ function barChart(parent, data, name) {
 
 }
 
-d3.select("#slide3").on("click", deepwater);
-d3.select("#slide3").on("touchstart", deepwater);
+d3.select(".up-for-more").on("click", deepwater);
+d3.select(".up-for-more").on("touchstart", deepwater);
 
 function deepwater() {
   charts["Total spills"].y.domain([0,2.15e8]);
@@ -444,6 +463,7 @@ function deepwater() {
     .attr("y", function(d) { return charts["Total spills"].y(Math.max(0, d.value)); })
     .attr("height", function(d) { return Math.abs(charts["Total spills"].y(d.value) - charts["Total spills"].y(0)); })
   d3.select(".up-for-more").remove();
+  d3.select(".pulser").remove();
 }
   </script>
 
