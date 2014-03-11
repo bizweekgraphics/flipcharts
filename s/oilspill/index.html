@@ -115,6 +115,7 @@ body {
   text-align: left;
   font-size: 13pt;
   position: relative;
+  text-shadow: #fff 1px 1px 0px;
 }
 
 .slide-inner {
@@ -147,6 +148,10 @@ h2 {
   font-family: BWHaasHead;
   font-size: 20pt;
   margin-right: 20px;
+}
+
+#title {
+  margin: 0;
 }
 
 .preview {
@@ -281,7 +286,7 @@ font-family:BWHaasRegular
         <div class="slide" id="slide1">
           <div class="slide-inner">
             <h2>Oils spills from tankers are down</h3>
-            <p class="dek"></p>
+            <p>(gallons spilled from tankers, U.S.)</p>
           </div>
         </div>
         <div class="slide" id="slide2">
@@ -295,6 +300,7 @@ font-family:BWHaasRegular
         <div class="slide" id="slide3">
           <div class="slide-inner">
             <h2>but other sources have picked up the slack</h3>
+            <p>(gallons spilled from all sources, U.S.)</p>
               <div class="pulser" style="right:4px;top:4px;"></div>
               <img src="img/down.png" width="40" class="up-for-more">
           </div>
@@ -400,7 +406,7 @@ function barChart(parent, data, name) {
       .orient("right")
       .tickFormat(bbwNumberFormat)
       .tickSize(-width,0)
-      .ticks(10, ""); //"%"
+      .ticks(5, ""); //"%"
 
   var svg = parent.append("svg")
       .attr("width", width + margin.left + margin.right)
@@ -427,11 +433,12 @@ function barChart(parent, data, name) {
 
   var bars = svg.selectAll(".bar")
       .data(data)
-    .enter().append("rect")
+    .enter().append("g")
       .attr("class", "bar")
-      .attr("x", function(d) { return x(d.year); })
+      .attr("transform", function(d) { return "translate("+x(d.year)+","+y(Math.max(0, d.value))+")"});
+
+  bars.append("rect")
       .attr("width", x.rangeBand())
-      .attr("y", function(d) { return y(Math.max(0, d.value)); })
       .attr("height", function(d) { return Math.abs(y(d.value) - y(0)); });
 
   var yAxisGroup = svg.append("g")
