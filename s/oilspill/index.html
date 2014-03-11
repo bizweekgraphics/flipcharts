@@ -127,11 +127,16 @@ body {
   position: absolute;
   top:0;
   left:0;
+  z-index: -1;
 }
 
 .axis line, .axis path {
   fill: none;
   stroke: none;
+}
+
+.y.axis .tick line {
+  stroke: #eee;
 }
 
 .y.axis {
@@ -272,12 +277,11 @@ font-family:BWHaasRegular
         </div>
         <div class="slide" id="slide4">
           <div class="slide-inner">
-            <iframe width='100%' height='100%' frameborder='0' src='http://evanapplegate.cartodb.com/viz/5acd428c-a894-11e3-a084-0edbca4b5057/embed_map?title=false&description=false&search=false&shareable=false&cartodb_logo=true&layer_selector=false&legends=false&scrollwheel=true&fullscreen=true&sublayer_options=1&sql=&sw_lat=29.726222319395504&sw_lon=-118.65234374999999&ne_lat=47.66538735632654&ne_lon=-75.322265625' allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
-            <!--<a href="http://businessweek.com/" title="Bloomberg Businessweek"><img src="apple-touch-icon-precomposed.png" width="50"></a>
+            <a href="http://businessweek.com/" title="Bloomberg Businessweek"><img src="apple-touch-icon-precomposed.png" width="50"></a>
             <h2 id="title">Oil spill title</h2>
             <p id="description">This is dek, different from the dek you are at now. I am typing the sound of my dek and I repeating and repeating the dek dek dek TK sound of my speaking voice.</p>
             <a id="story-link" href="#"><button>Read article</button></a>
-            <div class="data-credit">Data: compiled by Bloomberg</div>-->
+            <div class="data-credit">Data: compiled by Bloomberg</div>
           </div>
         </div>
       </div>
@@ -352,7 +356,7 @@ function render() {
 var charts = new Object();
 function barChart(parent, data, name) {
 
-  var margin = {top: 40, right: 20, bottom: 40, left: 10},
+  var margin = {top: 40, right: 40, bottom: 40, left: 15},
       width = $(parent.node()).width() - margin.left - margin.right,
       height = $(parent.node()).height() - margin.top - margin.bottom;
 
@@ -371,6 +375,7 @@ function barChart(parent, data, name) {
       .scale(y)
       .orient("right")
       .tickFormat(bbwNumberFormat)
+      .tickSize(-width,0)
       .ticks(10, ""); //"%"
 
   var svg = parent.append("svg")
@@ -396,11 +401,6 @@ function barChart(parent, data, name) {
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis);
 
-  var yAxisGroup = svg.append("g")
-      .attr("class", "y axis")
-      .attr("transform", "translate("+(width-20)+",0)")
-      .call(yAxis);
-
   var bars = svg.selectAll(".bar")
       .data(data)
     .enter().append("rect")
@@ -409,6 +409,11 @@ function barChart(parent, data, name) {
       .attr("width", x.rangeBand())
       .attr("y", function(d) { return y(Math.max(0, d.value)); })
       .attr("height", function(d) { return Math.abs(y(d.value) - y(0)); });
+
+  var yAxisGroup = svg.append("g")
+      .attr("class", "y axis")
+      .attr("transform", "translate("+(width)+",0)")
+      .call(yAxis);
 
   charts[name] = {
     "svg": svg,
