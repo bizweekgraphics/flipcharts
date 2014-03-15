@@ -176,8 +176,9 @@ function barChart() {
           .attr("data-annotation", function(d,i) { return d[2]; });
       barEnter.append("rect");
       barEnter.select(function(d,i) { return d[2] ? this : null })
-        .append("text")
+        .append("g")
           .attr("class", "annotation")
+        .append("text")
           .attr("dy", 0)
           .text(function(d,i) { return d[2]; });
 
