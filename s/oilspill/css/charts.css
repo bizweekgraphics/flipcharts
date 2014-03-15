@@ -27,3 +27,11 @@
 .chart.bar .annotation {
   text-anchor: middle;
 }
+
+.chart.bar .bar {
+  fill: gray;
+}
+
+.chart.bar .bar text {
+  fill: black;
+}
