@@ -178,6 +178,7 @@ function barChart() {
       barEnter.select(function(d,i) { return d[2] ? this : null })
         .append("text")
           .attr("class", "annotation")
+          .attr("dy", 0)
           .text(function(d,i) { return d[2]; });
 
       gEnter.append("g").attr("class", "y axis");
