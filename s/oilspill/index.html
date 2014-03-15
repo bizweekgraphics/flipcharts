@@ -414,8 +414,6 @@ dataSources.forEach(function(dataSource, i) {
 //////////////////////////////////////////////////////////////////////////////////////////
 
 function render() {
-  //barChart(d3.select("#slide1"),data["Tanker spills"],"Tanker spills");
-  //barChart(d3.select("#slide3"),data["Total spills"],"Total spills");
   var tankerBarChart = barChart()
       .x(function(d) { return d.year; })
       .y(function(d) { return +d.value; })
@@ -436,14 +434,17 @@ function render() {
     .attr("dy","-10");
   drawArrow(d3.select('#slide3 .chart.bar [data-x="2010"]'), [-5,40], [-50,10], 90, true);
 
-  d3.select(".up-for-more").on("click",function() {
+  d3.select(".up-for-more").on("click",showDeepwater);
+  d3.select(".up-for-more").on("touchstart",showDeepwater);
+
+  function showDeepwater() {
       totalBarChart.yDomain("auto");
       d3.select("#slide3")
           .datum(data["Total spills"])
           .transition().duration(1000)
           .call(totalBarChart);
       d3.select(".up-for-more").remove();
-  });
+  }
 
 }
 
