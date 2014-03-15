@@ -290,6 +290,35 @@ button:hover {
     100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
 }
 
+#nav {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  pointer-events: none;
+}
+#nav div {
+  position: absolute;
+  pointer-events: auto;
+  cursor: pointer;
+  opacity: 0.5;
+}
+#nav div:hover {
+  opacity: 1;
+}
+#nav #prev {
+  -webkit-transform: rotate(90deg);
+  top: 40%;
+  left: 0;
+  z-index: 9;
+}
+#nav #next {
+  -webkit-transform: rotate(-90deg);
+  top: 40%;
+  right: 0;
+  z-index: 9;
+}
+
 </style>
 
 <!--
@@ -308,6 +337,11 @@ font-family:BWHaasRegular
 -->
 
 <body onload="loaded()">
+
+  <div id="nav" style="position:absolute;">
+    <div id="prev" onclick="myScroll.prev()"><img src="img/down.png" width="100"></div>
+    <div id="next" onclick="myScroll.next()"><img src="img/down.png" width="100"></div>
+  </div>
 
   <div id="viewport">
     <div id="wrapper">
