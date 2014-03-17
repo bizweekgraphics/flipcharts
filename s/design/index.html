@@ -16,8 +16,102 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/h5bp.css">
   <link rel="stylesheet" href="css/bbw.css">
+  <link rel="stylesheet" href="css/charts.css">
   <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+  <script src="js/vendor/iscroll.js"></script>
+
+  <script type="text/javascript">
+
+  var verticalScroll;
+
+  function loaded () {
+    vScroll = new IScroll('#v-wrapper', {
+      scrollX: false,
+      scrollY: true,
+      momentum: false,
+      snap: true,
+      snapSpeed: 400,
+      keyBindings: true
+    });
+
+    hTopScroll = new IScroll('#h-top-wrapper', {
+      scrollX: true,
+      scrollY: false,
+      momentum: false,
+      snap: true,
+      snapSpeed: 400,
+      keyBindings: true
+    });
+
+    hTopScroll = new IScroll('#h-bottom-wrapper', {
+      scrollX: true,
+      scrollY: false,
+      momentum: false,
+      snap: true,
+      snapSpeed: 400,
+      keyBindings: true
+    });
+  }
+
+  document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+  </script>
 </head>
+
+<style>
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  -ms-touch-action: none;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-size: 12px;
+  font-family: helvetica, arial;
+  overflow: hidden; /* this is important to prevent the whole page to bounce */
+  width: 100%;
+  height: 100%;
+}
+
+.v-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.v-scroller {
+  width: 100%;
+  height: 200%; /* 1 * # of v-pages */
+}
+
+.v-page {
+  width: 100%;
+  height: 50%; /* 1 / # of v-pages */
+}
+
+.h-wrapper {
+  width: 100%;
+  height: 200px;
+}
+
+.h-scroller {
+  width: 400%; /* 1 * # of h-pages */
+  height: 100%;
+}
+
+.h-page {
+  float: left;
+  width: 25%; /* 1 / # of h-pages */
+  height: 100%;
+}
+</style>
 
 <!--
 Body classes:
@@ -34,54 +128,45 @@ font-family:BWHaasHead75Bold
 font-family:BWHaasRegular
 -->
 
-<body class="full">
+<body onload="loaded()">
 
-  <div id="logo">
-    <a href="http://www.businessweek.com/" class="ir" id="home_link">Bloomberg Businessweek</a>
-    <h2 id="channel_name">
-      <a href="http://www.twitter.com/bizweekgraphics">Graphics</a>
-    </h2>
+  <div class="v-wrapper" id="v-wrapper">
+    <div class="v-scroller" id="v-scroller">
+      <div class="v-page">
+        <!--e.g. flipchart-->
+        <div class="h-wrapper" id="h-top-wrapper">
+          <div class="h-scroller" id="h-top-scroller">
+            <div class="h-page"><!--e.g. clothing item-->1</div>
+            <div class="h-page"><!--e.g. clothing item-->2</div>
+            <div class="h-page"><!--e.g. clothing item-->3</div>
+            <div class="h-page"><!--e.g. clothing item-->4</div>
+          </div>
+        </div>
+        <div class="h-wrapper" id="h-bottom-wrapper">
+          <div class="h-scroller" id="h-bottom-scroller">
+            <div class="h-page"><!--e.g. clothing item-->a</div>
+            <div class="h-page"><!--e.g. clothing item-->b</div>
+            <div class="h-page"><!--e.g. clothing item-->c</div>
+            <div class="h-page"><!--e.g. clothing item-->d</div>
+          </div>
+        </div>
+      </div>
+      <div class="v-page">
+        <!--e.g. preview/jump-->
+        Read article
+      </div>
+    </div>
   </div>
-
-  <div class="clearfix"></div>
-
-  <h3 class="hed">Graphic title</h3>
-  <p class="dek">This is dek, different from the dek you are at now. I am typing the sound of my dek and I repeating and repeating the dek dek dek TK sound of my speaking voice.</p>
-
-  <svg id="svg-canvas" class="fullscreen">
-    <defs>
-      <!-- arrowhead for arrows -->
-      <marker id = "arrowhead" viewBox = "-10 -10 20 20" refX = "0" refY = "0" markerWidth = "20" markerHeight = "20" stroke-width = "1" orient = "auto">
-        <polyline class="arrow" stroke-linejoin="bevel" points="-6.72,-6.749 0.54,0 -6.72,6.749 "/>
-      </marker>
-    </defs>
-
-    <!-- DEMO DRAWINGS -->
-    <circle cx="240" cy="150" r="50" fill="#000000"/>
-    <rect x="400" y="500" width="50" height="50" fill="#000000"/>
-    <!-- END DEMO DRAWINGS -->
-
-  </svg>
-
-  <div class="data-credit">Graphic by Bloomberg Businessweek. Data: compiled by Bloomberg</div>
 
   <script src="js/vendor/d3.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/charts.js"></script>
 
   <script>
-    //////////////////////////////////////////////////////////////////////////////////////////
-    // DEMO CODE // (remove at will) /////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////////////
 
-    // draw sample arrow from page element to cursor
-    var mouseArrow = drawArrow(d3.select("#svg-canvas"), d3.select("rect"), [300,300], 120, true);
-    $(document).on("mousemove", function(e) {
-      mouseArrow.remove();
-      mouseArrow = drawArrow(d3.select("#svg-canvas"), d3.select("rect"), [e.pageX,e.pageY], 20, true);
-    });
   </script>
 
 </body>
