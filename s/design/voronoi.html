@@ -4,29 +4,27 @@
 
 path {
   stroke: #fff;
+  stroke-width: 4;
 }
 
 circle {
-  fill: #000;
+  fill: #0f0;
   pointer-events: none;
 }
 
 .cell {
-  fill: #0f0;
-  opacity: 0.5;
+  fill: #f0f;
 }
 
 </style>
 <body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="js/vendor/d3.min.js"></script>
 <script>
 
 var width = 960,
     height = 500;
 
-var vertices = d3.range(100).map(function(d) {
-  return {"dupeRate": 0.2, "x": Math.random() * width, "y": Math.random() * height};
-});
+var vertices = d3.range(10).map(function(d) { return randomHealthyCell(); });
 
 /*var vertices = d3.range(100).map(function(d) {
   return [Math.random() * width, Math.random() * height];
@@ -43,13 +41,7 @@ var svg = d3.select("body").append("svg")
 
 
 var path = svg.append("g").selectAll("path");
-
-var dots = svg.selectAll("circle")
-    .data(vertices)
-  .enter().append("circle")
-    .attr("r", 1.5);
-
-redraw();
+var dots = svg.selectAll("circle");
 
 var force = d3.layout.force()
         .charge(-300)
@@ -57,6 +49,8 @@ var force = d3.layout.force()
         .on("tick", redraw);
 
 force.nodes(vertices).start();
+
+redraw();
 
 function redraw() {
 
@@ -71,12 +65,29 @@ function redraw() {
 
   path.order();
 
+  dots = dots.data(vertices);
+  dots.enter().append("circle")
+      .attr("r", 6);
   dots.attr("cx", function(d) { return d.x; })
       .attr("cy", function(d) { return d.y; });
+
+  if(dots[0].length < 100) {
+    dots.each(function(d) {if(Math.random() < d.dupeRate) addCell(); });
+  }
 }
 
 function polygon(d) {
   return "M" + d.join("L") + "Z";
+}
+
+function randomHealthyCell() {
+  return {"dupeRate": 0.005, "deathRate": 0.1, "x": Math.random() * width, "y": Math.random() * height};
+}
+
+function addCell() {
+  vertices.push(randomHealthyCell());
+  force.nodes(vertices).start();
+  redraw();
 }
 
 </script>
