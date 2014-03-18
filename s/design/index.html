@@ -19,21 +19,13 @@
   <link rel="stylesheet" href="css/charts.css">
   <script src="js/vendor/modernizr-2.6.2.min.js"></script>
   <script src="js/vendor/iscroll.js"></script>
+  <script src="js/vendor/enquire.min.js"></script>
 
   <script type="text/javascript">
 
-  var verticalScroll;
+  var vScroll, hTopScroll, hBottomScroll;
 
   function loaded () {
-    vScroll = new IScroll('#v-wrapper', {
-      scrollX: false,
-      scrollY: true,
-      momentum: false,
-      snap: true,
-      snapSpeed: 400,
-      mouseWheel: true,
-      keyBindings: true
-    });
 
     hTopScroll = new IScroll('#h-top-wrapper', {
       scrollX: true,
@@ -45,7 +37,7 @@
       keyBindings: true
     });
 
-    hTopScroll = new IScroll('#h-bottom-wrapper', {
+    hBottomScroll = new IScroll('#h-bottom-wrapper', {
       scrollX: true,
       scrollY: false,
       momentum: false,
@@ -54,13 +46,122 @@
       mouseWheel: true,
       keyBindings: true
     });
+
+    enquire.register("screen and (max-width: 640px)", {
+
+      // triggered when media query matches.
+      match : function() {
+        vScroll = new IScroll('#v-wrapper', {
+          scrollX: false,
+          scrollY: true,
+          momentum: false,
+          snap: true,
+          snapSpeed: 400,
+          mouseWheel: true,
+          keyBindings: true
+        });
+      },
+
+      unmatch : function() {
+        vScroll.destroy();
+      }
+
+    });
   }
 
   document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
   </script>
 </head>
 
 <style>
+
+/* GENERAL FLIPCHART CSS */
+
+body {
+  background: #333;
+  margin: 0;
+  color: white;
+  font-size: 14pt;
+}
+
+* {
+-webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+     -o-box-sizing: border-box;
+        box-sizing: border-box;
+}
+
+#flippy {
+  position: relative;
+  overflow: hidden;
+  background: #333;
+}
+
+#jump {
+  font-family: BWHaasRegular;
+  padding: 20px;
+  text-align: center;
+  background: #333;
+}
+
+#jump h2 {
+  font-size: 20pt;
+}
+
+#down-arrow {
+  pointer-events: all;
+  fill: white;
+  position: absolute;
+  bottom: 0;
+  margin-left: 50%;
+  -webkit-transform: translate(-50%, 75%) scale(.5);
+}
+
+@media (min-width: 640px) {
+  /* desktop view */
+
+  #flippy {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  #jump {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  #down-arrow {
+    display: none !important;
+  }
+
+  #v-wrapper {
+    width: 640px;
+    height: 568px;
+    margin: 100px auto;
+    box-shadow: 0 0 1em #333;
+    border-radius: 5px;
+  }
+
+  .v-scroller {
+    width: 100%;
+  }
+
+  .v-page {
+    width: 320px !important;
+    float: left;
+    height: 568px !important;
+  }
+
+  #description {
+    letter-spacing: 1px;
+  }
+
+}
+
+/* DESIGN SPECIFIC */
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -203,7 +304,6 @@ font-family:BWHaasRegular
   <script src="js/charts.js"></script>
 
   <script>
-
   </script>
 
 </body>
