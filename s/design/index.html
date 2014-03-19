@@ -30,6 +30,7 @@
     hTopScroll = new IScroll('#h-top-wrapper', {
       scrollX: true,
       scrollY: false,
+      startX: -400,
       momentum: false,
       snap: true,
       snapSpeed: 400,
@@ -40,6 +41,7 @@
     hBottomScroll = new IScroll('#h-bottom-wrapper', {
       scrollX: true,
       scrollY: false,
+      startX: -200,
       momentum: false,
       snap: true,
       snapSpeed: 400,
@@ -102,7 +104,7 @@ body {
   font-family: BWHaasRegular;
   padding: 20px;
   text-align: center;
-  background: #333;
+  background: #000;
 }
 
 #jump h2 {
@@ -122,26 +124,16 @@ body {
 @media (min-width: 640px) {
   /* desktop view */
 
-  #flippy {
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-  }
-
-  #jump {
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
-  }
-
   #down-arrow {
     display: none !important;
   }
 
   #v-wrapper {
+    box-sizing: content-box;
     width: 640px;
     height: 568px;
     margin: 100px auto;
-    box-shadow: 0 0 1em #333;
-    border-radius: 5px;
+    border: 5px solid black;
   }
 
   .v-scroller {
@@ -182,7 +174,7 @@ body {
   width: 100%;
   height: 100%;
   text-align: center;
-  background: url(img/scribble_light.png);
+  background: #ccc;
 }
 
 .v-wrapper {
@@ -198,7 +190,7 @@ body {
 .v-page {
   width: 100%;
   height: 50%; /* 1 / # of v-pages */
-  background-size: 230px !important;
+  background-size: 210px !important;
   background-position: 50% 0% !important;
   background-repeat: no-repeat !important;
 }
@@ -240,21 +232,21 @@ body {
 }
 
 #h-top-scroller .h-page {
-  background-size: 90% !important;
+  background-size: 170px !important;
 }
 
 #h-bottom-scroller .h-page {
-  background-size: 75% !important;
+  background-size: 140px !important;
 }
 
 #h-top-wrapper, #h-top-scroller {
   height: 200px;
-  margin-top: 50px;
+  margin-top: 45px;
 }
 
 #h-bottom-wrapper, #h-bottom-scroller {
   height: 400px;
-  margin-top: -20px;
+  margin-top: -40px;
 }
 
 #h-top-wrapper div {
@@ -265,6 +257,14 @@ body {
   z-index: 1;
 }
 
+#prompt {
+  position: absolute;
+  top: 40px;
+  right: 30px;
+  font-family: BWHaasHead;
+  -webkit-transform: rotate(7deg);
+  color: black;
+}
 
 </style>
 
@@ -291,20 +291,21 @@ font-family:BWHaasRegular
         <!--e.g. flipchart-->
         <div class="h-wrapper" id="h-top-wrapper">
           <div class="h-scroller" id="h-top-scroller">
-            <div class="h-page"><!--e.g. clothing item--></div>
             <div class="h-page" style="background:url(img/top1.png)"><!--e.g. clothing item--></div>
             <div class="h-page" style="background:url(img/top2.png)"><!--e.g. clothing item--></div>
+            <div class="h-page"><!--e.g. clothing item--></div>
             <div class="h-page" style="background:url(img/top3.png)"><!--e.g. clothing item--></div>
             <div class="h-page" style="background:url(img/top4.png)"><!--e.g. clothing item--></div>
           </div>
         </div>
         <div class="h-wrapper" id="h-bottom-wrapper">
           <div class="h-scroller" id="h-bottom-scroller">
-            <div class="h-page"><!--e.g. clothing item--></div>
             <div class="h-page" style="background:url(img/bottom1.png)"><!--e.g. clothing item--></div>
+            <div class="h-page"><!--e.g. clothing item--></div>
             <div class="h-page" style="background:url(img/bottom2.png)"><!--e.g. clothing item--></div>
           </div>
         </div>
+        <div id="prompt">← OUTFITS →</div>
       </div>
       <div class="v-page" id="jump">
         <!--e.g. preview/jump-->
