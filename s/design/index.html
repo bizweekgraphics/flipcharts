@@ -112,37 +112,6 @@ body {
   font-size: 20pt;
 }
 
-@media (min-width: 640px) {
-  /* desktop view */
-
-  #prompt-v {
-    display: none !important;
-  }
-
-  #v-wrapper {
-    box-sizing: content-box;
-    width: 640px;
-    height: 480px;
-    margin: 140px auto;
-    border: 5px solid black;
-  }
-
-  .v-scroller {
-    width: 100%;
-  }
-
-  .v-page {
-    width: 320px !important;
-    float: left;
-    height: 480px !important;
-  }
-
-  #description {
-    letter-spacing: 1px;
-  }
-
-}
-
 /* DESIGN SPECIFIC */
 
 html {
@@ -207,10 +176,12 @@ body {
 
 #h-top-scroller {
   width: 1000px;
+  z-index: 2;
 }
 
 #h-bottom-scroller {
   width: 600px;
+  z-index: 1;
 }
 
 #h-top-wrapper, #h-top-scroller {
@@ -235,13 +206,11 @@ body {
 #h-top-scroller .h-page {
   background-size: 136px !important;
   -webkit-transform: rotate(-7deg);
-  z-index: 2;
 }
 
 #h-bottom-scroller .h-page {
   background-size: 112px !important;
   -webkit-transform: rotate(7deg);
-  z-index: 1;
 }
 
 #prompt-h {
@@ -264,14 +233,57 @@ body {
 
 #label {
   position: absolute;
-  top: 70px;
-  left: 0px;
   font-family: BWHaasHead;
   -webkit-transform: rotate(-30deg);
-  color: black;
+  color: #bbb;
   font-size: 4em;
   padding: 20px;
-  border: 5px solid black;
+  border: 5px solid #bbb;
+  top: 70px;
+  left: -100px;
+  width: 8em;
+  z-index: -1;
+}
+
+@media (max-width: 639px) {
+  /* mobile view */
+}
+@media (min-width: 640px) {
+  /* desktop view */
+
+  #prompt-v {
+    display: none !important;
+  }
+
+  #v-wrapper {
+    box-sizing: content-box;
+    width: 640px;
+    height: 480px;
+    margin: 140px auto;
+    border: 5px solid black;
+  }
+
+  .v-scroller {
+    width: 100%;
+  }
+
+  .v-page {
+    width: 320px !important;
+    float: left;
+    height: 480px !important;
+  }
+
+  #description {
+    letter-spacing: 1px;
+  }
+
+  #label {
+    top: 70px;
+    left: 0px;
+    /*color: black;
+    border-color: black;*/
+  }
+
 }
 
 </style>
