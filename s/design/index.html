@@ -30,7 +30,7 @@
     hTopScroll = new IScroll('#h-top-wrapper', {
       scrollX: true,
       scrollY: false,
-      startX: -400,
+      startX: -360,
       momentum: false,
       snap: true,
       snapSpeed: 400,
@@ -41,7 +41,7 @@
     hBottomScroll = new IScroll('#h-bottom-wrapper', {
       scrollX: true,
       scrollY: false,
-      startX: -200,
+      startX: -180,
       momentum: false,
       snap: true,
       snapSpeed: 400,
@@ -165,39 +165,38 @@ body {
 }
 
 .h-wrapper {
-  width: 200px;
+  width: 180px;
   height: 200px;
   margin: 0 auto;
 }
 
 .h-scroller {
   position: absolute;
-  width: 800px; /* 1 * # of h-pages */
 }
 
 #h-top-scroller {
-  width: 1000px;
+  width: 900px;
   z-index: 2;
 }
 
 #h-bottom-scroller {
-  width: 600px;
+  width: 540px;
   z-index: 1;
 }
 
 #h-top-wrapper, #h-top-scroller {
-  height: 200px;
-  margin-top: 25px;
+  height: 180px;
+  margin-top: 30px;
 }
 
 #h-bottom-wrapper, #h-bottom-scroller {
   height: 400px;
-  margin-top: -70px;
+  margin-top: -60px;
 }
 
 .h-page {
   float: left;
-  width: 200px; /* (1 / # of h-pages) % of scroller */
+  width: 180px; /* (1 / # of h-pages) % of scroller */
   height: 100%;
   background-size: contain !important;
   background-position: 50% !important;
@@ -211,7 +210,7 @@ body {
 
 #h-bottom-scroller .h-page {
   background-size: 100px !important;
-  -webkit-transform: rotate(7deg);
+  -webkit-transform: rotate(5deg);
 }
 
 #prompt-h {
@@ -334,10 +333,8 @@ font-family:BWHaasRegular
         <!--e.g. preview/jump-->
         <a href="http://businessweek.com/" title="Bloomberg Businessweek"><img src="apple-touch-icon-precomposed.png" width="50"></a>
         <h2 id="title">Making Gap matter again</h2>
-        <p id="description">Rebekka Bay, the creative director of Gap, has strict rules about how to design a collection. She also has rules for how to break the rules. <br/><br/>"Fashion is also about instinct and gut reaction."</p>
         <p id="description">Rebekka Bay, the creative director of Gap, has strict rules about how to design a collection. She also has rules for how to break the rules. <br/><br/>“Fashion is also about instinct and gut reaction.”</p>
         <a id="story-link" href="#"><button>Read article</button></a>
-        <div class="data-credit" style="position:absolute;bottom:10px;right:10px;">Data: ?. Photos: ?</div>
         <div class="data-credit" style="position:absolute;bottom:10px;right:10px;">Article by Susan Berfield<br/>Graphic by Toph Tucker<br/>Photo by Ysa Perez</div>
       </div>
     </div>
