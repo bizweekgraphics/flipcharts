@@ -33,6 +33,7 @@ function loaded () {
     snap: true,
     snapSpeed: 400,
     keyBindings: true,
+    mouseWheel: true,
     indicators: {
       el: document.getElementById('indicator'),
       resize: false
@@ -243,11 +244,12 @@ button:hover {
   background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
 }
 
-.up-for-more {
+.toggle-deepwater {
   position: absolute;
   top: 0;
   right: 2px;
   -webkit-transform: rotate(180deg);
+  -webkit-transition: -webkit-transform 1s;
   cursor: pointer;
   z-index: 9;
 }
@@ -281,7 +283,7 @@ button:hover {
 
 /* thx http://jsfiddle.net/mandynicole/7xrKP/ */
 .pulser {
-    border: 3px solid #999;
+    border: 3px solid #f0f;
     -webkit-border-radius: 30px;
     height: 35px;
     width: 35px;
@@ -355,23 +357,15 @@ font-family:BWHaasRegular
       <div id="scroller">
         <div class="slide" id="slide1">
           <div class="slide-inner">
-            <h2>Oils spills from tankers are down</h3>
+            <h2>Twenty-five years after Exxon Valdez, tankers spill less oil...</h3>
             <p>(gallons spilled, U.S. tankers)</p>
-          </div>
-        </div>
-        <div class="slide" id="slide2">
-          <div class="slide-inner">
-            <h2>for three reasons</h3>
-            <p>1. Better regulation</p>
-            <p>2. Better engineering</p>
-            <p>3. Better maps</p>
           </div>
         </div>
         <div class="slide" id="slide3">
           <div class="slide-inner">
-            <h2>but other sources have picked up the slack</h3>
+            <h2>...but one rig can overshadow any progress.</h3>
             <p>(gallons spilled, all U.S.)</p>
-              <div class="up-for-more">
+              <div class="toggle-deepwater">
                   <img src="img/down.png" width="40">
                   <div class="pulser" style="right:3px;top:2px;z-index:-1;"></div>
               </div>
@@ -394,10 +388,10 @@ font-family:BWHaasRegular
         <div class="slide" id="slide5">
           <div class="slide-inner preview">
             <a href="http://businessweek.com/" title="Bloomberg Businessweek"><img src="apple-touch-icon-precomposed.png" width="50"></a>
-            <h2 id="title">Oil spill title</h2>
-            <p id="description">This is dek, different from the dek you are at now. I am typing the sound of my dek and I repeating and repeating the dek dek dek TK sound of my speaking voice.</p>
-            <a id="story-link" href="#"><button>Read article</button></a>
-            <div class="data-credit">Data: compiled by Bloomberg</div>
+            <h2 id="title">The United States of Oil Spills</h2>
+            <p id="description">25 years since the Exxon Valdez dumped millions of gallons of crude on a remote Alaskan shore, tankers are safer than ever. But where oil goes, spills will always follow.</p>
+            <a id="story-link" href="http://www.businessweek.com/articles/2014-03-13/25-years-of-oil-spills"><button>Read article</button></a>
+            <div class="data-credit">Data: U.S. Coast Guard</div>
           </div>
         </div>
       </div>
@@ -427,16 +421,14 @@ font-family:BWHaasRegular
 
   <script>
 
-// LOAD DATA FROM ALL SOURCES
+// load data
 var dataSources = [
   { name: "Total spills", src: "totalspills.tsv" },
   { name: "Tanker spills", src: "tankerspills.tsv" }
-  ]
-
-// files remaining
-var activeAJAX = dataSources.length;
-
+  ];
 var data = new Object();
+var activeAJAX = dataSources.length, // files remaining
+    deepwater = false;
 
 dataSources.forEach(function(dataSource, i) {
   if(dataSource.src) {
@@ -474,30 +466,37 @@ function render() {
       .y(function(d) { return +d.value; })
       .width($("#slide3").width())
       .height($("#slide3").height())
-      .yDomain([0,2e7]);
+      .yDomain([0,2.3e7]);
   d3.select("#slide3").datum(data["Total spills"]).call(totalBarChart);
 
   d3.selectAll('.annotation text')
     .call(wrap, 100);
 
   d3.selectAll('[data-x="2010"] .annotation')
-    .attr("transform", "translate(-60,160)");
+    .attr("transform", "translate(-60,180)");
   drawArrow(d3.select('[data-x="2010"] .annotation'), [0,30], [50,60], 90, false);
 
   d3.selectAll('[data-x="1990"] .annotation')
     .attr("transform", "translate(60,60)");
   drawArrow(d3.select('[data-x="1990"] .annotation'), [0,30], [-50,60], 90, true);
 
-  d3.select(".up-for-more").on("click",showDeepwater);
-  d3.select(".up-for-more").on("touchstart",showDeepwater);
+  d3.select(".toggle-deepwater").on("click",toggleDeepwater);
+  d3.select(".toggle-deepwater").on("touchstart",toggleDeepwater);
 
-  function showDeepwater() {
-      totalBarChart.yDomain("auto");
+  function toggleDeepwater() {
+      deepwater = !deepwater;
+      if(deepwater) {
+        totalBarChart.yDomain("auto");
+        d3.select(".toggle-deepwater .pulser").style("display", "none");
+        d3.select(".toggle-deepwater").style("-webkit-transform","rotate(0deg)");
+      } else {
+        totalBarChart.yDomain([0,2.3e7]);
+        d3.select(".toggle-deepwater").style("-webkit-transform","rotate(180deg)");
+      }
       d3.select("#slide3")
           .datum(data["Total spills"])
           .transition().duration(1000)
           .call(totalBarChart);
-      d3.select(".up-for-more").remove();
   }
 
 }
