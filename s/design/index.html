@@ -30,7 +30,7 @@
     hTopScroll = new IScroll('#h-top-wrapper', {
       scrollX: true,
       scrollY: false,
-      startX: -360,
+      startX: -540,
       momentum: false,
       snap: true,
       snapSpeed: 400,
@@ -175,32 +175,35 @@ body {
 }
 
 #h-top-scroller {
-  width: 900px;
+  width: 1260px;
   z-index: 2;
+  margin-top: 60px;
 }
 
 #h-bottom-scroller {
   width: 540px;
   z-index: 1;
+  margin-top: 0px;
 }
 
 #h-top-wrapper, #h-top-scroller {
   height: 180px;
-  margin-top: 30px;
 }
 
 #h-bottom-wrapper, #h-bottom-scroller {
-  height: 400px;
-  margin-top: -60px;
+  height: 300px;
 }
 
 .h-page {
   float: left;
   width: 180px; /* (1 / # of h-pages) % of scroller */
   height: 100%;
-  background-size: contain !important;
-  background-position: 50% !important;
+  background-position: 50% 0% !important;
   background-repeat: no-repeat !important;
+}
+
+.h-page.tall {
+  height: 220px;
 }
 
 #h-top-scroller .h-page {
@@ -210,7 +213,7 @@ body {
 
 #h-bottom-scroller .h-page {
   background-size: 100px !important;
-  -webkit-transform: rotate(5deg);
+  -webkit-transform: rotate(4deg);
 }
 
 #prompt-h {
@@ -229,6 +232,7 @@ body {
   font-family: BWHaasHead;
   -webkit-transform: rotate(85deg);
   color: black;
+  cursor: pointer;
 }
 
 #label {
@@ -312,11 +316,13 @@ font-family:BWHaasRegular
         <!--e.g. flipchart-->
         <div class="h-wrapper" id="h-top-wrapper">
           <div class="h-scroller" id="h-top-scroller">
+            <div class="h-page tall" style="background:url(img/top5.png)"><!--e.g. clothing item--></div>
             <div class="h-page" style="background:url(img/top1.png)"><!--e.g. clothing item--></div>
             <div class="h-page" style="background:url(img/top2.png)"><!--e.g. clothing item--></div>
             <div class="h-page"><!--e.g. clothing item--></div>
             <div class="h-page" style="background:url(img/top3.png)"><!--e.g. clothing item--></div>
             <div class="h-page" style="background:url(img/top4.png)"><!--e.g. clothing item--></div>
+            <div class="h-page tall" style="background:url(img/top6.png)"><!--e.g. clothing item--></div>
           </div>
         </div>
         <div class="h-wrapper" id="h-bottom-wrapper">
@@ -327,7 +333,7 @@ font-family:BWHaasRegular
           </div>
         </div>
         <div id="prompt-h">← SPRING LINE →<br/><small>(swipe or scroll)</small></div>
-        <div id="prompt-v">READ →</div>
+        <div id="prompt-v" onclick="vScroll.next()">READ →</div>
       </div>
       <div class="v-page" id="jump">
         <!--e.g. preview/jump-->
