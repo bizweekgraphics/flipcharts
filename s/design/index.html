@@ -233,6 +233,7 @@ body {
   -webkit-transform: rotate(85deg);
   color: black;
   cursor: pointer;
+  z-index: 9;
 }
 
 #label {
@@ -355,8 +356,8 @@ font-family:BWHaasRegular
 
   <script>
 
-  d3.select("#prompt-v").on("click", vScroll.next);
-  d3.select("#prompt-v").on("touchdown", vScroll.next);
+  d3.select("#prompt-v").on("click", function() { vScroll.next() });
+  d3.select("#prompt-v").on("touchdown", function() { vScroll.next() });
 
   </script>
 
