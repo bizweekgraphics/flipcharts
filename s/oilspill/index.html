@@ -254,7 +254,7 @@ button:hover {
   pointer-events: none;
 }
 
-#nav div {
+#nav .nav-arrow-wrapper {
   position: absolute;
   pointer-events: auto;
   cursor: pointer;
@@ -264,7 +264,7 @@ button:hover {
   height: 40px;
 }
 
-#nav div img {
+#nav .nav-arrow-wrapper img {
   height: 40px;
   width: 40px;
 }
@@ -304,15 +304,15 @@ button:hover {
     height: 100%;
   }
 
-  #nav div {
+  #nav .nav-arrow-wrapper {
     top: 40%;
     bottom: auto;
     opacity: 0.5;
   }
-  #nav div:hover {
+  #nav .nav-arrow-wrapper:hover {
     opacity: 1;
   }
-  #nav div img {
+  #nav .nav-arrow-wrapper img {
     width: 100px;
     height: 100px;
   }
@@ -349,6 +349,12 @@ button:hover {
     100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
 }
 
+.nav-arrow-wrapper .pulser {
+  right:3px;
+  top:2px;
+  z-index:-1;
+}
+
 </style>
 
 <!--
@@ -369,8 +375,13 @@ font-family:BWHaasRegular
 <body onload="loaded()">
 
   <div id="nav" style="position:absolute;">
-    <div id="prev" onclick="myScroll.prev()"><img src="img/down.png"></div>
-    <div id="next" onclick="myScroll.next()"><img src="img/down.png"></div>
+    <div id="prev" class="nav-arrow-wrapper" onclick="myScroll.prev()">
+      <img src="img/down.png">
+    </div>
+    <div id="next" class="nav-arrow-wrapper" onclick="myScroll.next()">
+      <img src="img/down.png">
+      <div class="pulser"></div>
+    </div>
   </div>
 
   <div id="viewport">
@@ -386,9 +397,9 @@ font-family:BWHaasRegular
           <div class="slide-inner">
             <h2>...but one rig can overshadow any progress.</h3>
             <p>(gallons spilled, all U.S.)</p>
-              <div class="toggle-deepwater">
+              <div class="toggle-deepwater nav-arrow-wrapper">
                   <img src="img/down.png" width="40">
-                  <div class="pulser" style="right:3px;top:2px;z-index:-1;"></div>
+                  <div class="pulser"></div>
               </div>
           </div>
         </div>
@@ -490,12 +501,15 @@ function render() {
 
   d3.select(".toggle-deepwater").on("click",toggleDeepwater);
   d3.select(".toggle-deepwater").on("touchstart",toggleDeepwater);
+  d3.select("#next").on("click",function() { d3.select("#next .pulser").style("display", "none"); });
+  d3.select("#next").on("touchstart",function() { d3.select("#next .pulser").style("display", "none"); });
 
   function toggleDeepwater() {
       deepwater = !deepwater;
       if(deepwater) {
         totalBarChart.yDomain("auto");
         d3.select(".toggle-deepwater .pulser").style("display", "none");
+        d3.select("#next .pulser").style("display", "block");
         d3.select(".toggle-deepwater").style("-webkit-transform","rotate(0deg)");
       } else {
         totalBarChart.yDomain([0,2.3e7]);
