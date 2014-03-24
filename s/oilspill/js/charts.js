@@ -157,6 +157,7 @@ function barChart() {
         .append("g")
           .attr("class", "inner");
       gEnter.append("g").attr("class", "x axis");
+      gEnter.append("g").attr("class", "y axis");
 
       // Update the outer dimensions.
       svg .attr("width", width)
@@ -181,8 +182,6 @@ function barChart() {
         .append("text")
           .attr("dy", 0)
           .text(function(d,i) { return d[2]; });
-
-      gEnter.append("g").attr("class", "y axis");
 
       // Update bars
       var bars = g.selectAll(".bar")
