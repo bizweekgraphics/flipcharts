@@ -535,7 +535,12 @@ function render() {
   d3.select(".toggle-deepwater").on("click",toggleDeepwater);
   d3.select(".toggle-deepwater").on("touchstart",toggleDeepwater);
 
-  d3.selectAll('.bar').on('mouseover', function() { console.log(d3.select(this).attr('data-x')); });
+  /*
+  d3.selectAll('.bar').on('mouseover', function() {
+      console.log(d3.select(this).attr('data-x'));
+      d3.selectAll('[data-x="'+d3.select(this).attr('data-x')+'"] rect').attr("fill", "cyan");
+    });
+  */
 
 }
 
