@@ -128,13 +128,14 @@ body {
 
 h2 {
   font-family: BWHaasHead;
-  font-size: 20pt;
+  font-size: 16pt;
   margin-right: 20px;
   color: black;
 }
 
 #title {
   margin: 0;
+  font-size: 20pt;
 }
 
 .preview {
@@ -244,7 +245,7 @@ button:hover {
   right: 0;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 360px) {
   /* mobile only */
 
   #story-link {
@@ -253,7 +254,7 @@ button:hover {
 
 }
 
-@media (min-width: 321px) {
+@media (min-width: 361px) {
   /* desktop view */
 
   #nav {
@@ -519,7 +520,7 @@ function render() {
   drawArrow(d3.select('[data-x="2010"] .annotation'), [0,30], [50,60], 90, false);
 
   d3.selectAll('[data-x="1990"] .annotation')
-    .attr("transform", "translate(60,60)");
+    .attr("transform", "translate(60,20)");
   drawArrow(d3.select('[data-x="1990"] .annotation'), [0,30], [-50,60], 90, true);
 
   d3.selectAll("#nav .nav-arrow-wrapper").on("click",onPageNav);
