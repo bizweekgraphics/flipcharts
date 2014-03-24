@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="css/charts.css">
   <script src="js/vendor/modernizr-2.6.2.min.js"></script>
   <script src="js/vendor/iscroll.js"></script>
+  <script src="js/vendor/enquire.min.js"></script>
 </head>
 
 <script type="text/javascript">
@@ -26,18 +27,30 @@
 var myScroll;
 
 function loaded () {
-  myScroll = new IScroll('#wrapper', {
-    scrollX: true,
-    scrollY: false,
-    momentum: false,
-    snap: true,
-    snapSpeed: 400,
-    keyBindings: true,
-    mouseWheel: true,
-    indicators: {
-      el: document.getElementById('indicator'),
-      resize: false
+
+  enquire.register("screen and (max-width: 959px)", {
+
+    // triggered when media query matches.
+    match : function() {
+      myScroll = new IScroll('#wrapper', {
+        scrollX: true,
+        scrollY: false,
+        momentum: false,
+        snap: true,
+        snapSpeed: 400,
+        keyBindings: true,
+        mouseWheel: true,
+        indicators: {
+          el: document.getElementById('indicator'),
+          resize: false
+        }
+      });
+    },
+
+    unmatch : function() {
+      myScroll.destroy();
     }
+
   });
 }
 
@@ -177,28 +190,6 @@ h2 {
   background: #666;
 }
 
-table {
-  width: 100%;
-}
-
-table thead {
-  font-family: BWHaasHead;
-}
-
-table tr {
-  border-bottom: 1px solid black;
-}
-
-table td {
-  padding: 5px 10px;
-  height: 60px;
-  position:relative;
-}
-
-table .num {
-  text-align: right;
-}
-
 .icon {
   z-index:-1;
   width: 60px;
@@ -277,6 +268,19 @@ button:hover {
   #scroller {
     width: 960px;
     height: 100%;
+  }
+
+}
+
+@media (min-width: 960px) {
+  /* iscroll disabled, show all */
+
+  #wrapper {
+    width: 960px;
+  }
+
+  #nav {
+    display: none !important;
   }
 
 }
