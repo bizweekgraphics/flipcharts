@@ -22,41 +22,6 @@
   <script src="js/vendor/enquire.min.js"></script>
 </head>
 
-<script type="text/javascript">
-
-var myScroll;
-
-function loaded () {
-
-  enquire.register("screen and (max-width: 959px)", {
-
-    // triggered when media query matches.
-    match : function() {
-      myScroll = new IScroll('#wrapper', {
-        scrollX: true,
-        scrollY: false,
-        momentum: false,
-        snap: true,
-        snapSpeed: 400,
-        keyBindings: true,
-        mouseWheel: true,
-        indicators: {
-          el: document.getElementById('indicator'),
-          resize: false
-        }
-      });
-    },
-
-    unmatch : function() {
-      myScroll.destroy();
-    }
-
-  });
-}
-
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-</script>
-
 <style type="text/css">
 * {
   -webkit-box-sizing: border-box;
@@ -379,7 +344,7 @@ font-family:BWHaasRegular
 <body onload="loaded()">
 
   <div id="nav" style="position:absolute;">
-    <div id="prev" class="nav-arrow-wrapper" onclick="myScroll.prev()">
+    <div id="prev" class="nav-arrow-wrapper" onclick="myScroll.prev()" style="display:none;">
       <img src="img/down.png">
     </div>
     <div id="next" class="nav-arrow-wrapper" onclick="myScroll.next()">
@@ -444,6 +409,43 @@ font-family:BWHaasRegular
 
   <script>
 
+// before doing anything else, set up iscroll
+var myScroll;
+
+function loaded () {
+
+  enquire.register("screen and (max-width: 959px)", {
+
+    // triggered when media query matches.
+    match : function() {
+      myScroll = new IScroll('#wrapper', {
+        scrollX: true,
+        scrollY: false,
+        momentum: false,
+        snap: true,
+        snapSpeed: 400,
+        keyBindings: true,
+        mouseWheel: true,
+        indicators: {
+          el: document.getElementById('indicator'),
+          resize: false
+        }
+      });
+
+      myScroll.on('scrollEnd', onPageNav);
+
+    },
+
+    unmatch : function() {
+      myScroll.destroy();
+    }
+
+  });
+}
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+
 // load data
 var dataSources = [
   { name: "Total spills", src: "totalspills.tsv" },
@@ -451,7 +453,10 @@ var dataSources = [
   ];
 var data = new Object();
 var activeAJAX = dataSources.length, // files remaining
-    deepwater = false;
+    deepwaterVisible = false,
+    deepwaterSeen = false,
+    tankerBarChart,
+    totalBarChart;
 
 dataSources.forEach(function(dataSource, i) {
   if(dataSource.src) {
@@ -477,14 +482,14 @@ dataSources.forEach(function(dataSource, i) {
 //////////////////////////////////////////////////////////////////////////////////////////
 
 function render() {
-  var tankerBarChart = barChart()
+  tankerBarChart = barChart()
       .x(function(d) { return d.year; })
       .y(function(d) { return +d.value; })
       .width($("#slide1").width())
       .height($("#slide1").height());
   d3.select("#slide1").datum(data["Tanker spills"]).call(tankerBarChart);
 
-  var totalBarChart = barChart()
+  totalBarChart = barChart()
       .x(function(d) { return d.year; })
       .y(function(d) { return +d.value; })
       .width($("#slide2").width())
@@ -503,28 +508,49 @@ function render() {
     .attr("transform", "translate(60,60)");
   drawArrow(d3.select('[data-x="1990"] .annotation'), [0,30], [-50,60], 90, true);
 
+  d3.selectAll("#nav .nav-arrow-wrapper").on("click",onPageNav);
+  d3.selectAll("#nav .nav-arrow-wrapper").on("touchstart",onPageNav);
+
   d3.select(".toggle-deepwater").on("click",toggleDeepwater);
   d3.select(".toggle-deepwater").on("touchstart",toggleDeepwater);
-  d3.select("#next").on("click",function() { d3.select("#next .pulser").style("display", "none"); });
-  d3.select("#next").on("touchstart",function() { d3.select("#next .pulser").style("display", "none"); });
 
-  function toggleDeepwater() {
-      deepwater = !deepwater;
-      if(deepwater) {
-        totalBarChart.yDomain("auto");
-        d3.select(".toggle-deepwater .pulser").style("display", "none");
-        d3.select("#next .pulser").style("display", "block");
-        d3.select(".toggle-deepwater").style("-webkit-transform","rotate(0deg)");
-      } else {
-        totalBarChart.yDomain([0,2.3e7]);
-        d3.select(".toggle-deepwater").style("-webkit-transform","rotate(180deg)");
-      }
-      d3.select("#slide2")
-          .datum(data["Total spills"])
-          .transition().duration(1000)
-          .call(totalBarChart);
+}
+
+function onPageNav() {
+  if(myScroll.currentPage.pageX == 0) {
+    myScroll.pages[0].seen = true;
+    d3.select("#next").style("display", "block");
+    d3.select("#prev").style("display", "none");
+  } else if(myScroll.currentPage.pageX == 1) {
+    myScroll.pages[1].seen = true;
+    d3.select("#next").style("display", deepwaterSeen ? "block" : "none");
+    d3.select("#next .pulser").style("display", myScroll.pages[2].seen ? "none" : "block");
+    d3.select("#prev").style("display", "block");
+  } else if(myScroll.currentPage.pageX == 2) {
+    myScroll.pages[2].seen = true;
+    d3.select("#next").style("display", "none");
+    d3.select("#prev").style("display", "block");
   }
+}
 
+function toggleDeepwater() {
+  deepwaterVisible = !deepwaterVisible;
+  if(deepwaterVisible) {
+    if(!deepwaterSeen) {
+      deepwaterSeen = true;
+      d3.select(".toggle-deepwater .pulser").style("display", "none");
+      d3.select("#next").style("display", "block");
+    }
+    totalBarChart.yDomain("auto");
+    d3.select(".toggle-deepwater").style("-webkit-transform","rotate(0deg)");
+  } else {
+    totalBarChart.yDomain([0,2.3e7]);
+    d3.select(".toggle-deepwater").style("-webkit-transform","rotate(180deg)");
+  }
+  d3.select("#slide2")
+      .datum(data["Total spills"])
+      .transition().duration(1000)
+      .call(totalBarChart);
 }
 
   </script>
