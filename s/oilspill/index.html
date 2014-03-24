@@ -91,7 +91,7 @@ body {
   position: absolute;
   z-index: 1;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-  width: 500%;
+  width: 300%;
   height: 100%;
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
@@ -111,7 +111,7 @@ body {
 }
 
 .slide {
-  width: 20%;
+  width: 33.333%;
   height: 100%;
   float: left;
   font-family: BWHaasRegular;
@@ -199,9 +199,9 @@ table .num {
   text-align: right;
 }
 
-table .icon {
-  position:absolute;
+.icon {
   z-index:-1;
+  width: 60px;
 }
 
 /* from pure css http://purecss.io/buttons/ */
@@ -275,7 +275,7 @@ button:hover {
   }
 
   #scroller {
-    width: 1600px;
+    width: 960px;
     height: 100%;
   }
 
@@ -361,7 +361,7 @@ font-family:BWHaasRegular
             <p>(gallons spilled, U.S. tankers)</p>
           </div>
         </div>
-        <div class="slide" id="slide3">
+        <div class="slide" id="slide2">
           <div class="slide-inner">
             <h2>...but one rig can overshadow any progress.</h3>
             <p>(gallons spilled, all U.S.)</p>
@@ -371,24 +371,11 @@ font-family:BWHaasRegular
               </div>
           </div>
         </div>
-        <div class="slide" id="slide4">
-          <div class="slide-inner">
-            <h2>In 2012, most spills were from industrial dumping</h3>
-            <table>
-              <thead><tr><td></td><td class="num">1989</td><td class="num">2012</td></tr></thead>
-              <tbody>
-              <tr><td><img src="img/ships.svg" class="icon" style="top:-20px;left:50px;z-index:9"/>Ships</td><td class="num">89%</td><td class="num">14%</td></tr>
-              <tr><td><img src="img/facilities.svg" class="icon" style="top:-20px;left:65px;z-index:9;"/>Facilities</td><td class="num">3%</td><td class="num">21%</td></tr>
-              <tr><td><img src="img/pipelines.svg" class="icon" style="top:-10px;left:30px"/>Pipelines</td><td class="num">2%</td><td class="num">&lt;1%</td></tr>
-              <tr><td><img src="img/other.svg" class="icon" style="top:-20px;left:110px;z-index:9;"/>Other <br/><em>(incl. dumping)</em></td><td class="num">6%</td><td class="num">64%</td></tr>
-            </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="slide" id="slide5">
+        <div class="slide" id="slide3">
           <div class="slide-inner preview">
             <a href="http://businessweek.com/" title="Bloomberg Businessweek"><img src="apple-touch-icon-precomposed.png" width="50"></a>
             <h2 id="title">The United States of Oil Spills</h2>
+            <img src="img/pipelines.svg" class="icon"/><img src="img/ships.svg" class="icon"/><img src="img/facilities.svg" class="icon"/><img src="img/other.svg" class="icon"/>
             <p id="description">25 years since the Exxon Valdez dumped millions of gallons of crude on a remote Alaskan shore, tankers are safer than ever. But where oil goes, spills will always follow.</p>
             <a id="story-link" href="http://www.businessweek.com/articles/2014-03-13/25-years-of-oil-spills"><button>Read article</button></a>
             <div class="data-credit">Data: U.S. Coast Guard</div>
@@ -464,10 +451,10 @@ function render() {
   var totalBarChart = barChart()
       .x(function(d) { return d.year; })
       .y(function(d) { return +d.value; })
-      .width($("#slide3").width())
-      .height($("#slide3").height())
+      .width($("#slide2").width())
+      .height($("#slide2").height())
       .yDomain([0,2.3e7]);
-  d3.select("#slide3").datum(data["Total spills"]).call(totalBarChart);
+  d3.select("#slide2").datum(data["Total spills"]).call(totalBarChart);
 
   d3.selectAll('.annotation text')
     .call(wrap, 100);
@@ -493,7 +480,7 @@ function render() {
         totalBarChart.yDomain([0,2.3e7]);
         d3.select(".toggle-deepwater").style("-webkit-transform","rotate(180deg)");
       }
-      d3.select("#slide3")
+      d3.select("#slide2")
           .datum(data["Total spills"])
           .transition().duration(1000)
           .call(totalBarChart);
