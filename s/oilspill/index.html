@@ -202,6 +202,29 @@ button:hover {
   background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
 }
 
+/* thx http://jsfiddle.net/mandynicole/7xrKP/ */
+.pulser {
+    border: 3px solid #f0f;
+    -webkit-border-radius: 30px;
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    opacity: 0.0
+}
+@-webkit-keyframes pulsate {
+    0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
+    50% {opacity: 1.0;}
+    100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
+}
+
+.nav-arrow-wrapper .pulser {
+  right:3px;
+  top:2px;
+  z-index:-1;
+}
+
 .toggle-deepwater {
   position: absolute;
   top: 0;
@@ -300,6 +323,13 @@ button:hover {
     height: 100px;
   }
 
+  #nav .nav-arrow-wrapper .pulser {
+    width: 60px;
+    height: 60px;
+    right: 20px;
+    top: 15px;
+  }
+
 }
 
 @media (min-width: 960px) {
@@ -319,29 +349,6 @@ button:hover {
   #slide3 .icon {
     display:none;
   }
-}
-
-/* thx http://jsfiddle.net/mandynicole/7xrKP/ */
-.pulser {
-    border: 3px solid #f0f;
-    -webkit-border-radius: 30px;
-    height: 35px;
-    width: 35px;
-    position: absolute;
-    -webkit-animation: pulsate 1s ease-out;
-    -webkit-animation-iteration-count: infinite;
-    opacity: 0.0
-}
-@-webkit-keyframes pulsate {
-    0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
-    50% {opacity: 1.0;}
-    100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
-}
-
-.nav-arrow-wrapper .pulser {
-  right:3px;
-  top:2px;
-  z-index:-1;
 }
 
 </style>
