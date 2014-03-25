@@ -17,63 +17,6 @@
   <link rel="stylesheet" href="css/h5bp.css">
   <link rel="stylesheet" href="css/bbw.css">
   <link rel="stylesheet" href="css/charts.css">
-  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-  <script src="js/vendor/iscroll.js"></script>
-  <script src="js/vendor/enquire.min.js"></script>
-
-  <script type="text/javascript">
-
-  var vScroll, hTopScroll, hBottomScroll;
-
-  function loaded () {
-
-    hTopScroll = new IScroll('#h-top-wrapper', {
-      scrollX: true,
-      scrollY: false,
-      startX: -540,
-      momentum: false,
-      snap: true,
-      snapSpeed: 400,
-      mouseWheel: true,
-      keyBindings: true
-    });
-
-    hBottomScroll = new IScroll('#h-bottom-wrapper', {
-      scrollX: true,
-      scrollY: false,
-      startX: -180,
-      momentum: false,
-      snap: true,
-      snapSpeed: 400,
-      mouseWheel: true,
-      keyBindings: true
-    });
-
-    enquire.register("screen and (max-width: 640px)", {
-
-      // triggered when media query matches.
-      match : function() {
-        vScroll = new IScroll('#v-wrapper', {
-          scrollX: false,
-          scrollY: true,
-          momentum: false,
-          snap: true,
-          snapSpeed: 400,
-          mouseWheel: true,
-          keyBindings: true
-        });
-      },
-
-      unmatch : function() {
-        vScroll.destroy();
-      }
-
-    });
-  }
-
-  document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-
-  </script>
 </head>
 
 <style>
@@ -177,7 +120,7 @@ body {
 #h-top-scroller {
   width: 1260px;
   z-index: 2;
-  margin-top: 60px;
+  margin-top: 65px;
 }
 
 #h-bottom-scroller {
@@ -313,7 +256,7 @@ font-family:BWHaasRegular
   <div id="label">REBEKKA BAY<br/><small>CREATIVE DIRECTOR, GAP</small></div>
   <div class="v-wrapper" id="v-wrapper">
     <div class="v-scroller" id="v-scroller">
-      <div class="v-page" id="flippy" style="background:url(img/bay.png)">
+      <div class="v-page" id="flippy" style="background:url(img/bay-sm.png)">
         <!--e.g. flipchart-->
         <div class="h-wrapper" id="h-top-wrapper">
           <div class="h-scroller" id="h-top-scroller">
@@ -324,13 +267,6 @@ font-family:BWHaasRegular
             <div class="h-page" style="background:url(img/top3.png)"><!--e.g. clothing item--></div>
             <div class="h-page" style="background:url(img/top4.png)"><!--e.g. clothing item--></div>
             <div class="h-page tall" style="background:url(img/top6.png)"><!--e.g. clothing item--></div>
-          </div>
-        </div>
-        <div class="h-wrapper" id="h-bottom-wrapper">
-          <div class="h-scroller" id="h-bottom-scroller">
-            <div class="h-page" style="background:url(img/bottom1.png)"><!--e.g. clothing item--></div>
-            <div class="h-page"><!--e.g. clothing item--></div>
-            <div class="h-page" style="background:url(img/bottom2.png)"><!--e.g. clothing item--></div>
           </div>
         </div>
         <div id="prompt-h">← SPRING LINE →<br/><small>(swipe or scroll)</small></div>
@@ -347,14 +283,54 @@ font-family:BWHaasRegular
     </div>
   </div>
 
+  <script src="js/vendor/iscroll.js"></script>
+  <script src="js/vendor/enquire.min.js"></script>
   <script src="js/vendor/d3.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-  <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
   <script src="js/charts.js"></script>
 
   <script>
+
+  var vScroll, hTopScroll;
+
+  function loaded () {
+
+    hTopScroll = new IScroll('#h-top-wrapper', {
+      scrollX: true,
+      scrollY: false,
+      startX: -540,
+      momentum: false,
+      snap: true,
+      snapSpeed: 400,
+      mouseWheel: true,
+      keyBindings: true
+    });
+
+    enquire.register("screen and (max-width: 640px)", {
+
+      // triggered when media query matches.
+      match : function() {
+        vScroll = new IScroll('#v-wrapper', {
+          scrollX: false,
+          scrollY: true,
+          momentum: false,
+          snap: true,
+          snapSpeed: 400,
+          mouseWheel: true,
+          keyBindings: true
+        });
+      },
+
+      unmatch : function() {
+        vScroll.destroy();
+      }
+
+    });
+  }
+
+  document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 
   d3.select("#prompt-v").on("click", function() { vScroll.next() });
   d3.select("#prompt-v").on("touchend", function() { vScroll.next() });
