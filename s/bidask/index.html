@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+  <link href="apple-touch-icon-precomposed.png" rel="apple-touch-icon" type="image/png" />
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/h5bp.css">
+  <link rel="stylesheet" href="css/bbw.css">
+  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+
+<!--
+Body classes:
+.iframed    // no interface wrapping, no margins
+.dark_layout  // like bbw video site
+.half      // half-width of standard article (315px)
+.full      // full-width of standard article (630px)
+.wide      // wide interactive feature layout (970px)
+
+Fonts:
+font-family:BloombergLBold    // corporate wordmark logotype
+font-family:BWHaasHead
+font-family:BWHaasHead75Bold
+font-family:BWHaasRegular
+-->
+
+<body>
+
+  <div id="logo">
+    <a href="http://www.businessweek.com/" class="ir" id="home_link">Bloomberg Businessweek</a>
+    <h2 id="channel_name">
+      <a href="http://www.twitter.com/bizweekgraphics">Graphics</a>
+    </h2>
+  </div>
+
+  <div class="clearfix"></div>
+
+  <h3 class="hed">Bid/Ask Saga</h3>
+  <p class="dek">This is dek, different from the dek you are at now. I am typing the sound of my dek and I repeating and repeating the dek dek dek TK sound of my speaking voice.</p>
+
+  <div id="you" data-cash="0" data-shares="0">
+    <div class="stock">Drag shares here to buy.</div>
+    <h4><span style="font-family:BWHaasHead">Cash</span> <span class="cash">$0</span></h4>
+    <h4><span style="font-family:BWHaasHead">Shares</span> <span class="shares">0</span></h4>
+  </div>
+
+  <div id="order-book">
+  </div>
+
+  <div class="data-credit">Graphic by Bloomberg Businessweek. Data: compiled by Bloomberg</div>
+
+  <script type="text/x-underscore" id="offer-template">
+  <div class="offer <%= offer.side %>" data-price="<%= offer.price %>" data-owner="<%= offer.owner %>">
+    <div class="triangle"></div>
+    <div class="price"><%= dolla(offer.price) %></span></div>
+    <div class="spread"></div>
+  </div>
+  </script>
+
+  <script src="js/vendor/underscore-min.js"></script>
+  <script src="js/vendor/d3.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+  <script src="js/vendor/jquery-ui-1.10.4.custom.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
