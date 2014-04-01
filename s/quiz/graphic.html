@@ -10,14 +10,29 @@
 body {
   position: relative;
   width: 960px;
+  font-family: helvetica;
 }
 
-button {
+#blurb {
   position: absolute;
   left: 10px;
   top: 10px;
-  height: 50px;
-  width: 100px;
+  width: 300px;
+  border-radius: 10px;
+  background: white;
+  border: 3px solid black;
+  box-shadow: #000 2px 2px 5px;
+}
+
+h1 {
+  background: black;
+  color: white;
+  padding: 5px;
+  margin-top: 0;
+}
+
+p {
+  padding: 5px;
 }
 
 .overlay {
@@ -25,8 +40,82 @@ button {
   pointer-events: all;
 }
 
+/* from pure css http://purecss.io/buttons/ */
+button {
+  font-family: BWHaasHead, Helvetica;
+  font-size: 100%;
+  padding: .5em 1.5em;
+  color: #444;
+  color: rgba(0,0,0,.8);
+  border: 1px solid #999;
+  border: 0 rgba(0,0,0,0);
+  background-color: #E6E6E6;
+  text-decoration: none;
+  border-radius: 2px;
+  -webkit-transition: .1s linear -webkit-box-shadow;
+  -moz-transition: .1s linear -moz-box-shadow;
+  -ms-transition: .1s linear box-shadow;
+  -o-transition: .1s linear box-shadow;
+  transition: .1s linear box-shadow;
+  display: inline-block;
+  zoom: 1;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: baseline;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: button;
+  cursor: pointer;
+  margin: 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+button:hover {
+  background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+}
+
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-warning {
+    background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221); /* this is a light blue */
+}
+
+button {
+  margin: 20px;
+}
+
 </style>
-<button>Click me</button>
+
+<div id="blurb">
+  <h1 id="name">How the NSA sees the world</h1>
+  <p id="description">Blahdeeblah earogneroij erher ugihegu erugbeig beriug erguh erugihrg oe.</p>
+  <button id="next">Next</button>
+</div>
 
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
    width="792px" height="612px" viewBox="0 0 792 612" enable-background="new 0 0 792 612" xml:space="preserve">
@@ -5043,27 +5132,35 @@ var width = 792,
 
 var hotspots = [
   { "name": "den",
+    "description": "blah blah blah blah blah",
     "translate": [-688.517649659872,-1784.5672088886463],
     "scale": 5.0210879651305795 },
   { "name": "ice cream",
+    "description": "blah blah blah blah blah",
     "translate": [-814.7138061201285,-1085.7980644137945],
     "scale": 3.7166426970036563 },
   { "name": "definitely dry cleaning",
+    "description": "blah blah blah blah blah",
     "translate": [-1509.8485398135788,-966.5931475575928],
     "scale": 4.158317740701123 },
   { "name": "private jet",
+    "description": "blah blah blah blah blah",
     "translate": [-2637.485141810858,-1129.1636142844611],
     "scale": 7.663481745781588 },
   { "name": "satellite",
+    "description": "blah blah blah blah blah",
     "translate": [-1568.4851418108583,-510.1636142844611],
     "scale": 7.663481745781588 },
   { "name": "traveller",
+    "description": "blah blah blah blah blah",
     "translate": [-1745.3868892007958,-1233.403751296457],
     "scale": 3.675651533916206 },
   { "name": "cat lady",
+    "description": "blah blah blah blah blah",
     "translate": [-2671.9924687114353,-904.7176821696767],
     "scale": 4.743657997643805 },
   { "name": "telecom",
+    "description": "blah blah blah blah blah",
     "translate": [-2142.0142941795366,-215.76207843837676],
     "scale": 4.257480729813451 }
 ];
@@ -5083,13 +5180,14 @@ overlay.call(zoom);
 d3.select("button").on("click", reset);
 
 function zoomed() {
-  console.log("translate: " + zoom.translate() + ", scale: " + zoom.scale());
+  //console.log("translate: " + zoom.translate() + ", scale: " + zoom.scale());
   svgG.attr("transform", "translate(" + zoom.translate() + ")scale(" + zoom.scale() + ")");
 }
 
 function reset() {
   hotspots.current = (hotspots.current + 1) % hotspots.length;
-  d3.select("button").text(hotspots[hotspots.current].name);
+  d3.select("#name").text(hotspots[hotspots.current].name);
+  d3.select("#description").text(hotspots[hotspots.current].description);
   d3.transition().duration(750).tween("zoom", function() {
     var interpolateTranslate = d3.interpolate(zoom.translate(), hotspots[hotspots.current].translate),
         interpolateScale = d3.interpolate(zoom.scale(), hotspots[hotspots.current].scale);
