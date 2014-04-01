@@ -18,6 +18,11 @@ button {
   top: 30px;
 }
 
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
 </style>
 <button>Reset</button>
 
@@ -5025,6 +5030,7 @@ button {
     <path clip-path="url(#SVGID_344_)" fill="#C46E72" d="M600.139,300.755c0.249-0.241,0.518-0.434,0.782-0.645"/>
   </g>
   </g>
+  <rect class="overlay" width="792" height="612"></rect>
 </svg>
 
 <script src="http://d3js.org/d3.v3.min.js"></script>
@@ -5042,7 +5048,8 @@ var zoom = d3.behavior.zoom()
 
 var svg = d3.select("svg");
 var svgG = d3.select("#nsaGraphic");
-svgG.call(zoom);
+var overlay = d3.select(".overlay");
+overlay.call(zoom);
 
 d3.select("button").on("click", reset);
 
