@@ -78,7 +78,6 @@ body {
   position: absolute;
   z-index: 1;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
-  width: 300%;
   height: 100%;
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
@@ -98,12 +97,11 @@ body {
 }
 
 .slide {
-  width: 33.333%;
   height: 90%;
   height: calc(100% - 40px);
   float: left;
   font-family: BWHaasRegular;
-  text-align: left;
+  text-align: center;
   font-size: 13pt;
   position: relative;
   text-shadow: #fff 1px 1px 0px;
@@ -161,7 +159,6 @@ h2 {
 
 #dotty {
   position: absolute;
-  width: 33.333%;
   height: 5px;
   background: #666;
 }
@@ -211,6 +208,31 @@ button:hover {
   background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
 }
 
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-warning {
+    background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221); /* this is a light blue */
+}
+
 /* thx http://jsfiddle.net/mandynicole/7xrKP/ */
 .pulser {
     border: 3px solid #f0f;
@@ -232,16 +254,6 @@ button:hover {
   right:3px;
   top:2px;
   z-index:-1;
-}
-
-.toggle-deepwater {
-  position: absolute;
-  top: 0;
-  right: 2px;
-  -webkit-transform: rotate(180deg);
-  -webkit-transition: -webkit-transform 1s;
-  cursor: pointer;
-  z-index: 9;
 }
 
 #nav {
@@ -280,10 +292,6 @@ button:hover {
 @media (max-width: 360px) {
   /* mobile only */
 
-  #story-link {
-    display: none;
-  }
-
 }
 
 @media (min-width: 361px) {
@@ -315,7 +323,6 @@ button:hover {
   }
 
   #scroller {
-    width: 960px;
     height: 100%;
   }
 
@@ -339,25 +346,6 @@ button:hover {
     top: 15px;
   }
 
-}
-
-@media (min-width: 960px) {
-  /* wide desktop view: iscroll disabled, show all */
-
-  #wrapper {
-    width: 960px;
-  }
-
-  #nav, #indicator {
-    display: none !important;
-  }
-
-}
-
-@media (max-height: 380px) {
-  #slide3 .icon {
-    display:none;
-  }
 }
 
 </style>
@@ -391,35 +379,7 @@ font-family:BWHaasRegular
 
   <div id="viewport">
     <div id="wrapper">
-      <div id="scroller">
-        <div class="slide" id="slide1">
-          <div class="slide-inner">
-            <h2>Twenty-five years after Exxon Valdez, tankers spill less oil...</h3>
-            <p>(gallons spilled, U.S. tankers)</p>
-          </div>
-        </div>
-        <div class="slide" id="slide2">
-          <div class="slide-inner">
-            <h2>...but one rig can overshadow any progress.</h3>
-            <p>(gallons spilled, all U.S.)</p>
-              <div class="toggle-deepwater nav-arrow-wrapper">
-                  <img src="img/down.png" width="40">
-                  <div class="pulser"></div>
-              </div>
-          </div>
-        </div>
-        <div class="slide" id="slide3">
-          <div class="slide-inner preview">
-            <a href="http://businessweek.com/" title="Bloomberg Businessweek"><img src="apple-touch-icon-precomposed.png" width="50"></a>
-            <h2 id="title">The United States of Oil Spills</h2>
-            <img src="img/pipelines.svg" class="icon"/><img src="img/ships.svg" class="icon"/><img src="img/facilities.svg" class="icon"/><img src="img/other.svg" class="icon"/>
-            <p id="description">25 years since the Exxon Valdez dumped millions of gallons of crude on a remote Alaskan shore, tankers are safer than ever. But where oil goes, spills will always follow.</p>
-            <a id="story-link" href="http://www.businessweek.com/articles/2014-03-13/25-years-of-oil-spills"><button>Read article</button></a>
-            <a id="map-link" href="http://wbbw1.bwbx.io/cms/2014-03-19/econ_spill12_970_updated.png"><button>See map</button></a>
-            <div class="data-credit">Data: U.S. Coast Guard</div>
-          </div>
-        </div>
-      </div>
+      <div id="scroller"></div>
     </div>
   </div>
 
@@ -427,22 +387,45 @@ font-family:BWHaasRegular
     <div id="dotty"></div>
   </div>
 
-  <!--
-  <svg id="svg-canvas" class="fullscreen">
-    <defs>
-      <marker id = "arrowhead" viewBox = "-10 -10 20 20" refX = "0" refY = "0" markerWidth = "20" markerHeight = "20" stroke-width = "1" orient = "auto">
-        <polyline class="arrow" stroke-linejoin="bevel" points="-6.72,-6.749 0.54,0 -6.72,6.749 "/>
-      </marker>
-    </defs>
-  </svg>
-  -->
+  <script type="text/html" id="quizTemplate">
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><%= q.codename %></h3>
+      <p><%= q.description %></p>
+      <button class="real">Real</button> <button class="fake">Fake</button>
+    </div>
+  </div>
+  </script>
 
-  <script src="js/vendor/d3.min.js"></script>
+  <script type="text/html" id="introTemplate">
+  <div class="slide" id="intro">
+    <div class="slide-inner preview">
+      <a href="http://businessweek.com/" title="Bloomberg Businessweek"><img src="apple-touch-icon-precomposed.png" width="50"></a>
+      <h2 id="title">Quiz: NSA codenames, real or fake?</h2>
+      <img src="img/pipelines.svg" class="icon"/><img src="img/ships.svg" class="icon"/><img src="img/facilities.svg" class="icon"/><img src="img/other.svg" class="icon"/>
+      <p id="description">25 years since the Exxon Valdez dumped millions of gallons of crude on a remote Alaskan shore, tankers are safer than ever. But where oil goes, spills will always follow.</p>
+    </div>
+  </div>
+  </script>
+
+  <script type="text/html" id="outroTemplate">
+  <div class="slide" id="outro">
+    <div class="slide-inner preview">
+      <a href="http://businessweek.com/" title="Bloomberg Businessweek"><img src="apple-touch-icon-precomposed.png" width="50"></a>
+      <h2 id="title">The United States of Oil Spills</h2>
+      <img src="img/pipelines.svg" class="icon"/><img src="img/ships.svg" class="icon"/><img src="img/facilities.svg" class="icon"/><img src="img/other.svg" class="icon"/>
+      <p id="description">25 years since the Exxon Valdez dumped millions of gallons of crude on a remote Alaskan shore, tankers are safer than ever. But where oil goes, spills will always follow.</p>
+      <a id="story-link" href="http://www.businessweek.com/articles/2014-03-13/25-years-of-oil-spills"><button>Read article</button></a>
+      <a id="map-link" href="http://wbbw1.bwbx.io/cms/2014-03-19/econ_spill12_970_updated.png"><button>See map</button></a>
+      <div class="data-credit">Data: U.S. Coast Guard</div>
+    </div>
+  </div>
+  </script>
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-  <script src="js/plugins.js"></script>
+  <script src="js/vendor/underscore-min.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/charts.js"></script>
 
   <script>
 
@@ -451,150 +434,99 @@ var myScroll;
 
 function loaded () {
 
-  enquire.register("screen and (max-width: 959px)", {
+  document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+  var quiz = [
+    { "codename": "Alpha",
+      "description": "Description description description lorem ipsum, Description description description lorem ipsum" },
+    { "codename": "Beta",
+      "description": "Description description description lorem ipsum, Description description description lorem ipsum" },
+    { "codename": "Gamma",
+      "description": "Description description description lorem ipsum, Description description description lorem ipsum" },
+    { "codename": "Delta",
+      "description": "Description description description lorem ipsum, Description description description lorem ipsum" },
+    { "codename": "X-Ray",
+      "description": "Description description description lorem ipsum, Description description description lorem ipsum" }
+  ];
+  var slideCount = quiz.length+2;
+
+
+  $("#scroller").append(_.template($("#introTemplate").html()));
+
+  var template = $("#quizTemplate").html();
+  _.each(quiz, function(q) {
+    $("#scroller").append(_.template(template, {"q": q}));
+  });
+
+  $("#scroller").append(_.template($("#outroTemplate").html()));
+
+  $("#nav .nav-arrow-wrapper").on("click",onPageNav);
+  $("#nav .nav-arrow-wrapper").on("touchstart",onPageNav);
+
+  $(".real").on("click", function() {
+    $(this).addClass("button-success");
+    $(this).parent().append("<p>Yup, it's real!</p>");
+  });
+  $(".fake").on("click", function() {
+    $(this).addClass("button-error");
+    $(this).parent().append("<p>Nope, it's real!</p>");
+  });
+
+  $("#dotty").css("width", (100/slideCount)+"%");
+  $(".slide").css("width", (100/slideCount)+"%");
+  if(window.innerWidth < 361) {
+    $("#scroller").css("width", (100*slideCount)+"%");
+  }
+  else {
+    $("#scroller").css("width", (320*slideCount)+"px");
+  }
+
+  myScroll = new IScroll('#wrapper', {
+    scrollX: true,
+    scrollY: false,
+    momentum: false,
+    snap: true,
+    snapSpeed: 400,
+    keyBindings: true,
+    mouseWheel: true,
+    indicators: {
+      el: document.getElementById('indicator'),
+      resize: false
+    }
+  });
+  myScroll.on('scrollEnd', onPageNav);
+
+  enquire.register("screen and (min-width: 361px)", {
 
     // triggered when media query matches.
     match : function() {
-      myScroll = new IScroll('#wrapper', {
-        scrollX: true,
-        scrollY: false,
-        momentum: false,
-        snap: true,
-        snapSpeed: 400,
-        keyBindings: true,
-        mouseWheel: true,
-        indicators: {
-          el: document.getElementById('indicator'),
-          resize: false
-        }
-      });
-
-      myScroll.on('scrollEnd', onPageNav);
-
+      $("#scroller").css("width", (320*slideCount)+"px");
     },
 
     unmatch : function() {
-      myScroll.destroy();
+      $("#scroller").css("width", (100*slideCount)+"%");
     }
 
   });
 }
 
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-
-
-// load data
-var dataSources = [
-  { name: "Total spills", src: "totalspills.tsv" },
-  { name: "Tanker spills", src: "tankerspills.tsv" }
-  ];
-var data = new Object();
-var activeAJAX = dataSources.length, // files remaining
-    deepwaterVisible = false,
-    deepwaterSeen = false,
-    tankerBarChart,
-    totalBarChart;
-
-dataSources.forEach(function(dataSource, i) {
-  if(dataSource.src) {
-    d3.tsv("data/"+dataSource.src, function(error, dataLoaded) {
-      //coercing from strings to numbers
-      dataLoaded.forEach(function(d, i) {
-        $.each(d, function(j, value) {
-          //dataLoaded[i][j] = +value;
-        })
-      });
-      data[dataSource.name] = dataLoaded;
-      // if all files have been loaded...
-      if (--activeAJAX == 0) {
-        render();
-        slides = d3.selectAll(".slide");
-      }
-    });
-  } else { render(); }
-});
-
-//////////////////////////////////////////////////////////////////////////////////////////
-// RENDER ////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////
-
-function render() {
-  tankerBarChart = barChart()
-      .x(function(d) { return d.year; })
-      .y(function(d) { return +d.value; })
-      .width($("#slide1").width())
-      .height($("#slide1").height());
-  d3.select("#slide1").datum(data["Tanker spills"]).call(tankerBarChart);
-
-  totalBarChart = barChart()
-      .x(function(d) { return d.year; })
-      .y(function(d) { return +d.value; })
-      .width($("#slide2").width())
-      .height($("#slide2").height())
-      .yDomain([0,2.3e7]);
-  d3.select("#slide2").datum(data["Total spills"]).call(totalBarChart);
-
-  d3.selectAll('.annotation text')
-    .call(wrap, 100);
-
-  d3.selectAll('[data-x="2010"] .annotation')
-    .attr("transform", "translate(-60,160)");
-  drawArrow(d3.select('[data-x="2010"] .annotation'), [0,30], [50,60], 90, false);
-
-  d3.selectAll('[data-x="1990"] .annotation')
-    .attr("transform", "translate(60,20)");
-  drawArrow(d3.select('[data-x="1990"] .annotation'), [0,30], [-50,60], 90, true);
-
-  d3.selectAll("#nav .nav-arrow-wrapper").on("click",onPageNav);
-  d3.selectAll("#nav .nav-arrow-wrapper").on("touchstart",onPageNav);
-
-  d3.select(".toggle-deepwater").on("click",toggleDeepwater);
-  d3.select(".toggle-deepwater").on("touchstart",toggleDeepwater);
-
-  /*
-  d3.selectAll('.bar').on('mouseover', function() {
-      console.log(d3.select(this).attr('data-x'));
-      d3.selectAll('[data-x="'+d3.select(this).attr('data-x')+'"] rect').attr("fill", "cyan");
-    });
-  */
-
-}
-
 function onPageNav() {
+  /*
   if(myScroll.currentPage.pageX == 0) {
     myScroll.pages[0].seen = true;
-    d3.select("#next").style("display", "block");
-    d3.select("#prev").style("display", "none");
+    $("#next").css("display", "block");
+    $("#prev").css("display", "none");
   } else if(myScroll.currentPage.pageX == 1) {
     myScroll.pages[1].seen = true;
-    d3.select("#next").style("display", deepwaterSeen ? "block" : "none");
-    d3.select("#next .pulser").style("display", myScroll.pages[2].seen ? "none" : "block");
-    d3.select("#prev").style("display", "block");
+    $("#next").css("display", deepwaterSeen ? "block" : "none");
+    $("#next .pulser").css("display", myScroll.pages[2].seen ? "none" : "block");
+    $("#prev").css("display", "block");
   } else if(myScroll.currentPage.pageX == 2) {
     myScroll.pages[2].seen = true;
-    d3.select("#next").style("display", "none");
-    d3.select("#prev").style("display", "block");
+    $("#next").css("display", "none");
+    $("#prev").css("display", "block");
   }
-}
-
-function toggleDeepwater() {
-  deepwaterVisible = !deepwaterVisible;
-  if(deepwaterVisible) {
-    if(!deepwaterSeen) {
-      deepwaterSeen = true;
-      d3.select(".toggle-deepwater .pulser").style("display", "none");
-      d3.select("#next").style("display", "block");
-    }
-    totalBarChart.yDomain("auto");
-    d3.select(".toggle-deepwater").style("-webkit-transform","rotate(0deg)");
-  } else {
-    totalBarChart.yDomain([0,2.3e7]);
-    d3.select(".toggle-deepwater").style("-webkit-transform","rotate(180deg)");
-  }
-  d3.select("#slide2")
-      .datum(data["Total spills"])
-      .transition().duration(1000)
-      .call(totalBarChart);
+  */
 }
 
   </script>
