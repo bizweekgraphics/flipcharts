@@ -5054,17 +5054,20 @@ overlay.call(zoom);
 d3.select("button").on("click", reset);
 
 function zoomed() {
-  svgG.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+  console.log(d3.event);
+  var tn = zoom.translate();
+  var sc = zoom.scale();
+  svgG.attr("transform", "translate(" + tn + ")scale(" + sc + ")");
 }
 
 function reset() {
   d3.transition().duration(750).tween("zoom", function() {
-    var it = d3.interpolate(zoom.translate(), [0,0]),
-        is = d3.interpolate(zoom.scale(), 1);
+    var interpolateTranslate = d3.interpolate(zoom.translate(), [0,0]),
+        interpolateScale = d3.interpolate(zoom.scale(), 1);
     return function(t) {
       zoom
-        .translate(it(t))
-        .scale(is(t));
+        .translate(interpolateTranslate(t))
+        .scale(interpolateScale(t));
       zoomed();
     };
   });
