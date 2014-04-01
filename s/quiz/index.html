@@ -466,10 +466,12 @@ function loaded () {
   $(".real").on("click", function() {
     $(this).addClass("button-success");
     $(this).parent().append("<p>Yup, it's real!</p>");
+    $("#next").css("display", "block");
   });
   $(".fake").on("click", function() {
     $(this).addClass("button-error");
     $(this).parent().append("<p>Nope, it's real!</p>");
+    $("#next").css("display", "block");
   });
 
   $("#dotty").css("width", (100/slideCount)+"%");
@@ -511,6 +513,7 @@ function loaded () {
 }
 
 function onPageNav() {
+  $("#next").css("display", "none");
   /*
   if(myScroll.currentPage.pageX == 0) {
     myScroll.pages[0].seen = true;
