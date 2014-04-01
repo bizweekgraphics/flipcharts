@@ -14,8 +14,10 @@ body {
 
 button {
   position: absolute;
-  right: 30px;
-  top: 30px;
+  left: 10px;
+  top: 10px;
+  height: 50px;
+  width: 100px;
 }
 
 .overlay {
@@ -24,7 +26,7 @@ button {
 }
 
 </style>
-<button>Reset</button>
+<button>Click me</button>
 
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
    width="792px" height="612px" viewBox="0 0 792 612" enable-background="new 0 0 792 612" xml:space="preserve">
@@ -5036,9 +5038,36 @@ button {
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+var width = 792,
+    height = 612;
+
+var hotspots = [
+  { "name": "den",
+    "translate": [-688.517649659872,-1784.5672088886463],
+    "scale": 5.0210879651305795 },
+  { "name": "ice cream",
+    "translate": [-814.7138061201285,-1085.7980644137945],
+    "scale": 3.7166426970036563 },
+  { "name": "definitely dry cleaning",
+    "translate": [-1509.8485398135788,-966.5931475575928],
+    "scale": 4.158317740701123 },
+  { "name": "private jet",
+    "translate": [-2637.485141810858,-1129.1636142844611],
+    "scale": 7.663481745781588 },
+  { "name": "satellite",
+    "translate": [-1568.4851418108583,-510.1636142844611],
+    "scale": 7.663481745781588 },
+  { "name": "traveller",
+    "translate": [-1745.3868892007958,-1233.403751296457],
+    "scale": 3.675651533916206 },
+  { "name": "cat lady",
+    "translate": [-2671.9924687114353,-904.7176821696767],
+    "scale": 4.743657997643805 },
+  { "name": "telecom",
+    "translate": [-2142.0142941795366,-215.76207843837676],
+    "scale": 4.257480729813451 }
+];
+hotspots.current = -1;
 
 var zoom = d3.behavior.zoom()
     .translate([0, 0])
@@ -5054,16 +5083,16 @@ overlay.call(zoom);
 d3.select("button").on("click", reset);
 
 function zoomed() {
-  console.log(d3.event);
-  var tn = zoom.translate();
-  var sc = zoom.scale();
-  svgG.attr("transform", "translate(" + tn + ")scale(" + sc + ")");
+  console.log("translate: " + zoom.translate() + ", scale: " + zoom.scale());
+  svgG.attr("transform", "translate(" + zoom.translate() + ")scale(" + zoom.scale() + ")");
 }
 
 function reset() {
+  hotspots.current = (hotspots.current + 1) % hotspots.length;
+  d3.select("button").text(hotspots[hotspots.current].name);
   d3.transition().duration(750).tween("zoom", function() {
-    var interpolateTranslate = d3.interpolate(zoom.translate(), [0,0]),
-        interpolateScale = d3.interpolate(zoom.scale(), 1);
+    var interpolateTranslate = d3.interpolate(zoom.translate(), hotspots[hotspots.current].translate),
+        interpolateScale = d3.interpolate(zoom.scale(), hotspots[hotspots.current].scale);
     return function(t) {
       zoom
         .translate(interpolateTranslate(t))
