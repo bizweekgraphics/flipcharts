@@ -371,7 +371,7 @@ font-family:BWHaasRegular
     <div id="prev" class="nav-arrow-wrapper" onclick="myScroll.prev()" style="display:none;">
       <img src="img/down.png">
     </div>
-    <div id="next" class="nav-arrow-wrapper" onclick="alert('heyyy')">
+    <div id="next" class="nav-arrow-wrapper">
       <img src="img/down.png">
       <div class="pulser"></div>
     </div>
@@ -460,8 +460,8 @@ function loaded () {
 
   $("#scroller").append(_.template($("#outroTemplate").html()));
 
-  $("#nav .nav-arrow-wrapper").on("click",onPageNav);
-  $("#nav .nav-arrow-wrapper").on("touchstart",onPageNav);
+  $("#next").on("click",function() { myScroll.next(); onPageNav(); });
+  $("#next").on("touchstart",function() { myScroll.next(); onPageNav(); });
 
   $(".real").on("click", function() {
     $(this).addClass("button-success");
