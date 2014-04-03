@@ -30,7 +30,11 @@ html, body {
 
 h1 {
   font-family: BWHaasHead, helvetica;
-  margin-top: 0;
+  margin: 0;
+}
+
+p {
+  margin-top: 5px;
 }
 
 .overlay {
@@ -42,7 +46,7 @@ h1 {
 button {
   font-family: BWHaasHead, Helvetica;
   font-size: 100%;
-  padding: .5em 1.5em;
+  padding: .25em .25em;
   color: #444;
   color: rgba(0,0,0,.8);
   border: 1px solid #999;
@@ -81,7 +85,8 @@ button:hover {
 .button-success,
 .button-error,
 .button-warning,
-.button-secondary {
+.button-secondary,
+.button-bwg {
     color: white;
     border-radius: 4px;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
@@ -103,15 +108,11 @@ button:hover {
     background: rgb(66, 184, 221); /* this is a light blue */
 }
 
-button {
-  margin: 20px;
-  position: absolute;
-  top: 0px;
-  right: 0px;
+.button-bwg {
+    background: rgb(0,0,0);
 }
 
-#svg-container {
-  position: relative;
+button {
 }
 
 #svg-overlay {
@@ -147,10 +148,30 @@ button {
 #svg-overlay .tooltip .dek {
   display: none;
   text-transform: none;
+  letter-spacing: 0.5px;
 }
 
 #svg-overlay .tooltip:hover .dek {
   display: block;
+}
+
+#nav {
+  position: relative;
+  width: 100%;
+  height: 27px;
+}
+
+#prev {
+  position: relative;
+  display: none;
+  left: 0;
+  top: 0;
+}
+
+#next {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 
@@ -5897,8 +5918,8 @@ button {
 
   <div id="blurb">
     <h1 id="name">How the NSA sees the world</h1>
-    <p id="description">Blahdeeblah earogneroij erher ugihegu erugbeig beriug erguh erugihrg oe.</p>
-    <button id="next">Next</button>
+    <p id="description"><em>Click "Next" to explore. Click and drag to pan around the scene; scroll to zoom. Mouse over a codename to learn more.</em></p>
+    <div id="nav"><button id="prev" class="button-bwg">Prev</button><button id="next" class="button-bwg">Next</button></div>
   </div>
 </div>
 
@@ -5913,82 +5934,69 @@ var width = 970,
 
 var hotspots = [
   {
-    "name": "Submarines",
-    "description": "The agency can collect worldwide Internet traffic with a modified nuclear submarine that taps undersea fiber-optic cables—allowing spies to vacuum data from millions of users.",
-    "translate": [0,0],
-    "scale": 2
-  },
-  {
-    "name": "Secret Selfies",
-    "description": "Malware planted in an iPhone can secretly activate its camera and microphone, turning it into a listening device. Malware for Windows mobile phones enables complete remote control of the handset.",
-    "translate": [100,200],
-    "scale": 3
-  },
-  {
-    "name": "X-Ray Vision",
-    "description": "Radar waves beamed into a room can detect what is being typed on a keyboard or displayed on a computer screen. ",
-    "translate": [300,500],
-    "scale": 1.5
-  },
-  {
-    "name": "Credit Cards",
-    "description": "The agency tapped into the network of Visa and major banking systems to collect troves of transaction data. ",
-    "translate": [-100,-200],
-    "scale": 4
-  },
-  {
-    "name": "Fake Rocks",
-    "description": "Transmitters hidden inside rocks and other objects can receive information from NSA taps implanted in nearby computers even if they’re “air gapped” machines or networks that aren’t hooked up to the Internet—among the hardest of all digital targets.",
-    "translate": [-200,300],
-    "scale": 2.5
-  },
-  {
-    "name": "Travel Trackers",
-    "description": "The NSA has several ways to follow the movements of intelligence targets as they get off planes, drive across borders, or move around a city, including an implant that directs a cell phone SIM card to send geolocation data via text message.",
-    "translate": [300,-100],
-    "scale": 3
-  },
-  {
     "name": "Call Recorder",
     "description": "The agency can intercept and store for up to a month 100 percent of a foreign country’s telephone calls, which can be sorted and played back.",
-    "translate": [0,0],
-    "scale": 1.5
+    "translate": [-304.11634166628664,-124.81618658809953],"scale": 3.9202957616795304
   },
   {
     "name": "Clone Phones",
     "description": "Foreign targets' cell phones can be surreptitiously swapped for an identical model with built-in listening and data collection devices.",
-    "translate": [100,300],
-    "scale": 3
+    "translate": [-183.55217867742772,-1047.3760108165322],"scale": 4.319793955544074
   },
   {
     "name": "Fake Shops",
     "description": "Diplomats at the 2009 G-20 summit in London were tricked, with the NSA’s help, into using an Internet cafe that had been rigged to send data to British intelligence.",
-    "translate": [-200,200],
-    "scale": 2.5
+    "translate": [-871.6726425997913,-593.4862484243762],"scale": 4.652248288515087
   },
   {
-    "name": "Satellites",
-    "description": "The NSA infiltrated German satellite communications used in remote locations such as drilling platforms—and by the country’s diplomats.",
-    "translate": [500,700],
-    "scale": 2.8
+    "name": "Travel Trackers",
+    "description": "The NSA has several ways to follow the movements of intelligence targets as they get off planes, drive across borders, or move around a city, including an implant that directs a cell phone SIM card to send geolocation data via text message.",
+    "translate": [-97.59017958545269,595.9244393904761],"scale": 5.333056086999454
   },
   {
     "name": "Special Delivery",
     "description": "Spies intercept computers that foreign targets buy online, fit them with devices that send data to the NSA, and box them back up for normal delivery.",
-    "translate": [-200,-400],
-    "scale": 1.3
+    "translate": [-1339.6768749556413,-898.8463156218211],"scale": 4.3545137350438425
+  },
+  {
+    "name": "X-Ray Vision",
+    "description": "Radar waves beamed into a room can detect what is being typed on a keyboard or displayed on a computer screen. ",
+    "translate": [2171.5870002019515,-534.0151362132575],"scale": 8
+  },
+  {
+    "name": "Credit Cards",
+    "description": "The agency tapped into the network of Visa and major banking systems to collect troves of transaction data. ",
+    "translate": [1005.0860411182722,-696.6223398088828],"scale": 5.864467028756845
+  },
+  {
+    "name": "Satellites",
+    "description": "The NSA infiltrated German satellite communications used in remote locations such as drilling platforms—and by the country’s diplomats.",
+    "translate": [-1303.850745853744,1876.4732224638497],"scale": 7.297624036434451
   },
   {
     "name": "Gamer Spies",
     "description": "Agency employees join World of Warcraft and Second Life communities, hunting for criminal networks and recruiting informants. They’ve also infiltrated Microsoft’s Xbox Live network.",
-    "translate": [200,100],
-    "scale": 1.9
+    "translate": [-1618.693266622166,199.10005034296717],"scale": 4.671867695567415
   },
   {
     "name": "Cell Towers",
     "description": "Base stations mimicking cell towers  siphon location data from targets’ phones. Agents can also intercept mobile calls with a shoe-box-size receiver.",
-    "translate": [0,0],
-    "scale": 2.5
+    "translate": [-1616.4419249276675,1013.154384194686],"scale": 4.697613746070077
+  },
+  {
+    "name": "Submarines",
+    "description": "The agency can collect worldwide Internet traffic with a modified nuclear submarine that taps undersea fiber-optic cables—allowing spies to vacuum data from millions of users.",
+    "translate": [2096.0441566116333,-1364.5263399571543],"scale": 5.322116164322762
+  },
+  {
+    "name": "Secret Selfies",
+    "description": "Malware planted in an iPhone can secretly activate its camera and microphone, turning it into a listening device. Malware for Windows mobile phones enables complete remote control of the handset.",
+    "translate": [1967.6521854819516,-671.4207185679867],"scale": 5.066405324542723
+  },
+  {
+    "name": "Fake Rocks",
+    "description": "Transmitters hidden inside rocks and other objects can receive information from NSA taps implanted in nearby computers even if they’re “air gapped” machines or networks that aren’t hooked up to the Internet—among the hardest of all digital targets.",
+    "translate": [1832.0419870107553,-1275.1525719494996],"scale": 5.791752689518234
   }
 ];
 hotspots.current = -1;
@@ -6039,7 +6047,8 @@ var pointerCapture = d3.select("#pointer-capture");
 pointerCapture.call(zoom);
 zoomed();
 
-d3.select("button").on("click", reset);
+d3.select("#next").on("click", next);
+d3.select("#prev").on("click", prev);
 
 function zoomed() {
   //console.log("translate: " + zoom.translate() + ", scale: " + zoom.scale());
@@ -6051,8 +6060,15 @@ function zoomed() {
   overlay.style("-webkit-transform", "translate(" + zoom.translate()[0] +"px,"+zoom.translate()[1] + "px) scale(" + (zoom.scale()) + ")");
 }
 
-function reset() {
-  hotspots.current = (hotspots.current + 1) % hotspots.length;
+function next() {
+  goToSlide((hotspots.current + 1).mod(hotspots.length));
+  d3.select("#prev").style("display","block");
+}
+function prev() {
+  goToSlide((hotspots.current - 1).mod(hotspots.length));
+}
+function goToSlide(n) {
+  hotspots.current = n;
   d3.select("#name").text(hotspots[hotspots.current].name);
   d3.select("#description").text(hotspots[hotspots.current].description);
   d3.transition().duration(750).tween("zoom", function() {
@@ -6067,12 +6083,20 @@ function reset() {
   });
 }
 
+Number.prototype.mod = function(n) {
+  return ((this%n)+n)%n;
+}
+
 function loc(i, l) {
   tooltips[i].location = l;
   tooltipEls[i]
     .style("left", l[0]+"px")
     .style("top", l[1]+"px");
   console.log(tooltips[i]);
+}
+
+function hot() {
+  console.log('"translate": ['+zoom.translate()[0]+','+zoom.translate()[1]+'],"scale": '+zoom.scale());
 }
 
 </script>
