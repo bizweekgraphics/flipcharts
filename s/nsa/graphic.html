@@ -11,10 +11,11 @@
 <link rel="stylesheet" href="css/bbw.css">
 <style>
 
-body {
+html, body {
   position: relative;
   width: 960px;
   font-family: BWHaasRegular, helvetica;
+  overflow: hidden;
 }
 
 #blurb {
@@ -5993,87 +5994,24 @@ var hotspots = [
 hotspots.current = -1;
 
 var tooltips = [
-  {
-    "name": "ANGRYNEIGHBOR",
-    "description": "Reads computer screens from outside a room",
-    "location": [0,0]
-  },
-  {
-    "name": "CANDYGRAM",
-    "description": "Intercepts cell phone location data",
-    "location": [50,100]
-  },
-  {
-    "name": "Co-Traveler",
-    "description": "Tracks mobile phone location and data",
-    "location": [90,250]
-  },
-  {
-    "name": "Cottonmouth",
-    "description": "USB implants tap targeted networks",
-    "location": [600,110]
-  },
-  {
-    "name": "Dishfire",
-    "description": "Collects and stores millions of SMS texts",
-    "location": [0,0]
-  },
-  {
-    "name": "DROPOUTJEEP",
-    "description": "Implant that secretly takes over iPhones",
-    "location": [0,0]
-  },
-  {
-    "name": "FOXACID",
-    "description": "Malware to defeat TOR encryption",
-    "location": [0,0]
-  },
-  {
-    "name": "GOPHERSET",
-    "description": "SIM card implant that steals phone data",
-    "location": [0,0]
-  },
-  {
-    "name": "HAPPYFOOT",
-    "description": "Intercepts app data to locate phone users",
-    "location": [0,0]
-  },
-  {
-    "name": "OCTSKYWARD",
-    "description": "Collects GSM data from flying aircraft",
-    "location": [0,0]
-  },
-  {
-    "name": "PICASSO",
-    "description": "Look-alike phones spy on users and send data",
-    "location": [0,0]
-  },
-  {
-    "name": "Prism",
-    "description": "NSA gets companies to turn over Internet data QUANTUM",
-    "location": [0,0]
-  },
-  {
-    "name": "Quantum",
-    "description": "Redirects a target’s browser to the NSA",
-    "location": [0,0]
-  },
-  {
-    "name": "Somberknave",
-    "description": "Software for remote control of Windows XP",
-    "location": [0,0]
-  },
-  {
-    "name": "Souffletrough",
-    "description": "One of several ways to break through firewalls",
-    "location": [0,0]
-  },
-  {
-    "name": "SURLYSPAWN",
-    "description": "Keystroke logger put inside computers",
-    "location": [0,0]
-  }
+  {"name":"ANGRYNEIGHBOR","description":"Reads computer screens from outside a room","location":[230,370]},
+  {"name":"CANDYGRAM","description":"Intercepts cell phone location data","location":[790,130]},
+  {"name":"Co-Traveler","description":"Tracks mobile phone location and data","location":[200,440]},
+  {"name":"Cottonmouth","description":"USB implants tap targeted networks","location":[150,550]},
+  {"name":"Dishfire","description":"Collects and stores millions of SMS texts","location":[570,590]},
+  {"name":"DROPOUTJEEP","description":"Implant that secretly takes over iPhones","location":[48,460]},
+  {"name":"FOXACID","description":"Malware to defeat TOR encryption","location":[620,460]},
+  {"name":"GOPHERSET","description":"SIM card implant that steals phone data","location":[320,480]},
+  {"name":"HAPPYFOOT","description":"Intercepts app data to locate phone users","location":[390,540]},
+  {"name":"OCTSKYWARD","description":"Collects GSM data from flying aircraft","location":[270,70]},
+  {"name":"PICASSO","description":"Look-alike phones spy on users and send data","location":[500,500]},
+  {"name":"Prism","description":"NSA gets companies to turn over Internet data QUANTUM","location":[650,200]},
+  {"name":"Quantum","description":"Redirects a target’s browser to the NSA","location":[710,490]},
+  {"name":"Somberknave","description":"Software for remote control of Windows XP","location":[610,540]},
+  {"name":"Souffletrough","description":"One of several ways to break through firewalls","location":[670,360]},
+  {"name":"SURLYSPAWN","description":"Keystroke logger put inside computers","location":[220,510]}
 ];
+
 var tooltipEls = [];
 tooltips.forEach(function(value, key) {
   tooltipEls[key] = d3.select("#svg-overlay")
