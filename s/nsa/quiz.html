@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>The United States of Oil Spills - Businessweek</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+  <meta name="twitter:card" content="photo">
+  <meta name="twitter:site" content="bizweekgraphics">
+  <meta name="twitter:creator" content="tophtucker">
+  <meta name="twitter:title" content="The United States of Oil Spills">
+  <meta name="twitter:image" content="http://flip.bizweekgraphics.com/s/oilspill/img/twittercard3.png">
+  <meta name="twitter:image:width" content="816">
+  <meta name="twitter:image:height" content="551">
+  <meta name="twitter:domain" content="http://bizweekgraphics.com/">
+
+  <link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+  <link href="apple-touch-icon-precomposed.png" rel="apple-touch-icon" type="image/png" />
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/h5bp.css">
+  <link rel="stylesheet" href="css/bbw.css">
+  <link rel="stylesheet" href="css/charts.css">
+  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+  <script src="js/vendor/iscroll.js"></script>
+  <script src="js/vendor/enquire.min.js"></script>
+</head>
+
+<style type="text/css">
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  -ms-touch-action: none;
+  width: 100%;
+  height: 100%;
+}
+
+body, ul, li {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+body {
+  font-size: 12px;
+  font-family: helvetica, arial;
+  color: black;
+  overflow: hidden; /* this is important to prevent the whole page to bounce */
+  width: 100%;
+  height: 100%;
+  background: #efe;
+}
+
+#viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+#scroller {
+  position: absolute;
+  z-index: 1;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  height: 100%;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+  -o-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+.slide {
+  height: 90%;
+  height: calc(100% - 40px);
+  float: left;
+  font-family: BWHaasRegular;
+  text-align: center;
+  font-size: 13pt;
+  position: relative;
+  text-shadow: #fff 1px 1px 0px;
+}
+
+.slide-inner {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.slide svg {
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: -1;
+}
+
+.axis line, .axis path {
+  fill: none;
+  stroke: none;
+}
+
+.y.axis .tick line {
+  stroke: #eee;
+}
+
+.y.axis {
+  font-size: 10pt;
+}
+
+h2 {
+  font-family: BWHaasHead;
+  font-size: 16pt;
+  margin-right: 20px;
+  color: black;
+}
+
+#title {
+  margin: 0;
+  font-size: 20pt;
+}
+
+.preview {
+  text-align: center;
+}
+
+#indicator {
+  position: absolute;
+  z-index: 1;
+  bottom: 0px;
+  width: 100%;
+  height: 5px;
+}
+
+#dotty {
+  position: absolute;
+  height: 5px;
+  background: #666;
+}
+
+.icon {
+  z-index:-1;
+  width: 60px;
+}
+
+/* from pure css http://purecss.io/buttons/ */
+button {
+  font-family: BWHaasHead;
+  font-size: 100%;
+  padding: .5em 1.5em;
+  color: #444;
+  color: rgba(0,0,0,.8);
+  border: 1px solid #999;
+  border: 0 rgba(0,0,0,0);
+  background-color: #E6E6E6;
+  text-decoration: none;
+  border-radius: 2px;
+  -webkit-transition: .1s linear -webkit-box-shadow;
+  -moz-transition: .1s linear -moz-box-shadow;
+  -ms-transition: .1s linear box-shadow;
+  -o-transition: .1s linear box-shadow;
+  transition: .1s linear box-shadow;
+  display: inline-block;
+  zoom: 1;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: baseline;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: button;
+  cursor: pointer;
+  margin: 0;
+  box-sizing: border-box;
+  align-items: flex-start;
+}
+
+button:hover {
+  background-image: linear-gradient(transparent,rgba(0,0,0,.05) 40%,rgba(0,0,0,.1));
+}
+
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+    color: white;
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.button-success {
+    background: rgb(28, 184, 65); /* this is a green */
+}
+
+.button-error {
+    background: rgb(202, 60, 60); /* this is a maroon */
+}
+
+.button-warning {
+    background: rgb(223, 117, 20); /* this is an orange */
+}
+
+.button-secondary {
+    background: rgb(66, 184, 221); /* this is a light blue */
+}
+
+/* thx http://jsfiddle.net/mandynicole/7xrKP/ */
+.pulser {
+    border: 3px solid #f0f;
+    -webkit-border-radius: 30px;
+    height: 35px;
+    width: 35px;
+    position: absolute;
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite;
+    opacity: 0.0
+}
+@-webkit-keyframes pulsate {
+    0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
+    50% {opacity: 1.0;}
+    100% {-webkit-transform: scale(1.2, 1.2); opacity: 0.0;}
+}
+
+.nav-arrow-wrapper .pulser {
+  right:3px;
+  top:2px;
+  z-index:-1;
+}
+
+#nav {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+  pointer-events: none;
+}
+
+#nav .nav-arrow-wrapper {
+  position: absolute;
+  pointer-events: auto;
+  cursor: pointer;
+  bottom: 0;
+  top: auto;
+  z-index: 9;
+  height: 40px;
+}
+
+#nav .nav-arrow-wrapper img {
+  height: 40px;
+  width: 40px;
+}
+
+#nav #prev {
+  -webkit-transform: rotate(90deg);
+  left: 0;
+}
+
+#nav #next {
+  -webkit-transform: rotate(-90deg);
+  right: 0;
+}
+
+@media (max-width: 360px) {
+  /* mobile only */
+
+}
+
+@media (min-width: 361px) {
+  /* desktop view */
+
+  #nav {
+    display: inherit !important;
+  }
+
+  #map-link {
+    display: none;
+  }
+
+  #nav .pulser {
+    display: none;
+  }
+
+  #viewport {
+    width: 100%;
+    height: 480px;
+    background: none;
+    top: 20%;
+  }
+
+  #wrapper {
+    width: 320px;
+    height: 100%;
+    background: none;
+  }
+
+  #scroller {
+    height: 100%;
+  }
+
+  #nav .nav-arrow-wrapper {
+    top: 40%;
+    bottom: auto;
+    opacity: 0.5;
+  }
+  #nav .nav-arrow-wrapper:hover {
+    opacity: 1;
+  }
+  #nav .nav-arrow-wrapper img {
+    width: 100px;
+    height: 100px;
+  }
+
+  #nav .nav-arrow-wrapper .pulser {
+    width: 60px;
+    height: 60px;
+    right: 20px;
+    top: 15px;
+  }
+
+}
+
+</style>
+
+<!--
+Body classes:
+.iframed    // no interface wrapping, no margins
+.dark_layout  // like bbw video site
+.half      // half-width of standard article (315px)
+.full      // full-width of standard article (630px)
+.wide      // wide interactive feature layout (970px)
+
+Fonts:
+font-family:BloombergLBold    // corporate wordmark logotype
+font-family:BWHaasHead
+font-family:BWHaasHead75Bold
+font-family:BWHaasRegular
+-->
+
+<body onload="loaded()">
+
+  <div id="nav" style="position:absolute;">
+    <div id="prev" class="nav-arrow-wrapper" onclick="myScroll.prev()" style="display:none;">
+      <img src="img/down.png">
+    </div>
+    <div id="next" class="nav-arrow-wrapper">
+      <img src="img/down.png">
+      <div class="pulser"></div>
+    </div>
+  </div>
+
+  <div id="viewport">
+    <div id="wrapper">
+      <div id="scroller"></div>
+    </div>
+  </div>
+
+  <div id="indicator">
+    <div id="dotty"></div>
+  </div>
+
+  <script type="text/html" id="quizTemplate">
+  <div class="slide">
+    <div class="slide-inner">
+      <h2><%= q.codename %></h3>
+      <p><%= q.description %></p>
+      <button class="real">Real</button> <button class="fake">Fake</button>
+    </div>
+  </div>
+  </script>
+
+  <script type="text/html" id="introTemplate">
+  <div class="slide" id="intro">
+    <div class="slide-inner preview">
+      <a href="http://businessweek.com/" title="Bloomberg Businessweek"><img src="apple-touch-icon-precomposed.png" width="50"></a>
+      <h2 id="title">Quiz: NSA codenames, real or fake?</h2>
+      <img src="img/pipelines.svg" class="icon"/><img src="img/ships.svg" class="icon"/><img src="img/facilities.svg" class="icon"/><img src="img/other.svg" class="icon"/>
+      <p id="description">25 years since the Exxon Valdez dumped millions of gallons of crude on a remote Alaskan shore, tankers are safer than ever. But where oil goes, spills will always follow.</p>
+    </div>
+  </div>
+  </script>
+
+  <script type="text/html" id="outroTemplate">
+  <div class="slide" id="outro">
+    <div class="slide-inner preview">
+      <a href="http://businessweek.com/" title="Bloomberg Businessweek"><img src="apple-touch-icon-precomposed.png" width="50"></a>
+      <h2 id="title">The United States of Oil Spills</h2>
+      <img src="img/pipelines.svg" class="icon"/><img src="img/ships.svg" class="icon"/><img src="img/facilities.svg" class="icon"/><img src="img/other.svg" class="icon"/>
+      <p id="description">25 years since the Exxon Valdez dumped millions of gallons of crude on a remote Alaskan shore, tankers are safer than ever. But where oil goes, spills will always follow.</p>
+      <a id="story-link" href="graphic.html"><button>Explore graphic</button></a>
+      <div class="data-credit">Data: U.S. Coast Guard</div>
+    </div>
+  </div>
+  </script>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+  <script src="js/vendor/underscore-min.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+
+// before doing anything else, set up iscroll
+var myScroll;
+
+function loaded () {
+
+  document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+  var quiz = [
+    { "codename": "Alpha",
+      "description": "Description description description lorem ipsum, Description description description lorem ipsum" },
+    { "codename": "Beta",
+      "description": "Description description description lorem ipsum, Description description description lorem ipsum" },
+    { "codename": "Gamma",
+      "description": "Description description description lorem ipsum, Description description description lorem ipsum" },
+    { "codename": "Delta",
+      "description": "Description description description lorem ipsum, Description description description lorem ipsum" },
+    { "codename": "X-Ray",
+      "description": "Description description description lorem ipsum, Description description description lorem ipsum" }
+  ];
+  var slideCount = quiz.length+2;
+
+
+  $("#scroller").append(_.template($("#introTemplate").html()));
+
+  var template = $("#quizTemplate").html();
+  _.each(quiz, function(q) {
+    $("#scroller").append(_.template(template, {"q": q}));
+  });
+
+  $("#scroller").append(_.template($("#outroTemplate").html()));
+
+  $("#next").on("click",function() { myScroll.next(); onPageNav(); });
+  $("#next").on("touchstart",function() { myScroll.next(); onPageNav(); });
+
+  $(".real").on("click", function() {
+    $(this).addClass("button-success");
+    $(this).parent().append("<p>Yup, it's real!</p>");
+    $("#next").css("display", "block");
+  });
+  $(".fake").on("click", function() {
+    $(this).addClass("button-error");
+    $(this).parent().append("<p>Nope, it's real!</p>");
+    $("#next").css("display", "block");
+  });
+
+  $("#dotty").css("width", (100/slideCount)+"%");
+  $(".slide").css("width", (100/slideCount)+"%");
+  if(window.innerWidth < 361) {
+    $("#scroller").css("width", (100*slideCount)+"%");
+  }
+  else {
+    $("#scroller").css("width", (320*slideCount)+"px");
+  }
+
+  myScroll = new IScroll('#wrapper', {
+    scrollX: true,
+    scrollY: false,
+    momentum: false,
+    snap: true,
+    snapSpeed: 400,
+    keyBindings: true,
+    mouseWheel: true,
+    indicators: {
+      el: document.getElementById('indicator'),
+      resize: false
+    }
+  });
+  myScroll.on('scrollEnd', onPageNav);
+
+  enquire.register("screen and (min-width: 361px)", {
+
+    // triggered when media query matches.
+    match : function() {
+      $("#scroller").css("width", (320*slideCount)+"px");
+    },
+
+    unmatch : function() {
+      $("#scroller").css("width", (100*slideCount)+"%");
+    }
+
+  });
+}
+
+function onPageNav() {
+  $("#next").css("display", "none");
+  /*
+  if(myScroll.currentPage.pageX == 0) {
+    myScroll.pages[0].seen = true;
+    $("#next").css("display", "block");
+    $("#prev").css("display", "none");
+  } else if(myScroll.currentPage.pageX == 1) {
+    myScroll.pages[1].seen = true;
+    $("#next").css("display", deepwaterSeen ? "block" : "none");
+    $("#next .pulser").css("display", myScroll.pages[2].seen ? "none" : "block");
+    $("#prev").css("display", "block");
+  } else if(myScroll.currentPage.pageX == 2) {
+    myScroll.pages[2].seen = true;
+    $("#next").css("display", "none");
+    $("#prev").css("display", "block");
+  }
+  */
+}
+
+  </script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48575462-1', 'bizweekgraphics.com');
+  ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>
