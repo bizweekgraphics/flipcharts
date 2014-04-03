@@ -6087,18 +6087,6 @@ Number.prototype.mod = function(n) {
   return ((this%n)+n)%n;
 }
 
-function loc(i, l) {
-  tooltips[i].location = l;
-  tooltipEls[i]
-    .style("left", l[0]+"px")
-    .style("top", l[1]+"px");
-  console.log(tooltips[i]);
-}
-
-function hot() {
-  console.log('"translate": ['+zoom.translate()[0]+','+zoom.translate()[1]+'],"scale": '+zoom.scale());
-}
-
 </script>
 </body>
 </html>
