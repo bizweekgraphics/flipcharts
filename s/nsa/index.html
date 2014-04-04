@@ -119,8 +119,18 @@ button:hover {
 button {
 }
 
-#svg-overlay {
+#graphic-wrapper {
+  width: 970px;
+  height: 650px;
+  overflow: hidden;
+  position: relative;
+}
+
+#graphic-wrapper svg {
   position: absolute;
+}
+
+#svg-overlay {
   top: 0;
   left: 0;
   width: 970px;
@@ -134,6 +144,11 @@ button {
   left: 0;
   width: 970px;
   height: 650px;
+  cursor: -webkit-grab;
+}
+
+#pointer-capture:active {
+  cursor: -webkit-grabbing;
 }
 
 #svg-overlay .tooltip {
