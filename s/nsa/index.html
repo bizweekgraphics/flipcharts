@@ -6136,6 +6136,16 @@ Number.prototype.mod = function(n) {
   return ((this%n)+n)%n;
 }
 
+function loc(i, l) {
+  if(typeof l != "undefined") {
+    tooltips[i].location = l;
+    tooltipEls[i]
+      .style("left", l[0]+"px")
+      .style("top", l[1]+"px");
+  }
+  console.log(tooltips[i]);
+}
+
 </script>
 </body>
 </html>
