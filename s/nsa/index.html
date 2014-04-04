@@ -5921,7 +5921,7 @@ button {
   </div>
 
   <div id="blurb">
-    <h1 id="name">How the NSA sees the world</h1>
+    <h1 id="name">How the NSA Sees the World</h1>
     <p id="description"><em>Click "Next" to explore. Click and drag to pan around the scene; scroll to zoom. Mouse over a code name to learn more.</em></p>
     <div id="nav"><button id="prev" class="button-bwg">Prev</button><button id="next" class="button-bwg">Next</button></div>
   </div>
@@ -6022,7 +6022,7 @@ var tooltips = [
   {"name":"HAPPYFOOT","description":"Intercepts app data to locate phone users","location":[390,540]},
   {"name":"OCTSKYWARD","description":"Collects GSM data from flying aircraft","location":[270,70]},
   {"name":"PICASSO","description":"Look-alike phones spy on users and send data","location":[500,500]},
-  {"name":"Prism","description":"NSA gets companies to turn over Internet data QUANTUM","location":[650,200]},
+  {"name":"Prism","description":"NSA gets companies to turn over Internet data","location":[650,200]},
   {"name":"Quantum","description":"Redirects a target’s browser to the NSA","location":[710,490]},
   {"name":"Somberknave","description":"Software for remote control of Windows XP","location":[610,540]},
   {"name":"Souffletrough","description":"One of several ways to break through firewalls","location":[670,360]},
@@ -6059,17 +6059,20 @@ zoomed();
 d3.select("#next").on("click", next);
 d3.select("#prev").on("click", prev);
 
-console.log("here1");
 function zoomed() {
-  //console.log("translate: " + zoom.translate() + ", scale: " + zoom.scale());
-  //svgG.attr("transform", "translate(" + zoom.translate() + ")scale(" + zoom.scale() + ")");
-  //svgG.style("-webkit-transform", "translate(" + zoom.translate()[0] +"px,"+zoom.translate()[1] + "px) scale(" + (zoom.scale()*zoom.scale()) + ")");
-  //d3.select("#svg-overlay").style("-webkit-transform", "translate(" + zoom.translate()[0] +"px,"+zoom.translate()[1] + "px) scale(" + (zoom.scale()) + ")");
-  //d3.select("#graphic-wrapper").style("-webkit-transform", "translate(" + zoom.translate()[0] +"px,"+zoom.translate()[1] + "px) scale(" + (zoom.scale()) + ")");
+
+  // A couple notes:
+  // 1. Transformations on this mammoth SVG are so sluggish in Firefox that we don't even try.
+  // 2. It's faster if you use the SVG transform attribute on the SVG group, and the mouse wheel
+  //    zooms more consistently on-target, but then for some reason the HTML and SVG
+  //    transformations are applied inconsistently (different order of operations?)
+  //    and things fall out of sync. So we transform the whole svg element. :-/
+
   var transformString = "translate(" + zoom.translate()[0] +"px,"+zoom.translate()[1] + "px) scale(" + (zoom.scale()) + ")";
   svg.style("-webkit-transform", transformString);
-  //svg.style("-moz-transform", transformString);
   overlay.style("-webkit-transform", transformString);
+
+  //svg.style("-moz-transform", transformString);
   //overlay.style("-moz-transform", transformString);
 }
 
@@ -6106,6 +6109,7 @@ function goToSlide(n) {
   });
 }
 
+// javascript modulo % behaves strangely w/ negative numbers, so...
 Number.prototype.mod = function(n) {
   return ((this%n)+n)%n;
 }
