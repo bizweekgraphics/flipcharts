@@ -137,7 +137,7 @@ button {
 }
 
 #svg-overlay .tooltip {
-  font-size: 10px;
+  font-size: 10pt;
   position: absolute;
   border-radius: 4px;
   border: 1px solid orange;
@@ -147,6 +147,7 @@ button {
   cursor: pointer;
   pointer-events: all;
   text-transform: uppercase;
+  -webkit-transform-origin: 0% 0%;
 }
 
 #svg-overlay .tooltip .dek {
@@ -6071,6 +6072,7 @@ function zoomed() {
   var transformString = "translate(" + zoom.translate()[0] +"px,"+zoom.translate()[1] + "px) scale(" + (zoom.scale()) + ")";
   svg.style("-webkit-transform", transformString);
   overlay.style("-webkit-transform", transformString);
+  overlay.selectAll(".tooltip").style("-webkit-transform", "scale("+(1/zoom.scale())+")");
 
   //svg.style("-moz-transform", transformString);
   //overlay.style("-moz-transform", transformString);
