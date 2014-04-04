@@ -6068,9 +6068,9 @@ function zoomed() {
   //d3.select("#graphic-wrapper").style("-webkit-transform", "translate(" + zoom.translate()[0] +"px,"+zoom.translate()[1] + "px) scale(" + (zoom.scale()) + ")");
   var transformString = "translate(" + zoom.translate()[0] +"px,"+zoom.translate()[1] + "px) scale(" + (zoom.scale()) + ")";
   svg.style("-webkit-transform", transformString);
-  svg.style("-moz-transform", transformString);
+  //svg.style("-moz-transform", transformString);
   overlay.style("-webkit-transform", transformString);
-  overlay.style("-moz-transform", transformString);
+  //overlay.style("-moz-transform", transformString);
 }
 
 function next() {
@@ -6084,6 +6084,16 @@ function goToSlide(n) {
   hotspots.current = n;
   d3.select("#name").text(hotspots[hotspots.current].name);
   d3.select("#description").text(hotspots[hotspots.current].description);
+
+  //would like to skip animation on slow browsers (like firefox)...
+  if(1==0) {
+    zoom
+      .translate(hotspots[hotspots.current].translate)
+      .scale(hotspots[hotspots.current].scale);
+    zoomed();
+    return;
+  }
+
   d3.transition().duration(750).tween("zoom", function() {
     var interpolateTranslate = d3.interpolate(zoom.translate(), hotspots[hotspots.current].translate),
         interpolateScale = d3.interpolate(zoom.scale(), hotspots[hotspots.current].scale);
