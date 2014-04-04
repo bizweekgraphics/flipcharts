@@ -37,6 +37,10 @@ p {
   margin-top: 5px;
 }
 
+#blurb p {
+  letter-spacing: 0.5px;
+}
+
 .overlay {
   fill: none;
   pointer-events: all;
@@ -5918,7 +5922,7 @@ button {
 
   <div id="blurb">
     <h1 id="name">How the NSA sees the world</h1>
-    <p id="description"><em>Click "Next" to explore. Click and drag to pan around the scene; scroll to zoom. Mouse over a codename to learn more.</em></p>
+    <p id="description"><em>Click "Next" to explore. Click and drag to pan around the scene; scroll to zoom. Mouse over a code name to learn more.</em></p>
     <div id="nav"><button id="prev" class="button-bwg">Prev</button><button id="next" class="button-bwg">Next</button></div>
   </div>
 </div>
@@ -5934,13 +5938,18 @@ var width = 970,
 
 var hotspots = [
   {
+    "name": "How the NSA Sees the World",
+    "description": "Click ‘Next’ to explore. Click and drag to pan around the scene; scroll to zoom. Mouse over a code name to learn more.",
+    "translate": [0,0],"scale": 1
+  },
+  {
     "name": "Call Recorder",
-    "description": "The agency can intercept and store for up to a month 100 percent of a foreign country’s telephone calls, which can be sorted and played back.",
+    "description": "The agency can intercept and store for up to a month 100 percent of a foreign country’s telephone calls, which can be sorted and played back.",
     "translate": [-304.11634166628664,-124.81618658809953],"scale": 3.9202957616795304
   },
   {
     "name": "Clone Phones",
-    "description": "Foreign targets' cell phones can be surreptitiously swapped for an identical model with built-in listening and data collection devices.",
+    "description": "Foreign targets’ cell phones can be surreptitiously swapped for an identical model with built-in listening and data collection devices.",
     "translate": [-183.55217867742772,-1047.3760108165322],"scale": 4.319793955544074
   },
   {
@@ -5999,7 +6008,7 @@ var hotspots = [
     "translate": [1832.0419870107553,-1275.1525719494996],"scale": 5.791752689518234
   }
 ];
-hotspots.current = -1;
+hotspots.current = 0;
 
 var tooltips = [
   {"name":"ANGRYNEIGHBOR","description":"Reads computer screens from outside a room","location":[230,370]},
@@ -6050,14 +6059,18 @@ zoomed();
 d3.select("#next").on("click", next);
 d3.select("#prev").on("click", prev);
 
+console.log("here1");
 function zoomed() {
   //console.log("translate: " + zoom.translate() + ", scale: " + zoom.scale());
   //svgG.attr("transform", "translate(" + zoom.translate() + ")scale(" + zoom.scale() + ")");
   //svgG.style("-webkit-transform", "translate(" + zoom.translate()[0] +"px,"+zoom.translate()[1] + "px) scale(" + (zoom.scale()*zoom.scale()) + ")");
   //d3.select("#svg-overlay").style("-webkit-transform", "translate(" + zoom.translate()[0] +"px,"+zoom.translate()[1] + "px) scale(" + (zoom.scale()) + ")");
   //d3.select("#graphic-wrapper").style("-webkit-transform", "translate(" + zoom.translate()[0] +"px,"+zoom.translate()[1] + "px) scale(" + (zoom.scale()) + ")");
-  svg.style("-webkit-transform", "translate(" + zoom.translate()[0] +"px,"+zoom.translate()[1] + "px) scale(" + (zoom.scale()) + ")");
-  overlay.style("-webkit-transform", "translate(" + zoom.translate()[0] +"px,"+zoom.translate()[1] + "px) scale(" + (zoom.scale()) + ")");
+  var transformString = "translate(" + zoom.translate()[0] +"px,"+zoom.translate()[1] + "px) scale(" + (zoom.scale()) + ")";
+  svg.style("-webkit-transform", transformString);
+  svg.style("-moz-transform", transformString);
+  overlay.style("-webkit-transform", transformString);
+  overlay.style("-moz-transform", transformString);
 }
 
 function next() {
