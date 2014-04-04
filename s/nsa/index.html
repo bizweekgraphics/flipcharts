@@ -5923,7 +5923,7 @@ button {
 
   <div id="blurb">
     <h1 id="name">How the NSA Sees the World</h1>
-    <p id="description"><em>Click "Next" to explore. Click and drag to pan around the scene; scroll to zoom. Mouse over a code name to learn more.</em></p>
+    <p id="description"><em>Explore a sampling of the agency’s scores of spying programs. Click “Next” or mouse over a code name to learn more.</em></p>
     <div id="nav"><button id="prev" class="button-bwg">Prev</button><button id="next" class="button-bwg">Next</button></div>
   </div>
 </div>
@@ -5941,7 +5941,7 @@ var width = 970,
 var hotspots = [
   {
     "name": "How the NSA Sees the World",
-    "description": "Click ‘Next’ to explore. Click and drag to pan around the scene; scroll to zoom. Mouse over a code name to learn more.",
+    "description": "<em>Explore a sampling of the agency’s scores of spying programs. Click “Next” or mouse over a code name to learn more.</em>",
     "translate": [0,0],"scale": 1
   },
   {
@@ -6088,8 +6088,8 @@ function prev() {
 }
 function goToSlide(n) {
   hotspots.current = n;
-  d3.select("#name").text(hotspots[hotspots.current].name);
-  d3.select("#description").text(hotspots[hotspots.current].description);
+  d3.select("#name").html(hotspots[hotspots.current].name);
+  d3.select("#description").html(hotspots[hotspots.current].description);
 
   //would like to skip animation on slow browsers (like firefox)...
   if(1==0) {
