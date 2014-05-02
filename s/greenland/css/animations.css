@@ -1,0 +1,49 @@
+
+@-webkit-keyframes yellowPulse {
+  from { background-color: #fffd80; -webkit-box-shadow: 0 0 9px #fffd80; }
+  50% { background-color: #fdff00; -webkit-box-shadow: 0 0 18px #fdff00; }
+  to { background-color: #fffd80; -webkit-box-shadow: 0 0 9px #fffd80; }
+}
+
+@-webkit-keyframes orangePulse {
+  from { background-color: #ffc139; -webkit-box-shadow: 0 0 9px #ffc139; }
+  50% { background-color: #ff8e05; -webkit-box-shadow: 0 0 18px #ff8e05; }
+  to { background-color: #ffc139; -webkit-box-shadow: 0 0 9px #ffc139; }
+}
+
+@-webkit-keyframes redPulse {
+  from { background-color: #ff4752; -webkit-box-shadow: 0 0 9px #ff4752; }
+  50% { background-color: #ff0923; -webkit-box-shadow: 0 0 18px #ff0923; }
+  to { background-color: #ff4752; -webkit-box-shadow: 0 0 9px #ff4752; }
+}
+
+@-webkit-keyframes yellowFillPulse {
+  from { fill: #fffd80; -webkit-box-shadow: 0 0 9px #fffd80; }
+  50% { fill: #fdff00; -webkit-box-shadow: 0 0 18px #fdff00; }
+  to { fill: #fffd80; -webkit-box-shadow: 0 0 9px #fffd80; } }
+
+@-webkit-keyframes orangeFillPulse {
+  from { fill: #ffc139; -webkit-box-shadow: 0 0 9px #ffc139; }
+  50% { fill: #ff8e05; -webkit-box-shadow: 0 0 18px #ff8e05; }
+  to { fill: #ffc139; -webkit-box-shadow: 0 0 9px #ffc139; } }
+
+@-webkit-keyframes redFillPulse {
+  from { fill: #ff4752; -webkit-box-shadow: 0 0 9px #ff4752; }
+  50% { fill: #ff0923; -webkit-box-shadow: 0 0 18px #ff0923; }
+  to { fill: #ff4752; -webkit-box-shadow: 0 0 9px #ff4752; } }
+
+
+@-webkit-keyframes brightFillPulse {
+  from { fill: #ffffb6; -webkit-box-shadow: 0 0 9px #ffffb6; }
+  50% { fill: #fffe89; -webkit-box-shadow: 0 0 18px #fffe89; }
+  to { fill: #ffffb6; -webkit-box-shadow: 0 0 9px #ffffb6; } }
+
+@-webkit-keyframes brighterFillPulse {
+  from { fill: #fffe89; -webkit-box-shadow: 0 0 9px #fffe89; }
+  50% { fill: #fffc4d; -webkit-box-shadow: 0 0 18px #fffc4d; }
+  to { fill: #fffe89; -webkit-box-shadow: 0 0 9px #fffe89; } }
+
+@-webkit-keyframes brightestFillPulse {
+  from { fill: #fffc4d; -webkit-box-shadow: 0 0 9px #fffc4d; }
+  50% { fill: #fff500; -webkit-box-shadow: 0 0 18px #fff500; }
+  to { fill: #fffc4d; -webkit-box-shadow: 0 0 9px #fffc4d; } }

@@ -1,0 +1,204 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700);
+
+body {
+  background: white;
+  height: 100%;
+}
+
+html {
+height : 100%;
+}
+
+.title {
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  color: black;
+}
+
+.animation {
+  padding: .5em 1em .5em 1em;
+  margin-bottom: 1em;
+  position: relative;
+  left: 8%;
+}
+
+#stop-animation {
+  display: none;
+}
+
+.slide-wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.year-slide {
+  padding: none;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+#slide-text {
+  position: relative;
+  color: black;
+  font-family: 'Ubuntu', sans-serif;
+  left: -5.5%;
+  -webkit-margin-before: 0px;
+  -webkit-margin-after: 0px;
+}
+
+/*button:hover {
+	opacity: .7;
+}*/
+
+svg {
+  margin: 0 auto;
+  margin-top: -1.25em;
+}
+
+.year-ul li {
+	margin: 2em;
+  display: inline-block;
+}
+
+ul {
+  text-align: center;
+  -webkit-padding-start: 0px;
+}
+
+button {
+  padding: 1em 2em 1em 2em;
+  font-size: 1.25em;
+  border-radius: 1em;
+  border:none;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+}
+
+.key-wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#text-key li {
+  display: inline-block;
+  width: 49%;
+  color: black;
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: bold;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+
+.key {
+  margin-top: -7em;
+}
+
+.key-proj {
+  min-height: 35em;
+  max-width: 2em;
+  border: 1px solid black;
+  background: #ff0000; /* Old browsers */
+  background: -moz-linear-gradient(top, #ff0000 0%, #ffff00 50%, #e4eaf5 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff0000), color-stop(50%,#ffff00), color-stop(100%,#e4eaf5)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #ff0000 0%,#ffff00 50%,#e4eaf5 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #ff0000 0%,#ffff00 50%,#e4eaf5 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #ff0000 0%,#ffff00 50%,#e4eaf5 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #ff0000 0%,#ffff00 50%,#e4eaf5 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', endColorstr='#e4eaf5',GradientType=0 ); /* IE6-9 */
+}
+
+.key-text {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.arrow-wrapper{
+  margin: 0 auto;
+  width: 80%;
+}
+
+#new-day-text {
+  /*position: relative;*/
+  /*left: 5%;*/
+  /*bottom: 10%;*/
+  margin: 0 auto;
+  text-align: center;
+  color: black;
+  font-family: 'Ubuntu', sans-serif;
+  -webkit-margin-before: 0em;
+}
+
+#text-year {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+#day-text {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+
+.bright {
+  -webkit-animation-name: yellowPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.brighter {
+  -webkit-animation-name: orangePulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.brightest {
+  -webkit-animation-name: redPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+
+.yellow-fill {
+  -webkit-animation-name: yellowFillPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.orange-fill {
+  -webkit-animation-name: orangeFillPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.red-fill {
+  -webkit-animation-name: redFillPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+}
+
+.bright-fill {
+  -webkit-animation-name: brightFillPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+
+}
+
+.brighter-fill {
+  -webkit-animation-name: brighterFillPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+
+}
+
+.brightest-fill {
+  -webkit-animation-name: brightestFillPulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+
+}
+
