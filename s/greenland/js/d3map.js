@@ -93,6 +93,9 @@ var appendMap = function(year) {
 			d3.select('#key-text').style('font-size', '2em')
 			d3.select('#key-text').style('font-family', 'Ubuntu')
 		})
+		.on('touchmove', function() {
+			alert('test')
+		})
 		.style('fill', function(d) {
 			if(d["year " + year] === 0){
 				return backgroundColor
