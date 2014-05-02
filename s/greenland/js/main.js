@@ -5,11 +5,8 @@ $(document).ready(function() {
 		.range([-5.5, 90])
 
 	$('.year-slide').on('input', function(event) {
-		var year = this.value,
-				range = 2013 - 1979,
-				difference = year - 1979,
-				position = (difference * 100 / range) - 1.5,
-				yearText = $('#slide-text')
+		var year = this.value
+		var yearText = $('#slide-text')
 		yearText.text(year)
 		d3.select('#slide-text')
 			.style('left', function() {
