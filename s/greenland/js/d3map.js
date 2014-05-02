@@ -93,8 +93,24 @@ var appendMap = function(year) {
 			d3.select('#key-text').style('font-size', '2em')
 			d3.select('#key-text').style('font-family', 'Ubuntu')
 		})
-		.on('touchmove', function() {
-			alert('test')
+		.on('touchstart', function(d) {
+			var days = (d["year " + year])
+			var text;
+			if(days === 1){
+				text = "1 Day"
+			} else {
+				text = days + " Days"
+			}
+			d3.select('#key-tick').attr('y', function(){
+				return tickScale(days)
+			})
+
+			d3.select('#key-text').attr('y', function() {
+				return keyTextScale(days)
+			})
+			d3.select('#key-text').text(text)
+			d3.select('#key-text').style('font-size', '2em')
+			d3.select('#key-text').style('font-family', 'Ubuntu')
 		})
 		.style('fill', function(d) {
 			if(d["year " + year] === 0){
