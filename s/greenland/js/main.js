@@ -22,7 +22,7 @@ $(document).ready(function() {
 		$('#animation').css('display', 'none')
 		$('#stop-animation').css('display', 'block')
 		var year = $('#slide-text').text()
-		interval = setInterval(function() {
+		interval = d3.timer(function() {
 			if(year === 2014){
 				year = 1979
 			}
@@ -36,7 +36,7 @@ $(document).ready(function() {
 				})
 			document.querySelector('input[type=range]').value = year;
 			$('#slide-text').text(year++)
-		}, 1)
+		}, 100)
 	})
 
 	$('#stop-animation').click(function() {
