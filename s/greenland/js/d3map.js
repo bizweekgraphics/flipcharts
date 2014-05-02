@@ -1,6 +1,6 @@
-var margin = {top: 0, right: 20, bottom: 0, left: 20}
-var width = 800 - margin.left - margin.right
-var height = 600 - margin.bottom - margin.top
+var margin = {top: 0, right: 0, bottom: 1400, left: 800}
+var width = 1600 - margin.left - margin.right
+var height = 2200 - margin.bottom - margin.top
 var aspect = width/height
 var backgroundColor = "white"
 
@@ -37,7 +37,7 @@ var meltX = d3.scale.linear()
 
 var x = d3.scale.linear()
 	.domain([lngMin, lngMax])
-	.range([200, width])
+	.range([0, width])
 
 var y = d3.scale.linear()
 	.domain([latMin, latMax])
@@ -72,7 +72,7 @@ var appendMap = function(year) {
 		.attr('cy', function(d){
 			return y(d.latitude)
 		})
-		.attr('r', 3)
+		.attr('r', 4)
 		.attr('class', 'data')
 		.on('mouseover', function(d) {
 			var days = (d["year " + year])
@@ -93,124 +93,87 @@ var appendMap = function(year) {
 			d3.select('#key-text').style('font-size', '2em')
 			d3.select('#key-text').style('font-family', 'Ubuntu')
 		})
-		.on('touchstart', function(d) {
-			var days = (d["year " + year])
-			var text;
-			if(days === 1){
-				text = "1 Day"
-			} else {
-				text = days + " Days"
-			}
-			d3.select('#key-tick').attr('y', function(){
-				return tickScale(days)
-			})
-
-			d3.select('#key-text').attr('y', function() {
-				return keyTextScale(days)
-			})
-			d3.select('#key-text').text(text)
-			d3.select('#key-text').style('font-size', '2em')
-			d3.select('#key-text').style('font-family', 'Ubuntu')
-		})
-		.on('touchmove', function(d) {
-			var days = (d["year " + year])
-			var text;
-			if(days === 1){
-				text = "1 Day"
-			} else {
-				text = days + " Days"
-			}
-			d3.select('#key-tick').attr('y', function(){
-				return tickScale(days)
-			})
-
-			d3.select('#key-text').attr('y', function() {
-				return keyTextScale(days)
-			})
-			d3.select('#key-text').text(text)
-			d3.select('#key-text').style('font-size', '2em')
-			d3.select('#key-text').style('font-family', 'Ubuntu')
-		})
 		.style('fill', function(d) {
 			if(d["year " + year] === 0){
-				return backgroundColor
+				return 'white'
 			} else {
 				return meltX(d["year " + year])			
 			}
 		})
 
 	//append number of melt days to svg
-	d3.select('svg')
-		.append('text')
-		.text('')
-		.attr('width', 100)
-		.attr('height', 150)
-		.attr('x', 600)
-		.attr('y', 350)
-		.attr('id', 'day-text')
-		.style('font-size', '3em')
-		.style('fill', 'white')
+	// d3.select('svg')
+	// 	.append('text')
+	// 	.text('')
+	// 	.attr('width', 100)
+	// 	.attr('height', 150)
+	// 	.attr('x', 600)
+	// 	.attr('y', 350)
+	// 	.attr('id', 'day-text')
+	// 	.style('font-size', '3em')
+	// 	.style('fill', 'white')
 
-	//appends key div to svg
-	d3.select('svg')
-		.append('foreignObject')
-		.attr('width', 200)
-		.attr('height', 900)
-		.attr('x', 45)
-		.attr('y', 60)
-		.append('xhtml:div')
-		.attr('class', 'key-proj')
+	// //appends key div to svg
+	// d3.select('svg')
+	// 	.append('foreignObject')
+	// 	.attr('width', 200)
+	// 	.attr('height', 900)
+	// 	.attr('x', 45)
+	// 	.attr('y', 60)
+	// 	.append('xhtml:div')
+	// 	.attr('class', 'key-proj')
 
-	//appends key min text to svg
-	d3.select('svg')
-		.append('foreignObject')
-			.attr('width', 100)
-			.attr('height', 100)
-			.attr('x', 0)
-			.attr('y', 600)
-			.append('xhtml:p')
-			.attr('id', 'key-min')
-			.attr('class', 'key-text')
-			.text('0')
-			.style('font-size', '2em')
+	// //appends key min text to svg
+	// d3.select('svg')
+	// 	.append('foreignObject')
+	// 		.attr('width', 100)
+	// 		.attr('height', 100)
+	// 		.attr('x', 0)
+	// 		.attr('y', 600)
+	// 		.append('xhtml:p')
+	// 		.attr('id', 'key-min')
+	// 		.attr('class', 'key-text')
+	// 		.text('0')
+	// 		.style('font-size', '2em')
 
-	//appends key max text to svg
-	d3.select('svg')
-		.append('foreignObject')
-			.attr('width', 100)
-			.attr('height', 100)
-			.attr('x', -35)
-			.attr('y', 50)
-			.append('xhtml:p')
-			.attr('id', 'key-max')
-			.attr('class', 'key-text')
-			.text('160')
-			.style('font-size', '2em')
+	// //appends key max text to svg
+	// d3.select('svg')
+	// 	.append('foreignObject')
+	// 		.attr('width', 100)
+	// 		.attr('height', 100)
+	// 		.attr('x', -35)
+	// 		.attr('y', 50)
+	// 		.append('xhtml:p')
+	// 		.attr('id', 'key-max')
+	// 		.attr('class', 'key-text')
+	// 		.text('160')
+	// 		.style('font-size', '2em')
 
-	//appends tick to key scale
-	d3.select('svg')
-		.append('foreignObject')
-		.attr('width', 300)
-		.attr('height', 100)
-		.attr('x', 22)
-		.attr('y', 568)
-		.attr('id', 'key-tick')
-		.append('xhtml:p')
-		.text('—')
-		.style('font-size', '5em')
+	// //appends tick to key scale
+	// d3.select('svg')
+	// 	.append('foreignObject')
+	// 	.attr('width', 300)
+	// 	.attr('height', 100)
+	// 	.attr('x', 22)
+	// 	.attr('y', 568)
+	// 	.attr('id', 'key-tick')
+	// 	.append('xhtml:p')
+	// 	.text('—')
+	// 	.style('font-size', '5em')
 
-	d3.select('svg')
-		.append('foreignObject')
-		.attr('width', 300)
-		.attr('height', 100)
-		.attr('x', 110)
-		.attr('y', 600)
-		.attr('id', 'key-text')
-		.attr('class', 'key')
-		.append('xhtml:p')
-		.text('0 days')
-		.style('font-size', '2em')
-		.style('font-family', 'Ubuntu')
+	// //appends day text to key
+	// d3.select('svg')
+	// 	.append('foreignObject')
+	// 	.attr('width', 300)
+	// 	.attr('height', 100)
+	// 	.attr('x', 110)
+	// 	.attr('y', 600)
+	// 	.attr('id', 'key-text')
+	// 	.attr('class', 'key')
+	// 	.append('xhtml:p')
+	// 	.text('0 days')
+	// 	.style('font-size', '2em')
+	// 	.style('font-family', 'Ubuntu')
 }
 
 var updateProjection = function(year) {

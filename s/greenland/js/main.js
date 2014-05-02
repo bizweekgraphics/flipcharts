@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+
+
 	var slideScale = d3.scale.linear()
 		.domain([1979,2013])
 		.range([-5.5, 90])
@@ -22,7 +24,7 @@ $(document).ready(function() {
 		$('#animation').css('display', 'none')
 		$('#stop-animation').css('display', 'block')
 		var year = $('#slide-text').text()
-		interval = d3.timer(function() {
+		interval = setInterval(function() {
 			if(year === 2014){
 				year = 1979
 			}
@@ -36,7 +38,7 @@ $(document).ready(function() {
 				})
 			document.querySelector('input[type=range]').value = year;
 			$('#slide-text').text(year++)
-		}, 100)
+		}, 1)
 	})
 
 	$('#stop-animation').click(function() {
