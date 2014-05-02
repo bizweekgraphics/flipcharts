@@ -1,6 +1,11 @@
-var margin = {top: 0, right: 0, bottom: 1400, left: 800}
-var width = 1600 - margin.left - margin.right
-var height = 2200 - margin.bottom - margin.top
+var margin = {top: 0, right: 0, bottom: 0, left: 0}
+var padding = {top: 0, right: 0, bottom: 0, left: 0}
+var outerWidth = 450
+var outerHeight = 600
+var innerWidth = outerWidth - margin.left - margin.right
+var innerHeight = outerHeight - margin.top - margin.bottom
+var width = innerWidth - padding.left - padding.right
+var height = innerHeight - padding.top - padding.bottom
 var aspect = width/height
 var backgroundColor = "white"
 
@@ -8,7 +13,7 @@ var svg = d3.select('.chart-wrapper').append('svg')
 	.attr('width', '100%')
 	.attr('height', '100%')
 	.attr('id', 'chart')
-	.attr('viewBox', '0 0 800 800')
+	.attr('viewBox', '0 0 ' + width + ' ' + height)
 	.attr('preserverAspectRatio', 'xMinYMin')
 
 var latMin = d3.min(greenland, function(point) {
@@ -37,7 +42,7 @@ var meltX = d3.scale.linear()
 
 var x = d3.scale.linear()
 	.domain([lngMin, lngMax])
-	.range([0, width])
+	.range([40, width + 40])
 
 var y = d3.scale.linear()
 	.domain([latMin, latMax])
@@ -72,7 +77,7 @@ var appendMap = function(year) {
 		.attr('cy', function(d){
 			return y(d.latitude)
 		})
-		.attr('r', 4)
+		.attr('r', 2.5)
 		.attr('class', 'data')
 		.on('mouseover', function(d) {
 			var days = (d["year " + year])
@@ -95,7 +100,7 @@ var appendMap = function(year) {
 		})
 		.style('fill', function(d) {
 			if(d["year " + year] === 0){
-				return 'white'
+				return backgroundColor
 			} else {
 				return meltX(d["year " + year])			
 			}
