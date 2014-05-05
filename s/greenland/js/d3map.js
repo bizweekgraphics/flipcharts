@@ -118,7 +118,7 @@ var appendMap = function(year) {
 		.attr('class', 'key')
 		.text('0')
 		.style('font-size', '1.2em')
-		.style('font-family', 'Ubuntu')
+		.style('font-family', 'BWHaasRegular')
 		.style('text-anchor', 'middle')
 
 

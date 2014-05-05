@@ -1,4 +1,38 @@
-@import url(http://fonts.googleapis.com/css?family=Ubuntu:400,700);
+@font-face {
+  font-family: 'BloombergLBold';
+    src: url("http://www.businessweek.com/assets/type/bloombergl_heavy.eot?#iefix") format('embedded-opentype'),
+       url('http://www.businessweek.com/assets/type/bloombergl_heavy.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+  font-family:'BWHaasHead';
+  src: url('http://www.businessweek.com/assets/type/hinted/haas/bwhaasgroteskhead-95black.eot?#iefix') format('eot'),
+     url('http://www.businessweek.com/assets/type/hinted/haas/bwhaasgroteskhead-95black.woff') format('woff'),
+     url('http://www.businessweek.com/assets/type/haas/bwhaasgroteskhead-95black.ttf') format('truetype');
+
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+}
+@font-face {
+  font-family:'BWHaasHead75Bold';
+  src: url('http://www.businessweek.com/assets/type/hinted/haas75/bwhaasgroteskhead-75bold.eot?#iefix') format('eot'),
+     url('http://www.businessweek.com/assets/type/hinted/haas75/bwhaasgroteskhead-75bold.woff') format('woff'),
+     url('http://www.businessweek.com/assets/type/haas75/bwhaasgrotesktext-75bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+}
+@font-face {
+  font-family:'BWHaasRegular';
+  src: url('http://www.businessweek.com/assets/web_fonts/bwhaasgroteskhead-65medium.eot?#iefix') format('eot'),
+     url('http://www.businessweek.com/assets/web_fonts/bwhaasgroteskhead-65medium.woff') format('woff'),
+     url('http://www.businessweek.com/assets/web_fonts/bwhaasgrotesktext-65medium.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 700;
+  font-stretch: normal;
+}
 
 body {
   background: white;
@@ -6,7 +40,7 @@ body {
 }
 
 .title {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'BWHaasHead', sans-serif;
   text-align: center;
   color: black;
 }
@@ -30,7 +64,7 @@ body {
 #field {
   margin-top: 3%;
   margin: 0 auto;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'BWHaasRegular', sans-serif;
 }
 
 
@@ -42,9 +76,8 @@ svg {
 button {
   padding: 1em 2em 1em 2em;
   font-size: 1.25em;
-  border-radius: 1em;
   border:none;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'BWHaasRegular', sans-serif;
   font-weight: bold;
 }
 
@@ -63,13 +96,14 @@ button {
 }
 
 .key-text {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'BWHaasRegular', sans-serif;
 }
 
 .bright {
-  -webkit-animation-name: yellowPulse;
+  background: yellow;
+/*  -webkit-animation-name: yellowPulse;
   -webkit-animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;*/
 }
 
 .brighter {
@@ -79,9 +113,10 @@ button {
 }
 
 .brightest {
-  -webkit-animation-name: redPulse;
+  background: red;
+/*  -webkit-animation-name: redPulse;
   -webkit-animation-duration: 2s;
-  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;*/
 }
 
 
