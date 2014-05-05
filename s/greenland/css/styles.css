@@ -72,12 +72,9 @@ svg {
   margin-top: -1.25em;
 }
 
-button {
-  /*padding: 1em 2em 1em 2em;*/
-  /*font-size: 1.25em;*/
-  /*border:none;*/
-  font-family: 'BWHaasRegular', sans-serif;
-  /*font-weight: bold;*/
+.dek-text {
+  font-size: 1.75em;
+  font-family: 'BWHaasRegular';
 }
 
 .key-proj {
