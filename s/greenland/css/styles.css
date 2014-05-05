@@ -46,7 +46,6 @@ body {
 }
 
 .animation {
-  padding: .5em 1em .5em 1em;
   margin: 0 auto;
   margin-bottom: 1em;
   display: block;
@@ -74,11 +73,11 @@ svg {
 }
 
 button {
-  padding: 1em 2em 1em 2em;
-  font-size: 1.25em;
-  border:none;
+  /*padding: 1em 2em 1em 2em;*/
+  /*font-size: 1.25em;*/
+  /*border:none;*/
   font-family: 'BWHaasRegular', sans-serif;
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 
 .key-proj {

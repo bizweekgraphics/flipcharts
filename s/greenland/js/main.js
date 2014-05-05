@@ -23,6 +23,12 @@ $(document).ready(function() {
 	$("#slider").on({
 		slide: function() {
 			year = $('#slider').val()
+			var handle = $('.noUi-handle div')
+			if(year > 1999 && year < 2010) {
+				handle.css('left', '4%')
+			} else {
+				handle.css('left', '10%')
+			}
 			updateProjection(year)
 		}
 	})
@@ -40,6 +46,13 @@ $(document).ready(function() {
 		$('#stop-animation').css('display', 'block')
 		var year = $('#slider').val()
 		interval = setInterval(function() {
+			var handle = $('.noUi-handle div')
+			if(year > 1999 && year < 2010) {
+				handle.css('left', '4%')
+			} else {
+				handle.css('left', '10%')
+			}
+			
 			if(year === 2014){
 				year = 1979
 			}
