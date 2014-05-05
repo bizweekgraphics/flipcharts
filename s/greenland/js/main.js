@@ -24,6 +24,7 @@ $(document).ready(function() {
 	}
 	});
 
+	$('svg').height(window.innerHeight - $('.title').height())
 
 
 	// When no HTML is provided, noUiSlider creates an empty <div>

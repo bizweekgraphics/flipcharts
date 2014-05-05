@@ -18,9 +18,9 @@ height : 100%;
 
 .animation {
   padding: .5em 1em .5em 1em;
+  margin: 0 auto;
   margin-bottom: 1em;
-  position: relative;
-  left: 8%;
+  display: block;
 }
 
 #stop-animation {
@@ -28,7 +28,7 @@ height : 100%;
 }
 
 #slider {
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
 }
 
@@ -132,6 +132,8 @@ button {
 .key-text {
   font-family: 'Ubuntu', sans-serif;
 }
+
+#key-tick
 
 .arrow-wrapper{
   margin: 0 auto;
