@@ -63,6 +63,22 @@ var keyTextScale = d3.scale.linear()
 
 var appendMap = function(year) {
 
+	var projection = d3.geo.transverseMercator()
+		.center([-20, 78])
+		.scale(1200)
+		.rotate([35, 5, 25])
+
+
+	var path = d3.geo.path()
+		.projection(projection)
+
+	svg.append('g')
+		.attr('id', 'greenland')
+		.selectAll('path')
+		.data(greenlandMap.features)
+		.enter().append('path')
+		.attr('d', path)
+		.style('fill', backgroundColor)
 
 	var meltProjection = d3.select('svg')
 		.selectAll('circle')
@@ -71,11 +87,17 @@ var appendMap = function(year) {
 	//append melt circles to svg
 	meltProjection.enter()
 		.append('circle')
-		.attr('cx', function(d){
-			return x(d.longitude)
+		// .attr('cx', function(d){
+		// 	return x(d.longitude)
+		// })
+		// .attr('cy', function(d){
+		// 	return y(d.latitude)
+		// })
+		.attr('cx', function(d) {
+			return projection([d.longitude, d.latitude])[0]
 		})
-		.attr('cy', function(d){
-			return y(d.latitude)
+		.attr('cy', function(d) {
+			return projection([d.longitude, d.latitude])[1]
 		})
 		.attr('r', 2.5)
 		.attr('class', 'data')
