@@ -24,8 +24,9 @@ $(document).ready(function() {
 	}
 	});
 
-	$('svg').height(window.innerHeight - $('.title').height())
-
+	if(window.innerWidth > 480) {
+		$('svg').css('max-height', window.innerHeight - $('.title').height())	
+	}
 
 	// When no HTML is provided, noUiSlider creates an empty <div>
 
