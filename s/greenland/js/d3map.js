@@ -54,11 +54,11 @@ var arrowX = d3.scale.linear()
 
 var tickScale = d3.scale.linear()
 	.domain([meltMax, 0])
-	.range([8, 568])
+	.range([233, 35])
 
 var keyTextScale = d3.scale.linear()
 	.domain([meltMax, 0])
-	.range([43, 600])
+	.range([230, 35])
 
 
 var appendMap = function(year) {
@@ -81,22 +81,22 @@ var appendMap = function(year) {
 		.attr('class', 'data')
 		.on('mouseover', function(d) {
 			var days = (d["year " + year])
-			var text;
-			if(days === 1){
-				text = "1 Day"
-			} else {
-				text = days + " Days"
-			}
-			d3.select('#key-tick').attr('y', function(){
+			// var text;
+			// if(days === 1){
+			// 	text = "1 Day"
+			// } else {
+			// 	text = days + " Days"
+			// }
+			var text = days
+
+			d3.select('#key-tick').attr('x', function(){
 				return tickScale(days)
 			})
 
-			d3.select('#key-text').attr('y', function() {
+			d3.select('#key-text').attr('x', function() {
 				return keyTextScale(days)
 			})
 			d3.select('#key-text').text(text)
-			d3.select('#key-text').style('font-size', '2em')
-			d3.select('#key-text').style('font-family', 'Ubuntu')
 		})
 		.style('fill', function(d) {
 			if(d["year " + year] === 0){
@@ -117,6 +117,28 @@ var appendMap = function(year) {
 
 	d3.select('svg')
 		.append('text')
+		.attr('width', 300)
+		.attr('height', 300)
+		.attr('x', 35)
+		.attr('y', 460)
+		.attr('id', 'key-tick')
+		.text('▲')
+		.style('font-size', '2em')
+		.style('text-anchor', 'middle')
+		.append('tspan')
+		.attr('width', 300)
+		.attr('height', 100)
+		.attr('x', 35)
+		.attr('y', 500)
+		.attr('id', 'key-text')
+		.attr('class', 'key')
+		.text('0')
+		.style('font-size', '1.2em')
+		.style('font-family', 'Ubuntu')
+		.style('text-anchor', 'middle')
+
+	d3.select('svg')
+		.append('text')
 		.text('Days Where Melting')
 		.attr('width', 200)
 		.attr('height', 150)
@@ -129,6 +151,7 @@ var appendMap = function(year) {
 		.attr('y', 385)
 		.text('Was Observed')
 		.style('text-anchor', 'middle')
+
 
 
 
@@ -214,21 +237,22 @@ var updateProjection = function(year) {
 		.on('mouseover', function(d) {
 			var days = (d["year " + year])
 			var text;
-			if(days === 1){
-				text = "1 Day"
-			} else {
-				text = days + " Days"
-			}
-			d3.select('#key-tick').attr('y', function(){
+			// if(days === 1){
+			// 	text = "1 Day"
+			// } else {
+			// 	text = days + " Days"
+			// }
+
+			var text = days 
+
+			d3.select('#key-tick').attr('x', function(){
 				return tickScale(days)
 			})
 
-			d3.select('#key-text').attr('y', function() {
+			d3.select('#key-text').attr('x', function() {
 				return keyTextScale(days)
 			})
 			d3.select('#key-text').text(text)
-			d3.select('#key-text').style('font-size', '2em')
-			d3.select('#key-text').style('font-family', 'Ubuntu')
 		})
 		.style('fill', function(d) {
 			if(d["year " + year] === 0){
