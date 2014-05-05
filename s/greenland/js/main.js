@@ -1,5 +1,9 @@
 $(document).ready(function() {
 
+		var toolTip = $.Link({
+		target: '-tooltip-'
+	});
+
 	$("#slider").noUiSlider({
 		start: 1979,
 		step: 1,
@@ -8,16 +12,22 @@ $(document).ready(function() {
 			'max': 2013
 		},
 		serialization: {
-		lower: [
-			$.Link({
-				target: $("#field")
-			})
-		],
+		lower: [ toolTip ],
+		// lower: [
+		// 	$.Link({
+		// 		target: $("#field")
+		// 	})
+		// ],
 		format: {
 			decimals: 0
 		}
 	}
 	});
+
+
+
+	// When no HTML is provided, noUiSlider creates an empty <div>
+
 
 	$("#slider").on({
 		slide: function() {
@@ -70,6 +80,8 @@ $(document).ready(function() {
 		$('#stop-animation').css('display', 'none')
 		$('#animation').css('display', 'block')
 	})
+
+
 
 
 	appendMap(1979)

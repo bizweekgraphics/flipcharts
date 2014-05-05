@@ -131,20 +131,6 @@ var appendMap = function(year) {
 		.style('text-anchor', 'middle')
 
 
-			.append('text')
-	.text('NYC Stop and Frisk')
-	.attr('x', 450)
-	.attr('y', 225)
-	.style('fill', 'white')
-	.style('font-size', 55)
-	.style('font-family', 'Voces, cursive')
-	.style('text-anchor', 'middle')
-	.append('tspan')
-	.attr('x', 450)
-	.attr('y', 300)
-	.text('January 1, 2011')
-	.style('text-anchor', 'middle')
-
 
 
 	//append number of melt days to svg
