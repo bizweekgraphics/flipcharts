@@ -1,13 +1,13 @@
 var margin = {top: 0, right: 0, bottom: 0, left: 0}
 var padding = {top: 0, right: 0, bottom: 0, left: 0}
-var outerWidth = 450
+var outerWidth = 500
 var outerHeight = 600
 var innerWidth = outerWidth - margin.left - margin.right
 var innerHeight = outerHeight - margin.top - margin.bottom
 var width = innerWidth - padding.left - padding.right
 var height = innerHeight - padding.top - padding.bottom
 var aspect = width/height
-var backgroundColor = "white"
+var backgroundColor = "rgba(255, 255, 255, 0)"
 
 var svg = d3.select('.chart-wrapper').append('svg')
 	.attr('width', '100%')
@@ -42,11 +42,11 @@ var meltX = d3.scale.linear()
 
 var x = d3.scale.linear()
 	.domain([lngMin, lngMax])
-	.range([40, width + 40])
+	.range([60, width + 60])
 
 var y = d3.scale.linear()
 	.domain([latMin, latMax])
-	.range([height, 0])
+	.range([height + 10, -10])
 
 var arrowX = d3.scale.linear()
 	.domain([0, 100])

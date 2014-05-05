@@ -27,8 +27,21 @@ height : 100%;
   display: none;
 }
 
-.slide-wrapper {
+#slider {
   width: 80%;
+  margin: 0 auto;
+}
+
+#field {
+  margin-top: 3%;
+  /*position: relative;*/
+  /*left: 6.5%;*/
+  margin: 0 auto;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.slide-wrapper {
+  width: 40em;
   margin: 0 auto;
 }
 
@@ -202,4 +215,5 @@ button {
   -webkit-animation-iteration-count: infinite;
 
 }
+
 

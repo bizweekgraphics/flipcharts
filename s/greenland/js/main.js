@@ -1,6 +1,30 @@
 $(document).ready(function() {
 
+	$("#slider").noUiSlider({
+		start: 1979,
+		step: 1,
+		range: {
+			'min': 1979,
+			'max': 2013
+		},
+		serialization: {
+		lower: [
+			$.Link({
+				target: $("#field")
+			})
+		],
+		format: {
+			decimals: 0
+		}
+	}
+	});
 
+	$("#slider").on({
+		slide: function() {
+			year = $('#slider').val()
+			updateProjection(year)
+		}
+	})
 
 	var slideScale = d3.scale.linear()
 		.domain([1979,2013])
@@ -23,7 +47,7 @@ $(document).ready(function() {
 	$('#animation').click(function() {
 		$('#animation').css('display', 'none')
 		$('#stop-animation').css('display', 'block')
-		var year = $('#slide-text').text()
+		var year = $('#slider').val()
 		interval = setInterval(function() {
 			if(year === 2014){
 				year = 1979
@@ -36,8 +60,8 @@ $(document).ready(function() {
 				.style('left', function() {
 					return slideScale(year) + '%'
 				})
-			document.querySelector('input[type=range]').value = year;
-			$('#slide-text').text(year++)
+			$('#slider').val(year++)
+
 		}, 1)
 	})
 
