@@ -106,6 +106,25 @@ var appendMap = function(year) {
 			}
 		})
 
+	d3.select('svg')
+		.append('foreignObject')
+		.attr('width', 200)
+		.attr('height', 50)
+		.attr('x', 35)
+		.attr('y', 400)
+		.append('xhtml:div')
+		.attr('class', 'key-proj')
+
+	d3.select('svg')
+		.append('text')
+		.text('Days Where Melting Was Observed')
+		.attr('width', 200)
+		.attr('height', 150)
+		.attr('x', 20)
+		.attr('y', 375)
+
+
+
 	//append number of melt days to svg
 	// d3.select('svg')
 	// 	.append('text')
