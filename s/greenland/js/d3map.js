@@ -117,11 +117,33 @@ var appendMap = function(year) {
 
 	d3.select('svg')
 		.append('text')
-		.text('Days Where Melting Was Observed')
+		.text('Days Where Melting')
 		.attr('width', 200)
 		.attr('height', 150)
-		.attr('x', 20)
-		.attr('y', 375)
+		.attr('x', 135)
+		.attr('y', 360)
+		.attr('class', 'key-text')
+		.style('text-anchor', 'middle')
+		.append('tspan')
+		.attr('x', 135)
+		.attr('y', 385)
+		.text('Was Observed')
+		.style('text-anchor', 'middle')
+
+
+			.append('text')
+	.text('NYC Stop and Frisk')
+	.attr('x', 450)
+	.attr('y', 225)
+	.style('fill', 'white')
+	.style('font-size', 55)
+	.style('font-family', 'Voces, cursive')
+	.style('text-anchor', 'middle')
+	.append('tspan')
+	.attr('x', 450)
+	.attr('y', 300)
+	.text('January 1, 2011')
+	.style('text-anchor', 'middle')
 
 
 
