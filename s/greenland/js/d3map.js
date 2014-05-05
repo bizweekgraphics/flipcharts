@@ -153,7 +153,7 @@ var appendMap = function(year) {
 		.append('tspan')
 		.attr('x', 110)
 		.attr('y', dekBase + dekIncrement)
-		.text('A melting icesheet')
+		.text('a melting icesheet')
 		.append('tspan')
 		.attr('x', 110)
 		.attr('y', dekBase + dekIncrement*2)
