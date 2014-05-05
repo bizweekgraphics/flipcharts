@@ -5,11 +5,6 @@ body {
   height: 100%;
 }
 
-html {
-height : 100%;
-}
-
-
 .title {
   font-family: 'Ubuntu', sans-serif;
   text-align: center;
@@ -34,50 +29,14 @@ height : 100%;
 
 #field {
   margin-top: 3%;
-  /*position: relative;*/
-  /*left: 6.5%;*/
   margin: 0 auto;
   font-family: 'Ubuntu', sans-serif;
 }
 
-.slide-wrapper {
-  width: 40em;
-  margin: 0 auto;
-}
-
-.year-slide {
-  padding: none;
-  width: 100%;
-  margin: 0 auto;
-  display: block;
-}
-
-#slide-text {
-  position: relative;
-  color: black;
-  font-family: 'Ubuntu', sans-serif;
-  left: -5.5%;
-  -webkit-margin-before: 0px;
-  -webkit-margin-after: 0px;
-}
-
-/*button:hover {
-	opacity: .7;
-}*/
 
 svg {
   margin: 0 auto;
   margin-top: -1.25em;
-}
-
-.year-ul li {
-	margin: 2em;
-  display: inline-block;
-}
-
-ul {
-  text-align: center;
-  -webkit-padding-start: 0px;
 }
 
 button {
@@ -87,32 +46,6 @@ button {
   border:none;
   font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
-}
-
-.key-wrapper {
-  width: 80%;
-  margin: 0 auto;
-}
-
-#text-key li {
-  display: inline-block;
-  width: 49%;
-  color: black;
-  font-family: 'Ubuntu', sans-serif;
-  font-weight: bold;
-}
-
-.left {
-  text-align: left;
-}
-
-.right {
-  text-align: right;
-}
-
-
-.key {
-  margin-top: -7em;
 }
 
 .key-proj {
@@ -132,33 +65,6 @@ button {
 .key-text {
   font-family: 'Ubuntu', sans-serif;
 }
-
-#key-tick
-
-.arrow-wrapper{
-  margin: 0 auto;
-  width: 80%;
-}
-
-#new-day-text {
-  /*position: relative;*/
-  /*left: 5%;*/
-  /*bottom: 10%;*/
-  margin: 0 auto;
-  text-align: center;
-  color: black;
-  font-family: 'Ubuntu', sans-serif;
-  -webkit-margin-before: 0em;
-}
-
-#text-year {
-  font-family: 'Ubuntu', sans-serif;
-}
-
-#day-text {
-  font-family: 'Ubuntu', sans-serif;
-}
-
 
 .bright {
   -webkit-animation-name: yellowPulse;

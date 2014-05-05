@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
-		var toolTip = $.Link({
+	//initializing jquerynouislider
+	var toolTip = $.Link({
 		target: '-tooltip-'
 	});
 
@@ -13,23 +14,11 @@ $(document).ready(function() {
 		},
 		serialization: {
 		lower: [ toolTip ],
-		// lower: [
-		// 	$.Link({
-		// 		target: $("#field")
-		// 	})
-		// ],
 		format: {
 			decimals: 0
 		}
 	}
 	});
-
-	if(window.innerWidth > 480) {
-		$('svg').css('max-height', window.innerHeight - $('.title').height())	
-	}
-
-	// When no HTML is provided, noUiSlider creates an empty <div>
-
 
 	$("#slider").on({
 		slide: function() {
@@ -38,24 +27,14 @@ $(document).ready(function() {
 		}
 	})
 
-	var slideScale = d3.scale.linear()
-		.domain([1979,2013])
-		.range([-5.5, 90])
-
-	$('.year-slide').on('input', function(event) {
-		var year = this.value
-		var yearText = $('#slide-text')
-		yearText.text(year)
-		d3.select('#slide-text')
-			.style('left', function() {
-				return slideScale(year) + '%'
-			})
-
-		updateProjection(year)
-	})
+	//ensures that svg will fit inside the window
+	if(window.innerWidth > 480) {
+		$('svg').css('max-height', window.innerHeight - $('.title').height())	
+	}
 
 	var interval;
 
+	//sets listeners for animation button
 	$('#animation').click(function() {
 		$('#animation').css('display', 'none')
 		$('#stop-animation').css('display', 'block')
@@ -65,41 +44,20 @@ $(document).ready(function() {
 				year = 1979
 			}
 			updateProjection(year)
-
-			var yearText = $('#slide-text')
-			yearText.text(year)
-			d3.select('#slide-text')
-				.style('left', function() {
-					return slideScale(year) + '%'
-				})
 			$('#slider').val(year++)
 
 		}, 1)
 	})
 
+	//stops animation and kills setInterval
 	$('#stop-animation').click(function() {
 		clearInterval(interval)
 		$('#stop-animation').css('display', 'none')
 		$('#animation').css('display', 'block')
 	})
 
-
-
-
 	appendMap(1979)
 })
 
-
-
-
-$(window).on('resize', function() {
-	var chart = $('svg')
-	var container = chart.parent()
-	var targetWidth = container.width();
-	if(Math.round(targetWidth / aspect) < window.innerHeight){
-		chart.attr('width', targetWidth);
-		chart.attr('height', Math.round(targetWidth / aspect));
-	}
-}).trigger('resize')
 
 
