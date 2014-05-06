@@ -6,11 +6,11 @@ var tree = {
   "donor": "blackbox",
   "children": [
     {
-      "name": "Fred Taylor",
+      "name": "Taylor",
       "children": []
     },
     {
-      "name": "David Gelbaum",
+      "name": "Gelbaum",
       "children": []
     },
     {
@@ -30,8 +30,12 @@ var tree = {
 
 var createTree = function(data) {
   data.forEach(function(donation) {
-    data.forEach(function(otherDonation) {
-
-    }
+    donation.name = donation.donor
+    donation.children = []
+    var source = donation["ultimate source"]
+    var parent = _.find(tree.children, function(child) {
+      return child.name === source
+    })
+    parent.children.push(donation)
   })
 }
