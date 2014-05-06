@@ -138,44 +138,38 @@ var appendMap = function(year) {
 		.text('Was Observed')
 		.style('text-anchor', 'middle')
 
+
+	//appending dek to svg
 	var dekIncrement = 30
-	var dekBase = 75
+	var dekBase = 135
 
 	d3.select('svg')
 		.append('text')
-		.text('But')
+		.text('But a melting icesheet')
 		.attr('width', 200)
 		.attr('height', 150)
-		.attr('x', 110)
+		.attr('x', 100)
 		.attr('y', dekBase)
 		.attr('class', 'dek-text')
 		.style('text-anchor', 'middle')
 		.append('tspan')
-		.attr('x', 110)
+		.attr('x', 100)
 		.attr('y', dekBase + dekIncrement)
-		.text('a melting icesheet')
+		.text("means big business")
 		.append('tspan')
-		.attr('x', 110)
+		.attr('x', 100)
 		.attr('y', dekBase + dekIncrement*2)
-		.text('means')
-		.append('tspan')
-		.attr('x', 110)
-		.attr('y', dekBase + dekIncrement*3)
-		.text("big business")
-		.append('tspan')
-		.attr('x', 110)
-		.attr('y', dekBase + dekIncrement*4)
 		.text("for Greenland's")
 		.append('tspan')
-		.attr('x', 110)
-		.attr('y', dekBase + dekIncrement*5)
+		.attr('x', 100)
+		.attr('y', dekBase + dekIncrement*3)
 		.text("mineral industry")
 
 	d3.select('svg')
 		.append('foreignObject')
 		.attr('width', 200)
 		.attr('height', 50)
-		.attr('x', 48)
+		.attr('x', 33)
 		.attr('y', 240)
 		.append('xhtml:button')
 		.text('Learn More')
@@ -184,7 +178,6 @@ var appendMap = function(year) {
 
 }
 
-//a melting ice sheet means big business for greenland's mineral industry
 
 //updates circle colors when viewing a different year
 var updateProjection = function(year) {
