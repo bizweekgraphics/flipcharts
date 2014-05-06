@@ -173,7 +173,7 @@ var appendMap = function(year) {
 		.append('foreignObject')
 		.attr('width', 200)
 		.attr('height', 50)
-		.attr('x', 60)
+		.attr('x', 58)
 		.attr('y', 240)
 		.append('xhtml:button')
 		.text('Learn More')
