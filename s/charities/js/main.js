@@ -39,3 +39,13 @@ var createTree = function(data) {
     parent.children.push(donation)
   })
 }
+
+var recursiveTree = function(data) {
+  data.forEach(function(donation) {
+    donation.name = donation.donor
+    var recipient = donation.recipient
+    _.find(tree.children, function(child) {
+      return donation.name
+    }) 
+  })
+}
