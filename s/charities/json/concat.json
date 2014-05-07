@@ -1,20 +1,20 @@
 var concat = [
     {
-        "from": "Arnold",
+        "from": "Arnold Foundation",
         "to": "California Community Foundation",
         "certainty": "Low",
         "backer": "Taylor",
         "value": 3000000
     },
     {
-        "from": "Arnold",
+        "from": "Arnold Foundation",
         "to": "United Way of Essex and West Hudson",
         "certainty": "Low",
         "backer": "Taylor",
         "value": 25
     },
     {
-        "from": "Arnold",
+        "from": "Arnold Foundation",
         "to": "Vanguard Charitable",
         "certainty": "Low",
         "backer": "Taylor",
@@ -896,42 +896,42 @@ var concat = [
         "value": 8210000
     },
     {
-        "from": "Aspen",
+        "from": "Aspen Foundation",
         "to": "American Red Cross Disaster Relief Fund",
         "certainty": "Medium",
         "backer": "Taylor",
         "value": 5
     },
     {
-        "from": "Aspen",
+        "from": "Aspen Foundation",
         "to": "Fidelity - general",
         "certainty": "Medium",
         "backer": "Taylor",
         "value": 12000000
     },
     {
-        "from": "Aspen",
+        "from": "Aspen Foundation",
         "to": "Orange County Jewish Campus",
         "certainty": "Medium",
         "backer": "Taylor",
         "value": 2500000
     },
     {
-        "from": "Aspen",
+        "from": "Aspen Foundation",
         "to": "Tarbut V'Torah",
         "certainty": "Medium",
         "backer": "Taylor",
         "value": 2401985
     },
     {
-        "from": "Aspen",
+        "from": "Aspen Foundation",
         "to": "Teach for America development office",
         "certainty": "Medium",
         "backer": "Taylor",
         "value": 100
     },
     {
-        "from": "Aspen",
+        "from": "Aspen Foundation",
         "to": "Vanguard Charitable",
         "certainty": "Medium",
         "backer": "Taylor",
@@ -1345,856 +1345,856 @@ var concat = [
     },
     {
         "from": "AFL Management LLC",
-        "ultimate source": "Taylor",
         "certainty": "Medium",
         "to": "Arnold Foundation",
-        "value": 33000000
+        "value": 33000000,
+        "backer": "Taylor"
     },
     {
         "from": "Erica Enterprises",
-        "ultimate source": "Taylor",
         "certainty": "Medium",
         "to": "Arnold Foundation",
-        "value": 1000
+        "value": 1000,
+        "backer": "Taylor"
     },
     {
         "from": "Erica Enterprises",
-        "ultimate source": "Taylor",
         "certainty": "Medium",
         "to": "Arnold Foundation",
-        "value": 9177123
+        "value": 9177123,
+        "backer": "Taylor"
     },
     {
         "from": "Erica Enterprises",
-        "ultimate source": "Taylor",
         "certainty": "Medium",
         "to": "Arnold Foundation",
-        "value": 11360098
+        "value": 11360098,
+        "backer": "Taylor"
     },
     {
         "from": "Erica Enterprises",
-        "ultimate source": "Taylor",
         "certainty": "Medium",
         "to": "Arnold Foundation",
-        "value": 24228680
+        "value": 24228680,
+        "backer": "Taylor"
     },
     {
         "from": "ANFA Company",
-        "ultimate source": "Taylor",
         "certainty": "Medium",
         "to": "Aspen Foundation",
-        "value": 921346
+        "value": 921346,
+        "backer": "Taylor"
     },
     {
         "from": "ANFA Company",
-        "ultimate source": "Taylor",
         "certainty": "Medium",
         "to": "Aspen Foundation",
-        "value": 1500000
+        "value": 1500000,
+        "backer": "Taylor"
     },
     {
         "from": "ANFA Company",
-        "ultimate source": "Taylor",
         "certainty": "Medium",
         "to": "Aspen Foundation",
-        "value": 1715833
+        "value": 1715833,
+        "backer": "Taylor"
     },
     {
         "from": "ANFA Company",
-        "ultimate source": "Taylor",
         "certainty": "Medium",
         "to": "Aspen Foundation",
-        "value": 6156338
+        "value": 6156338,
+        "backer": "Taylor"
     },
     {
         "from": "ANFA Company",
-        "ultimate source": "Taylor",
         "certainty": "Medium",
         "to": "Aspen Foundation",
-        "value": 10000000
+        "value": 10000000,
+        "backer": "Taylor"
     },
     {
         "from": "ANFA Company",
-        "ultimate source": "Taylor",
         "certainty": "Medium",
         "to": "Aspen Foundation",
-        "value": 13206455
+        "value": 13206455,
+        "backer": "Taylor"
     },
     {
         "from": "ANFA Company",
-        "ultimate source": "Taylor",
         "certainty": "Medium",
         "to": "Aspen Foundation",
-        "value": 15097778
+        "value": 15097778,
+        "backer": "Taylor"
     },
     {
         "from": "ANFA Company",
-        "ultimate source": "Taylor",
         "certainty": "Medium",
         "to": "Aspen Foundation",
-        "value": 15400000
+        "value": 15400000,
+        "backer": "Taylor"
     },
     {
         "from": "ANFA Company",
-        "ultimate source": "Taylor",
         "certainty": "Medium",
         "to": "Aspen Foundation",
-        "value": 15516900
+        "value": 15516900,
+        "backer": "Taylor"
     },
     {
         "from": "ANFA Company",
-        "ultimate source": "Taylor",
         "certainty": "Medium",
         "to": "Aspen Foundation",
-        "value": 22180189
+        "value": 22180189,
+        "backer": "Taylor"
     },
     {
         "from": "ANFA Company",
-        "ultimate source": "Taylor",
         "certainty": "Medium",
         "to": "Aspen Foundation",
-        "value": 22316227
+        "value": 22316227,
+        "backer": "Taylor"
     },
     {
         "from": "ANFA Company",
-        "ultimate source": "Taylor",
         "certainty": "Medium",
         "to": "Aspen Foundation",
-        "value": 22811310
+        "value": 22811310,
+        "backer": "Taylor"
     },
     {
         "from": "ANFA Company",
-        "ultimate source": "Taylor",
         "certainty": "Medium",
         "to": "Aspen Foundation",
-        "value": 30933251
+        "value": 30933251,
+        "backer": "Taylor"
     },
     {
         "from": "Western Birch Company",
-        "ultimate source": "Taylor",
         "certainty": "Medium",
         "to": "Aspen Foundation",
-        "value": 65000000
+        "value": 65000000,
+        "backer": "Taylor"
     },
     {
         "from": "Berdichev LLC",
-        "ultimate source": "TGS",
         "certainty": "Medium",
         "to": "Bearpaw Foundation",
-        "value": 13277583
+        "value": 13277583,
+        "backer": "TGS"
     },
     {
         "from": "Charitable Benefactors Trust of 33 Witherspoon St.",
-        "ultimate source": "Shechtel",
         "certainty": "Medium",
         "to": "Bearpaw Foundation",
-        "value": 8209045
+        "value": 8209045,
+        "backer": "Shechtel"
     },
     {
         "from": "Charitable Contributors Trust of 2 Witherspoon",
-        "ultimate source": "TGS",
         "certainty": "Medium",
         "to": "Bearpaw Foundation",
-        "value": 2380910
+        "value": 2380910,
+        "backer": "TGS"
     },
     {
         "from": "Charitable Donors Trust of 2 Witherspoon",
-        "ultimate source": "TGS",
         "certainty": "Medium",
         "to": "Bearpaw Foundation",
-        "value": 21372742
+        "value": 21372742,
+        "backer": "TGS"
     },
     {
         "from": "David Gelbaum",
-        "ultimate source": "Gelbaum",
         "certainty": "High",
         "to": "Bearpaw Foundation",
-        "value": 2749973
+        "value": 2749973,
+        "backer": "Gelbaum"
     },
     {
         "from": "Aqua Funding LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "CHDI",
-        "value": 700000
+        "value": 700000,
+        "backer": "Shechtel"
     },
     {
         "from": "Aqua Funding LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "CHDI",
-        "value": 7500000
+        "value": 7500000,
+        "backer": "Shechtel"
     },
     {
         "from": "Growing Assets",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "CHDI",
-        "value": 17550000
+        "value": 17550000,
+        "backer": "Shechtel"
     },
     {
         "from": "Growing Assets",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "CHDI",
-        "value": 35500000
+        "value": 35500000,
+        "backer": "Shechtel"
     },
     {
         "from": "High Q Foundation",
-        "ultimate source": "Another Roseland foundation",
         "certainty": "",
         "to": "CHDI",
-        "value": 4000000
+        "value": 4000000,
+        "backer": "Another Roseland foundation"
     },
     {
         "from": "JSY Foundation",
-        "ultimate source": "Another Roseland foundation",
         "certainty": "",
         "to": "CHDI",
-        "value": 30000000
+        "value": 30000000,
+        "backer": "Another Roseland foundation"
     },
     {
         "from": "JSY Foundation",
-        "ultimate source": "Another Roseland foundation",
         "certainty": "",
         "to": "CHDI",
-        "value": 31700390
+        "value": 31700390,
+        "backer": "Another Roseland foundation"
     },
     {
         "from": "Kurtz Foundation",
-        "ultimate source": "Another Roseland foundation",
         "certainty": "",
         "to": "CHDI",
-        "value": 6465845
+        "value": 6465845,
+        "backer": "Another Roseland foundation"
     },
     {
         "from": "Kurtz Foundation",
-        "ultimate source": "Another Roseland foundation",
         "certainty": "",
         "to": "CHDI",
-        "value": 30000000
+        "value": 30000000,
+        "backer": "Another Roseland foundation"
     },
     {
         "from": "Lotsa LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "CHDI",
-        "value": 1250000
+        "value": 1250000,
+        "backer": "Shechtel"
     },
     {
         "from": "Lotsa LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "CHDI",
-        "value": 15000000
+        "value": 15000000,
+        "backer": "Shechtel"
     },
     {
         "from": "Lotsa LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "CHDI",
-        "value": 57700000
+        "value": 57700000,
+        "backer": "Shechtel"
     },
     {
         "from": "Lotsa LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "CHDI",
-        "value": 62500000
+        "value": 62500000,
+        "backer": "Shechtel"
     },
     {
         "from": "Milstein Foundation",
-        "ultimate source": "Another Roseland foundation",
         "certainty": "",
         "to": "CHDI",
-        "value": 2775000
+        "value": 2775000,
+        "backer": "Another Roseland foundation"
     },
     {
         "from": "Milstein Foundation",
-        "ultimate source": "Another Roseland foundation",
         "certainty": "",
         "to": "CHDI",
-        "value": 2840000
+        "value": 2840000,
+        "backer": "Another Roseland foundation"
     },
     {
         "from": "Milstein Foundation",
-        "ultimate source": "Another Roseland foundation",
         "certainty": "",
         "to": "CHDI",
-        "value": 2900000
+        "value": 2900000,
+        "backer": "Another Roseland foundation"
     },
     {
         "from": "Milstein Foundation",
-        "ultimate source": "Another Roseland foundation",
         "certainty": "",
         "to": "CHDI",
-        "value": 3000000
+        "value": 3000000,
+        "backer": "Another Roseland foundation"
     },
     {
         "from": "Milstein Foundation",
-        "ultimate source": "Another Roseland foundation",
         "certainty": "",
         "to": "CHDI",
-        "value": 6000000
+        "value": 6000000,
+        "backer": "Another Roseland foundation"
     },
     {
         "from": "Milstein Foundation",
-        "ultimate source": "Another Roseland foundation",
         "certainty": "",
         "to": "CHDI",
-        "value": 50243129
+        "value": 50243129,
+        "backer": "Another Roseland foundation"
     },
     {
         "from": "ST Funding Company LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "CHDI",
-        "value": 25540000
+        "value": 25540000,
+        "backer": "Shechtel"
     },
     {
         "from": "Triplet Investment Company",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "CHDI",
-        "value": 2500000
+        "value": 2500000,
+        "backer": "Shechtel"
     },
     {
         "from": "VBS Holdings",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "CHDI",
-        "value": 148318602
+        "value": 148318602,
+        "backer": "Shechtel"
     },
     {
         "from": "Growing Assets",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
-        "to": "High Q",
-        "value": 2000000
+        "to": "High Q Foundation",
+        "value": 2000000,
+        "backer": "Shechtel"
     },
     {
         "from": "Growing Assets",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
-        "to": "High Q",
-        "value": 7250000
+        "to": "High Q Foundation",
+        "value": 7250000,
+        "backer": "Shechtel"
     },
     {
         "from": "Growing Assets",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
-        "to": "High Q",
-        "value": 8000000
+        "to": "High Q Foundation",
+        "value": 8000000,
+        "backer": "Shechtel"
     },
     {
         "from": "Growing Assets",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
-        "to": "High Q",
-        "value": 11600000
+        "to": "High Q Foundation",
+        "value": 11600000,
+        "backer": "Shechtel"
     },
     {
         "from": "Kratka Foundation",
-        "ultimate source": "Another Roseland foundation",
         "certainty": "",
-        "to": "High Q",
-        "value": 10334751
+        "to": "High Q Foundation",
+        "value": 10334751,
+        "backer": "Another Roseland foundation"
     },
     {
         "from": "Kratka Foundation",
-        "ultimate source": "Another Roseland foundation",
         "certainty": "",
-        "to": "High Q",
-        "value": 39415978
+        "to": "High Q Foundation",
+        "value": 39415978,
+        "backer": "Another Roseland foundation"
     },
     {
         "from": "Kurtz Foundation",
-        "ultimate source": "Another Roseland foundation",
         "certainty": "Low",
-        "to": "High Q",
-        "value": 10000000
+        "to": "High Q Foundation",
+        "value": 10000000,
+        "backer": "Another Roseland foundation"
     },
     {
         "from": "Lotsa LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
-        "to": "High Q",
-        "value": 575000
+        "to": "High Q Foundation",
+        "value": 575000,
+        "backer": "Shechtel"
     },
     {
         "from": "Lotsa LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
-        "to": "High Q",
-        "value": 1500000
+        "to": "High Q Foundation",
+        "value": 1500000,
+        "backer": "Shechtel"
     },
     {
         "from": "Lotsa LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
-        "to": "High Q",
-        "value": 1700000
+        "to": "High Q Foundation",
+        "value": 1700000,
+        "backer": "Shechtel"
     },
     {
         "from": "Lotsa LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
-        "to": "High Q",
-        "value": 35000000
+        "to": "High Q Foundation",
+        "value": 35000000,
+        "backer": "Shechtel"
     },
     {
         "from": "ST Funding Company LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
-        "to": "High Q",
-        "value": 2760000
+        "to": "High Q Foundation",
+        "value": 2760000,
+        "backer": "Shechtel"
     },
     {
         "from": "Triplet Investment Company",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
-        "to": "High Q",
-        "value": 1100000
+        "to": "High Q Foundation",
+        "value": 1100000,
+        "backer": "Shechtel"
     },
     {
         "from": "Triplet Investment Company",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
-        "to": "High Q",
-        "value": 6957418
+        "to": "High Q Foundation",
+        "value": 6957418,
+        "backer": "Shechtel"
     },
     {
         "from": "Triplet Investment Company",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
-        "to": "High Q",
-        "value": 10994665
+        "to": "High Q Foundation",
+        "value": 10994665,
+        "backer": "Shechtel"
     },
     {
         "from": "Triplet Investment Company",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
-        "to": "High Q",
-        "value": 34577030
+        "to": "High Q Foundation",
+        "value": 34577030,
+        "backer": "Shechtel"
     },
     {
         "from": "VBS Holdings",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
-        "to": "High Q",
-        "value": 20000000
+        "to": "High Q Foundation",
+        "value": 20000000,
+        "backer": "Shechtel"
     },
     {
         "from": "Growing Assets",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "HP Therapeutics",
-        "value": 25000
+        "value": 25000,
+        "backer": "Shechtel"
     },
     {
         "from": "Growing Assets",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "HP Therapeutics",
-        "value": 3100000
+        "value": 3100000,
+        "backer": "Shechtel"
     },
     {
         "from": "Kurtz Foundation",
-        "ultimate source": "Another Roseland foundation",
         "certainty": "Low",
         "to": "HP Therapeutics",
-        "value": 6000000
+        "value": 6000000,
+        "backer": "Another Roseland foundation"
     },
     {
         "from": "Lotsa LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "HP Therapeutics",
-        "value": 1075000
+        "value": 1075000,
+        "backer": "Shechtel"
     },
     {
         "from": "Lotsa LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "HP Therapeutics",
-        "value": 1500000
+        "value": 1500000,
+        "backer": "Shechtel"
     },
     {
         "from": "Lotsa LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "HP Therapeutics",
-        "value": 5000000
+        "value": 5000000,
+        "backer": "Shechtel"
     },
     {
         "from": "ST Funding Company LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "HP Therapeutics",
-        "value": 915000
+        "value": 915000,
+        "backer": "Shechtel"
     },
     {
         "from": "ST Funding Company LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "HP Therapeutics",
-        "value": 2407200
+        "value": 2407200,
+        "backer": "Shechtel"
     },
     {
         "from": "ST Funding Company LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "HP Therapeutics",
-        "value": 3020685
+        "value": 3020685,
+        "backer": "Shechtel"
     },
     {
         "from": "Triplet Investment Company",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "HP Therapeutics",
-        "value": 300041
+        "value": 300041,
+        "backer": "Shechtel"
     },
     {
         "from": "Triplet Investment Company",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "HP Therapeutics",
-        "value": 7006471
+        "value": 7006471,
+        "backer": "Shechtel"
     },
     {
         "from": "VBS Holdings",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "HP Therapeutics",
-        "value": 10000000
+        "value": 10000000,
+        "backer": "Shechtel"
     },
     {
         "from": "Fred Taylor",
-        "ultimate source": "Taylor",
         "certainty": "High",
         "to": "Jessie Reid Foundation",
-        "value": 24373978
+        "value": 24373978,
+        "backer": "Taylor"
     },
     {
         "from": "Marital Holdings LLC",
-        "ultimate source": "Taylor",
         "certainty": "Low",
         "to": "JHJ Foundation",
-        "value": 1000
+        "value": 1000,
+        "backer": "Taylor"
     },
     {
         "from": "Marital Holdings LLC",
-        "ultimate source": "Taylor",
         "certainty": "Low",
         "to": "JHJ Foundation",
-        "value": 11500000
+        "value": 11500000,
+        "backer": "Taylor"
     },
     {
         "from": "Marital Holdings LLC",
-        "ultimate source": "Taylor",
         "certainty": "Low",
         "to": "JHJ Foundation",
-        "value": 12000000
+        "value": 12000000,
+        "backer": "Taylor"
     },
     {
         "from": "Marital Holdings LLC",
-        "ultimate source": "Taylor",
         "certainty": "Low",
         "to": "JHJ Foundation",
-        "value": 15550000
+        "value": 15550000,
+        "backer": "Taylor"
     },
     {
         "from": "Marital Holdings LLC",
-        "ultimate source": "Taylor",
         "certainty": "Low",
         "to": "JHJ Foundation",
-        "value": 16404085
+        "value": 16404085,
+        "backer": "Taylor"
     },
     {
         "from": "Marital Holdings LLC",
-        "ultimate source": "Taylor",
         "certainty": "Low",
         "to": "JHJ Foundation",
-        "value": 20000000
+        "value": 20000000,
+        "backer": "Taylor"
     },
     {
         "from": "Marital Holdings LLC",
-        "ultimate source": "Taylor",
         "certainty": "Low",
         "to": "JHJ Foundation",
-        "value": 32000000
+        "value": 32000000,
+        "backer": "Taylor"
     },
     {
         "from": "MYC Investments LLC",
-        "ultimate source": "Taylor",
         "certainty": "Low",
         "to": "JHJ Foundation",
-        "value": 45000000
+        "value": 45000000,
+        "backer": "Taylor"
     },
     {
         "from": "Rhoda Management LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "JSY Foundation",
-        "value": 2809000
+        "value": 2809000,
+        "backer": "Shechtel"
     },
     {
         "from": "Rhoda Management LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "JSY Foundation",
-        "value": 14859000
+        "value": 14859000,
+        "backer": "Shechtel"
     },
     {
         "from": "Seed Capital LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "JSY Foundation",
-        "value": 2250000
+        "value": 2250000,
+        "backer": "Shechtel"
     },
     {
         "from": "Seed Capital LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "JSY Foundation",
-        "value": 3018150
+        "value": 3018150,
+        "backer": "Shechtel"
     },
     {
         "from": "Seed Capital LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "JSY Foundation",
-        "value": 4759850
+        "value": 4759850,
+        "backer": "Shechtel"
     },
     {
         "from": "Seed Capital LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "JSY Foundation",
-        "value": 7000000
+        "value": 7000000,
+        "backer": "Shechtel"
     },
     {
         "from": "Shekel Funding",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "JSY Foundation",
-        "value": 51000000
+        "value": 51000000,
+        "backer": "Shechtel"
     },
     {
         "from": "Curtsey LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "Kurtz Foundation",
-        "value": 100000
+        "value": 100000,
+        "backer": "Shechtel"
     },
     {
         "from": "Rifka Funding LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "Kurtz Foundation",
-        "value": 1000
+        "value": 1000,
+        "backer": "Shechtel"
     },
     {
         "from": "Rifka Funding LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "Kurtz Foundation",
-        "value": 4596000
+        "value": 4596000,
+        "backer": "Shechtel"
     },
     {
         "from": "Rifka Funding LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "Kurtz Foundation",
-        "value": 16870000
+        "value": 16870000,
+        "backer": "Shechtel"
     },
     {
         "from": "Rifka Funding LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "Kurtz Foundation",
-        "value": 36363636
+        "value": 36363636,
+        "backer": "Shechtel"
     },
     {
         "from": "BLTN Holdings LLC",
-        "ultimate source": "Taylor",
         "certainty": "Low",
         "to": "Matan B'Seter",
-        "value": 4500000
+        "value": 4500000,
+        "backer": "Taylor"
     },
     {
         "from": "BLTN Holdings LLC",
-        "ultimate source": "Taylor",
         "certainty": "Low",
         "to": "Matan B'Seter",
-        "value": 13897000
+        "value": 13897000,
+        "backer": "Taylor"
     },
     {
         "from": "BLTN Holdings LLC",
-        "ultimate source": "Taylor",
         "certainty": "Low",
         "to": "Matan B'Seter",
-        "value": 31770900
+        "value": 31770900,
+        "backer": "Taylor"
     },
     {
         "from": "BLTN Holdings LLC",
-        "ultimate source": "Taylor",
         "certainty": "Low",
         "to": "Matan B'Seter",
-        "value": 34500000
+        "value": 34500000,
+        "backer": "Taylor"
     },
     {
         "from": "MBS Funding LLC",
-        "ultimate source": "Taylor",
         "certainty": "Low",
         "to": "Matan B'Seter",
-        "value": 35000000
+        "value": 35000000,
+        "backer": "Taylor"
     },
     {
         "from": "Rubik Enterprises LLC",
-        "ultimate source": "Taylor",
         "certainty": "Low",
         "to": "Matan B'Seter",
-        "value": 72782818
+        "value": 72782818,
+        "backer": "Taylor"
     },
     {
         "from": "Shackelton Company LLC",
-        "ultimate source": "Taylor",
         "certainty": "Low",
         "to": "Matan B'Seter",
-        "value": 75000000
+        "value": 75000000,
+        "backer": "Taylor"
     },
     {
         "from": "Shackelton Company LLC",
-        "ultimate source": "Taylor",
         "certainty": "Low",
         "to": "Matan B'Seter",
-        "value": 90000000
+        "value": 90000000,
+        "backer": "Taylor"
     },
     {
         "from": "LVB Funding LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "Milstein",
-        "value": 29500000
+        "value": 29500000,
+        "backer": "Shechtel"
     },
     {
         "from": "LVB Funding LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "Milstein",
-        "value": 30500000
+        "value": 30500000,
+        "backer": "Shechtel"
     },
     {
         "from": "Malden Management LLC",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "Milstein",
-        "value": 1000
+        "value": 1000,
+        "backer": "Shechtel"
     },
     {
         "from": "Nell Sun National ",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "NSN Foundation",
-        "value": 9645006
+        "value": 9645006,
+        "backer": "Shechtel"
     },
     {
         "from": "NISON Management",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "NSN Foundation",
-        "value": 1165450
+        "value": 1165450,
+        "backer": "Shechtel"
     },
     {
         "from": "NISON Management",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "NSN Foundation",
-        "value": 3988000
+        "value": 3988000,
+        "backer": "Shechtel"
     },
     {
         "from": "Stepansky Company",
-        "ultimate source": "Shechtel",
         "certainty": "Low",
         "to": "NSN Foundation",
-        "value": 56300000
+        "value": 56300000,
+        "backer": "Shechtel"
     },
     {
         "from": "Sankuyu LLC",
-        "ultimate source": "Shechtel",
         "certainty": "High",
         "to": "Renewable",
-        "value": 36000000
+        "value": 36000000,
+        "backer": "Shechtel"
     },
     {
         "from": "Shechtel",
-        "ultimate source": "Shechtel",
         "certainty": "High",
         "to": "Sierra Foundation",
-        "value": 1106892
+        "value": 1106892,
+        "backer": "Shechtel"
     },
     {
         "from": "Shechtel",
-        "ultimate source": "Shechtel",
         "certainty": "High",
         "to": "Sierra Foundation",
-        "value": 7317047
+        "value": 7317047,
+        "backer": "Shechtel"
     },
     {
         "from": "Sierra Enterprises Group",
-        "ultimate source": "TGS",
         "certainty": "Medium",
         "to": "Sierra Foundation",
-        "value": 500000
+        "value": 500000,
+        "backer": "TGS"
     },
     {
         "from": "Sierra Enterprises Group",
-        "ultimate source": "TGS",
         "certainty": "Medium",
         "to": "Sierra Foundation",
-        "value": 10133500
+        "value": 10133500,
+        "backer": "TGS"
     },
     {
         "from": "Sierra Enterprises Group",
-        "ultimate source": "TGS",
         "certainty": "Medium",
         "to": "Sierra Foundation",
-        "value": 16000000
+        "value": 16000000,
+        "backer": "TGS"
     },
     {
         "from": "ST Partners LP",
-        "ultimate source": "TGS",
         "certainty": "High",
         "to": "Sierra Foundation",
-        "value": 399429
+        "value": 399429,
+        "backer": "TGS"
     },
     {
         "from": "Taylor",
-        "ultimate source": "Taylor",
         "certainty": "High",
         "to": "Sierra Foundation",
-        "value": 6904819
+        "value": 6904819,
+        "backer": "Taylor"
     },
     {
         "from": "Sierra Enterprises Group",
-        "ultimate source": "TGS",
         "certainty": "High",
         "to": "ST2 Foundation",
-        "value": 15000000
+        "value": 15000000,
+        "backer": "TGS"
     },
     {
         "from": "Sierra Enterprises Group",
-        "ultimate source": "TGS",
         "certainty": "High",
         "to": "ST2 Foundation",
-        "value": 16500000
+        "value": 16500000,
+        "backer": "TGS"
     },
     {
         "from": "Stone Holdings",
-        "ultimate source": "Shechtel",
         "certainty": "High",
         "to": "Sweetfeet",
-        "value": 995000
+        "value": 995000,
+        "backer": "Shechtel"
     }
 ]

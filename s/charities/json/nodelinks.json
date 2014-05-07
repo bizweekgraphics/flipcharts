@@ -1,1403 +1,1557 @@
 var nodelinks = {
     "nodes": [
-        {
-            "name": "California Community Foundation"
-        },
-        {
-            "name": "United Way of Essex and West Hudson"
-        },
-        {
-            "name": "Vanguard Charitable"
-        },
-        {
-            "name": "CHDI"
-        },
-        {
-            "name": "Columbia U. - Taub Institute and Sergievsky Center"
-        },
-        {
-            "name": "Creative Commons"
-        },
-        {
-            "name": "Foundation for Motor Neuron Medicine"
-        },
-        {
-            "name": "Gordon Research Conference"
-        },
-        {
-            "name": "HDSA"
-        },
-        {
-            "name": "Huntington Society of Canada"
-        },
-        {
-            "name": "Huntington's Disease Drug Works"
-        },
-        {
-            "name": "Huntington's Research"
-        },
-        {
-            "name": "Public Library of Science"
-        },
-        {
-            "name": "U. of Rochester"
-        },
-        {
-            "name": "U. of Wisconsin"
-        },
-        {
-            "name": "High Q Foundation"
-        },
-        {
-            "name": "Baylor Research Institute"
-        },
-        {
-            "name": "HDSA Care Centers Initiative"
-        },
-        {
-            "name": "HDSA Research Initiatives"
-        },
-        {
-            "name": "MIT"
-        },
-        {
-            "name": "State U. of Iowa"
-        },
-        {
-            "name": "U. of Alabama"
-        },
-        {
-            "name": "U. of Iowa Foundation"
-        },
-        {
-            "name": "U. of Washington"
-        },
-        {
-            "name": "HP Therapeutics"
-        },
-        {
-            "name": "Jessie Reid"
-        },
-        {
-            "name": "Jewish Communal Fund"
-        },
-        {
-            "name": "Wildlands Conservancy"
-        },
-        {
-            "name": "JSY Foundation"
-        },
-        {
-            "name": "Aish Hatorah 313 W 83rd st"
-        },
-        {
-            "name": "Sierra Club Foundation"
-        },
-        {
-            "name": "Wildlands Foundation"
-        },
-        {
-            "name": "Kratka Foundation"
-        },
-        {
-            "name": "Alzheimer's Association"
-        },
-        {
-            "name": "American Red Cross Disaster Relief Fund"
-        },
-        {
-            "name": "Cambridge in America"
-        },
-        {
-            "name": "HDF"
-        },
-        {
-            "name": "HDF Science Endowment"
-        },
-        {
-            "name": "Kurtz Foundation"
-        },
-        {
-            "name": "Parkinson's Disease Foundation"
-        },
-        {
-            "name": "Milstein Foundation"
-        },
-        {
-            "name": "American Cancer Society"
-        },
-        {
-            "name": "Johns Hopkins CTY/SETS"
-        },
-        {
-            "name": "Johns Hopkins University"
-        },
-        {
-            "name": "NSN Foundation"
-        },
-        {
-            "name": "Sierra Foundation"
-        },
-        {
-            "name": "American Foundation for the Blind"
-        },
-        {
-            "name": "American Israel Education Foundation"
-        },
-        {
-            "name": "CAJE, 261 W. 35th St."
-        },
-        {
-            "name": "Cystic Fibrosis Foundation"
-        },
-        {
-            "name": "Fidelity Charitable Gift Fund"
-        },
-        {
-            "name": "Foundation fighting blindness"
-        },
-        {
-            "name": "HDSA Coalition for the Cure"
-        },
-        {
-            "name": "Hebrew Union College"
-        },
-        {
-            "name": "Homefront, Lawrenceville NJ"
-        },
-        {
-            "name": "Jewish Funders Network"
-        },
-        {
-            "name": "Jewish Television Network"
-        },
-        {
-            "name": "Johns Hopkins U."
-        },
-        {
-            "name": "League for the Hard of Hearing"
-        },
-        {
-            "name": "Mt. Sinai Crystal Ball"
-        },
-        {
-            "name": "National Junior Tennis League of Trenton"
-        },
-        {
-            "name": "Orthodox Union Institute"
-        },
-        {
-            "name": "Ozanam Building Renovation"
-        },
-        {
-            "name": "Ozanam Hall Renovation Fund"
-        },
-        {
-            "name": "Ozanman Building Renovation"
-        },
-        {
-            "name": "Partnership for Effective Learning and Innovative Education"
-        },
-        {
-            "name": "PEI Kids Inc, Lawrenceville NJ"
-        },
-        {
-            "name": "Philanthropy Round Table"
-        },
-        {
-            "name": "Stanford University"
-        },
-        {
-            "name": "Trinity Counseling Svc"
-        },
-        {
-            "name": "UJA Federation of NY"
-        },
-        {
-            "name": "Yeshiva University"
-        },
-        {
-            "name": "Young Scholars Institute"
-        },
-        {
-            "name": "AIPAC, Trenton"
-        },
-        {
-            "name": "American Jewish Congress"
-        },
-        {
-            "name": "CAMERA"
-        },
-        {
-            "name": "Childrens Home Society"
-        },
-        {
-            "name": "D&R Greenway,Princeton"
-        },
-        {
-            "name": "Fidelity - general"
-        },
-        {
-            "name": "HDF - Scientific Research"
-        },
-        {
-            "name": "Hineni Heritage Center"
-        },
-        {
-            "name": "Johns Hopkins Medicine"
-        },
-        {
-            "name": "MCP Foundation, 253 Witherspoon, Princeton"
-        },
-        {
-            "name": "MIT - lab o David Housman, Cancer research"
-        },
-        {
-            "name": "Mt. Sinai dept of geriatric & adult dev"
-        },
-        {
-            "name": "National Jewish Outreach Program"
-        },
-        {
-            "name": "Ozanam Geriatric"
-        },
-        {
-            "name": "Tarbut V'Torah"
-        },
-        {
-            "name": "U. of Buffalo"
-        },
-        {
-            "name": "U. of California LA"
-        },
-        {
-            "name": "West Side Hotzolah"
-        },
-        {
-            "name": "Wildlands Endowment Fund"
-        },
-        {
-            "name": "ST2 Foundation"
-        },
-        {
-            "name": "American Committee for the Weizman Institute of Science"
-        },
-        {
-            "name": "American Friends of Tel Aviv Sourasky Medical Center"
-        },
-        {
-            "name": "Business United in Investing, Lending & Development"
-        },
-        {
-            "name": "FOCUS Hispanic Center for Community Dev."
-        },
-        {
-            "name": "Legal Aid Society of San Mateo Cty"
-        },
-        {
-            "name": "PEF Israel Endowment Funds"
-        },
-        {
-            "name": "Quest Scholars Program"
-        },
-        {
-            "name": "Stanford U. Law School"
-        },
-        {
-            "name": "Stanford University Law School"
-        },
-        {
-            "name": "UC Santa Cruz Foundation"
-        },
-        {
-            "name": "America's Second Harvest"
-        },
-        {
-            "name": "Art Science Research Lab (ground zero)"
-        },
-        {
-            "name": "Sweetfeet"
-        },
-        {
-            "name": "Columbia U. - suite 29D"
-        },
-        {
-            "name": "Orange County Jewish Campus"
-        },
-        {
-            "name": "Teach for America development office"
-        },
-        {
-            "name": "Morasha School , Margarita, CA"
-        },
-        {
-            "name": "JHJ Foundation"
-        },
-        {
-            "name": "Matan B'Seter"
-        },
-        {
-            "name": "Fidelity - donor advised"
-        },
-        {
-            "name": "Pridefest Philadelphia DBA Equality Forum"
-        },
-        {
-            "name": "United Jewish Communities - UJC Overseas Supplemental Giving Fund"
-        },
-        {
-            "name": "United Jewish Communities of Metrowest NJ - Whippany"
-        },
-        {
-            "name": "Renewable Foundation"
-        },
-        {
-            "name": "Alliance to Save Energy"
-        },
-        {
-            "name": "American Friends of Tel Aviv"
-        },
-        {
-            "name": "Auerbach Central Agency for Jewish Education"
-        },
-        {
-            "name": "Conference of Presidents - NY"
-        },
-        {
-            "name": "Foundation for the Defense of Democracies"
-        },
-        {
-            "name": "Hudson Institute"
-        },
-        {
-            "name": "Israel 21C"
-        },
-        {
-            "name": "Middle East Media Research Institute"
-        },
-        {
-            "name": "The Israel Project"
-        },
-        {
-            "name": "Bearpaw"
-        },
-        {
-            "name": "ACLU"
-        },
-        {
-            "name": "California Association of Human Rights Foundations"
-        },
-        {
-            "name": "Community Funds Inc., 2 Park Ave., NY"
-        },
-        {
-            "name": "Newport-Mesa Schools Foundation"
-        },
-        {
-            "name": "Orange Coast College Foundation"
-        },
-        {
-            "name": "ActionAid USA"
-        },
-        {
-            "name": "American Civil Liberties Union  - New York"
-        },
-        {
-            "name": "American Enterprise Institute for Public Policy Research"
-        },
-        {
-            "name": "American Institute for Social Justice"
-        },
-        {
-            "name": "American Jewish World Service"
-        },
-        {
-            "name": "America's Promise- the Alliance for Youth"
-        },
-        {
-            "name": "Astraea Foundation"
-        },
-        {
-            "name": "Center on Budget and Policy Priorities"
-        },
-        {
-            "name": "Corporation of Haverford College"
-        },
-        {
-            "name": "Deseret Trust Company"
-        },
-        {
-            "name": "Every Child Matters Education Fund"
-        },
-        {
-            "name": "Exploratorium, San Francisco"
-        },
-        {
-            "name": "Fidelity Investments Charitable Gift Fund"
-        },
-        {
-            "name": "Fund for Global Human Rights, DC"
-        },
-        {
-            "name": "Human Rights Watch"
-        },
-        {
-            "name": "Innovations for Poverty Action - New Haven"
-        },
-        {
-            "name": "International Center for Research on Women"
-        },
-        {
-            "name": "International Rescue Committee - National Org."
-        },
-        {
-            "name": "IPAS"
-        },
-        {
-            "name": "Landmine Survivors Network"
-        },
-        {
-            "name": "M Y Keren Hashluchim Inc., Brooklyn"
-        },
-        {
-            "name": "Massachusetts Inst of Tech"
-        },
-        {
-            "name": "National Gay and Lesbian Task Force"
-        },
-        {
-            "name": "Partners in Health, Boston"
-        },
-        {
-            "name": "Project Vote - voting for America"
-        },
-        {
-            "name": "Rockefeller Philanthropy AdvisorsInc"
-        },
-        {
-            "name": "Save the Children Federation - National HQ"
-        },
-        {
-            "name": "Tar but V'Torah"
-        },
-        {
-            "name": "Tides Foundation - San Francisco"
-        },
-        {
-            "name": "U. of Chicago"
-        },
-        {
-            "name": "U. of Penn"
-        },
-        {
-            "name": "USAction Education Fund"
-        },
-        {
-            "name": "Women's Voices - Women Vote"
-        },
-        {
-            "name": "AFL Management LLC"
-        },
-        {
-            "name": "Arnold Foundation"
-        },
-        {
-            "name": "Erica Enterprises"
-        },
-        {
-            "name": "ANFA Company"
-        },
-        {
-            "name": "Aspen Foundation"
-        },
-        {
-            "name": "Western Birch Company"
-        },
-        {
-            "name": "Berdichev LLC"
-        },
-        {
-            "name": "Bearpaw Foundation"
-        },
-        {
-            "name": "Charitable Benefactors Trust of 33 Witherspoon St."
-        },
-        {
-            "name": "Charitable Contributors Trust of 2 Witherspoon"
-        },
-        {
-            "name": "Charitable Donors Trust of 2 Witherspoon"
-        },
-        {
-            "name": "David Gelbaum"
-        },
-        {
-            "name": "Aqua Funding LLC"
-        },
-        {
-            "name": "Growing Assets"
-        },
-        {
-            "name": "Lotsa LLC"
-        },
-        {
-            "name": "ST Funding Company LLC"
-        },
-        {
-            "name": "Triplet Investment Company"
-        },
-        {
-            "name": "VBS Holdings"
-        },
-        {
-            "name": "Fred Taylor"
-        },
-        {
-            "name": "Jessie Reid Foundation"
-        },
-        {
-            "name": "Marital Holdings LLC"
-        },
-        {
-            "name": "MYC Investments LLC"
-        },
-        {
-            "name": "Rhoda Management LLC"
-        },
-        {
-            "name": "Seed Capital LLC"
-        },
-        {
-            "name": "Shekel Funding"
-        },
-        {
-            "name": "Curtsey LLC"
-        },
-        {
-            "name": "Rifka Funding LLC"
-        },
-        {
-            "name": "BLTN Holdings LLC"
-        },
-        {
-            "name": "MBS Funding LLC"
-        },
-        {
-            "name": "Rubik Enterprises LLC"
-        },
-        {
-            "name": "Shackelton Company LLC"
-        },
-        {
-            "name": "LVB Funding LLC"
-        },
-        {
-            "name": "Milstein"
-        },
-        {
-            "name": "Malden Management LLC"
-        },
-        {
-            "name": "Nell Sun National "
-        },
-        {
-            "name": "NISON Management"
-        },
-        {
-            "name": "Stepansky Company"
-        },
-        {
-            "name": "Sankuyu LLC"
-        },
-        {
-            "name": "Renewable"
-        },
-        {
-            "name": "Shechtel"
-        },
-        {
-            "name": "Sierra Enterprises Group"
-        },
-        {
-            "name": "ST Partners LP"
-        },
-        {
-            "name": "Taylor"
-        },
-        {
-            "name": "Stone Holdings"
-        }
-    ],
+    {
+        "name": "Arnold Foundation"
+    },
+    {
+        "name": "California Community Foundation"
+    },
+    {
+        "name": "United Way of Essex and West Hudson"
+    },
+    {
+        "name": "Vanguard Charitable"
+    },
+    {
+        "name": "CHDI"
+    },
+    {
+        "name": "Columbia U. - Taub Institute and Sergievsky Center"
+    },
+    {
+        "name": "Creative Commons"
+    },
+    {
+        "name": "Foundation for Motor Neuron Medicine"
+    },
+    {
+        "name": "Gordon Research Conference"
+    },
+    {
+        "name": "HDSA"
+    },
+    {
+        "name": "Huntington Society of Canada"
+    },
+    {
+        "name": "Huntington's Disease Drug Works"
+    },
+    {
+        "name": "Huntington's Research"
+    },
+    {
+        "name": "Public Library of Science"
+    },
+    {
+        "name": "U. of Rochester"
+    },
+    {
+        "name": "U. of Wisconsin"
+    },
+    {
+        "name": "High Q Foundation"
+    },
+    {
+        "name": "Baylor Research Institute"
+    },
+    {
+        "name": "HDSA Care Centers Initiative"
+    },
+    {
+        "name": "HDSA Research Initiatives"
+    },
+    {
+        "name": "MIT"
+    },
+    {
+        "name": "State U. of Iowa"
+    },
+    {
+        "name": "U. of Alabama"
+    },
+    {
+        "name": "U. of Iowa Foundation"
+    },
+    {
+        "name": "U. of Washington"
+    },
+    {
+        "name": "HP Therapeutics"
+    },
+    {
+        "name": "Jessie Reid"
+    },
+    {
+        "name": "Jewish Communal Fund"
+    },
+    {
+        "name": "Wildlands Conservancy"
+    },
+    {
+        "name": "JSY Foundation"
+    },
+    {
+        "name": "Aish Hatorah 313 W 83rd st"
+    },
+    {
+        "name": "Sierra Club Foundation"
+    },
+    {
+        "name": "Wildlands Foundation"
+    },
+    {
+        "name": "Kratka Foundation"
+    },
+    {
+        "name": "Alzheimer's Association"
+    },
+    {
+        "name": "American Red Cross Disaster Relief Fund"
+    },
+    {
+        "name": "Cambridge in America"
+    },
+    {
+        "name": "HDF"
+    },
+    {
+        "name": "HDF Science Endowment"
+    },
+    {
+        "name": "Kurtz Foundation"
+    },
+    {
+        "name": "Parkinson's Disease Foundation"
+    },
+    {
+        "name": "Milstein Foundation"
+    },
+    {
+        "name": "American Cancer Society"
+    },
+    {
+        "name": "Johns Hopkins CTY/SETS"
+    },
+    {
+        "name": "Johns Hopkins University"
+    },
+    {
+        "name": "NSN Foundation"
+    },
+    {
+        "name": "Sierra Foundation"
+    },
+    {
+        "name": "American Foundation for the Blind"
+    },
+    {
+        "name": "American Israel Education Foundation"
+    },
+    {
+        "name": "CAJE, 261 W. 35th St."
+    },
+    {
+        "name": "Cystic Fibrosis Foundation"
+    },
+    {
+        "name": "Fidelity Charitable Gift Fund"
+    },
+    {
+        "name": "Foundation fighting blindness"
+    },
+    {
+        "name": "HDSA Coalition for the Cure"
+    },
+    {
+        "name": "Hebrew Union College"
+    },
+    {
+        "name": "Homefront, Lawrenceville NJ"
+    },
+    {
+        "name": "Jewish Funders Network"
+    },
+    {
+        "name": "Jewish Television Network"
+    },
+    {
+        "name": "Johns Hopkins U."
+    },
+    {
+        "name": "League for the Hard of Hearing"
+    },
+    {
+        "name": "Mt. Sinai Crystal Ball"
+    },
+    {
+        "name": "National Junior Tennis League of Trenton"
+    },
+    {
+        "name": "Orthodox Union Institute"
+    },
+    {
+        "name": "Ozanam Building Renovation"
+    },
+    {
+        "name": "Ozanam Hall Renovation Fund"
+    },
+    {
+        "name": "Ozanman Building Renovation"
+    },
+    {
+        "name": "Partnership for Effective Learning and Innovative Education"
+    },
+    {
+        "name": "PEI Kids Inc, Lawrenceville NJ"
+    },
+    {
+        "name": "Philanthropy Round Table"
+    },
+    {
+        "name": "Stanford University"
+    },
+    {
+        "name": "Trinity Counseling Svc"
+    },
+    {
+        "name": "UJA Federation of NY"
+    },
+    {
+        "name": "Yeshiva University"
+    },
+    {
+        "name": "Young Scholars Institute"
+    },
+    {
+        "name": "AIPAC, Trenton"
+    },
+    {
+        "name": "American Jewish Congress"
+    },
+    {
+        "name": "CAMERA po box 35040 Boston"
+    },
+    {
+        "name": "Childrens Home Society"
+    },
+    {
+        "name": "D&R Greenway,Princeton"
+    },
+    {
+        "name": "Fidelity - general"
+    },
+    {
+        "name": "HDF - Scientific Research"
+    },
+    {
+        "name": "Hineni Heritage Center"
+    },
+    {
+        "name": "Johns Hopkins Medicine"
+    },
+    {
+        "name": "MCP Foundation, 253 Witherspoon, Princeton"
+    },
+    {
+        "name": "MIT - lab o David Housman, Cancer research"
+    },
+    {
+        "name": "Mt. Sinai dept of geriatric & adult dev"
+    },
+    {
+        "name": "National Jewish Outreach Program"
+    },
+    {
+        "name": "Ozanam Geriatric"
+    },
+    {
+        "name": "Tarbut V'Torah"
+    },
+    {
+        "name": "U. of Buffalo"
+    },
+    {
+        "name": "U. of California LA"
+    },
+    {
+        "name": "West Side Hotzolah"
+    },
+    {
+        "name": "Wildlands Endowment Fund"
+    },
+    {
+        "name": "ST2 Foundation"
+    },
+    {
+        "name": "American Committee for the Weizman Institute of Science"
+    },
+    {
+        "name": "American Friends of Tel Aviv Sourasky Medical Center"
+    },
+    {
+        "name": "Business United in Investing, Lending & Development"
+    },
+    {
+        "name": "FOCUS Hispanic Center for Community Dev."
+    },
+    {
+        "name": "Legal Aid Society of San Mateo Cty"
+    },
+    {
+        "name": "PEF Israel Endowment Funds"
+    },
+    {
+        "name": "Quest Scholars Program"
+    },
+    {
+        "name": "Stanford U. Law School"
+    },
+    {
+        "name": "Stanford University Law School"
+    },
+    {
+        "name": "UC Santa Cruz Foundation"
+    },
+    {
+        "name": "America's Second Harvest"
+    },
+    {
+        "name": "Art Science Research Lab (ground zero)"
+    },
+    {
+        "name": "Sweetfeet"
+    },
+    {
+        "name": "Columbia U. - suite 29D"
+    },
+    {
+        "name": "Aspen Foundation"
+    },
+    {
+        "name": "Orange County Jewish Campus"
+    },
+    {
+        "name": "Teach for America development office"
+    },
+    {
+        "name": "Morasha School , Margarita, CA"
+    },
+    {
+        "name": "JHJ Foundation"
+    },
+    {
+        "name": "Matan B'Seter"
+    },
+    {
+        "name": "Fidelity - donor advised"
+    },
+    {
+        "name": "Pridefest Philadelphia DBA Equality Forum - 1420 Locust (same address as Wellspring)"
+    },
+    {
+        "name": "United Jewish Communities - UJC Overseas Supplemental Giving Fund"
+    },
+    {
+        "name": "United Jewish Communities of Metrowest NJ - Whippany"
+    },
+    {
+        "name": "Renewable Foundation"
+    },
+    {
+        "name": "Alliance to Save Energy"
+    },
+    {
+        "name": "American Friends of Tel Aviv"
+    },
+    {
+        "name": "Auerbach Central Agency for Jewish Education"
+    },
+    {
+        "name": "Conference of Presidents - NY"
+    },
+    {
+        "name": "Foundation for the Defense of Democracies"
+    },
+    {
+        "name": "Hudson Institute"
+    },
+    {
+        "name": "Israel 21C"
+    },
+    {
+        "name": "Middle East Media Research Institute"
+    },
+    {
+        "name": "The Israel Project"
+    },
+    {
+        "name": "Bearpaw"
+    },
+    {
+        "name": "ACLU"
+    },
+    {
+        "name": "California Association of Human Rights Foundations"
+    },
+    {
+        "name": "Community Funds Inc., 2 Park Ave., NY"
+    },
+    {
+        "name": "Newport-Mesa Schools Foundation"
+    },
+    {
+        "name": "Orange Coast College Foundation"
+    },
+    {
+        "name": "ActionAid USA"
+    },
+    {
+        "name": "American Civil Liberties Union  - New York"
+    },
+    {
+        "name": "American Enterprise Institute for Public Policy Research"
+    },
+    {
+        "name": "American Institute for Social Justice"
+    },
+    {
+        "name": "American Jewish World Service"
+    },
+    {
+        "name": "America's Promise- the Alliance for Youth"
+    },
+    {
+        "name": "Astraea Foundation"
+    },
+    {
+        "name": "Center on Budget and Policy Priorities"
+    },
+    {
+        "name": "Corporation of Haverford College"
+    },
+    {
+        "name": "Deseret Trust Company"
+    },
+    {
+        "name": "Every Child Matters Education Fund"
+    },
+    {
+        "name": "Exploratorium, San Francisco"
+    },
+    {
+        "name": "Fidelity Investments Charitable Gift Fund"
+    },
+    {
+        "name": "Fund for Global Human Rights, DC"
+    },
+    {
+        "name": "Human Rights Watch"
+    },
+    {
+        "name": "Innovations for Poverty Action - New Haven"
+    },
+    {
+        "name": "International Center for Research on Women"
+    },
+    {
+        "name": "International Rescue Committee - National Org."
+    },
+    {
+        "name": "IPAS"
+    },
+    {
+        "name": "Landmine Survivors Network"
+    },
+    {
+        "name": "M Y Keren Hashluchim Inc., Brooklyn"
+    },
+    {
+        "name": "Massachusetts Inst of Tech"
+    },
+    {
+        "name": "National Gay and Lesbian Task Force"
+    },
+    {
+        "name": "Partners in Health, Boston"
+    },
+    {
+        "name": "Project Vote - voting for America"
+    },
+    {
+        "name": "Rockefeller Philanthropy AdvisorsInc"
+    },
+    {
+        "name": "Save the Children Federation - National HQ"
+    },
+    {
+        "name": "Tar but V'Torah"
+    },
+    {
+        "name": "Tides Foundation - San Francisco"
+    },
+    {
+        "name": "U. of Chicago"
+    },
+    {
+        "name": "U. of Penn"
+    },
+    {
+        "name": "USAction Education Fund"
+    },
+    {
+        "name": "Women's Voices - Women Vote"
+    },
+    {
+        "name": "AFL Management LLC"
+    },
+    {
+        "name": "Erica Enterprises"
+    },
+    {
+        "name": "ANFA Company"
+    },
+    {
+        "name": "Western Birch Company"
+    },
+    {
+        "name": "Berdichev LLC"
+    },
+    {
+        "name": "Bearpaw Foundation"
+    },
+    {
+        "name": "Charitable Benefactors Trust of 33 Witherspoon St."
+    },
+    {
+        "name": "Charitable Contributors Trust of 2 Witherspoon"
+    },
+    {
+        "name": "Charitable Donors Trust of 2 Witherspoon"
+    },
+    {
+        "name": "David Gelbaum"
+    },
+    {
+        "name": "Aqua Funding LLC"
+    },
+    {
+        "name": "Growing Assets"
+    },
+    {
+        "name": "Lotsa LLC"
+    },
+    {
+        "name": "ST Funding Company LLC"
+    },
+    {
+        "name": "Triplet Investment Company"
+    },
+    {
+        "name": "VBS Holdings"
+    },
+    {
+        "name": "Fred Taylor"
+    },
+    {
+        "name": "Jessie Reid Foundation"
+    },
+    {
+        "name": "Marital Holdings LLC"
+    },
+    {
+        "name": "MYC Investments LLC"
+    },
+    {
+        "name": "Rhoda Management LLC"
+    },
+    {
+        "name": "Seed Capital LLC"
+    },
+    {
+        "name": "Shekel Funding"
+    },
+    {
+        "name": "Curtsey LLC"
+    },
+    {
+        "name": "Rifka Funding LLC"
+    },
+    {
+        "name": "BLTN Holdings LLC"
+    },
+    {
+        "name": "MBS Funding LLC"
+    },
+    {
+        "name": "Rubik Enterprises LLC"
+    },
+    {
+        "name": "Shackelton Company LLC"
+    },
+    {
+        "name": "LVB Funding LLC"
+    },
+    {
+        "name": "Milstein"
+    },
+    {
+        "name": "Malden Management LLC"
+    },
+    {
+        "name": "Nell Sun National "
+    },
+    {
+        "name": "NISON Management"
+    },
+    {
+        "name": "Stepansky Company"
+    },
+    {
+        "name": "Sankuyu LLC"
+    },
+    {
+        "name": "Renewable"
+    },
+    {
+        "name": "Shechtel"
+    },
+    {
+        "name": "Sierra Enterprises Group"
+    },
+    {
+        "name": "ST Partners LP"
+    },
+    {
+        "name": "Taylor"
+    },
+    {
+        "name": "Stone Holdings"
+    }
+],
     "links": [
     {
         "source": "Arnold Foundation",
         "target": "California Community Foundation",
-        "value": 3000000
+        "value": 3000000,
+        "backer": "Taylor"
     },
     {
         "source": "Arnold Foundation",
         "target": "United Way of Essex and West Hudson",
-        "value": 25
+        "value": 25,
+        "backer": "Taylor"
     },
     {
         "source": "Arnold Foundation",
         "target": "Vanguard Charitable",
-        "value": 103907203
+        "value": 103907203,
+        "backer": "Taylor"
     },
     {
         "source": "CHDI",
         "target": "Columbia U. - Taub Institute and Sergievsky Center",
-        "value": 144253
+        "value": 144253,
+        "backer": "Shechtel"
     },
     {
         "source": "CHDI",
         "target": "Creative Commons",
-        "value": 150000
+        "value": 150000,
+        "backer": "Shechtel"
     },
     {
         "source": "CHDI",
         "target": "Foundation for Motor Neuron Medicine",
-        "value": 10000
+        "value": 10000,
+        "backer": "Shechtel"
     },
     {
         "source": "CHDI",
         "target": "Gordon Research Conference",
-        "value": 23000
+        "value": 23000,
+        "backer": "Shechtel"
     },
     {
         "source": "CHDI",
         "target": "HDSA",
-        "value": 191305
+        "value": 191305,
+        "backer": "Shechtel"
     },
     {
         "source": "CHDI",
         "target": "Huntington Society of Canada",
-        "value": 75000
+        "value": 75000,
+        "backer": "Shechtel"
     },
     {
         "source": "CHDI",
         "target": "Huntington's Disease Drug Works",
-        "value": 5000
+        "value": 5000,
+        "backer": "Shechtel"
     },
     {
         "source": "CHDI",
         "target": "Huntington's Research",
-        "value": 466306260
+        "value": 466306260,
+        "backer": "Shechtel"
     },
     {
         "source": "CHDI",
         "target": "Public Library of Science",
-        "value": 150000
+        "value": 150000,
+        "backer": "Shechtel"
     },
     {
         "source": "CHDI",
         "target": "U. of Rochester",
-        "value": 67173
+        "value": 67173,
+        "backer": "Shechtel"
     },
     {
         "source": "CHDI",
         "target": "U. of Wisconsin",
-        "value": 60000
+        "value": 60000,
+        "backer": "Shechtel"
     },
     {
         "source": "CHDI",
         "target": "Vanguard Charitable",
-        "value": 6700000
+        "value": 6700000,
+        "backer": "Shechtel"
     },
     {
         "source": "High Q Foundation",
         "target": "Baylor Research Institute",
-        "value": 33379
+        "value": 33379,
+        "backer": "Shechtel"
     },
     {
         "source": "High Q Foundation",
         "target": "Gordon Research Conference",
-        "value": 15000
+        "value": 15000,
+        "backer": "Shechtel"
     },
     {
         "source": "High Q Foundation",
         "target": "HDSA",
-        "value": 2798555
+        "value": 2798555,
+        "backer": "Shechtel"
     },
     {
         "source": "High Q Foundation",
         "target": "HDSA Care Centers Initiative",
-        "value": 2593500
+        "value": 2593500,
+        "backer": "Shechtel"
     },
     {
         "source": "High Q Foundation",
         "target": "HDSA Research Initiatives",
-        "value": 7314500
+        "value": 7314500,
+        "backer": "Shechtel"
     },
     {
         "source": "High Q Foundation",
         "target": "Huntington Society of Canada",
-        "value": 1740081
+        "value": 1740081,
+        "backer": "Shechtel"
     },
     {
         "source": "High Q Foundation",
         "target": "Huntington's Research",
-        "value": 181462778
+        "value": 181462778,
+        "backer": "Shechtel"
     },
     {
         "source": "High Q Foundation",
         "target": "MIT",
-        "value": 698503
+        "value": 698503,
+        "backer": "Shechtel"
     },
     {
         "source": "High Q Foundation",
         "target": "State U. of Iowa",
-        "value": 300000
+        "value": 300000,
+        "backer": "Shechtel"
     },
     {
         "source": "High Q Foundation",
         "target": "U. of Alabama",
-        "value": 8800
+        "value": 8800,
+        "backer": "Shechtel"
     },
     {
         "source": "High Q Foundation",
         "target": "U. of Iowa Foundation",
-        "value": 30000
+        "value": 30000,
+        "backer": "Shechtel"
     },
     {
         "source": "High Q Foundation",
         "target": "U. of Rochester",
-        "value": 373044
+        "value": 373044,
+        "backer": "Shechtel"
     },
     {
         "source": "High Q Foundation",
         "target": "U. of Washington",
-        "value": 15000
+        "value": 15000,
+        "backer": "Shechtel"
     },
     {
         "source": "HP Therapeutics",
         "target": "Huntington's Research",
-        "value": 30521037
+        "value": 30521037,
+        "backer": "Shechtel"
     },
     {
         "source": "Jessie Reid",
         "target": "California Community Foundation",
-        "value": 240000
+        "value": 240000,
+        "backer": "Taylor"
     },
     {
         "source": "Jessie Reid",
         "target": "Jewish Communal Fund",
-        "value": 36000
+        "value": 36000,
+        "backer": "Taylor"
     },
     {
         "source": "Jessie Reid",
         "target": "Wildlands Conservancy",
-        "value": 1000000
+        "value": 1000000,
+        "backer": "Taylor"
     },
     {
         "source": "JSY Foundation",
         "target": "Aish Hatorah 313 W 83rd st",
-        "value": 11732621
+        "value": 11732621,
+        "backer": "Shechtel"
     },
     {
         "source": "JSY Foundation",
         "target": "Sierra Club Foundation",
-        "value": 3018150
+        "value": 3018150,
+        "backer": "Shechtel"
     },
     {
         "source": "JSY Foundation",
         "target": "Wildlands Foundation",
-        "value": 250000
+        "value": 250000,
+        "backer": "Shechtel"
     },
     {
         "source": "Kratka Foundation",
         "target": "Alzheimer's Association",
-        "value": 100
+        "value": 100,
+        "backer": "Shechtel"
     },
     {
         "source": "Kratka Foundation",
         "target": "American Red Cross Disaster Relief Fund",
-        "value": 50
+        "value": 50,
+        "backer": "Shechtel"
     },
     {
         "source": "Kratka Foundation",
         "target": "Cambridge in America",
-        "value": 100000
+        "value": 100000,
+        "backer": "Shechtel"
     },
     {
         "source": "Kratka Foundation",
         "target": "HDF",
-        "value": 210000
+        "value": 210000,
+        "backer": "Shechtel"
     },
     {
         "source": "Kratka Foundation",
         "target": "HDF Science Endowment",
-        "value": 1150000
+        "value": 1150000,
+        "backer": "Shechtel"
     },
     {
         "source": "Kratka Foundation",
         "target": "U. of Rochester",
-        "value": 3539412
+        "value": 3539412,
+        "backer": "Shechtel"
     },
     {
         "source": "Kurtz Foundation",
         "target": "Jewish Communal Fund",
-        "value": 12850000
+        "value": 12850000,
+        "backer": "Shechtel"
     },
     {
         "source": "Kurtz Foundation",
         "target": "Parkinson's Disease Foundation",
-        "value": 125
+        "value": 125,
+        "backer": "Shechtel"
     },
     {
         "source": "Milstein Foundation",
         "target": "American Cancer Society",
-        "value": 25
+        "value": 25,
+        "backer": "Shechtel"
     },
     {
         "source": "Milstein Foundation",
         "target": "Johns Hopkins CTY/SETS",
-        "value": 1400000
+        "value": 1400000,
+        "backer": "Shechtel"
     },
     {
         "source": "Milstein Foundation",
         "target": "Johns Hopkins University",
-        "value": 221440
+        "value": 221440,
+        "backer": "Shechtel"
     },
     {
         "source": "NSN Foundation",
         "target": "American Red Cross Disaster Relief Fund",
-        "value": 5
+        "value": 5,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Aish Hatorah 313 W 83rd st",
-        "value": 4350000
+        "value": 4350000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "American Foundation for the Blind",
-        "value": 1000
+        "value": 1000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "American Israel Education Foundation",
-        "value": 700000
+        "value": 700000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "CAJE, 261 W. 35th St.",
-        "value": 25000
+        "value": 25000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Cystic Fibrosis Foundation",
-        "value": 5000
+        "value": 5000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Fidelity Charitable Gift Fund",
-        "value": 3500000
+        "value": 3500000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Foundation fighting blindness",
-        "value": 77500
+        "value": 77500,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "HDSA Coalition for the Cure",
-        "value": 3216892
+        "value": 3216892,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Hebrew Union College",
-        "value": 178926
+        "value": 178926,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Homefront, Lawrenceville NJ",
-        "value": 104700
+        "value": 104700,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Jewish Funders Network",
-        "value": 2165800
+        "value": 2165800,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Jewish Television Network",
-        "value": 100000
+        "value": 100000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Johns Hopkins U.",
-        "value": 255000
+        "value": 255000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "League for the Hard of Hearing",
-        "value": 43000
+        "value": 43000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Mt. Sinai Crystal Ball",
-        "value": 18000
+        "value": 18000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "National Junior Tennis League of Trenton",
-        "value": 10000
+        "value": 10000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Orthodox Union Institute",
-        "value": 3600
+        "value": 3600,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Ozanam Building Renovation",
-        "value": 2000
+        "value": 2000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Ozanam Hall Renovation Fund",
-        "value": 3000
+        "value": 3000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Ozanman Building Renovation",
-        "value": 2000
+        "value": 2000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Partnership for Effective Learning and Innovative Education",
-        "value": 50000
+        "value": 50000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "PEI Kids Inc, Lawrenceville NJ",
-        "value": 5000
+        "value": 5000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Philanthropy Round Table",
-        "value": 1500
+        "value": 1500,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Stanford University",
-        "value": 1650000
+        "value": 1650000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Trinity Counseling Svc",
-        "value": 80000
+        "value": 80000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "UJA Federation of NY",
-        "value": 1150000
+        "value": 1150000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Yeshiva University",
-        "value": 25000
+        "value": 25000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "Young Scholars Institute",
-        "value": 5500
+        "value": 5500,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Foundation",
         "target": "AIPAC, Trenton",
-        "value": 250000
+        "value": 250000,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "Alzheimer's Association",
-        "value": 10000
+        "value": 10000,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "American Jewish Congress",
-        "value": 40000
+        "value": 40000,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
-        "target": "CAMERA",
-        "value": 25000
+        "target": "CAMERA po box 35040 Boston",
+        "value": 25000,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "Childrens Home Society",
-        "value": 10000
+        "value": 10000,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "D&R Greenway,Princeton",
-        "value": 10000
+        "value": 10000,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "Fidelity - general",
-        "value": 6085907
+        "value": 6085907,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "HDF - Scientific Research",
-        "value": 6000000
+        "value": 6000000,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "Hineni Heritage Center",
-        "value": 72000
+        "value": 72000,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "Johns Hopkins Medicine",
-        "value": 18000
+        "value": 18000,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "MCP Foundation, 253 Witherspoon, Princeton",
-        "value": 5000
+        "value": 5000,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "MIT - lab o David Housman, Cancer research",
-        "value": 345000
+        "value": 345000,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "Mt. Sinai dept of geriatric & adult dev",
-        "value": 3600
+        "value": 3600,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "National Jewish Outreach Program",
-        "value": 100000
+        "value": 100000,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "Ozanam Geriatric",
-        "value": 2000
+        "value": 2000,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "Sierra Club Foundation",
-        "value": 5094089
+        "value": 5094089,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "Tarbut V'Torah",
-        "value": 15500000
+        "value": 15500000,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "U. of Buffalo",
-        "value": 800000
+        "value": 800000,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "U. of California LA",
-        "value": 36000
+        "value": 36000,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "U. of Rochester",
-        "value": 1050000
+        "value": 1050000,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "Vanguard Charitable",
-        "value": 7179537
+        "value": 7179537,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "West Side Hotzolah",
-        "value": 55000
+        "value": 55000,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "Wildlands Conservancy",
-        "value": 1609195
+        "value": 1609195,
+        "backer": "TGS"
     },
     {
         "source": "Sierra Foundation",
         "target": "Wildlands Endowment Fund",
-        "value": 7209765
+        "value": 7209765,
+        "backer": "TGS"
     },
     {
         "source": "ST2 Foundation",
         "target": "American Committee for the Weizman Institute of Science",
-        "value": 500000
+        "value": 500000,
+        "backer": "Shechtel"
     },
     {
         "source": "ST2 Foundation",
         "target": "American Friends of Tel Aviv Sourasky Medical Center",
-        "value": 430000
+        "value": 430000,
+        "backer": "Shechtel"
     },
     {
         "source": "ST2 Foundation",
         "target": "Business United in Investing, Lending & Development",
-        "value": 15000
+        "value": 15000,
+        "backer": "Shechtel"
     },
     {
         "source": "ST2 Foundation",
         "target": "FOCUS Hispanic Center for Community Dev.",
-        "value": 25000
+        "value": 25000,
+        "backer": "Shechtel"
     },
     {
         "source": "ST2 Foundation",
         "target": "Jewish Funders Network",
-        "value": 7941000
+        "value": 7941000,
+        "backer": "Shechtel"
     },
     {
         "source": "ST2 Foundation",
         "target": "Legal Aid Society of San Mateo Cty",
-        "value": 50000
+        "value": 50000,
+        "backer": "Shechtel"
     },
     {
         "source": "ST2 Foundation",
         "target": "PEF Israel Endowment Funds",
-        "value": 600000
+        "value": 600000,
+        "backer": "Shechtel"
     },
     {
         "source": "ST2 Foundation",
         "target": "Quest Scholars Program",
-        "value": 50000
+        "value": 50000,
+        "backer": "Shechtel"
     },
     {
         "source": "ST2 Foundation",
         "target": "Stanford U. Law School",
-        "value": 1400000
+        "value": 1400000,
+        "backer": "Shechtel"
     },
     {
         "source": "ST2 Foundation",
         "target": "Stanford University Law School",
-        "value": 800000
+        "value": 800000,
+        "backer": "Shechtel"
     },
     {
         "source": "ST2 Foundation",
         "target": "UC Santa Cruz Foundation",
-        "value": 650000
+        "value": 650000,
+        "backer": "Shechtel"
     },
     {
         "source": "ST2 Foundation",
         "target": "UJA Federation of NY",
-        "value": 2525000
+        "value": 2525000,
+        "backer": "Shechtel"
     },
     {
         "source": "ST2 Foundation",
         "target": "America's Second Harvest",
-        "value": 5000
+        "value": 5000,
+        "backer": "TGS"
     },
     {
         "source": "ST2 Foundation",
         "target": "Art Science Research Lab (ground zero)",
-        "value": 6000
+        "value": 6000,
+        "backer": "TGS"
     },
     {
         "source": "Sweetfeet",
         "target": "Columbia U. - suite 29D",
-        "value": 995000
+        "value": 995000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sweetfeet",
         "target": "Jewish Communal Fund",
-        "value": 8210000
+        "value": 8210000,
+        "backer": "Shechtel"
     },
     {
         "source": "Aspen Foundation",
         "target": "American Red Cross Disaster Relief Fund",
-        "value": 5
+        "value": 5,
+        "backer": "Taylor"
     },
     {
         "source": "Aspen Foundation",
         "target": "Fidelity - general",
-        "value": 12000000
+        "value": 12000000,
+        "backer": "Taylor"
     },
     {
         "source": "Aspen Foundation",
         "target": "Orange County Jewish Campus",
-        "value": 2500000
+        "value": 2500000,
+        "backer": "Taylor"
     },
     {
         "source": "Aspen Foundation",
         "target": "Tarbut V'Torah",
-        "value": 2401985
+        "value": 2401985,
+        "backer": "Taylor"
     },
     {
         "source": "Aspen Foundation",
         "target": "Teach for America development office",
-        "value": 100
+        "value": 100,
+        "backer": "Taylor"
     },
     {
         "source": "Aspen Foundation",
         "target": "Vanguard Charitable",
-        "value": 237001028
+        "value": 237001028,
+        "backer": "Taylor"
     },
     {
         "source": "Jessie Reid",
         "target": "Fidelity - general",
-        "value": 14395824
+        "value": 14395824,
+        "backer": "Taylor"
     },
     {
         "source": "Jessie Reid",
         "target": "Morasha School , Margarita, CA",
-        "value": 500000
+        "value": 500000,
+        "backer": "Taylor"
     },
     {
         "source": "Jessie Reid",
         "target": "Tarbut V'Torah",
-        "value": 5050000
+        "value": 5050000,
+        "backer": "Taylor"
     },
     {
         "source": "Jessie Reid",
         "target": "Vanguard Charitable",
-        "value": 6300000
+        "value": 6300000,
+        "backer": "Taylor"
     },
     {
         "source": "JHJ Foundation",
         "target": "Vanguard Charitable",
-        "value": 173382187
+        "value": 173382187,
+        "backer": "Taylor"
     },
     {
         "source": "JSY Foundation",
         "target": "Jewish Communal Fund",
-        "value": 11790000
+        "value": 11790000,
+        "backer": "Shechtel"
     },
     {
         "source": "Matan B'Seter",
         "target": "Fidelity - donor advised",
-        "value": 35000000
+        "value": 35000000,
+        "backer": "Taylor"
     },
     {
         "source": "Matan B'Seter",
         "target": "Fidelity - general",
-        "value": 10407600
+        "value": 10407600,
+        "backer": "Taylor"
     },
     {
         "source": "Matan B'Seter",
-        "target": "Pridefest Philadelphia DBA Equality Forum",
-        "value": 140000
+        "target": "Pridefest Philadelphia DBA Equality Forum - 1420 Locust (same address as Wellspring)",
+        "value": 140000,
+        "backer": "Taylor"
     },
     {
         "source": "Matan B'Seter",
         "target": "Vanguard Charitable",
-        "value": 337409100
+        "value": 337409100,
+        "backer": "Taylor"
     },
     {
         "source": "NSN Foundation",
         "target": "Jewish Communal Fund",
-        "value": 26920000
+        "value": 26920000,
+        "backer": "Shechtel"
     },
     {
         "source": "NSN Foundation",
         "target": "United Jewish Communities - UJC Overseas Supplemental Giving Fund",
-        "value": 3988000
+        "value": 3988000,
+        "backer": "Shechtel"
     },
     {
         "source": "NSN Foundation",
         "target": "United Jewish Communities of Metrowest NJ - Whippany",
-        "value": 100
+        "value": 100,
+        "backer": "Shechtel"
     },
     {
         "source": "Renewable Foundation",
         "target": "Alliance to Save Energy",
-        "value": 35
+        "value": 35,
+        "backer": "Shechtel"
     },
     {
         "source": "Renewable Foundation",
         "target": "Jewish Communal Fund",
-        "value": 10395000
+        "value": 10395000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sweetfeet",
         "target": "Aish Hatorah 313 W 83rd st",
-        "value": 1000000
+        "value": 1000000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sweetfeet",
         "target": "American Friends of Tel Aviv",
-        "value": 250000
+        "value": 250000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sweetfeet",
         "target": "American Jewish Congress",
-        "value": 200000
+        "value": 200000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sweetfeet",
         "target": "Auerbach Central Agency for Jewish Education",
-        "value": 801200
+        "value": 801200,
+        "backer": "Shechtel"
     },
     {
         "source": "Sweetfeet",
         "target": "Conference of Presidents - NY",
-        "value": 244836
+        "value": 244836,
+        "backer": "Shechtel"
     },
     {
         "source": "Sweetfeet",
         "target": "Foundation for the Defense of Democracies",
-        "value": 670000
+        "value": 670000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sweetfeet",
         "target": "Hudson Institute",
-        "value": 360000
+        "value": 360000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sweetfeet",
         "target": "Israel 21C",
-        "value": 635000
+        "value": 635000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sweetfeet",
         "target": "Middle East Media Research Institute",
-        "value": 300000
+        "value": 300000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sweetfeet",
         "target": "The Israel Project",
-        "value": 1520000
+        "value": 1520000,
+        "backer": "Shechtel"
     },
     {
         "source": "Bearpaw",
         "target": "ACLU",
-        "value": 3000000
+        "value": 3000000,
+        "backer": "Gelbaum"
     },
     {
         "source": "Bearpaw",
         "target": "California Association of Human Rights Foundations",
-        "value": 100000
+        "value": 100000,
+        "backer": "Gelbaum"
     },
     {
         "source": "Bearpaw",
         "target": "California Community Foundation",
-        "value": 10065431
+        "value": 10065431,
+        "backer": "Gelbaum"
     },
     {
         "source": "Bearpaw",
         "target": "Community Funds Inc., 2 Park Ave., NY",
-        "value": 9520547
+        "value": 9520547,
+        "backer": "Gelbaum"
     },
     {
         "source": "Bearpaw",
         "target": "Newport-Mesa Schools Foundation",
-        "value": 2174659
+        "value": 2174659,
+        "backer": "Gelbaum"
     },
     {
         "source": "Bearpaw",
         "target": "Orange Coast College Foundation",
-        "value": 200000
+        "value": 200000,
+        "backer": "Gelbaum"
     },
     {
         "source": "Bearpaw",
         "target": "Wildlands Conservancy",
-        "value": 7054500
+        "value": 7054500,
+        "backer": "Gelbaum"
     },
     {
         "source": "Bearpaw",
         "target": "Wildlands Endowment Fund",
-        "value": 2052869
+        "value": 2052869,
+        "backer": "Gelbaum"
     },
     {
         "source": "Vanguard Charitable",
@@ -1577,282 +1731,337 @@ var nodelinks = {
     {
         "source": "AFL Management LLC",
         "target": "Arnold Foundation",
-        "value": 33000000
+        "value": 33000000,
+        "backer": "Taylor"
     },
     {
         "source": "Erica Enterprises",
         "target": "Arnold Foundation",
-        "value": 44766901
+        "value": 44766901,
+        "backer": "Taylor"
     },
     {
         "source": "ANFA Company",
         "target": "Aspen Foundation",
-        "value": 177755627
+        "value": 177755627,
+        "backer": "Taylor"
     },
     {
         "source": "Western Birch Company",
         "target": "Aspen Foundation",
-        "value": 65000000
+        "value": 65000000,
+        "backer": "Taylor"
     },
     {
         "source": "Berdichev LLC",
         "target": "Bearpaw Foundation",
-        "value": 13277583
+        "value": 13277583,
+        "backer": "TGS"
     },
     {
         "source": "Charitable Benefactors Trust of 33 Witherspoon St.",
         "target": "Bearpaw Foundation",
-        "value": 8209045
+        "value": 8209045,
+        "backer": "Shechtel"
     },
     {
         "source": "Charitable Contributors Trust of 2 Witherspoon",
         "target": "Bearpaw Foundation",
-        "value": 2380910
+        "value": 2380910,
+        "backer": "TGS"
     },
     {
         "source": "Charitable Donors Trust of 2 Witherspoon",
         "target": "Bearpaw Foundation",
-        "value": 21372742
+        "value": 21372742,
+        "backer": "TGS"
     },
     {
         "source": "David Gelbaum",
         "target": "Bearpaw Foundation",
-        "value": 2749973
+        "value": 2749973,
+        "backer": "Gelbaum"
     },
     {
         "source": "Aqua Funding LLC",
         "target": "CHDI",
-        "value": 8200000
+        "value": 8200000,
+        "backer": "Shechtel"
     },
     {
         "source": "Growing Assets",
         "target": "CHDI",
-        "value": 53050000
+        "value": 53050000,
+        "backer": "Shechtel"
     },
     {
         "source": "High Q Foundation",
         "target": "CHDI",
-        "value": 4000000
+        "value": 4000000,
+        "backer": "Another Roseland foundation"
     },
     {
         "source": "JSY Foundation",
         "target": "CHDI",
-        "value": 61700390
+        "value": 61700390,
+        "backer": "Another Roseland foundation"
     },
     {
         "source": "Kurtz Foundation",
         "target": "CHDI",
-        "value": 36465845
+        "value": 36465845,
+        "backer": "Another Roseland foundation"
     },
     {
         "source": "Lotsa LLC",
         "target": "CHDI",
-        "value": 136450000
+        "value": 136450000,
+        "backer": "Shechtel"
     },
     {
         "source": "Milstein Foundation",
         "target": "CHDI",
-        "value": 67758129
+        "value": 67758129,
+        "backer": "Another Roseland foundation"
     },
     {
         "source": "ST Funding Company LLC",
         "target": "CHDI",
-        "value": 25540000
+        "value": 25540000,
+        "backer": "Shechtel"
     },
     {
         "source": "Triplet Investment Company",
         "target": "CHDI",
-        "value": 2500000
+        "value": 2500000,
+        "backer": "Shechtel"
     },
     {
         "source": "VBS Holdings",
         "target": "CHDI",
-        "value": 148318602
+        "value": 148318602,
+        "backer": "Shechtel"
     },
     {
         "source": "Growing Assets",
         "target": "High Q Foundation",
-        "value": 28850000
+        "value": 28850000,
+        "backer": "Shechtel"
     },
     {
         "source": "Kratka Foundation",
         "target": "High Q Foundation",
-        "value": 49750729
+        "value": 49750729,
+        "backer": "Another Roseland foundation"
     },
     {
         "source": "Kurtz Foundation",
         "target": "High Q Foundation",
-        "value": 10000000
+        "value": 10000000,
+        "backer": "Another Roseland foundation"
     },
     {
         "source": "Lotsa LLC",
         "target": "High Q Foundation",
-        "value": 38775000
+        "value": 38775000,
+        "backer": "Shechtel"
     },
     {
         "source": "ST Funding Company LLC",
         "target": "High Q Foundation",
-        "value": 2760000
+        "value": 2760000,
+        "backer": "Shechtel"
     },
     {
         "source": "Triplet Investment Company",
         "target": "High Q Foundation",
-        "value": 53629113
+        "value": 53629113,
+        "backer": "Shechtel"
     },
     {
         "source": "VBS Holdings",
         "target": "High Q Foundation",
-        "value": 20000000
+        "value": 20000000,
+        "backer": "Shechtel"
     },
     {
         "source": "Growing Assets",
         "target": "HP Therapeutics",
-        "value": 3125000
+        "value": 3125000,
+        "backer": "Shechtel"
     },
     {
         "source": "Kurtz Foundation",
         "target": "HP Therapeutics",
-        "value": 6000000
+        "value": 6000000,
+        "backer": "Another Roseland foundation"
     },
     {
         "source": "Lotsa LLC",
         "target": "HP Therapeutics",
-        "value": 7575000
+        "value": 7575000,
+        "backer": "Shechtel"
     },
     {
         "source": "ST Funding Company LLC",
         "target": "HP Therapeutics",
-        "value": 6342885
+        "value": 6342885,
+        "backer": "Shechtel"
     },
     {
         "source": "Triplet Investment Company",
         "target": "HP Therapeutics",
-        "value": 7306512
+        "value": 7306512,
+        "backer": "Shechtel"
     },
     {
         "source": "VBS Holdings",
         "target": "HP Therapeutics",
-        "value": 10000000
+        "value": 10000000,
+        "backer": "Shechtel"
     },
     {
         "source": "Fred Taylor",
         "target": "Jessie Reid Foundation",
-        "value": 24373978
+        "value": 24373978,
+        "backer": "Taylor"
     },
     {
         "source": "Marital Holdings LLC",
         "target": "JHJ Foundation",
-        "value": 107455085
+        "value": 107455085,
+        "backer": "Taylor"
     },
     {
         "source": "MYC Investments LLC",
         "target": "JHJ Foundation",
-        "value": 45000000
+        "value": 45000000,
+        "backer": "Taylor"
     },
     {
         "source": "Rhoda Management LLC",
         "target": "JSY Foundation",
-        "value": 17668000
+        "value": 17668000,
+        "backer": "Shechtel"
     },
     {
         "source": "Seed Capital LLC",
         "target": "JSY Foundation",
-        "value": 17028000
+        "value": 17028000,
+        "backer": "Shechtel"
     },
     {
         "source": "Shekel Funding",
         "target": "JSY Foundation",
-        "value": 51000000
+        "value": 51000000,
+        "backer": "Shechtel"
     },
     {
         "source": "Curtsey LLC",
         "target": "Kurtz Foundation",
-        "value": 100000
+        "value": 100000,
+        "backer": "Shechtel"
     },
     {
         "source": "Rifka Funding LLC",
         "target": "Kurtz Foundation",
-        "value": 57830636
+        "value": 57830636,
+        "backer": "Shechtel"
     },
     {
         "source": "BLTN Holdings LLC",
         "target": "Matan B'Seter",
-        "value": 84667900
+        "value": 84667900,
+        "backer": "Taylor"
     },
     {
         "source": "MBS Funding LLC",
         "target": "Matan B'Seter",
-        "value": 35000000
+        "value": 35000000,
+        "backer": "Taylor"
     },
     {
         "source": "Rubik Enterprises LLC",
         "target": "Matan B'Seter",
-        "value": 72782818
+        "value": 72782818,
+        "backer": "Taylor"
     },
     {
         "source": "Shackelton Company LLC",
         "target": "Matan B'Seter",
-        "value": 165000000
+        "value": 165000000,
+        "backer": "Taylor"
     },
     {
         "source": "LVB Funding LLC",
         "target": "Milstein",
-        "value": 60000000
+        "value": 60000000,
+        "backer": "Shechtel"
     },
     {
         "source": "Malden Management LLC",
         "target": "Milstein",
-        "value": 1000
+        "value": 1000,
+        "backer": "Shechtel"
     },
     {
         "source": "Nell Sun National ",
         "target": "NSN Foundation",
-        "value": 9645006
+        "value": 9645006,
+        "backer": "Shechtel"
     },
     {
         "source": "NISON Management",
         "target": "NSN Foundation",
-        "value": 5153450
+        "value": 5153450,
+        "backer": "Shechtel"
     },
     {
         "source": "Stepansky Company",
         "target": "NSN Foundation",
-        "value": 56300000
+        "value": 56300000,
+        "backer": "Shechtel"
     },
     {
         "source": "Sankuyu LLC",
         "target": "Renewable",
-        "value": 36000000
+        "value": 36000000,
+        "backer": "Shechtel"
     },
     {
         "source": "Shechtel",
         "target": "Sierra Foundation",
-        "value": 8423939
+        "value": 8423939,
+        "backer": "Shechtel"
     },
     {
         "source": "Sierra Enterprises Group",
         "target": "Sierra Foundation",
-        "value": 26633500
+        "value": 26633500,
+        "backer": "TGS"
     },
     {
         "source": "ST Partners LP",
         "target": "Sierra Foundation",
-        "value": 399429
+        "value": 399429,
+        "backer": "TGS"
     },
     {
         "source": "Taylor",
         "target": "Sierra Foundation",
-        "value": 6904819
+        "value": 6904819,
+        "backer": "Taylor"
     },
     {
         "source": "Sierra Enterprises Group",
         "target": "ST2 Foundation",
-        "value": 31500000
+        "value": 31500000,
+        "backer": "TGS"
     },
     {
         "source": "Stone Holdings",
         "target": "Sweetfeet",
-        "value": 995000
+        "value": 995000,
+        "backer": "Shechtel"
     }
-]
-}
+]}

@@ -24,6 +24,15 @@ var remove = function(data) {
   })
 }
 
+var setBacker = function(data) {
+  data.forEach(function(donation) {
+    if(donation.backer === undefined) {
+      donation.backer = donation["ultimate source"]
+      delete donation["ultimate source"]
+    }
+  })
+}
+
 
 //if a donor is also a recipient, then it is more than one layer away
 
@@ -89,7 +98,7 @@ var createNodes = function(data) {
 var createLinks = function(data) {
   var linkList = []
   concat.forEach(function(object) {
-    var newObj = {source: object.from, target: object.to, value: object.value}
+    var newObj = {source: object.from, target: object.to, value: object.value, backer: object.backer}
     linkList.push(newObj)
   })
   return linkList
@@ -127,7 +136,7 @@ var mergeDuplicates = function(data) {
       matches.forEach(function(match) {
         sum += match.value
       })
-      newArray.push({source: object.source, target:object.target, value: sum})
+      newArray.push({source: object.source, target:object.target, value: sum, backer: object.backer})
     }
   })
   return newArray
