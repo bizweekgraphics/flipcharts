@@ -116,3 +116,19 @@ var recursiveTree = function(data) {
     }) 
   })
 }
+
+var mergeDuplicates = function(data) {
+  var newArray = []
+  data.forEach(function(object) {
+    var newArrayMatch = _.where(newArray, {"source":object.source, "target":object.target})
+    if(newArrayMatch.length === 0) {
+      var sum = 0
+      var matches = _.where(data, {"source":object.source, "target":object.target})
+      matches.forEach(function(match) {
+        sum += match.value
+      })
+      newArray.push({source: object.source, target:object.target, value: sum})
+    }
+  })
+  return newArray
+}

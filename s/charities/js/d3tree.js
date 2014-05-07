@@ -1,6 +1,6 @@
-var margin = {top: 0, right: 0, bottom: 0, left: 0},
+var margin = {top: 50, right: 0, bottom: 50, left: 0},
     width = 960 - margin.left - margin.right,
-    height = 5000 - margin.top - margin.bottom;
+    height = 5500 - margin.top - margin.bottom;
 
 var formatNumber = d3.format(",.0f"),
     format = function(d) { return "$" +formatNumber(d); },
@@ -42,14 +42,17 @@ var graph = nodelinks
     .enter().append("path")
       .attr("class", "link")
       .attr("d", path)
+      .on('click', function(d) {
+        console.log(d)
+      })
       .style("stroke-width", function(d) { return Math.max(1, d.dy); })
       .sort(function(a, b) { return b.dy - a.dy; });
 
 // add the link titles
   link.append("title")
-        .text(function(d) {
-            return d.source.name + " → " + 
-                d.target.name + "\n" + format(d.value); });
+    .text(function(d) {
+      return d.source.name + " → " + 
+        d.target.name + "\n" + format(d.value); });
 
 // add in the nodes
   var node = svg.append("g").selectAll(".node")
@@ -75,7 +78,7 @@ var graph = nodelinks
           return d3.rgb(d.color).darker(2); })
     .append("title")
       .text(function(d) { 
-          return d.name + "\n" + format(d.value); });
+          return d.name + "\n" + format(d.value); })
 
 // add in the title for the nodes
   node.append("text")
