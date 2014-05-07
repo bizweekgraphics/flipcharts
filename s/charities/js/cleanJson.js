@@ -1,3 +1,5 @@
+
+
 var removeSpace = function(data) {
   var jsonString = JSON.stringify(data)
   jsonString = jsonString.replace(' amount ', 'amount')
@@ -66,6 +68,31 @@ var mergeAmount = function(data) {
     }
   })
   return output
+}
+
+
+var createNodes = function(data) {
+  var nodeList = []
+  data.forEach(function(object) {
+    var fromMatch = _.where(nodeList, {name: object.from})
+    if(fromMatch.length === 0) {
+      nodeList.push({name: object.from})
+    }
+    var toMatch = _.where(nodeList, {name: object.to})
+    if(toMatch.length === 0) {
+      nodeList.push({name: object.to})
+    }
+  })
+  return nodeList
+}
+
+var createLinks = function(data) {
+  var linkList = []
+  concat.forEach(function(object) {
+    var newObj = {source: object.from, target: object.to, value: object.value}
+    linkList.push(newObj)
+  })
+  return linkList
 }
 
 var createTree = function(data) {
