@@ -1,6 +1,6 @@
 var margin = {top: 50, right: 0, bottom: 50, left: 0},
     width = 960 - margin.left - margin.right,
-    height = 5500 - margin.top - margin.bottom;
+    height = 6000 - margin.top - margin.bottom;
 
 var formatNumber = d3.format(",.0f"),
     format = function(d) { return "$" +formatNumber(d); },
