@@ -1,6 +1,6 @@
 var margin = {top: 50, right: 20, bottom: 50, left: 0},
     width = 960 - margin.left - margin.right,
-    height = 4000 - margin.top - margin.bottom;
+    height = 4500 - margin.top - margin.bottom;
 
 var formatNumber = d3.format(",.0f"),
     format = function(d) { return "$" +formatNumber(d); },
@@ -12,7 +12,7 @@ var tip = d3.tip()
   .offset([100,20])
   .html(function(d) {
 
-    return "<div class='tooltip-wrapper'><p>From: " + d.source.name + "</p><p>To: " + d.target.name + "</p><p>Amount:" + format(d.value) + "</p><p>Likely Original Source: " + d.backer + "</p> </div>"
+    return "<div class='tooltip-wrapper'><p>From: " + d.source.name + "</p><p>To: " + d.target.name + "</p><p>Amount: " + format(d.value) + "</p><p>Likely Original Source: " + d.backer + "</p> </div>"
   })
 
 var svg = d3.select("#chart").append("svg")
@@ -54,9 +54,6 @@ var link = svg.append("g").selectAll(".link")
   .enter().append("path")
     .attr("class", "link")
     .attr("d", path)
-    .on('click', function(d) {
-      console.log(d)
-    })
     .on('mouseover', tip.show)
     .on('mouseleave', tip.hide)
     .style("stroke-width", function(d) { return Math.max(1, d.dy); })
@@ -82,10 +79,10 @@ var link = svg.append("g").selectAll(".link")
     .sort(function(a, b) { return b.dy - a.dy; });
 
 // add the link titles
-link.append("title")
-  .text(function(d) {
-    return d.source.name + " → " + 
-      d.target.name + "\n" + format(d.value); });
+// link.append("title")
+//   .text(function(d) {
+//     return d.source.name + " → " + 
+//       d.target.name + "\n" + format(d.value); });
 
 // add in the nodes
 var node = svg.append("g").selectAll(".node")
@@ -94,6 +91,10 @@ var node = svg.append("g").selectAll(".node")
     .attr("class", "node")
     .attr("transform", function(d) { 
         return "translate(" + d.x + "," + d.y + ")"; })
+  .on('click', function(d) {
+    debugger;
+    console.log(d)
+  })
   .call(d3.behavior.drag()
     .origin(function(d) { return d; })
     .on("dragstart", function() { 
@@ -110,9 +111,9 @@ node.append("rect")
     .style('fill', 'white')
     .style("stroke", function(d) { 
         return d3.rgb(d.color).darker(2); })
-  .append("title")
-    .text(function(d) { 
-        return d.name + "\n" + format(d.value); })
+  // .append("title")
+  //   .text(function(d) { 
+  //       return d.name + "\n" + format(d.value); })
 
 // add in the title for the nodes
 node.append("text")

@@ -79,9 +79,6 @@ var nodelinks = {
         "name": "HP Therapeutics"
     },
     {
-        "name": "Jessie Reid"
-    },
-    {
         "name": "Jewish Communal Fund"
     },
     {
@@ -229,7 +226,7 @@ var nodelinks = {
         "name": "American Jewish Congress"
     },
     {
-        "name": "CAMERA po box 35040 Boston"
+        "name": "CAMERA"
     },
     {
         "name": "Childrens Home Society"
@@ -385,16 +382,13 @@ var nodelinks = {
         "name": "The Israel Project"
     },
     {
-        "name": "Bearpaw"
-    },
-    {
         "name": "ACLU"
     },
     {
         "name": "California Association of Human Rights Foundations"
     },
     {
-        "name": "Community Funds Inc., 2 Park Ave., NY"
+        "name": "Community Funds Inc."
     },
     {
         "name": "Newport-Mesa Schools Foundation"
@@ -592,9 +586,6 @@ var nodelinks = {
         "name": "LVB Funding LLC"
     },
     {
-        "name": "Milstein"
-    },
-    {
         "name": "Malden Management LLC"
     },
     {
@@ -610,9 +601,6 @@ var nodelinks = {
         "name": "Sankuyu LLC"
     },
     {
-        "name": "Renewable"
-    },
-    {
         "name": "Shechtel"
     },
     {
@@ -626,7 +614,7 @@ var nodelinks = {
     },
     {
         "name": "Stone Holdings"
-    }
+    },
 ],
     "links": [
     {
@@ -804,19 +792,19 @@ var nodelinks = {
         "backer": "Shechtel"
     },
     {
-        "source": "Jessie Reid",
+        "source": "Jessie Reid Foundation",
         "target": "California Community Foundation",
         "value": 240000,
         "backer": "Taylor"
     },
     {
-        "source": "Jessie Reid",
+        "source": "Jessie Reid Foundation",
         "target": "Jewish Communal Fund",
         "value": 36000,
         "backer": "Taylor"
     },
     {
-        "source": "Jessie Reid",
+        "source": "Jessie Reid Foundation",
         "target": "Wildlands Conservancy",
         "value": 1000000,
         "backer": "Taylor"
@@ -1099,7 +1087,7 @@ var nodelinks = {
     },
     {
         "source": "Sierra Foundation",
-        "target": "CAMERA po box 35040 Boston",
+        "target": "CAMERA",
         "value": 25000,
         "backer": "Unknown"
     },
@@ -1356,25 +1344,25 @@ var nodelinks = {
         "backer": "Taylor"
     },
     {
-        "source": "Jessie Reid",
+        "source": "Jessie Reid Foundation",
         "target": "Fidelity - general",
         "value": 14395824,
         "backer": "Taylor"
     },
     {
-        "source": "Jessie Reid",
+        "source": "Jessie Reid Foundation",
         "target": "Morasha School , Margarita, CA",
         "value": 500000,
         "backer": "Taylor"
     },
     {
-        "source": "Jessie Reid",
+        "source": "Jessie Reid Foundation",
         "target": "Tarbut V'Torah",
         "value": 5050000,
         "backer": "Taylor"
     },
     {
-        "source": "Jessie Reid",
+        "source": "Jessie Reid Foundation",
         "target": "Vanguard Charitable",
         "value": 6300000,
         "backer": "Taylor"
@@ -1506,49 +1494,49 @@ var nodelinks = {
         "backer": "Shechtel"
     },
     {
-        "source": "Bearpaw",
+        "source": "Bearpaw Foundation",
         "target": "ACLU",
         "value": 3000000,
         "backer": "Gelbaum"
     },
     {
-        "source": "Bearpaw",
+        "source": "Bearpaw Foundation",
         "target": "California Association of Human Rights Foundations",
         "value": 100000,
         "backer": "Gelbaum"
     },
     {
-        "source": "Bearpaw",
+        "source": "Bearpaw Foundation",
         "target": "California Community Foundation",
         "value": 10065431,
         "backer": "Gelbaum"
     },
     {
-        "source": "Bearpaw",
-        "target": "Community Funds Inc., 2 Park Ave., NY",
+        "source": "Bearpaw Foundation",
+        "target": "Community Funds Inc.",
         "value": 9520547,
         "backer": "Gelbaum"
     },
     {
-        "source": "Bearpaw",
+        "source": "Bearpaw Foundation",
         "target": "Newport-Mesa Schools Foundation",
         "value": 2174659,
         "backer": "Gelbaum"
     },
     {
-        "source": "Bearpaw",
+        "source": "Bearpaw Foundation",
         "target": "Orange Coast College Foundation",
         "value": 200000,
         "backer": "Gelbaum"
     },
     {
-        "source": "Bearpaw",
+        "source": "Bearpaw Foundation",
         "target": "Wildlands Conservancy",
         "value": 7054500,
         "backer": "Gelbaum"
     },
     {
-        "source": "Bearpaw",
+        "source": "Bearpaw Foundation",
         "target": "Wildlands Endowment Fund",
         "value": 2052869,
         "backer": "Gelbaum"
@@ -2030,13 +2018,13 @@ var nodelinks = {
     },
     {
         "source": "LVB Funding LLC",
-        "target": "Milstein",
+        "target": "Milstein Foundation",
         "value": 60000000,
         "backer": "Shechtel"
     },
     {
         "source": "Malden Management LLC",
-        "target": "Milstein",
+        "target": "Milstein Foundation",
         "value": 1000,
         "backer": "Shechtel"
     },
@@ -2060,7 +2048,7 @@ var nodelinks = {
     },
     {
         "source": "Sankuyu LLC",
-        "target": "Renewable",
+        "target": "Renewable Foundation",
         "value": 36000000,
         "backer": "Shechtel"
     },
