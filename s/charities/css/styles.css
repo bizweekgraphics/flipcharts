@@ -9,7 +9,8 @@
 }
 
 text {
-  font-family: 'BWHaasRegular';
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 10pt;
 }
 .node rect {
   cursor: move;
@@ -31,8 +32,12 @@ text {
 
 .tooltip-wrapper {
   padding: .5em;
-  border-radius: 1em;
-  background: rgba(216, 216, 216, .9);
-  font-family: 'BWHaasRegular';
+  background: white;
+  border: 1px solid black;
+  font-family: Helvetica;
+  font-size: 10pt;
 }
 
+div.d3-tip.n {
+  pointer-events: none !important;
+}

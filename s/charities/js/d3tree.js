@@ -12,7 +12,7 @@ var tip = d3.tip()
   .offset([100,20])
   .html(function(d) {
 
-    return "<div class='tooltip-wrapper'><p>From: " + d.source.name + "</p><p>To: " + d.target.name + "</p><p>Amount: " + format(d.value) + "</p><p>Likely Original Source: " + d.backer + "</p> </div>"
+    return "<div class='tooltip-wrapper'><strong>From:</strong> " + d.source.name + "<br/><strong>To:</strong> " + d.target.name + "<br/><strong>Amount:</strong> " + format(d.value) + "<br/><strong>Likely Original Source:</strong> " + d.backer + "</div>"
   })
 
 var svg = d3.select("#chart").append("svg")
@@ -81,7 +81,7 @@ var link = svg.append("g").selectAll(".link")
 // add the link titles
 // link.append("title")
 //   .text(function(d) {
-//     return d.source.name + " → " + 
+//     return d.source.name + " → " +
 //       d.target.name + "\n" + format(d.value); });
 
 // add in the nodes
@@ -89,7 +89,7 @@ var node = svg.append("g").selectAll(".node")
     .data(graph.nodes)
   .enter().append("g")
     .attr("class", "node")
-    .attr("transform", function(d) { 
+    .attr("transform", function(d) {
         return "translate(" + d.x + "," + d.y + ")"; })
   .on('click', function(d) {
     debugger;
@@ -97,22 +97,22 @@ var node = svg.append("g").selectAll(".node")
   })
   .call(d3.behavior.drag()
     .origin(function(d) { return d; })
-    .on("dragstart", function() { 
+    .on("dragstart", function() {
         this.parentNode.appendChild(this); })
     .on("drag", dragmove));
 
 // add the rectangles for the nodes
 node.append("rect")
-    .attr("height", function(d) { 
+    .attr("height", function(d) {
       return d.dy; })
     .attr("width", sankey.nodeWidth())
-    // .style("fill", function(d) { 
+    // .style("fill", function(d) {
     //     return d.color = color(d.name.replace(/ .*/, "")); })
     .style('fill', 'white')
-    .style("stroke", function(d) { 
+    .style("stroke", function(d) {
         return d3.rgb(d.color).darker(2); })
   // .append("title")
-  //   .text(function(d) { 
+  //   .text(function(d) {
   //       return d.name + "\n" + format(d.value); })
 
 // add in the title for the nodes
@@ -129,7 +129,7 @@ node.append("text")
 
 // the function for moving the nodes
 function dragmove(d) {
-  d3.select(this).attr("transform", 
+  d3.select(this).attr("transform",
       "translate(" + (
           d.x = Math.max(0, Math.min(width - d.dx, d3.event.x))
       )
