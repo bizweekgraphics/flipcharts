@@ -1,4 +1,4 @@
-var margin = {top: 50, right: 0, bottom: 50, left: 0},
+var margin = {top: 50, right: 20, bottom: 50, left: 0},
     width = 960 - margin.left - margin.right,
     height = 4000 - margin.top - margin.bottom;
 
@@ -6,11 +6,22 @@ var formatNumber = d3.format(",.0f"),
     format = function(d) { return "$" +formatNumber(d); },
     color = d3.scale.category20();
 
+
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([100,20])
+  .html(function(d) {
+
+    return "<div class='tooltip-wrapper'><p>From: " + d.source.name + "</p><p>To: " + d.target.name + "</p><p>Amount:" + format(d.value) + "</p><p>Likely Original Source: " + d.backer + "</p> </div>"
+  })
+
 var svg = d3.select("#chart").append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.call(tip)
 
 var sankey = d3.sankey()
     .nodeWidth(15)
@@ -46,6 +57,8 @@ var link = svg.append("g").selectAll(".link")
     .on('click', function(d) {
       console.log(d)
     })
+    .on('mouseover', tip.show)
+    .on('mouseleave', tip.hide)
     .style("stroke-width", function(d) { return Math.max(1, d.dy); })
     .style('stroke', function(d) {
       switch(d.backer) {
@@ -56,13 +69,13 @@ var link = svg.append("g").selectAll(".link")
           return "#1e69ff"
           break;
         case "TGS":
-          return "#000000"
+          return "black"
           break;
         case "Gelbaum":
           return "#49b122"
           break;
         default:
-          return "#dfd14d"
+          return "black"
           break;
       }
     })
