@@ -1,0 +1,2200 @@
+var concat = [
+    {
+        "from": "Arnold",
+        "to": "California Community Foundation",
+        "certainty": "Low",
+        "backer": "Taylor",
+        "value": 3000000
+    },
+    {
+        "from": "Arnold",
+        "to": "United Way of Essex and West Hudson",
+        "certainty": "Low",
+        "backer": "Taylor",
+        "value": 25
+    },
+    {
+        "from": "Arnold",
+        "to": "Vanguard Charitable",
+        "certainty": "Low",
+        "backer": "Taylor",
+        "value": 103907203
+    },
+    {
+        "from": "CHDI",
+        "to": "Columbia U. - Taub Institute and Sergievsky Center",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 144253
+    },
+    {
+        "from": "CHDI",
+        "to": "Creative Commons",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 150000
+    },
+    {
+        "from": "CHDI",
+        "to": "Foundation for Motor Neuron Medicine",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 10000
+    },
+    {
+        "from": "CHDI",
+        "to": "Gordon Research Conference",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 23000
+    },
+    {
+        "from": "CHDI",
+        "to": "HDSA",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 191305
+    },
+    {
+        "from": "CHDI",
+        "to": "Huntington Society of Canada",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 75000
+    },
+    {
+        "from": "CHDI",
+        "to": "Huntington's Disease Drug Works",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 5000
+    },
+    {
+        "from": "CHDI",
+        "to": "Huntington's Research",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 466306260
+    },
+    {
+        "from": "CHDI",
+        "to": "Public Library of Science",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 150000
+    },
+    {
+        "from": "CHDI",
+        "to": "U. of Rochester",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 67173
+    },
+    {
+        "from": "CHDI",
+        "to": "U. of Wisconsin",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 60000
+    },
+    {
+        "from": "CHDI",
+        "to": "Vanguard Charitable",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 6700000
+    },
+    {
+        "from": "High Q Foundation",
+        "to": "Baylor Research Institute",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 33379
+    },
+    {
+        "from": "High Q Foundation",
+        "to": "Gordon Research Conference",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 15000
+    },
+    {
+        "from": "High Q Foundation",
+        "to": "HDSA",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 2798555
+    },
+    {
+        "from": "High Q Foundation",
+        "to": "HDSA Care Centers Initiative",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 2593500
+    },
+    {
+        "from": "High Q Foundation",
+        "to": "HDSA Research Initiatives",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 7314500
+    },
+    {
+        "from": "High Q Foundation",
+        "to": "Huntington Society of Canada",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 1740081
+    },
+    {
+        "from": "High Q Foundation",
+        "to": "Huntington's Research",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 181462778
+    },
+    {
+        "from": "High Q Foundation",
+        "to": "MIT",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 698503
+    },
+    {
+        "from": "High Q Foundation",
+        "to": "State U. of Iowa",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 300000
+    },
+    {
+        "from": "High Q Foundation",
+        "to": "U. of Alabama",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 8800
+    },
+    {
+        "from": "High Q Foundation",
+        "to": "U. of Iowa Foundation",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 30000
+    },
+    {
+        "from": "High Q Foundation",
+        "to": "U. of Rochester",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 373044
+    },
+    {
+        "from": "High Q Foundation",
+        "to": "U. of Washington",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 15000
+    },
+    {
+        "from": "HP Therapeutics",
+        "to": "Huntington's Research",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 30521037
+    },
+    {
+        "from": "Jessie Reid",
+        "to": "California Community Foundation",
+        "certainty": "Medium",
+        "backer": "Taylor",
+        "value": 240000
+    },
+    {
+        "from": "Jessie Reid",
+        "to": "Jewish Communal Fund",
+        "certainty": "Medium",
+        "backer": "Taylor",
+        "value": 36000
+    },
+    {
+        "from": "Jessie Reid",
+        "to": "Wildlands Conservancy",
+        "certainty": "Medium",
+        "backer": "Taylor",
+        "value": 1000000
+    },
+    {
+        "from": "JSY Foundation",
+        "to": "Aish Hatorah 313 W 83rd st",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 11732621
+    },
+    {
+        "from": "JSY Foundation",
+        "to": "Sierra Club Foundation",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 3018150
+    },
+    {
+        "from": "JSY Foundation",
+        "to": "Wildlands Foundation",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 250000
+    },
+    {
+        "from": "Kratka Foundation",
+        "to": "Alzheimer's Association",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 100
+    },
+    {
+        "from": "Kratka Foundation",
+        "to": "American Red Cross Disaster Relief Fund",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 50
+    },
+    {
+        "from": "Kratka Foundation",
+        "to": "Cambridge in America",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 100000
+    },
+    {
+        "from": "Kratka Foundation",
+        "to": "HDF",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 210000
+    },
+    {
+        "from": "Kratka Foundation",
+        "to": "HDF Science Endowment",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 1150000
+    },
+    {
+        "from": "Kratka Foundation",
+        "to": "U. of Rochester",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 3539412
+    },
+    {
+        "from": "Kurtz Foundation",
+        "to": "Jewish Communal Fund",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 12850000
+    },
+    {
+        "from": "Kurtz Foundation",
+        "to": "Parkinson's Disease Foundation",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 125
+    },
+    {
+        "from": "Milstein Foundation",
+        "to": "American Cancer Society",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 25
+    },
+    {
+        "from": "Milstein Foundation",
+        "to": "Johns Hopkins CTY/SETS",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 1400000
+    },
+    {
+        "from": "Milstein Foundation",
+        "to": "Johns Hopkins University",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 221440
+    },
+    {
+        "from": "NSN Foundation",
+        "to": "American Red Cross Disaster Relief Fund",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 5
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Aish Hatorah 313 W 83rd st",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 2500000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "American Foundation for the Blind",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 1000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "American Israel Education Foundation",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 525000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "CAJE, 261 W. 35th St.",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 25000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Cystic Fibrosis Foundation",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 5000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Fidelity Charitable Gift Fund",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 3500000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Foundation fighting blindness",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 63500
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "HDSA Coalition for the Cure",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 1366892
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Hebrew Union College",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 178926
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Homefront, Lawrenceville NJ",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 99700
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Jewish Funders Network",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 2165800
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Jewish Television Network",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 100000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Johns Hopkins U.",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 180000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "League for the Hard of Hearing",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 25000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Mt. Sinai Crystal Ball",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 18000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "National Junior Tennis League of Trenton",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 10000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Orthodox Union Institute",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 3600
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Ozanam Building Renovation",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 2000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Ozanam Hall Renovation Fund",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 3000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Ozanman Building Renovation",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 2000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Partnership for Effective Learning and Innovative Education",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 50000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "PEI Kids Inc, Lawrenceville NJ",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 5000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Philanthropy Round Table",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 1000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Stanford University",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 1500000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Trinity Counseling Svc",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 60000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "UJA Federation of NY",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 400000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Yeshiva University",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 25000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Young Scholars Institute",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 5500
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "AIPAC, Trenton",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 250000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Aish Hatorah 313 W 83rd st",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 1850000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Alzheimer's Association",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 10000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "American Israel Education Foundation",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 175000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "American Jewish Congress",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 40000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "CAMERA po box 35040 Boston",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 25000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Childrens Home Society",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 10000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "D&R Greenway,Princeton",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 10000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Fidelity - general",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 6085907
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Foundation fighting blindness",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 14000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "HDF - Scientific Research",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 6000000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "HDSA Coalition for the Cure",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 1850000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Hineni Heritage Center",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 72000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Homefront, Lawrenceville NJ",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 5000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Johns Hopkins Medicine",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 18000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Johns Hopkins U.",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 75000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "League for the Hard of Hearing",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 18000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "MCP Foundation, 253 Witherspoon, Princeton",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 5000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "MIT - lab o David Housman, Cancer research",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 345000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Mt. Sinai dept of geriatric & adult dev",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 3600
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "National Jewish Outreach Program",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 100000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Ozanam Geriatric",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 2000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Philanthropy Round Table",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 500
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Sierra Club Foundation",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 5094089
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Stanford University",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 150000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Tarbut V'Torah",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 15500000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Trinity Counseling Svc",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 20000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "U. of Buffalo",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 800000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "U. of California LA",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 36000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "U. of Rochester",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 1050000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "UJA Federation of NY",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 750000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Vanguard Charitable",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 7179537
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "West Side Hotzolah",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 55000
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Wildlands Conservancy",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 1609195
+    },
+    {
+        "from": "Sierra Foundation",
+        "to": "Wildlands Endowment Fund",
+        "certainty": "Medium",
+        "backer": "TGS",
+        "value": 7209765
+    },
+    {
+        "from": "ST2 Foundation",
+        "to": "American Committee for the Weizman Institute of Science",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 500000
+    },
+    {
+        "from": "ST2 Foundation",
+        "to": "American Friends of Tel Aviv Sourasky Medical Center",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 180000
+    },
+    {
+        "from": "ST2 Foundation",
+        "to": "Business United in Investing, Lending & Development",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 15000
+    },
+    {
+        "from": "ST2 Foundation",
+        "to": "FOCUS Hispanic Center for Community Dev.",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 25000
+    },
+    {
+        "from": "ST2 Foundation",
+        "to": "Jewish Funders Network",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 7941000
+    },
+    {
+        "from": "ST2 Foundation",
+        "to": "Legal Aid Society of San Mateo Cty",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 50000
+    },
+    {
+        "from": "ST2 Foundation",
+        "to": "PEF Israel Endowment Funds",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 600000
+    },
+    {
+        "from": "ST2 Foundation",
+        "to": "Quest Scholars Program",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 50000
+    },
+    {
+        "from": "ST2 Foundation",
+        "to": "Stanford U. Law School",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 1000000
+    },
+    {
+        "from": "ST2 Foundation",
+        "to": "Stanford University Law School",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 800000
+    },
+    {
+        "from": "ST2 Foundation",
+        "to": "UC Santa Cruz Foundation",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 650000
+    },
+    {
+        "from": "ST2 Foundation",
+        "to": "UJA Federation of NY",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 2525000
+    },
+    {
+        "from": "ST2 Foundation",
+        "to": "America's Second Harvest",
+        "certainty": "High",
+        "backer": "TGS",
+        "value": 5000
+    },
+    {
+        "from": "ST2 Foundation",
+        "to": "American Friends of Tel Aviv Sourasky Medical Center",
+        "certainty": "High",
+        "backer": "TGS",
+        "value": 250000
+    },
+    {
+        "from": "ST2 Foundation",
+        "to": "Art Science Research Lab (ground zero)",
+        "certainty": "High",
+        "backer": "TGS",
+        "value": 6000
+    },
+    {
+        "from": "ST2 Foundation",
+        "to": "Stanford U. Law School",
+        "certainty": "High",
+        "backer": "TGS",
+        "value": 400000
+    },
+    {
+        "from": "Sweetfeet",
+        "to": "Columbia U. - suite 29D",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 995000
+    },
+    {
+        "from": "Sweetfeet",
+        "to": "Jewish Communal Fund",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 8210000
+    },
+    {
+        "from": "Aspen",
+        "to": "American Red Cross Disaster Relief Fund",
+        "certainty": "Medium",
+        "backer": "Taylor",
+        "value": 5
+    },
+    {
+        "from": "Aspen",
+        "to": "Fidelity - general",
+        "certainty": "Medium",
+        "backer": "Taylor",
+        "value": 12000000
+    },
+    {
+        "from": "Aspen",
+        "to": "Orange County Jewish Campus",
+        "certainty": "Medium",
+        "backer": "Taylor",
+        "value": 2500000
+    },
+    {
+        "from": "Aspen",
+        "to": "Tarbut V'Torah",
+        "certainty": "Medium",
+        "backer": "Taylor",
+        "value": 2401985
+    },
+    {
+        "from": "Aspen",
+        "to": "Teach for America development office",
+        "certainty": "Medium",
+        "backer": "Taylor",
+        "value": 100
+    },
+    {
+        "from": "Aspen",
+        "to": "Vanguard Charitable",
+        "certainty": "Medium",
+        "backer": "Taylor",
+        "value": 237001028
+    },
+    {
+        "from": "Jessie Reid",
+        "to": "Fidelity - general",
+        "certainty": "Medium",
+        "backer": "Taylor",
+        "value": 14395824
+    },
+    {
+        "from": "Jessie Reid",
+        "to": "Morasha School , Margarita, CA",
+        "certainty": "Medium",
+        "backer": "Taylor",
+        "value": 500000
+    },
+    {
+        "from": "Jessie Reid",
+        "to": "Tarbut V'Torah",
+        "certainty": "Medium",
+        "backer": "Taylor",
+        "value": 5050000
+    },
+    {
+        "from": "Jessie Reid",
+        "to": "Vanguard Charitable",
+        "certainty": "Medium",
+        "backer": "Taylor",
+        "value": 6300000
+    },
+    {
+        "from": "JHJ Foundation",
+        "to": "Vanguard Charitable",
+        "certainty": "Low",
+        "backer": "Taylor",
+        "value": 173382187
+    },
+    {
+        "from": "JSY Foundation",
+        "to": "Jewish Communal Fund",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 11790000
+    },
+    {
+        "from": "Matan B'Seter",
+        "to": "Fidelity - donor advised",
+        "certainty": "Low",
+        "backer": "Taylor",
+        "value": 35000000
+    },
+    {
+        "from": "Matan B'Seter",
+        "to": "Fidelity - general",
+        "certainty": "Low",
+        "backer": "Taylor",
+        "value": 10407600
+    },
+    {
+        "from": "Matan B'Seter",
+        "to": "Pridefest Philadelphia DBA Equality Forum - 1420 Locust (same address as Wellspring)",
+        "certainty": "Low",
+        "backer": "Taylor",
+        "value": 140000
+    },
+    {
+        "from": "Matan B'Seter",
+        "to": "Vanguard Charitable",
+        "certainty": "Low",
+        "backer": "Taylor",
+        "value": 337409100
+    },
+    {
+        "from": "NSN Foundation",
+        "to": "Jewish Communal Fund",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 26920000
+    },
+    {
+        "from": "NSN Foundation",
+        "to": "United Jewish Communities - UJC Overseas Supplemental Giving Fund",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 3988000
+    },
+    {
+        "from": "NSN Foundation",
+        "to": "United Jewish Communities of Metrowest NJ - Whippany",
+        "certainty": "Low",
+        "backer": "Shechtel",
+        "value": 100
+    },
+    {
+        "from": "Renewable Foundation",
+        "to": "Alliance to Save Energy",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 35
+    },
+    {
+        "from": "Renewable Foundation",
+        "to": "Jewish Communal Fund",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 10395000
+    },
+    {
+        "from": "Sweetfeet",
+        "to": "Aish Hatorah 313 W 83rd st",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 1000000
+    },
+    {
+        "from": "Sweetfeet",
+        "to": "American Friends of Tel Aviv",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 250000
+    },
+    {
+        "from": "Sweetfeet",
+        "to": "American Jewish Congress",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 200000
+    },
+    {
+        "from": "Sweetfeet",
+        "to": "Auerbach Central Agency for Jewish Education",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 801200
+    },
+    {
+        "from": "Sweetfeet",
+        "to": "Conference of Presidents - NY",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 244836
+    },
+    {
+        "from": "Sweetfeet",
+        "to": "Foundation for the Defense of Democracies",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 670000
+    },
+    {
+        "from": "Sweetfeet",
+        "to": "Hudson Institute",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 360000
+    },
+    {
+        "from": "Sweetfeet",
+        "to": "Israel 21C",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 635000
+    },
+    {
+        "from": "Sweetfeet",
+        "to": "Middle East Media Research Institute",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 300000
+    },
+    {
+        "from": "Sweetfeet",
+        "to": "The Israel Project",
+        "certainty": "High",
+        "backer": "Shechtel",
+        "value": 1520000
+    },
+    {
+        "from": "Bearpaw",
+        "to": "ACLU",
+        "certainty": "Medium",
+        "backer": "Gelbaum",
+        "value": 3000000
+    },
+    {
+        "from": "Bearpaw",
+        "to": "California Association of Human Rights Foundations",
+        "certainty": "Medium",
+        "backer": "Gelbaum",
+        "value": 100000
+    },
+    {
+        "from": "Bearpaw",
+        "to": "California Community Foundation",
+        "certainty": "Medium",
+        "backer": "Gelbaum",
+        "value": 10065431
+    },
+    {
+        "from": "Bearpaw",
+        "to": "Community Funds Inc., 2 Park Ave., NY",
+        "certainty": "Medium",
+        "backer": "Gelbaum",
+        "value": 9520547
+    },
+    {
+        "from": "Bearpaw",
+        "to": "Newport-Mesa Schools Foundation",
+        "certainty": "Medium",
+        "backer": "Gelbaum",
+        "value": 2174659
+    },
+    {
+        "from": "Bearpaw",
+        "to": "Orange Coast College Foundation",
+        "certainty": "Medium",
+        "backer": "Gelbaum",
+        "value": 200000
+    },
+    {
+        "from": "Bearpaw",
+        "to": "Wildlands Conservancy",
+        "certainty": "Medium",
+        "backer": "Gelbaum",
+        "value": 7054500
+    },
+    {
+        "from": "Bearpaw",
+        "to": "Wildlands Endowment Fund",
+        "certainty": "Medium",
+        "backer": "Gelbaum",
+        "value": 2052869
+    },
+    {
+        "to": "ActionAid USA",
+        "from": "Vanguard Charitable",
+        "value": 1005126
+    },
+    {
+        "to": "ACLU",
+        "from": "Vanguard Charitable",
+        "value": 5225580
+    },
+    {
+        "to": "American Civil Liberties Union  - New York",
+        "from": "Vanguard Charitable",
+        "value": 13579850
+    },
+    {
+        "to": "American Enterprise Institute for Public Policy Research",
+        "from": "Vanguard Charitable",
+        "value": 1652500
+    },
+    {
+        "to": "American Institute for Social Justice",
+        "from": "Vanguard Charitable",
+        "value": 4037000
+    },
+    {
+        "to": "American Jewish World Service",
+        "from": "Vanguard Charitable",
+        "value": 37226682
+    },
+    {
+        "to": "America's Promise- the Alliance for Youth",
+        "from": "Vanguard Charitable",
+        "value": 1160000
+    },
+    {
+        "to": "Astraea Foundation",
+        "from": "Vanguard Charitable",
+        "value": 2775000
+    },
+    {
+        "to": "Center on Budget and Policy Priorities",
+        "from": "Vanguard Charitable",
+        "value": 5271000
+    },
+    {
+        "to": "Corporation of Haverford College",
+        "from": "Vanguard Charitable",
+        "value": 696500
+    },
+    {
+        "to": "Deseret Trust Company",
+        "from": "Vanguard Charitable",
+        "value": 2389648
+    },
+    {
+        "to": "Every Child Matters Education Fund",
+        "from": "Vanguard Charitable",
+        "value": 0
+    },
+    {
+        "to": "Exploratorium, San Francisco",
+        "from": "Vanguard Charitable",
+        "value": 5128500
+    },
+    {
+        "to": "Fidelity Investments Charitable Gift Fund",
+        "from": "Vanguard Charitable",
+        "value": 7677424
+    },
+    {
+        "to": "Fund for Global Human Rights, DC",
+        "from": "Vanguard Charitable",
+        "value": 2416600
+    },
+    {
+        "to": "Human Rights Watch",
+        "from": "Vanguard Charitable",
+        "value": 4006250
+    },
+    {
+        "to": "Innovations for Poverty Action - New Haven",
+        "from": "Vanguard Charitable",
+        "value": 0
+    },
+    {
+        "to": "International Center for Research on Women",
+        "from": "Vanguard Charitable",
+        "value": 510000
+    },
+    {
+        "to": "International Rescue Committee - National Org.",
+        "from": "Vanguard Charitable",
+        "value": 7199600
+    },
+    {
+        "to": "IPAS",
+        "from": "Vanguard Charitable",
+        "value": 1100000
+    },
+    {
+        "to": "Landmine Survivors Network",
+        "from": "Vanguard Charitable",
+        "value": 3101000
+    },
+    {
+        "to": "M Y Keren Hashluchim Inc., Brooklyn",
+        "from": "Vanguard Charitable",
+        "value": 22219831
+    },
+    {
+        "to": "Massachusetts Inst of Tech",
+        "from": "Vanguard Charitable",
+        "value": 433552
+    },
+    {
+        "to": "National Gay and Lesbian Task Force",
+        "from": "Vanguard Charitable",
+        "value": 2957500
+    },
+    {
+        "to": "Partners in Health, Boston",
+        "from": "Vanguard Charitable",
+        "value": 349000
+    },
+    {
+        "to": "Project Vote - voting for America",
+        "from": "Vanguard Charitable",
+        "value": 7296300
+    },
+    {
+        "to": "Rockefeller Philanthropy AdvisorsInc",
+        "from": "Vanguard Charitable",
+        "value": 3001000
+    },
+    {
+        "to": "Save the Children Federation - National HQ",
+        "from": "Vanguard Charitable",
+        "value": 119853
+    },
+    {
+        "to": "Stanford University",
+        "from": "Vanguard Charitable",
+        "value": 3264700
+    },
+    {
+        "to": "Tar but V'Torah",
+        "from": "Vanguard Charitable",
+        "value": 2483515
+    },
+    {
+        "to": "Tides Foundation - San Francisco",
+        "from": "Vanguard Charitable",
+        "value": 16907250
+    },
+    {
+        "to": "U. of Chicago",
+        "from": "Vanguard Charitable",
+        "value": 251500
+    },
+    {
+        "to": "U. of Penn",
+        "from": "Vanguard Charitable",
+        "value": 9070595
+    },
+    {
+        "to": "USAction Education Fund",
+        "from": "Vanguard Charitable",
+        "value": 2893983
+    },
+    {
+        "to": "Women's Voices - Women Vote",
+        "from": "Vanguard Charitable",
+        "value": 2250000
+    },
+    {
+        "from": "AFL Management LLC",
+        "ultimate source": "Taylor",
+        "certainty": "Medium",
+        "to": "Arnold Foundation",
+        "value": 33000000
+    },
+    {
+        "from": "Erica Enterprises",
+        "ultimate source": "Taylor",
+        "certainty": "Medium",
+        "to": "Arnold Foundation",
+        "value": 1000
+    },
+    {
+        "from": "Erica Enterprises",
+        "ultimate source": "Taylor",
+        "certainty": "Medium",
+        "to": "Arnold Foundation",
+        "value": 9177123
+    },
+    {
+        "from": "Erica Enterprises",
+        "ultimate source": "Taylor",
+        "certainty": "Medium",
+        "to": "Arnold Foundation",
+        "value": 11360098
+    },
+    {
+        "from": "Erica Enterprises",
+        "ultimate source": "Taylor",
+        "certainty": "Medium",
+        "to": "Arnold Foundation",
+        "value": 24228680
+    },
+    {
+        "from": "ANFA Company",
+        "ultimate source": "Taylor",
+        "certainty": "Medium",
+        "to": "Aspen Foundation",
+        "value": 921346
+    },
+    {
+        "from": "ANFA Company",
+        "ultimate source": "Taylor",
+        "certainty": "Medium",
+        "to": "Aspen Foundation",
+        "value": 1500000
+    },
+    {
+        "from": "ANFA Company",
+        "ultimate source": "Taylor",
+        "certainty": "Medium",
+        "to": "Aspen Foundation",
+        "value": 1715833
+    },
+    {
+        "from": "ANFA Company",
+        "ultimate source": "Taylor",
+        "certainty": "Medium",
+        "to": "Aspen Foundation",
+        "value": 6156338
+    },
+    {
+        "from": "ANFA Company",
+        "ultimate source": "Taylor",
+        "certainty": "Medium",
+        "to": "Aspen Foundation",
+        "value": 10000000
+    },
+    {
+        "from": "ANFA Company",
+        "ultimate source": "Taylor",
+        "certainty": "Medium",
+        "to": "Aspen Foundation",
+        "value": 13206455
+    },
+    {
+        "from": "ANFA Company",
+        "ultimate source": "Taylor",
+        "certainty": "Medium",
+        "to": "Aspen Foundation",
+        "value": 15097778
+    },
+    {
+        "from": "ANFA Company",
+        "ultimate source": "Taylor",
+        "certainty": "Medium",
+        "to": "Aspen Foundation",
+        "value": 15400000
+    },
+    {
+        "from": "ANFA Company",
+        "ultimate source": "Taylor",
+        "certainty": "Medium",
+        "to": "Aspen Foundation",
+        "value": 15516900
+    },
+    {
+        "from": "ANFA Company",
+        "ultimate source": "Taylor",
+        "certainty": "Medium",
+        "to": "Aspen Foundation",
+        "value": 22180189
+    },
+    {
+        "from": "ANFA Company",
+        "ultimate source": "Taylor",
+        "certainty": "Medium",
+        "to": "Aspen Foundation",
+        "value": 22316227
+    },
+    {
+        "from": "ANFA Company",
+        "ultimate source": "Taylor",
+        "certainty": "Medium",
+        "to": "Aspen Foundation",
+        "value": 22811310
+    },
+    {
+        "from": "ANFA Company",
+        "ultimate source": "Taylor",
+        "certainty": "Medium",
+        "to": "Aspen Foundation",
+        "value": 30933251
+    },
+    {
+        "from": "Western Birch Company",
+        "ultimate source": "Taylor",
+        "certainty": "Medium",
+        "to": "Aspen Foundation",
+        "value": 65000000
+    },
+    {
+        "from": "Berdichev LLC",
+        "ultimate source": "TGS",
+        "certainty": "Medium",
+        "to": "Bearpaw Foundation",
+        "value": 13277583
+    },
+    {
+        "from": "Charitable Benefactors Trust of 33 Witherspoon St.",
+        "ultimate source": "Shechtel",
+        "certainty": "Medium",
+        "to": "Bearpaw Foundation",
+        "value": 8209045
+    },
+    {
+        "from": "Charitable Contributors Trust of 2 Witherspoon",
+        "ultimate source": "TGS",
+        "certainty": "Medium",
+        "to": "Bearpaw Foundation",
+        "value": 2380910
+    },
+    {
+        "from": "Charitable Donors Trust of 2 Witherspoon",
+        "ultimate source": "TGS",
+        "certainty": "Medium",
+        "to": "Bearpaw Foundation",
+        "value": 21372742
+    },
+    {
+        "from": "David Gelbaum",
+        "ultimate source": "Gelbaum",
+        "certainty": "High",
+        "to": "Bearpaw Foundation",
+        "value": 2749973
+    },
+    {
+        "from": "Aqua Funding LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "CHDI",
+        "value": 700000
+    },
+    {
+        "from": "Aqua Funding LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "CHDI",
+        "value": 7500000
+    },
+    {
+        "from": "Growing Assets",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "CHDI",
+        "value": 17550000
+    },
+    {
+        "from": "Growing Assets",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "CHDI",
+        "value": 35500000
+    },
+    {
+        "from": "High Q Foundation",
+        "ultimate source": "Another Roseland foundation",
+        "certainty": "",
+        "to": "CHDI",
+        "value": 4000000
+    },
+    {
+        "from": "JSY Foundation",
+        "ultimate source": "Another Roseland foundation",
+        "certainty": "",
+        "to": "CHDI",
+        "value": 30000000
+    },
+    {
+        "from": "JSY Foundation",
+        "ultimate source": "Another Roseland foundation",
+        "certainty": "",
+        "to": "CHDI",
+        "value": 31700390
+    },
+    {
+        "from": "Kurtz Foundation",
+        "ultimate source": "Another Roseland foundation",
+        "certainty": "",
+        "to": "CHDI",
+        "value": 6465845
+    },
+    {
+        "from": "Kurtz Foundation",
+        "ultimate source": "Another Roseland foundation",
+        "certainty": "",
+        "to": "CHDI",
+        "value": 30000000
+    },
+    {
+        "from": "Lotsa LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "CHDI",
+        "value": 1250000
+    },
+    {
+        "from": "Lotsa LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "CHDI",
+        "value": 15000000
+    },
+    {
+        "from": "Lotsa LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "CHDI",
+        "value": 57700000
+    },
+    {
+        "from": "Lotsa LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "CHDI",
+        "value": 62500000
+    },
+    {
+        "from": "Milstein Foundation",
+        "ultimate source": "Another Roseland foundation",
+        "certainty": "",
+        "to": "CHDI",
+        "value": 2775000
+    },
+    {
+        "from": "Milstein Foundation",
+        "ultimate source": "Another Roseland foundation",
+        "certainty": "",
+        "to": "CHDI",
+        "value": 2840000
+    },
+    {
+        "from": "Milstein Foundation",
+        "ultimate source": "Another Roseland foundation",
+        "certainty": "",
+        "to": "CHDI",
+        "value": 2900000
+    },
+    {
+        "from": "Milstein Foundation",
+        "ultimate source": "Another Roseland foundation",
+        "certainty": "",
+        "to": "CHDI",
+        "value": 3000000
+    },
+    {
+        "from": "Milstein Foundation",
+        "ultimate source": "Another Roseland foundation",
+        "certainty": "",
+        "to": "CHDI",
+        "value": 6000000
+    },
+    {
+        "from": "Milstein Foundation",
+        "ultimate source": "Another Roseland foundation",
+        "certainty": "",
+        "to": "CHDI",
+        "value": 50243129
+    },
+    {
+        "from": "ST Funding Company LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "CHDI",
+        "value": 25540000
+    },
+    {
+        "from": "Triplet Investment Company",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "CHDI",
+        "value": 2500000
+    },
+    {
+        "from": "VBS Holdings",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "CHDI",
+        "value": 148318602
+    },
+    {
+        "from": "Growing Assets",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "High Q",
+        "value": 2000000
+    },
+    {
+        "from": "Growing Assets",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "High Q",
+        "value": 7250000
+    },
+    {
+        "from": "Growing Assets",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "High Q",
+        "value": 8000000
+    },
+    {
+        "from": "Growing Assets",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "High Q",
+        "value": 11600000
+    },
+    {
+        "from": "Kratka Foundation",
+        "ultimate source": "Another Roseland foundation",
+        "certainty": "",
+        "to": "High Q",
+        "value": 10334751
+    },
+    {
+        "from": "Kratka Foundation",
+        "ultimate source": "Another Roseland foundation",
+        "certainty": "",
+        "to": "High Q",
+        "value": 39415978
+    },
+    {
+        "from": "Kurtz Foundation",
+        "ultimate source": "Another Roseland foundation",
+        "certainty": "Low",
+        "to": "High Q",
+        "value": 10000000
+    },
+    {
+        "from": "Lotsa LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "High Q",
+        "value": 575000
+    },
+    {
+        "from": "Lotsa LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "High Q",
+        "value": 1500000
+    },
+    {
+        "from": "Lotsa LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "High Q",
+        "value": 1700000
+    },
+    {
+        "from": "Lotsa LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "High Q",
+        "value": 35000000
+    },
+    {
+        "from": "ST Funding Company LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "High Q",
+        "value": 2760000
+    },
+    {
+        "from": "Triplet Investment Company",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "High Q",
+        "value": 1100000
+    },
+    {
+        "from": "Triplet Investment Company",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "High Q",
+        "value": 6957418
+    },
+    {
+        "from": "Triplet Investment Company",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "High Q",
+        "value": 10994665
+    },
+    {
+        "from": "Triplet Investment Company",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "High Q",
+        "value": 34577030
+    },
+    {
+        "from": "VBS Holdings",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "High Q",
+        "value": 20000000
+    },
+    {
+        "from": "Growing Assets",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "HP Therapeutics",
+        "value": 25000
+    },
+    {
+        "from": "Growing Assets",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "HP Therapeutics",
+        "value": 3100000
+    },
+    {
+        "from": "Kurtz Foundation",
+        "ultimate source": "Another Roseland foundation",
+        "certainty": "Low",
+        "to": "HP Therapeutics",
+        "value": 6000000
+    },
+    {
+        "from": "Lotsa LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "HP Therapeutics",
+        "value": 1075000
+    },
+    {
+        "from": "Lotsa LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "HP Therapeutics",
+        "value": 1500000
+    },
+    {
+        "from": "Lotsa LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "HP Therapeutics",
+        "value": 5000000
+    },
+    {
+        "from": "ST Funding Company LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "HP Therapeutics",
+        "value": 915000
+    },
+    {
+        "from": "ST Funding Company LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "HP Therapeutics",
+        "value": 2407200
+    },
+    {
+        "from": "ST Funding Company LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "HP Therapeutics",
+        "value": 3020685
+    },
+    {
+        "from": "Triplet Investment Company",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "HP Therapeutics",
+        "value": 300041
+    },
+    {
+        "from": "Triplet Investment Company",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "HP Therapeutics",
+        "value": 7006471
+    },
+    {
+        "from": "VBS Holdings",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "HP Therapeutics",
+        "value": 10000000
+    },
+    {
+        "from": "Fred Taylor",
+        "ultimate source": "Taylor",
+        "certainty": "High",
+        "to": "Jessie Reid Foundation",
+        "value": 24373978
+    },
+    {
+        "from": "Marital Holdings LLC",
+        "ultimate source": "Taylor",
+        "certainty": "Low",
+        "to": "JHJ Foundation",
+        "value": 1000
+    },
+    {
+        "from": "Marital Holdings LLC",
+        "ultimate source": "Taylor",
+        "certainty": "Low",
+        "to": "JHJ Foundation",
+        "value": 11500000
+    },
+    {
+        "from": "Marital Holdings LLC",
+        "ultimate source": "Taylor",
+        "certainty": "Low",
+        "to": "JHJ Foundation",
+        "value": 12000000
+    },
+    {
+        "from": "Marital Holdings LLC",
+        "ultimate source": "Taylor",
+        "certainty": "Low",
+        "to": "JHJ Foundation",
+        "value": 15550000
+    },
+    {
+        "from": "Marital Holdings LLC",
+        "ultimate source": "Taylor",
+        "certainty": "Low",
+        "to": "JHJ Foundation",
+        "value": 16404085
+    },
+    {
+        "from": "Marital Holdings LLC",
+        "ultimate source": "Taylor",
+        "certainty": "Low",
+        "to": "JHJ Foundation",
+        "value": 20000000
+    },
+    {
+        "from": "Marital Holdings LLC",
+        "ultimate source": "Taylor",
+        "certainty": "Low",
+        "to": "JHJ Foundation",
+        "value": 32000000
+    },
+    {
+        "from": "MYC Investments LLC",
+        "ultimate source": "Taylor",
+        "certainty": "Low",
+        "to": "JHJ Foundation",
+        "value": 45000000
+    },
+    {
+        "from": "Rhoda Management LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "JSY Foundation",
+        "value": 2809000
+    },
+    {
+        "from": "Rhoda Management LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "JSY Foundation",
+        "value": 14859000
+    },
+    {
+        "from": "Seed Capital LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "JSY Foundation",
+        "value": 2250000
+    },
+    {
+        "from": "Seed Capital LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "JSY Foundation",
+        "value": 3018150
+    },
+    {
+        "from": "Seed Capital LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "JSY Foundation",
+        "value": 4759850
+    },
+    {
+        "from": "Seed Capital LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "JSY Foundation",
+        "value": 7000000
+    },
+    {
+        "from": "Shekel Funding",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "JSY Foundation",
+        "value": 51000000
+    },
+    {
+        "from": "Curtsey LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "Kurtz Foundation",
+        "value": 100000
+    },
+    {
+        "from": "Rifka Funding LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "Kurtz Foundation",
+        "value": 1000
+    },
+    {
+        "from": "Rifka Funding LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "Kurtz Foundation",
+        "value": 4596000
+    },
+    {
+        "from": "Rifka Funding LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "Kurtz Foundation",
+        "value": 16870000
+    },
+    {
+        "from": "Rifka Funding LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "Kurtz Foundation",
+        "value": 36363636
+    },
+    {
+        "from": "BLTN Holdings LLC",
+        "ultimate source": "Taylor",
+        "certainty": "Low",
+        "to": "Matan B'Seter",
+        "value": 4500000
+    },
+    {
+        "from": "BLTN Holdings LLC",
+        "ultimate source": "Taylor",
+        "certainty": "Low",
+        "to": "Matan B'Seter",
+        "value": 13897000
+    },
+    {
+        "from": "BLTN Holdings LLC",
+        "ultimate source": "Taylor",
+        "certainty": "Low",
+        "to": "Matan B'Seter",
+        "value": 31770900
+    },
+    {
+        "from": "BLTN Holdings LLC",
+        "ultimate source": "Taylor",
+        "certainty": "Low",
+        "to": "Matan B'Seter",
+        "value": 34500000
+    },
+    {
+        "from": "MBS Funding LLC",
+        "ultimate source": "Taylor",
+        "certainty": "Low",
+        "to": "Matan B'Seter",
+        "value": 35000000
+    },
+    {
+        "from": "Rubik Enterprises LLC",
+        "ultimate source": "Taylor",
+        "certainty": "Low",
+        "to": "Matan B'Seter",
+        "value": 72782818
+    },
+    {
+        "from": "Shackelton Company LLC",
+        "ultimate source": "Taylor",
+        "certainty": "Low",
+        "to": "Matan B'Seter",
+        "value": 75000000
+    },
+    {
+        "from": "Shackelton Company LLC",
+        "ultimate source": "Taylor",
+        "certainty": "Low",
+        "to": "Matan B'Seter",
+        "value": 90000000
+    },
+    {
+        "from": "LVB Funding LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "Milstein",
+        "value": 29500000
+    },
+    {
+        "from": "LVB Funding LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "Milstein",
+        "value": 30500000
+    },
+    {
+        "from": "Malden Management LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "Milstein",
+        "value": 1000
+    },
+    {
+        "from": "Nell Sun National ",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "NSN Foundation",
+        "value": 9645006
+    },
+    {
+        "from": "NISON Management",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "NSN Foundation",
+        "value": 1165450
+    },
+    {
+        "from": "NISON Management",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "NSN Foundation",
+        "value": 3988000
+    },
+    {
+        "from": "Stepansky Company",
+        "ultimate source": "Shechtel",
+        "certainty": "Low",
+        "to": "NSN Foundation",
+        "value": 56300000
+    },
+    {
+        "from": "Sankuyu LLC",
+        "ultimate source": "Shechtel",
+        "certainty": "High",
+        "to": "Renewable",
+        "value": 36000000
+    },
+    {
+        "from": "Shechtel",
+        "ultimate source": "Shechtel",
+        "certainty": "High",
+        "to": "Sierra Foundation",
+        "value": 1106892
+    },
+    {
+        "from": "Shechtel",
+        "ultimate source": "Shechtel",
+        "certainty": "High",
+        "to": "Sierra Foundation",
+        "value": 7317047
+    },
+    {
+        "from": "Sierra Enterprises Group",
+        "ultimate source": "TGS",
+        "certainty": "Medium",
+        "to": "Sierra Foundation",
+        "value": 500000
+    },
+    {
+        "from": "Sierra Enterprises Group",
+        "ultimate source": "TGS",
+        "certainty": "Medium",
+        "to": "Sierra Foundation",
+        "value": 10133500
+    },
+    {
+        "from": "Sierra Enterprises Group",
+        "ultimate source": "TGS",
+        "certainty": "Medium",
+        "to": "Sierra Foundation",
+        "value": 16000000
+    },
+    {
+        "from": "ST Partners LP",
+        "ultimate source": "TGS",
+        "certainty": "High",
+        "to": "Sierra Foundation",
+        "value": 399429
+    },
+    {
+        "from": "Taylor",
+        "ultimate source": "Taylor",
+        "certainty": "High",
+        "to": "Sierra Foundation",
+        "value": 6904819
+    },
+    {
+        "from": "Sierra Enterprises Group",
+        "ultimate source": "TGS",
+        "certainty": "High",
+        "to": "ST2 Foundation",
+        "value": 15000000
+    },
+    {
+        "from": "Sierra Enterprises Group",
+        "ultimate source": "TGS",
+        "certainty": "High",
+        "to": "ST2 Foundation",
+        "value": 16500000
+    },
+    {
+        "from": "Stone Holdings",
+        "ultimate source": "Shechtel",
+        "certainty": "High",
+        "to": "Sweetfeet",
+        "value": 995000
+    }
+]
