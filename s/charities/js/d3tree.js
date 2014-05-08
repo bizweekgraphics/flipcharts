@@ -1,3 +1,8 @@
+var test = nodelinks.nodes
+var shuffled = _.shuffle(test)
+nodelinks.nodes = shuffled
+
+
 var margin = {top: 50, right: 20, bottom: 50, left: 0},
     width = 960 - margin.left - margin.right,
     height = 4600 - margin.top - margin.bottom;
@@ -25,7 +30,7 @@ svg.call(tip)
 
 var sankey = d3.sankey()
     .nodeWidth(15)
-    .nodePadding(10)
+    .nodePadding(20)
     .size([width, height]);
 
 var path = sankey.link();
@@ -95,11 +100,11 @@ var node = svg.append("g").selectAll(".node")
     debugger;
     console.log(d)
   })
-  .call(d3.behavior.drag()
-    .origin(function(d) { return d; })
-    .on("dragstart", function() {
-        this.parentNode.appendChild(this); })
-    .on("drag", dragmove));
+  // .call(d3.behavior.drag()
+  //   .origin(function(d) { return d; })
+  //   .on("dragstart", function() {
+  //       this.parentNode.appendChild(this); })
+  //   .on("drag", dragmove));
 
 
 // add in the title for the nodes

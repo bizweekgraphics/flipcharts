@@ -17,7 +17,6 @@ text {
   font-size: 10pt;
 }
 .node rect {
-  cursor: move;
   fill-opacity: .9;
   shape-rendering: crispEdges;
 }
@@ -92,5 +91,6 @@ div.d3-tip.n {
   font-family: Helvetica;
   margin-top: 50px;
 }
+
 
 
