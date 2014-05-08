@@ -427,9 +427,6 @@ var nodelinks = {
         "name": "Deseret Trust"
     },
     {
-        "name": "Every Child Matters Education Fund"
-    },
-    {
         "name": "Exploratorium, San Francisco"
     },
     {
@@ -440,9 +437,6 @@ var nodelinks = {
     },
     {
         "name": "Human Rights Watch"
-    },
-    {
-        "name": "Innovations for Poverty Action - New Haven"
     },
     {
         "name": "International Center for Research on Women"
@@ -608,9 +602,6 @@ var nodelinks = {
     },
     {
         "name": "ST Partners"
-    },
-    {
-        "name": "Taylor"
     },
     {
         "name": "Stone Holdings"
