@@ -27,11 +27,12 @@ text {
 .link {
   fill: none;
   stroke: #000;
-  stroke-opacity: .1;
+  stroke-opacity: .2;
 }
 .link:hover {
-  stroke-opacity: .5;
+  stroke-opacity: .6;
 }
+
 
 .tooltip-wrapper {
   padding: .5em;
@@ -70,14 +71,14 @@ div.d3-tip.n {
 
 .legend-div {
   display: inline-block;
-  width: 20%;
+  width: 1em;
   margin: .5em .5em .5em 0em;
   background: black;
-  opacity: .1;
+  opacity: .2;
 }
 
 .legend-div:hover {
-  opacity: .5;
+  opacity: .6;
 }
 
 #vertical-legend {
@@ -89,7 +90,7 @@ div.d3-tip.n {
 #bar-legend {
   display: inline-block;
   width: 17px;
-  height: 136px;
+  height: 42.5px;
   background: white;
   border: 1px solid black;
 }
@@ -130,6 +131,3 @@ div.d3-tip.n {
   font-family: Helvetica;
   margin-top: 50px;
 }
-
-
-
