@@ -1,6 +1,6 @@
-var test = nodelinks.nodes
-var shuffled = _.shuffle(test)
-nodelinks.nodes = shuffled
+// var test = nodelinks.nodes
+// var shuffled = _.shuffle(test)
+// nodelinks.nodes = shuffled
 
 
 var margin = {top: 50, right: 20, bottom: 50, left: 0},
