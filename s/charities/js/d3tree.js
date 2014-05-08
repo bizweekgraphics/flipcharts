@@ -3,7 +3,7 @@
 // nodelinks.nodes = shuffled
 
 
-var margin = {top: 50, right: 20, bottom: 50, left: 0},
+var margin = {top: 50, right: 5, bottom: 50, left: 5},
     width = 960 - margin.left - margin.right,
     height = 3500 - margin.top - margin.bottom;
 
