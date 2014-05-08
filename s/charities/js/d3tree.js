@@ -97,7 +97,6 @@ var node = svg.append("g").selectAll(".node")
     .attr("transform", function(d) {
         return "translate(" + d.x + "," + d.y + ")"; })
   .on('click', function(d) {
-    debugger;
     console.log(d)
   })
   // .call(d3.behavior.drag()
