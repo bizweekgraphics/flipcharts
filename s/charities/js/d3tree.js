@@ -127,6 +127,15 @@ node.append("text")
     .attr("x", 6 + sankey.nodeWidth())
     .attr("text-anchor", "start");
 
+
+d3.select('svg')
+  .append('foreignObject')
+  .attr('width', 400)
+  .attr('height', 200)
+  
+
+
+
 // the function for moving the nodes
 function dragmove(d) {
   d3.select(this).attr("transform",

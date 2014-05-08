@@ -8,6 +8,7 @@
   font-stretch: normal;
 }
 
+
 text {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 10pt;
@@ -41,3 +42,34 @@ text {
 div.d3-tip.n {
   pointer-events: none !important;
 }
+
+#legend-text {
+  font-family: Helvetica, Arial, sans-serif;
+  text-align: center;
+}
+
+#legend li{
+  display: inline;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.legend-div {
+  display: inline-block;
+  width: 10%;
+  margin: 1em;
+  background: black;
+}
+
+#red {
+  background: #fc0766;
+}
+
+#blue {
+  background: #1e69ff;
+}
+
+#green {
+  background: #49b122;
+}
+
+
