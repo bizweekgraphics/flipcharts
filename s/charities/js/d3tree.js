@@ -57,7 +57,9 @@ sankey
 var link = svg.append("g").selectAll(".link")
     .data(graph.links)
   .enter().append("path")
-    .attr("class", "link")
+    .attr("class", function(d) {
+      return "link" + " " + d.backer
+    })
     .attr("d", path)
     .on('mouseover', tip.show)
     .on('mouseleave', tip.hide)
@@ -81,13 +83,6 @@ var link = svg.append("g").selectAll(".link")
           break;
       }
     })
-    .sort(function(a, b) { return b.dy - a.dy; });
-
-// add the link titles
-// link.append("title")
-//   .text(function(d) {
-//     return d.source.name + " → " +
-//       d.target.name + "\n" + format(d.value); });
 
 // add in the nodes
 var node = svg.append("g").selectAll(".node")
@@ -96,15 +91,6 @@ var node = svg.append("g").selectAll(".node")
     .attr("class", "node")
     .attr("transform", function(d) {
         return "translate(" + d.x + "," + d.y + ")"; })
-  .on('click', function(d) {
-    console.log(d)
-  })
-  // .call(d3.behavior.drag()
-  //   .origin(function(d) { return d; })
-  //   .on("dragstart", function() {
-  //       this.parentNode.appendChild(this); })
-  //   .on("drag", dragmove));
-
 
 // add in the title for the nodes
 node.append("text")
@@ -123,26 +109,6 @@ node.append("rect")
     .attr("height", function(d) {
       return d.dy; })
     .attr("width", sankey.nodeWidth())
-    // .style("fill", function(d) {
-    //     return d.color = color(d.name.replace(/ .*/, "")); })
     .style('fill', 'white')
     .style("stroke", function(d) {
         return d3.rgb(d.color).darker(2); })
-  // .append("title")
-  //   .text(function(d) {
-  //       return d.name + "\n" + format(d.value); })
-
-// the function for moving the nodes
-function dragmove(d) {
-  d3.select(this).attr("transform",
-      "translate(" + (
-          d.x = Math.max(0, Math.min(width - d.dx, d3.event.x))
-      )
-      + "," + (
-          d.y = Math.max(0, Math.min(height - d.dy, d3.event.y))
-      ) + ")");
-  sankey.relayout();
-  link.attr("d", path);
-}
-
-// $($('.link')[0]).attr('d', "M570,769.1282163509791C747.5,769.1282163509791 875.5,653.5380549040992 925,653.5380549040992")
