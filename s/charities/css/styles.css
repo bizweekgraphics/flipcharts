@@ -45,7 +45,8 @@ div.d3-tip.n {
   pointer-events: none !important;
 }
 
-
+.legend-wrapper {
+}
 
 #legend-text {
   font-family: Helvetica, Arial, sans-serif;
@@ -56,11 +57,17 @@ div.d3-tip.n {
   display: inline-block; 
   list-style-type: none;
   width: 20em;
+  padding-left: 0em;
 }
 
 #legend li{
   /*display: inline;*/
   font-family: Helvetica, Arial, sans-serif;
+  font-size: 10pt;
+}
+
+.wrapper {
+  display:inline-block;
 }
 
 .legend-div {
@@ -75,10 +82,6 @@ div.d3-tip.n {
   opacity: .5;
 }
 
-#vertical-legend {
-  float: right;
-  margin-right: 30em;
-}
 
 #bar-legend {
   display: inline-block;
@@ -90,20 +93,19 @@ div.d3-tip.n {
 
 #million {
   font-family: Helvetica, Arial, sans-serif;
-  position: absolute;
-  left: 35%;
-  top: 14.5%;
+  position: relative;
+  font-size: 10pt;
+  display: block;
 }
 
 #arrow-wrapper {
-  margin-left: 5em;
   font-family: Helvetica, Arial, sans-serif;
+  font-size: 10pt;
 }
 
-#arrow {
-  margin-top: 0em;
-  letter-spacing: -2px;
-}
+/*#arrow {
+  font-size: 3em;
+}*/
 
 #red {
   background: #fc0766;
