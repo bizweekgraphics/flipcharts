@@ -64,8 +64,13 @@ div.d3-tip.n {
 .legend-div {
   display: inline-block;
   width: 10%;
-  margin: 1em;
+  margin: .5em;
   background: black;
+  opacity: .1;
+}
+
+.legend-div:hover {
+  opacity: .5;
 }
 
 #red {
