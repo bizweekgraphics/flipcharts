@@ -101,6 +101,19 @@ var node = svg.append("g").selectAll(".node")
         this.parentNode.appendChild(this); })
     .on("drag", dragmove));
 
+
+// add in the title for the nodes
+node.append("text")
+    .attr("x", -6)
+    .attr("y", function(d) { return d.dy / 2; })
+    .attr("dy", ".35em")
+    .attr("text-anchor", "end")
+    .attr("transform", null)
+    .text(function(d) { return d.name; })
+  .filter(function(d) { return d.x < width / 2; })
+    .attr("x", 6 + sankey.nodeWidth())
+    .attr("text-anchor", "start");
+
 // add the rectangles for the nodes
 node.append("rect")
     .attr("height", function(d) {
@@ -114,18 +127,6 @@ node.append("rect")
   // .append("title")
   //   .text(function(d) {
   //       return d.name + "\n" + format(d.value); })
-
-// add in the title for the nodes
-node.append("text")
-    .attr("x", -6)
-    .attr("y", function(d) { return d.dy / 2; })
-    .attr("dy", ".35em")
-    .attr("text-anchor", "end")
-    .attr("transform", null)
-    .text(function(d) { return d.name; })
-  .filter(function(d) { return d.x < width / 2; })
-    .attr("x", 6 + sankey.nodeWidth())
-    .attr("text-anchor", "start");
 
 // the function for moving the nodes
 function dragmove(d) {
