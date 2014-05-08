@@ -51,6 +51,11 @@ div.d3-tip.n {
   text-align: center;
 }
 
+#legend {
+  display: block; 
+  text-align: center;
+}
+
 #legend li{
   display: inline;
   font-family: Helvetica, Arial, sans-serif;
