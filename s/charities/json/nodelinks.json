@@ -10,7 +10,7 @@ var nodelinks = {
         "name": "United Way of Essex and West Hudson"
     },
     {
-        "name": "Vanguard Charitable Endowment Program"
+        "name": "Vanguard Charitable"
     },
     {
         "name": "CHDI"
@@ -622,7 +622,7 @@ var nodelinks = {
     },
     {
         "source": "Arnold Foundation",
-        "target": "Vanguard Charitable Endowment Program",
+        "target": "Vanguard Charitable",
         "value": 103907203,
         "backer": "Taylor"
     },
@@ -690,12 +690,6 @@ var nodelinks = {
         "source": "CHDI",
         "target": "U. of Wisconsin",
         "value": 60000,
-        "backer": "Shechtel"
-    },
-    {
-        "source": "CHDI",
-        "target": "Vanguard Charitable Endowment Program",
-        "value": 6700000,
         "backer": "Shechtel"
     },
     {
@@ -1180,12 +1174,6 @@ var nodelinks = {
     },
     {
         "source": "Sierra Foundation",
-        "target": "Vanguard Charitable Endowment Program",
-        "value": 7179537,
-        "backer": "Unknown"
-    },
-    {
-        "source": "Sierra Foundation",
         "target": "West Side Hotzolah",
         "value": 55000,
         "backer": "Unknown"
@@ -1330,7 +1318,7 @@ var nodelinks = {
     },
     {
         "source": "Aspen Foundation",
-        "target": "Vanguard Charitable Endowment Program",
+        "target": "Vanguard Charitable",
         "value": 237001028,
         "backer": "Taylor"
     },
@@ -1353,14 +1341,8 @@ var nodelinks = {
         "backer": "Taylor"
     },
     {
-        "source": "Jessie Reid Foundation",
-        "target": "Vanguard Charitable Endowment Program",
-        "value": 6300000,
-        "backer": "Taylor"
-    },
-    {
         "source": "JHJ Foundation",
-        "target": "Vanguard Charitable Endowment Program",
+        "target": "Vanguard Charitable",
         "value": 173382187,
         "backer": "Taylor"
     },
@@ -1390,7 +1372,7 @@ var nodelinks = {
     },
     {
         "source": "Matan B'Seter",
-        "target": "Vanguard Charitable Endowment Program",
+        "target": "Vanguard Charitable",
         "value": 337409100,
         "backer": "Taylor"
     },
@@ -1533,200 +1515,200 @@ var nodelinks = {
         "backer": "Gelbaum"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "ActionAid USA",
         "value": 1005126,
         "backer": "Unknown"
 
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "ACLU",
         "value": 5225580,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "American Civil Liberties Union - New York",
         "value": 13579850,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "American Enterprise Institute for Public Policy Research",
         "value": 1652500,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "American Institute for Social Justice",
         "value": 4037000,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "American Jewish World Service",
         "value": 37226682,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "America's Promise- the Alliance for Youth",
         "value": 1160000,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "Astraea Foundation",
         "value": 2775000,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "Center on Budget and Policy Priorities",
         "value": 5271000,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "Corporation of Haverford College",
         "value": 696500,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "Deseret Trust",
         "value": 2389648,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "Exploratorium, San Francisco",
         "value": 5128500,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "Fidelity Investments Charitable Gift Fund",
         "value": 7677424,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "Fund for Global Human Rights, DC",
         "value": 2416600,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "Human Rights Watch",
         "value": 4006250,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "International Center for Research on Women",
         "value": 510000,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "International Rescue Committee - National Org.",
         "value": 7199600,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "IPAS",
         "value": 1100000,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "Landmine Survivors Network",
         "value": 3101000,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "M Y Keren Hashluchim Inc., Brooklyn",
         "value": 22219831,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "Massachusetts Inst of Tech",
         "value": 433552,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "National Gay and Lesbian Task Force",
         "value": 2957500,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "Partners in Health, Boston",
         "value": 349000,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "Project Vote - Voting for America",
         "value": 7296300,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "Rockefeller Philanthropy AdvisorsInc",
         "value": 3001000,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "Save the Children Federation - National HQ",
         "value": 119853,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "Stanford University",
         "value": 3264700,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "Tar but V'Torah",
         "value": 2483515,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "Tides Foundation - San Francisco",
         "value": 16907250,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "U. of Chicago",
         "value": 251500,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "U. of Penn",
         "value": 9070595,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "USAction Education Fund",
         "value": 2893983,
         "backer": "Unknown"
     },
     {
-        "source": "Vanguard Charitable Endowment Program",
+        "source": "Vanguard Charitable",
         "target": "Women's Voices - Women Vote",
         "value": 2250000,
         "backer": "Unknown"
