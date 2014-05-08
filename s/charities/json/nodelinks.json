@@ -1610,12 +1610,6 @@ var nodelinks = {
     },
     {
         "source": "Vanguard Charitable Endowment Program",
-        "target": "Every Child Matters Education Fund",
-        "value": 0,
-        "backer": "Unknown"
-    },
-    {
-        "source": "Vanguard Charitable Endowment Program",
         "target": "Exploratorium, San Francisco",
         "value": 5128500,
         "backer": "Unknown"
@@ -1636,12 +1630,6 @@ var nodelinks = {
         "source": "Vanguard Charitable Endowment Program",
         "target": "Human Rights Watch",
         "value": 4006250,
-        "backer": "Unknown"
-    },
-    {
-        "source": "Vanguard Charitable Endowment Program",
-        "target": "Innovations for Poverty Action - New Haven",
-        "value": 0,
         "backer": "Unknown"
     },
     {
