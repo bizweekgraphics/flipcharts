@@ -88,7 +88,7 @@ var nodelinks = {
         "name": "JSY Foundation"
     },
     {
-        "name": "Aish Hatorah 313 W 83rd st"
+        "name": "Aish Hatorah"
     },
     {
         "name": "Sierra Club Foundation"
@@ -811,7 +811,7 @@ var nodelinks = {
     },
     {
         "source": "JSY Foundation",
-        "target": "Aish Hatorah 313 W 83rd st",
+        "target": "Aish Hatorah",
         "value": 11732621,
         "backer": "Shechtel"
     },
@@ -901,7 +901,7 @@ var nodelinks = {
     },
     {
         "source": "Sierra Foundation",
-        "target": "Aish Hatorah 313 W 83rd st",
+        "target": "Aish Hatorah",
         "value": 4350000,
         "backer": "Shechtel"
     },
@@ -1435,7 +1435,7 @@ var nodelinks = {
     },
     {
         "source": "Sweetfeet",
-        "target": "Aish Hatorah 313 W 83rd st",
+        "target": "Aish Hatorah",
         "value": 1000000,
         "backer": "Shechtel"
     },

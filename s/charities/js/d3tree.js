@@ -101,19 +101,6 @@ var node = svg.append("g").selectAll(".node")
         this.parentNode.appendChild(this); })
     .on("drag", dragmove));
 
-// add the rectangles for the nodes
-node.append("rect")
-    .attr("height", function(d) {
-      return d.dy; })
-    .attr("width", sankey.nodeWidth())
-    // .style("fill", function(d) {
-    //     return d.color = color(d.name.replace(/ .*/, "")); })
-    .style('fill', 'white')
-    .style("stroke", function(d) {
-        return d3.rgb(d.color).darker(2); })
-  // .append("title")
-  //   .text(function(d) {
-  //       return d.name + "\n" + format(d.value); })
 
 // add in the title for the nodes
 node.append("text")
@@ -127,14 +114,19 @@ node.append("text")
     .attr("x", 6 + sankey.nodeWidth())
     .attr("text-anchor", "start");
 
-
-d3.select('svg')
-  .append('foreignObject')
-  .attr('width', 400)
-  .attr('height', 200)
-  
-
-
+// add the rectangles for the nodes
+node.append("rect")
+    .attr("height", function(d) {
+      return d.dy; })
+    .attr("width", sankey.nodeWidth())
+    // .style("fill", function(d) {
+    //     return d.color = color(d.name.replace(/ .*/, "")); })
+    .style('fill', 'white')
+    .style("stroke", function(d) {
+        return d3.rgb(d.color).darker(2); })
+  // .append("title")
+  //   .text(function(d) {
+  //       return d.name + "\n" + format(d.value); })
 
 // the function for moving the nodes
 function dragmove(d) {
