@@ -523,7 +523,7 @@ var nodelinks = {
         "name": "Charitable Donors Trust of 2 Witherspoon"
     },
     {
-        "name": "David Gelbaum"
+        "name": "Direct Contribution from Gelbaum"
     },
     {
         "name": "Aqua Funding"
@@ -544,7 +544,7 @@ var nodelinks = {
         "name": "VBS Holdings"
     },
     {
-        "name": "Fred Taylor"
+        "name": "Direct Contribution from Taylor"
     },
     {
         "name": "Jessie Reid Foundation"
@@ -601,7 +601,7 @@ var nodelinks = {
         "name": "Sankuyu"
     },
     {
-        "name": "Shechtel"
+        "name": "Direct Contribution from Shechtel"
     },
     {
         "name": "Sierra Enterprises Group"
@@ -1801,7 +1801,7 @@ var nodelinks = {
         "backer": "Unknown"
     },
     {
-        "source": "David Gelbaum",
+        "source": "Direct Contribution from Gelbaum",
         "target": "Bearpaw Foundation",
         "value": 2749973,
         "backer": "Gelbaum"
@@ -1945,7 +1945,7 @@ var nodelinks = {
         "backer": "Shechtel"
     },
     {
-        "source": "Fred Taylor",
+        "source": "Direct Contribution from Taylor",
         "target": "Jessie Reid Foundation",
         "value": 24373978,
         "backer": "Taylor"
@@ -2053,7 +2053,7 @@ var nodelinks = {
         "backer": "Shechtel"
     },
     {
-        "source": "Shechtel",
+        "source": "Direct Contribution from Shechtel",
         "target": "Sierra Foundation",
         "value": 8423939,
         "backer": "Shechtel"
@@ -2071,7 +2071,7 @@ var nodelinks = {
         "backer": "Unknown"
     },
     {
-        "source": "Taylor",
+        "source": "Direct Contribution from Taylor",
         "target": "Sierra Foundation",
         "value": 6904819,
         "backer": "Taylor"
