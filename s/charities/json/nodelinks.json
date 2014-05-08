@@ -16,7 +16,7 @@ var nodelinks = {
         "name": "CHDI"
     },
     {
-        "name": "Columbia U. - Taub Institute and Sergievsky Center"
+        "name": "Columbia U. - Taub and Sergievsky"
     },
     {
         "name": "Creative Commons"
@@ -628,7 +628,7 @@ var nodelinks = {
     },
     {
         "source": "CHDI",
-        "target": "Columbia U. - Taub Institute and Sergievsky Center",
+        "target": "Columbia U. - Taub and Sergievsky",
         "value": 144253,
         "backer": "Shechtel"
     },
