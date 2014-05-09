@@ -1,0 +1,17 @@
+.drag-bar {
+  margin: 1em;
+  width: 10%;
+  color: white;
+  cursor: move;
+}
+
+.drop {
+  width: 20%;
+  min-height: 5em;
+  margin: 1em;
+  background: lightgrey;
+}
+
+.drop-hover {
+  background: pink;
+}
